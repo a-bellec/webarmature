@@ -1,0 +1,100 @@
+/* Vertical Accordion Style */
+body{
+	background:url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color:#fff;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size:12px;
+}
+
+
+.fix{
+    width:100%;height:100%;
+    position: fixed;
+    margin-bottom:40px;
+    top:0;
+    z-index: 1;
+    background-image: url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
+}
+.fixed{
+ position:fixed;
+ top:0;
+ z-index: 1;
+ width:100%;
+ height:100%;
+ background-image:url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
+}
+
+.panel-group{
+	position: relative;
+	margin: 40px auto 0 auto;
+	margin-top: 200px;
+	width: 1000px;
+}
+
+.panel{
+	width: 100%;
+	left: 0;
+}
+
+.panel-body{
+	height: 300px;
+	overflow-y: auto;
+}
+
+.panel-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-transform: uppercase;
+	font-size: 60px;
+	margin-left: 20px;
+	color: #fff;
+	text-shadow: 0px 0px 1px white;
+}
+
+#group1 {
+	background: #000 url(../../media/other/111.jpg) no-repeat center center;
+}
+
+#group2 {
+	background: #000 url(../../media/other/222.jpg) no-repeat center center;
+}
+
+#group3 {
+	background: #000 url(../../media/other/333.jpg) no-repeat center center;
+}
+
+#heading1 {
+	background: #000 url(../../media/other/111.jpg) no-repeat center center;
+}
+
+#heading2 {
+	background: #000 url(../../media/other/222.jpg) no-repeat center center;
+}
+
+#heading3 {
+	background: #000 url(../../media/other/333.jpg) no-repeat center center;
+}
+
+.panel-body p{
+	font-size: 22px;
+	font-style: italic;
+	font-family: Georgia, serif;
+}
+
+.panel-body ul {
+	margin-top: 20px;
+}
+
+.panel-body ul li {
+	float: left;
+	margin: 2px;
+}
+
+.panel-body a {
+	color: #fff;
+	padding: 3px 6px;
+	text-transform: uppercase;
+}

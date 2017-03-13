@@ -1,0 +1,28 @@
+
+/* Contenu navbar */
+.navbar-fixed-top{
+	width:auto;
+	height: 50px;
+}
+
+.navbar .navbar-brand {
+	font-weight: bold;
+	font-size: 30px;
+	color: white;
+}
+
+.navbar .navbar-nav {
+	font-size: 15px;
+	color: white;
+}
+
+.navbar-collapse.in {
+	overflow-y: hidden
+}
+
+
+.modal-content {
+	font-weight: bold;
+	font-size: 30px;
+	color: black;
+}

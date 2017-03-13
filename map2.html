@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Cartographie en ligne issue du projet de recherche ARMATURE">
+    <meta name="author" content="Arnaud BELLEC">
+    <meta name="keywords" content="armature, trame verte, v�g�tation, Lyon, g�ographie">
+    <title>Armature</title>
+
+    <!-- Core  -->
+    <!--link-->
+    <script src="assets/jquery-3.1.1/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/leaflet-1.0.2/leaflet.js"></script>
+    <script src="assets/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+    <link rel="stylesheet" href="assets/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/leaflet-1.0.2/leaflet.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/bootstrap-switch/css/bootstrap-switch.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/map2.css"/>
+    <link rel="icon" type="image/ico" href="media/logo/favicon.png"/>
+
+    <!--/link-->
+    <!-- /Core  -->
+</head>
+
+<body>
+
+<div id="navMenu"></div>
+
+<div id="contactMenu"></div>
+
+
+<div class='fix'>
+    <div id="container">
+        <div id="map1">
+            <div id="sidebar_left" class="sidebar_left collapsed">
+                <!-- Nav tabs -->
+                <div class="sidebar_left-tabs">
+                    <ul>
+                        <li><a href="#how" role="tab"><i class="fa fa-question-circle"></i></a></li>
+                        <li><a href="#map" role="tab"><i class="fa fa-map"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Tab panes -->
+                <div class="sidebar_left-content">
+                    <div class="sidebar_left-pane" id="how" align="justify">
+                        <h1 class="sidebar_left-header">
+                            Comment &ccedil;a marche ?
+                            <span class="sidebar_left-close"><i class="fa fa-caret-left"></i></span>
+                        </h1>
+
+                        <p><h4>Choix des couches &agrave; afficher&nbsp;&nbsp;&nbsp;<i class="fa fa-map"></i></h4></p>
+
+                        <p class="lorem">Cliquez sur l'onglet <i class="fa fa-map"></i> de la bare lat&eacute;rale.</p>
+
+                        <p class="lorem">A partir de cet onglet, il vous est possible de choisir la couche &agrave;
+                            afficher sur la carte.<br> Quatre sections sont disponible :
+                        <ul>
+                            <li>Images a&eacute;riennes</li>
+                            <li>Scan 25</li>
+                            <li>Scan 50</li>
+                            <li>Photo interpr&eacute;tation</li>
+                        </ul>
+                        </p>
+                        Cliquez sur la section qui vous int&eacute;resse et d&eacute;placez le curseur pour le faire
+                        passer sur <i>on</i>&nbsp; (<i class="fa fa-toggle-on" aria-hidden="true">)</i> .
+
+                        <p class="lorem">Le fond de carte va automatiquement se mettre &agrave; jour.</p>
+
+                        <p class="lorem">En bas &agrave; droite de la carte, une l&eacute;gende permet de rep&eacute;rer
+                            rapidement quelle est l'image affich&eacute;e aisin que la date de celle-ci.</p>
+                        <hr>
+                        <p><h4>Utilisation des outils de mesure&nbsp;&nbsp;&nbsp;<i class="fa fa-wrench"></i></h4></p>
+
+                        <p class="lorem">A venir ...</p>
+                    </div>
+                    <div class="sidebar_left-pane" id="map">
+                        <h1 class="sidebar_left-header">
+                            Choix des couches
+                            <span class="sidebar_left-close"><i class="fa fa-caret-left"></i></span>
+                        </h1>
+
+                        <div class="modal-body text-left">
+
+                            <div class="row">
+                                <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL" id="LOSM"
+                                                                        data-size="mini" data-off-text="Off"
+                                                                        data-on-text="On" checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;OpenStreetMap
+                                </div>
+                            </div>
+                            <br>
+                            <button type="radio" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#aerial-dataL">images a&#233;riennes &nbsp;<i
+                                    class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+                            <div id="aerial-dataL" class="collapse">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L1954" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1954
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L1966" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1966
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L1978" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1978
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L1986" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1986
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L1993" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1993
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L1997" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1997
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L2003" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        2003
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="L2007" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        2007
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#scan25-dataL">scan 25 &nbsp; <i class="fa fa-chevron-circle-down"
+                                                                                  aria-hidden="true"></i></button>
+                            <div id="scan25-dataL" class="collapse">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_50" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1950
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_60" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1960
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_70" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1970
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_85" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1985
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_98" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1998
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_03" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        2003
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan25_15" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        2015
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <br>
+                            <br>
+                            <button type="radio" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#scan50-dataL">scan 50 &nbsp; <i class="fa fa-chevron-circle-down"
+                                                                                  aria-hidden="true"></i>;
+                            </button>
+                            <div id="scan50-dataL" class="collapse">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan50_50" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1950
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan50_60" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1960
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan50_70" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1970
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesL"
+                                                                            id="Lscan50_80" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1980
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#interpretation-dataL">photo interpr&#233;tation &nbsp; <i
+                                    class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+                            <div id="interpretation-dataL" class="collapse">
+                                <br>
+                                A venir
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map2">
+            <div id="sidebar_right" class="sidebar_right collapsed">
+                <!-- Nav tabs -->
+                <div class="sidebar_right-tabs">
+                    <ul>
+                        <li><a href="#how" role="tab"><i class="fa fa-question-circle"></i></a></li>
+                        <li><a href="#map" role="tab"><i class="fa fa-map"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Tab panes -->
+                <div class="sidebar_right-content">
+                    <div class="sidebar_right-pane" id="how" align="justify">
+                        <h1 class="sidebar_right-header">
+                            Comment &ccedil;a marche ?
+                            <span class="sidebar_right-close"><i class="fa fa-caret-left"></i></span>
+                        </h1>
+
+                        <p><h4>Choix des couches &agrave; afficher&nbsp;&nbsp;&nbsp;<i class="fa fa-map"></i></h4></p>
+
+                        <p class="lorem">Cliquez sur l'onglet <i class="fa fa-map"></i> de la bare lat&eacute;rale.</p>
+
+                        <p class="lorem">A partir de cet onglet, il vous est possible de choisir la couche &agrave;
+                            afficher sur la carte.<br> Quatre sections sont disponible :
+                        <ul>
+                            <li>Images a&eacute;riennes</li>
+                            <li>Scan 25</li>
+                            <li>Scan 50</li>
+                            <li>Photo interpr&eacute;tation</li>
+                        </ul>
+                        </p>
+                        Cliquez sur la section qui vous int&eacute;resse et d&eacute;placez le curseur pour le faire
+                        passer sur <i>on</i>&nbsp; (<i class="fa fa-toggle-on" aria-hidden="true">)</i> .
+
+                        <p class="lorem">Le fond de carte va automatiquement se mettre &agrave; jour.</p>
+
+                        <p class="lorem">En bas &agrave; droite de la carte, une l&eacute;gende permet de rep&eacute;rer
+                            rapidement quelle est l'image affich&eacute;e aisin que la date de celle-ci.</p>
+                        <hr>
+                        <p><h4>Utilisation des outils de mesure&nbsp;&nbsp;&nbsp;<i class="fa fa-wrench"></i></h4></p>
+
+                        <p class="lorem">A venir ...</p>
+                    </div>
+                    <div class="sidebar_right-pane" id="map">
+                        <h1 class="sidebar_right-header">
+                            Choix des couches
+                            <span class="sidebar_right-close"><i class="fa fa-caret-left"></i></span>
+                        </h1>
+
+                        <div class="modal-body text-left">
+
+                            <div class="row">
+                                <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR" id="ROSM"
+                                                                        data-size="mini" data-off-text="Off"
+                                                                        data-on-text="On" checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;OpenStreetMap
+                                </div>
+                            </div>
+                            <br>
+                            <button type="radio" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#aerial-dataR">images a&#233;riennes &nbsp;<i
+                                    class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+                            <div id="aerial-dataR" class="collapse">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R1954" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1954
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R1966" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1966
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R1978" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1978
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R1986" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1986
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R1993" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1993
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R1997" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        1997
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R2003" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        2003
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="R2007" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Orthophotographie
+                                        2007
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#scan25-dataR">scan 25 &nbsp; <i class="fa fa-chevron-circle-down"
+                                                                                  aria-hidden="true"></i></button>
+                            <div id="scan25-dataR" class="collapse">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_50" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1950
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_60" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1960
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_70" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1970
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_85" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1985
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_98" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        1998
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_03" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        2003
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan25_15" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan25
+                                        2015
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <br>
+                            <br>
+                            <button type="radio" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#scan50-dataR">scan 50 &nbsp; <i class="fa fa-chevron-circle-down"
+                                                                                  aria-hidden="true"></i>;
+                            </button>
+                            <div id="scan50-dataR" class="collapse">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan50_50" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1950
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan50_60" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1960
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan50_70" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1970
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-left"><input type="radio" name="GroupedSwitchesR"
+                                                                            id="Rscan50_80" data-size="mini"
+                                                                            data-off-text="Off" data-on-text="On"
+                                                                            checked="false" class="bs">&nbsp;&nbsp;&nbsp;&nbsp;Scan50
+                                        1980
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-default" data-toggle="collapse"
+                                    data-target="#interpretation-dataR">photo interpr&#233;tation &nbsp; <i
+                                    class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+                            <div id="interpretation-dataR" class="collapse">
+                                <br>
+                                A venir
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- stay here # DON'T MOOVE -->
+        <script src="assets/js/sync_map.js"></script>
+        <!-- /stay here -->
+    </div>
+</div>
+
+
+<!-- if script js in html -->
+
+<script src="assets/js/map2.js"></script>
+<script src="assets/js/google_analytics.js"></script>
+<script type="text/javascript" src="assets/js/validator.min.js"></script>
+<script type="text/javascript" src="assets/js/form-scripts.js"></script>
+
+<!-- /if script js in html -->
+<script src="assets/leaflet-sidebar/js/leaflet-sidebar_left.js"></script>
+<script src="assets/js/sidebar_left.js"></script>
+<script src="assets/leaflet-sidebar/js/leaflet-sidebar_right.js"></script>
+<script src="assets/js/sidebar_right.js"></script>
+<script type="text/javascript" src="assets/js/navbar.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+
+</body>
+</html>		

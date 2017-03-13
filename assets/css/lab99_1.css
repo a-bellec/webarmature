@@ -1,0 +1,39 @@
+@import url('lab99_3.css');
+body{
+	background:#f9e830 url(../images/pattern.png) repeat top left;
+	color:#fff;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size:12px;
+}
+a{
+	color:#000;
+	text-decoration:none;
+}
+.clr{
+	clear:both;
+}
+.container {
+	width:100%;
+	position:relative;
+	z-index:100;
+	margin:auto;
+}
+.content {
+	width:1000px;
+	margin:0 auto;
+}
+h1{
+	margin:10px 0 0px 20px;
+	font-size:34px;
+	color:#000;
+	text-shadow:1px 1px 1px #fef7a9;
+	text-transform:uppercase;
+}
+h1 span{
+	font-size:18px;
+	text-transform:none;
+}
+#bloc1 { 
+    background-color:rgba(156, 156, 156,0.15);
+
+}	

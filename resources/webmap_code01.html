@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <!-- Nom de la page --> 
+  <title>Ma premi&egrave;re carte</title>
+  
+  <!-- Références extérieures -->   
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <!-- Variable de style. Peut être dans inséré dans un fichier CSS -->     
+  <style>
+   #map {
+    width: 960px;
+    height:500px;
+   }
+  </style>
+ </head>
+
+ <body>
+  <!-- Définition de la variable carte -->     
+  <div id="map"></div>
+  <script>
+  // Initialiser la carte
+    var map = L.map('map',{
+    center: [45.7604276, 4.8335709],
+    zoom: 13
+    });
+  // Charger les couches
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  </script>
+ </body>
+</html>
+
+<!-- A.BELLEC - Phd student - UMR 5600 EVS - Lyon, FRANCE -->
+<!-- www.webarmature.fr -->

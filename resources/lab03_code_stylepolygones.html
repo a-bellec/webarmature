@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Style polygone</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <style>
+#map {
+    width: 960px;
+    height:500px;
+}
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+
+  // Initialiser la carte
+  var map = L.map('map',{
+  center: [45.7604276, 4.8335709],
+  zoom:  13
+  });
+
+  // Charger les couches
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', 
+    {
+      attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 17,
+      minZoom: 9
+    }).addTo(map);
+
+  $.getJSON("data/lab03_polyGL_data.geojson",function(poly_data){
+    L.geoJson(poly_data,{
+	style: function(feature){
+	 var fillColor, 
+	   pop = feature.properties.DENSITE;
+	if (pop > 12199) fillColor = "#001eff";
+	else if (pop > 8190) fillColor ="#324aff";
+	else if (pop > 4136) fillColor ="#6678ff";
+	else if (pop > 1722) fillColor ="#99a5ff";
+	else if (pop > 0) fillColor ="#ccd2ff";
+	else fillColor ="#ffffff"; // no data
+	return {color: "#999", weight:1, fillColor: fillColor, fillOpacity: .6};
+	},
+	onEachFeature: function(feature, layer){
+	 layer.bindPopup("<strong>" + feature.properties.NOM_COM + "</strong><br/>" + feature.properties.POPULATION + " habitants" +"<br>"+ feature.properties.DENSITE + " habitants/km²")
+	 }
+	}).addTo(map);
+  });
+
+  </script>
+</body>
+</html>

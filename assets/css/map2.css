@@ -1,0 +1,454 @@
+html, body, #container{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	overflow:auto;
+	overflow-x: hidden;
+}
+body{
+	background-color: black;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color:#000000;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size:14px;	overflow:auto;
+	padding-top: 50px;
+}
+.fix{
+    width:100%;height:100%;
+    position: fixed;
+    margin-bottom:40px;
+    top:0;
+    z-index: 1;
+    background-image: url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
+}
+.fixed{
+ position:fixed;
+ top:0;
+ z-index: 1;
+ width:100%;
+ height:100%;
+ background-image:urlurl(../../media/other/background_lyon.jpg) no-repeat center center fixed; 
+}
+#map1, #map2 {
+	width: 49.9%;
+}
+#map1{
+	float: left;
+	position:absolute;
+	left:0;
+	right:50%;	
+	top:50px;
+	bottom:0px;				
+}
+#map2 {
+	float: right;
+	position:absolute;
+	left:50%;
+	right:0;	
+	top:50px;
+	bottom:0px;
+}
+
+
+.sidebar_left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2000; }
+  .sidebar_left.collapsed {
+    width: 40px; }
+  @media (min-width: 768px) {
+    .sidebar_left {
+      top: 10px;
+      bottom: 10px;
+      transition: width 500ms; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .sidebar_left {
+      width: 305px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar_left {
+      width: 390px; } }
+  @media (min-width: 1200px) {
+    .sidebar_left {
+      width: 460px; } }
+
+.sidebar_left-left {
+  left: 0; }
+  @media (min-width: 768px) {
+    .sidebar_left-left {
+      left: 10px; } }
+
+.sidebar_left-right {
+  right: 0; }
+  @media (min-width: 768px) {
+    .sidebar_left-right {
+      right: 10px; } }
+
+.sidebar_left-tabs {
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff; }
+  .sidebar_left-left .sidebar_left-tabs {
+    left: 0; }
+  .sidebar_left-right .sidebar_left-tabs {
+    right: 0; }
+  .sidebar_left-tabs, .sidebar_left-tabs > ul {
+    position: absolute;
+    width: 40px;
+    margin: 0;
+    padding: 0; }
+    .sidebar_left-tabs > li, .sidebar_left-tabs > ul > li {
+      width: 100%;
+      height: 40px;
+      color: #333;
+      font-size: 12pt;
+      overflow: hidden;
+      transition: all 80ms; }
+      .sidebar_left-tabs > li:hover, .sidebar_left-tabs > ul > li:hover {
+        color: #000;
+        background-color: #eee; }
+      .sidebar_left-tabs > li.active, .sidebar_left-tabs > ul > li.active {
+        color: #fff;
+        background-color: #0074d9; }
+      .sidebar_left-tabs > li.disabled, .sidebar_left-tabs > ul > li.disabled {
+        color: rgba(51, 51, 51, 0.4); }
+        .sidebar_left-tabs > li.disabled:hover, .sidebar_left-tabs > ul > li.disabled:hover {
+          background: transparent; }
+        .sidebar_left-tabs > li.disabled > a, .sidebar_left-tabs > ul > li.disabled > a {
+          cursor: default; }
+      .sidebar_left-tabs > li > a, .sidebar_left-tabs > ul > li > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        color: inherit;
+        text-decoration: none;
+        text-align: center; }
+  .sidebar_left-tabs > ul + ul {
+    bottom: 0; }
+
+.sidebar_left-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  overflow-y: auto; }
+  .sidebar_left-left .sidebar_left-content {
+    left: 40px;
+    right: 0; }
+  .sidebar_left-right .sidebar_left-content {
+    left: 0;
+    right: 40px; }
+  .sidebar_left.collapsed > .sidebar_left-content {
+    overflow-y: hidden; }
+
+.sidebar_left-pane {
+  display: none;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 10px 20px; }
+  .sidebar_left-pane.active {
+    display: block; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .sidebar_left-pane {
+      min-width: 265px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar_left-pane {
+      min-width: 350px; } }
+  @media (min-width: 1200px) {
+    .sidebar_left-pane {
+      min-width: 420px; } }
+
+.sidebar_left-header {
+  margin: -10px -20px 0;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 14.4pt;
+  color: #fff;
+  background-color: #0074d9; }
+  .sidebar_left-right .sidebar_left-header {
+    padding-left: 40px; }
+
+.sidebar_left-close {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer; }
+  .sidebar_left-left .sidebar_left-close {
+    right: 0; }
+  .sidebar_left-right .sidebar_left-close {
+    left: 0; }
+
+.sidebar_left-left ~ .sidebar_left-map {
+  margin-left: 40px; }
+  @media (min-width: 768px) {
+    .sidebar_left-left ~ .sidebar_left-map {
+      margin-left: 0; } }
+
+.sidebar_left-right ~ .sidebar_left-map {
+  margin-right: 40px; }
+  @media (min-width: 768px) {
+    .sidebar_left-right ~ .sidebar_left-map {
+      margin-right: 0; } }
+
+.sidebar_left {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65); }
+  .sidebar_left.leaflet-touch {
+    box-shadow: none;
+    border-right: 2px solid rgba(0, 0, 0, 0.2); }
+  @media (min-width: 768px) {
+    .sidebar_left {
+      border-radius: 4px; }
+      .sidebar_left.leaflet-touch {
+        border: 2px solid rgba(0, 0, 0, 0.2); } }
+
+@media (min-width: 768px) {
+  .sidebar_left-left ~ .sidebar_left-map .leaflet-left {
+    transition: left 500ms; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar_left-left ~ .sidebar_left-map .leaflet-left {
+    left: 315px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar_left-left ~ .sidebar_left-map .leaflet-left {
+    left: 400px; } }
+
+@media (min-width: 1200px) {
+  .sidebar_left-left ~ .sidebar_left-map .leaflet-left {
+    left: 470px; } }
+
+@media (min-width: 768px) {
+  .sidebar_left-left.collapsed ~ .sidebar_left-map .leaflet-left {
+    left: 50px; } }
+
+@media (min-width: 768px) {
+  .sidebar_left-right ~ .sidebar_left-map .leaflet-right {
+    transition: right 500ms; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar_left-right ~ .sidebar_left-map .leaflet-right {
+    right: 315px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar_left-right ~ .sidebar_left-map .leaflet-right {
+    right: 400px; } }
+
+@media (min-width: 1200px) {
+  .sidebar_left-right ~ .sidebar_left-map .leaflet-right {
+    right: 470px; } }
+
+@media (min-width: 768px) {
+  .sidebar_left-right.collapsed ~ .sidebar_left-map .leaflet-right {
+right: 50px; } }
+
+.sidebar_right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2000; }
+  .sidebar_right.collapsed {
+    width: 40px; }
+  @media (min-width: 768px) {
+    .sidebar_right {
+      top: 10px;
+      bottom: 10px;
+      transition: width 500ms; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .sidebar_right {
+      width: 305px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar_right {
+      width: 390px; } }
+  @media (min-width: 1200px) {
+    .sidebar_right {
+      width: 460px; } }
+
+.sidebar_right-left {
+  left: 0; }
+  @media (min-width: 768px) {
+    .sidebar_right-left {
+      left: 10px; } }
+
+.sidebar_right-right {
+  right: 0; }
+  @media (min-width: 768px) {
+    .sidebar_right-right {
+      right: 10px; } }
+
+.sidebar_right-tabs {
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff; }
+  .sidebar_right-left .sidebar_right-tabs {
+    left: 0; }
+  .sidebar_right-right .sidebar_right-tabs {
+    right: 0; }
+  .sidebar_right-tabs, .sidebar_right-tabs > ul {
+    position: absolute;
+    width: 40px;
+    margin: 0;
+    padding: 0; }
+    .sidebar_right-tabs > li, .sidebar_right-tabs > ul > li {
+      width: 100%;
+      height: 40px;
+      color: #333;
+      font-size: 12pt;
+      overflow: hidden;
+      transition: all 80ms; }
+      .sidebar_right-tabs > li:hover, .sidebar_right-tabs > ul > li:hover {
+        color: #000;
+        background-color: #eee; }
+      .sidebar_right-tabs > li.active, .sidebar_right-tabs > ul > li.active {
+        color: #fff;
+        background-color: #0074d9; }
+      .sidebar_right-tabs > li.disabled, .sidebar_right-tabs > ul > li.disabled {
+        color: rgba(51, 51, 51, 0.4); }
+        .sidebar_right-tabs > li.disabled:hover, .sidebar_right-tabs > ul > li.disabled:hover {
+          background: transparent; }
+        .sidebar_right-tabs > li.disabled > a, .sidebar_right-tabs > ul > li.disabled > a {
+          cursor: default; }
+      .sidebar_right-tabs > li > a, .sidebar_right-tabs > ul > li > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        color: inherit;
+        text-decoration: none;
+        text-align: center; }
+  .sidebar_right-tabs > ul + ul {
+    bottom: 0; }
+
+.sidebar_right-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  overflow-y: auto; }
+  .sidebar_right-left .sidebar_right-content {
+    left: 40px;
+    right: 0; }
+  .sidebar_right-right .sidebar_right-content {
+    left: 0;
+    right: 40px; }
+  .sidebar_right.collapsed > .sidebar_right-content {
+    overflow-y: hidden; }
+
+.sidebar_right-pane {
+  display: none;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 10px 20px; }
+  .sidebar_right-pane.active {
+    display: block; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .sidebar_right-pane {
+      min-width: 265px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar_right-pane {
+      min-width: 350px; } }
+  @media (min-width: 1200px) {
+    .sidebar_right-pane {
+      min-width: 420px; } }
+
+.sidebar_right-header {
+  margin: -10px -20px 0;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 14.4pt;
+  color: #fff;
+  background-color: #0074d9; }
+  .sidebar_right-right .sidebar_right-header {
+    padding-left: 40px; }
+
+.sidebar_right-close {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer; }
+  .sidebar_right-left .sidebar_right-close {
+    right: 0; }
+  .sidebar_right-right .sidebar_right-close {
+    left: 0; }
+
+.sidebar_right-left ~ .sidebar_right-map {
+  margin-left: 40px; }
+  @media (min-width: 768px) {
+    .sidebar_right-left ~ .sidebar_right-map {
+      margin-left: 0; } }
+
+.sidebar_right-right ~ .sidebar_right-map {
+  margin-right: 40px; }
+  @media (min-width: 768px) {
+    .sidebar_right-right ~ .sidebar_right-map {
+      margin-right: 0; } }
+
+.sidebar_right {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65); }
+  .sidebar_right.leaflet-touch {
+    box-shadow: none;
+    border-right: 2px solid rgba(0, 0, 0, 0.2); }
+  @media (min-width: 768px) {
+    .sidebar_right {
+      border-radius: 4px; }
+      .sidebar_right.leaflet-touch {
+        border: 2px solid rgba(0, 0, 0, 0.2); } }
+
+@media (min-width: 768px) {
+  .sidebar_right-left ~ .sidebar_right-map .leaflet-left {
+    transition: left 500ms; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar_right-left ~ .sidebar_right-map .leaflet-left {
+    left: 315px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar_right-left ~ .sidebar_right-map .leaflet-left {
+    left: 400px; } }
+
+@media (min-width: 1200px) {
+  .sidebar_right-left ~ .sidebar_right-map .leaflet-left {
+    left: 470px; } }
+
+@media (min-width: 768px) {
+  .sidebar_right-left.collapsed ~ .sidebar_right-map .leaflet-left {
+    left: 50px; } }
+
+@media (min-width: 768px) {
+  .sidebar_right-right ~ .sidebar_right-map .leaflet-right {
+    transition: right 500ms; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar_right-right ~ .sidebar_right-map .leaflet-right {
+    right: 315px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar_right-right ~ .sidebar_right-map .leaflet-right {
+    right: 400px; } }
+
+@media (min-width: 1200px) {
+  .sidebar_right-right ~ .sidebar_right-map .leaflet-right {
+    right: 470px; } }
+
+@media (min-width: 768px) {
+  .sidebar_right-right.collapsed ~ .sidebar_right-map .leaflet-right {
+right: 50px; } }
