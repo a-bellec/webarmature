@@ -20,9 +20,12 @@
 	overflow-y: hidden
 }
 
-
 .modal-content {
 	font-weight: bold;
 	font-size: 30px;
 	color: black;
+}
+
+.dropdown-menu{
+	width: 15em;
 }
