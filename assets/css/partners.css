@@ -1,11 +1,4 @@
-body {
-	background: url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	color: #fff;
-	font-family: 'PT Sans Narrow', Arial, sans-serif;
+body{
 	font-size: 12px;
 }
 
@@ -16,13 +9,6 @@ a{
 
 .clr{
 	clear:both;
-}
-
-.container {
-	width:100%;
-	position:relative;
-	z-index:100;
-	margin:auto;
 }
 
 .content {
