@@ -1,10 +1,14 @@
-@import url('about3.css');
 body{
-	background:#f9e830 url(../images/pattern.png) repeat top left;
+	background:url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	color:#fff;
 	font-family: 'PT Sans Narrow', Arial, sans-serif;
 	font-size:12px;
 }
+
 a{
 	color:#000;
 	text-decoration:none;

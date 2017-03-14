@@ -1,14 +1,4 @@
 /* Vertical Accordion Style */
-body {
-    background: url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: #fff;
-    font-family: 'PT Sans Narrow', Arial, sans-serif;
-    font-size: 12px;
-}
 
 .panel-group{
     position: relative;
@@ -36,27 +26,15 @@ body {
     text-shadow: 0px 0px 1px white;
 }
 
-#group1 {
+.accordion1 {
     background: #000 url(../../media/other/111.jpg) no-repeat center center;
 }
 
-#group2 {
+.accordion2 {
     background: #000 url(../../media/other/222.jpg) no-repeat center center;
 }
 
-#group3 {
-    background: #000 url(../../media/other/333.jpg) no-repeat center center;
-}
-
-#heading1 {
-    background: #000 url(../../media/other/111.jpg) no-repeat center center;
-}
-
-#heading2 {
-    background: #000 url(../../media/other/222.jpg) no-repeat center center;
-}
-
-#heading3 {
+.accordion3 {
     background: #000 url(../../media/other/333.jpg) no-repeat center center;
 }
 

@@ -1,14 +1,4 @@
 /* Vertical Accordion Style */
-body{
-	background:url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	color:#fff;
-	font-family: 'PT Sans Narrow', Arial, sans-serif;
-	font-size:12px;
-}
 
 .va-container{
 	position:relative;
