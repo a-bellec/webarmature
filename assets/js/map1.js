@@ -7,7 +7,7 @@ var map1 = L.map('map1', {
     minZoom: 13
 });
 
-var LOSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }
 ).addTo(map1);
@@ -17,14 +17,23 @@ var popup = L.popup();
 map1.zoomControl.setPosition('topleft');
 
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
+
     if(this.checked){
         removeAllLayers();
         var layerName = this.id;
-        var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
-            layers: layerName,
-            transparent: true
-        });
-        map1.addLayer(layer);
+        if(layerName != "LOSM"){
+            var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
+                layers: layerName,
+                transparent: true
+            });
+            map1.addLayer(layer);
+        }
+        else{
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }
+            ).addTo(map1);
+        }
     }
 });
 
