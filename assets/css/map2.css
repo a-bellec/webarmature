@@ -4,6 +4,11 @@ body{
 	padding-top: 50px;
 }
 
+label {
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+
 #map1, #map2 {
 	width: 49.9%;
 }
