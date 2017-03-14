@@ -36,55 +36,54 @@
 
 <div id="contactMenu"></div>
 
-<div class='fix'>
 
-    <div class="container">
-        <div id="va-accordion" class="va-container">
-            <div class="va-wrapper">
+<div class="container">
+    <div id="va-accordion" class="va-container">
+        <div class="va-wrapper">
 
-                <div class="va-slice va-slice-1">
-                    <h3 class="va-title">Ma premi&egrave;re carte ...</h3>
-                    <div class="va-content">
-                        <p>Pour commencer, nous allons créer une simple visualisation &agrave; partir d'un fond de carte
-                            Open Street Map.<br>
-                            <br> Le résultat doit s'approcher de cet exemple<br>
-                            <iframe src="http://www.webarmature.fr/resources/lab03_code_simplemap.html" width="100%"
-                                    height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                        </p>
+            <div class="va-slice va-slice-1">
+                <h3 class="va-title">Ma premi&egrave;re carte ...</h3>
+                <div class="va-content">
+                    <p>Pour commencer, nous allons créer une simple visualisation &agrave; partir d'un fond de carte
+                        Open Street Map.<br>
+                        <br> Le résultat doit s'approcher de cet exemple<br>
+                        <iframe src="http://www.webarmature.fr/resources/lab03_code_simplemap.html" width="100%"
+                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    </p>
+                    <br>
+                    <p><B>Fichiers Leaflet : CSS & JS</B></p>
+                    <p>L'utilisation de Leaflet nécessite de faire appel &agrave; des fichiers CSS et JS dans le
+                        fichier HTML.
                         <br>
-                        <p><B>Fichiers Leaflet : CSS & JS</B></p>
-                        <p>L'utilisation de Leaflet nécessite de faire appel &agrave; des fichiers CSS et JS dans le
-                            fichier HTML.
-                            <br>
-                            Dans les exemples suivants, nous allons appeler directement via internet les fichiers qu'ils
-                            nous faut. Pour cela, il va falloir insérer ce code dans la section &lt;head&gt; de la page
-                            HTML.</p><br>
+                        Dans les exemples suivants, nous allons appeler directement via internet les fichiers qu'ils
+                        nous faut. Pour cela, il va falloir insérer ce code dans la section &lt;head&gt; de la page
+                        HTML.</p><br>
 
-                        <pre><code class="language-markup line-numbers">&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/&gt;&lt;script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"&gt;&lt;/script&gt;</code></pre>
+                    <pre><code class="language-markup line-numbers">&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/&gt;&lt;script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"&gt;&lt;/script&gt;</code></pre>
+                    <br>
+                    <p><B>Ajout de l'élément Div et stylage</B></p>
+                    <p>Leaflet a besoin d'un élément &lt;div/&gt; contenant la carte. Cet élément du &lt;div/&gt;
+                        contient les informations relatives &agrave; la taille de la carte.
                         <br>
-                        <p><B>Ajout de l'élément Div et stylage</B></p>
-                        <p>Leaflet a besoin d'un élément &lt;div/&gt; contenant la carte. Cet élément du &lt;div/&gt;
-                            contient les informations relatives &agrave; la taille de la carte.
-                            <br>
-                            Créez un élément &lt;div/&gt; avec l'id "map" en ajoutant ce qui suit :</p>
-                        <pre><code class="language-markup line-numbers">&lt;div id="map"&gt;&lt;/div&gt;</code></pre>
-                        <p>Pour créer une carte de 960px de largeur et 500px de hauteur, ajoutez ce code dans le fichier
-                            css, ou entre balises &lt;style&gt; dans la section &lt;head&gt; de la page HTML.</p>
-                        <pre><code class="language-CSS line-numbers">#map {
+                        Créez un élément &lt;div/&gt; avec l'id "map" en ajoutant ce qui suit :</p>
+                    <pre><code class="language-markup line-numbers">&lt;div id="map"&gt;&lt;/div&gt;</code></pre>
+                    <p>Pour créer une carte de 960px de largeur et 500px de hauteur, ajoutez ce code dans le fichier
+                        css, ou entre balises &lt;style&gt; dans la section &lt;head&gt; de la page HTML.</p>
+                    <pre><code class="language-CSS line-numbers">#map {
 width: 960px;
 height: 500px;
 }
 							</code></pre>
-                        <br>
-                        <p>A partir de maintenant, les bases sont présentes pour créer la carte. Il ne manque juste que
-                            quelques lignes de JavaScript.</p>
-                        <br>
-                        <br>
-                        <p><B>Appeler le fond de carte OSM</B></p>
-                        <br>
-                        <p>Insérez le code suivant entre les balises &lt;script&gt; du fichier HTML.</p>
-                        <br>
-                        <pre><code class="language-javascript line-numbers">&lt;script&gt;
+                    <br>
+                    <p>A partir de maintenant, les bases sont présentes pour créer la carte. Il ne manque juste que
+                        quelques lignes de JavaScript.</p>
+                    <br>
+                    <br>
+                    <p><B>Appeler le fond de carte OSM</B></p>
+                    <br>
+                    <p>Insérez le code suivant entre les balises &lt;script&gt; du fichier HTML.</p>
+                    <br>
+                    <pre><code class="language-javascript line-numbers">&lt;script&gt;
  var map = L.map('map',{
  center: [45.7604276, 4.8335709],
  zoom: 13
@@ -93,17 +92,17 @@ height: 500px;
  attribution: '&copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'
  }).addTo(map);
 &lt;/script&gt;</code></pre>
-                        <br><br>
-                        <p>La variable <i>center</i> indique les coordonn&eacutes du centre de la carte, et la variable
-                            <i>zoom</i> ger&egrave; le niveau de zoom par défaut.
-                            <br>
-                            La ligne <i>attribution</i> permet de définir la légende de la carte qui s'affichera, par
-                            défaut, en bas &agrave; droite.
-                            <br>
-                            <br>
-                            <B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br><br>
+                    <p>La variable <i>center</i> indique les coordonn&eacutes du centre de la carte, et la variable
+                        <i>zoom</i> ger&egrave; le niveau de zoom par défaut.
                         <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                        La ligne <i>attribution</i> permet de définir la légende de la carte qui s'affichera, par
+                        défaut, en bas &agrave; droite.
+                        <br>
+                        <br>
+                        <B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 
 &lt;html&gt;
  &lt;head&gt;
@@ -134,100 +133,100 @@ height: 500px;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-                        <p class="text-center">
+                    <p class="text-center">
                         <a href="resources/webmap_code01.html" download="webmap_code01.html" target="_blank"
-                                   style="color: black" data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                           style="color: black" data-toggle="collapse" data-target=".navbar-collapse.in"><i
                                 class="fa fa-cloud-download fa-5x"></i></a>
-                        </p>
-                        <p class="text-center">
+                    </p>
+                    <p class="text-center">
                         <b>Téléchargez le code</b>
-                        </p>
+                    </p>
+                    <br>
+                    <p><B>Pour résumer ...</B>
                         <br>
-                        <p><B>Pour résumer ...</B>
-                            <br>
-                            Nous avons créé une variable "map" puis nous avons assigné, via Leaflet, un objet "L.map"
-                            correspondant, dans l'élément Div.
-                            <br>
-                            De plus, nous avons ajouté une information sur la localisation du centre de la carte et le
-                            niveau de zoom de référence.
-                            <br>
-                            Maintenant la carte s'affiche, il est possible de la manipuler (déplacement / zoom)
-                            <br>
-                            Le fond de carte OSM est appelé via la fonction "L.tileLayer". L'option "attribution" permet
-                            d'afficher les informations relatives au fond de carte.
-                            <br>
-                            D'autres fonds de carte peuvent &ecirc;tre utilisés. Via <a target="_blank"
-                                                                                        href="https://leaflet-extras.github.io/leaflet-providers/preview/">ce
-                                site web</a>, une liste de fonds de cartes non exhaustives
-                            <br></p>
-                    </div>
+                        Nous avons créé une variable "map" puis nous avons assigné, via Leaflet, un objet "L.map"
+                        correspondant, dans l'élément Div.
+                        <br>
+                        De plus, nous avons ajouté une information sur la localisation du centre de la carte et le
+                        niveau de zoom de référence.
+                        <br>
+                        Maintenant la carte s'affiche, il est possible de la manipuler (déplacement / zoom)
+                        <br>
+                        Le fond de carte OSM est appelé via la fonction "L.tileLayer". L'option "attribution" permet
+                        d'afficher les informations relatives au fond de carte.
+                        <br>
+                        D'autres fonds de carte peuvent &ecirc;tre utilisés. Via <a target="_blank"
+                                                                                    href="https://leaflet-extras.github.io/leaflet-providers/preview/">ce
+                            site web</a>, une liste de fonds de cartes non exhaustives
+                        <br></p>
                 </div>
+            </div>
 
-                <div class="va-slice va-slice-2">
-                    <h3 class="va-title">Gestion des layers ...</h3>
-                    <div class="va-content">
-                        <p>La premi&egrave;re carte permet d'afficher un fond OpenStreetMap, nous allons voir ici
-                            comment gérer plusieurs fonds de carte et comment permettre une interaction entre ces fonds.
-                            Nous utilisons 3 fonds de carte.
-                            <br>
-                            Le résultat doit s'approcher de cet exemple :<br></p>
-                        <iframe src="http://www.webarmature.fr/resources/lab03_code_multilayer.html" width="100%"
-                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                        <br><br>
-                        <p>La structure générale du code reste semblable, nous allons juste ajouter quelques éléments en
-                            créant plusieurs variables.
-                            <br>
-                            <br>
+            <div class="va-slice va-slice-2">
+                <h3 class="va-title">Gestion des layers ...</h3>
+                <div class="va-content">
+                    <p>La premi&egrave;re carte permet d'afficher un fond OpenStreetMap, nous allons voir ici
+                        comment gérer plusieurs fonds de carte et comment permettre une interaction entre ces fonds.
+                        Nous utilisons 3 fonds de carte.
+                        <br>
+                        Le résultat doit s'approcher de cet exemple :<br></p>
+                    <iframe src="http://www.webarmature.fr/resources/lab03_code_multilayer.html" width="100%"
+                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <br><br>
+                    <p>La structure générale du code reste semblable, nous allons juste ajouter quelques éléments en
+                        créant plusieurs variables.
+                        <br>
+                        <br>
 
-                            <B>Ajout de la variable référence (link)</B>
-                            Nous ajoutons une variable permettant de gérer les liens internet de nos sources.</p>
-                        <pre><code class="language-javascript line-numbers">var osmLink = '<a
-                                href="http://openstreetmap.org">OpenStreetMap</a>',
+                        <B>Ajout de la variable référence (link)</B>
+                        Nous ajoutons une variable permettant de gérer les liens internet de nos sources.</p>
+                    <pre><code class="language-javascript line-numbers">var osmLink = '<a
+                            href="http://openstreetmap.org">OpenStreetMap</a>',
 thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>',
 esriLink = '<a href="http://esri.com/">Esri</a>'</code></pre>
-                        <br>
-                        <p><B>Ajout de la variable <i>adresse</i> (Url) et <i>attribution</i> (Attrib)</B></p>
-                        <p>Nous ajoutons une variable permettant de gérer les liens d'appel de la source et la mani&egrave;re
-                            dont va s'afficher la source en bas &agrave; droite de la carte.</p>
-                        <pre><code class="language-javascript line-numbers">var osmUrl = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
+                    <br>
+                    <p><B>Ajout de la variable <i>adresse</i> (Url) et <i>attribution</i> (Attrib)</B></p>
+                    <p>Nous ajoutons une variable permettant de gérer les liens d'appel de la source et la mani&egrave;re
+                        dont va s'afficher la source en bas &agrave; droite de la carte.</p>
+                    <pre><code class="language-javascript line-numbers">var osmUrl = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
 osmAttrib = '&copy; ' + osmLink + ' Contributors',
 landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
 thunAttrib = '&copy; '+thunLink,
 esriUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
 esriAttrib = '&copy; '+esriLink;</code></pre>
-                        <br>
-                        <p><B>Ajout de la variable <i>carte</i></B></p>
-                        <p>Nous ajoutons une variable permettant de gérer ensemble les fonds et les légendes.</p>
-                        <pre><code class="language-javascript line-numbers">var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+                    <br>
+                    <p><B>Ajout de la variable <i>carte</i></B></p>
+                    <p>Nous ajoutons une variable permettant de gérer ensemble les fonds et les légendes.</p>
+                    <pre><code class="language-javascript line-numbers">var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
 landMap = L.tileLayer(landUrl, {attribution: thunAttrib}),
 esriMap = L.tileLayer(esriUrl, {attribution: esriAttrib});</code></pre>
-                        <br>
-                        <p><B>Ajout de la variable <i>base</i></B></p>
-                        <p>Nous ajoutons une variable permettant de gérer la couche &agrave; afficher au chargement de
-                            la page, le centre de la carte et le niveau de zoom.</p>
-                        <pre><code class="language-javascript line-numbers">var map = L.map('map', {
+                    <br>
+                    <p><B>Ajout de la variable <i>base</i></B></p>
+                    <p>Nous ajoutons une variable permettant de gérer la couche &agrave; afficher au chargement de
+                        la page, le centre de la carte et le niveau de zoom.</p>
+                    <pre><code class="language-javascript line-numbers">var map = L.map('map', {
 layers: [osmMap]
 })
 .setView([45.7604276, 4.8335709], 18);</code></pre>
-                        <br>
-                        <p><B>Ajout de la variable <i>nom</i></B></p>
-                        <p>Nous ajoutons une variable permettant de gérer l'affichage du nom des couches.</p>
-                        <pre><code class="language-javascript line-numbers">var baseLayers = {
+                    <br>
+                    <p><B>Ajout de la variable <i>nom</i></B></p>
+                    <p>Nous ajoutons une variable permettant de gérer l'affichage du nom des couches.</p>
+                    <pre><code class="language-javascript line-numbers">var baseLayers = {
 "OSM B&W": osmMap,
 "Landscape": landMap,
 "Aerial": esriMap
 };</code></pre>
-                        <br>
-                        <p><B>Ajout de la fonction <i>contr&ocirc;le</i></B></p>
-                        <br>
-                        <p>Nous ajoutons une fonction permettant de gérer le contr&ocirc;le des couches.</p>
-                        <pre><code
-                                class="language-javascript line-numbers">L.control.layers(baseLayers).addTo(map);</code></pre>
-                        <br>
-                        <br>
-                        <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                    <br>
+                    <p><B>Ajout de la fonction <i>contr&ocirc;le</i></B></p>
+                    <br>
+                    <p>Nous ajoutons une fonction permettant de gérer le contr&ocirc;le des couches.</p>
+                    <pre><code
+                            class="language-javascript line-numbers">L.control.layers(baseLayers).addTo(map);</code></pre>
+                    <br>
+                    <br>
+                    <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Multi Layer&lt;/title&gt;
@@ -269,80 +268,81 @@ layers: [osmMap]
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        <p class="text-center">
+                    <p class="text-center">
                         <a href="resources/webmap_code02.html" download="webmap_code02.html" target="_blank"
-                                   style="color: black" data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                           style="color: black" data-toggle="collapse" data-target=".navbar-collapse.in"><i
                                 class="fa fa-cloud-download fa-5x"></i></a>
-                        </p>
-                        <p class="text-center">
-                            <b>Téléchargez le code</b>
-                        </p>
+                    </p>
+                    <p class="text-center">
+                        <b>Téléchargez le code</b>
+                    </p>
+                    <br>
+                    <p><B>Pour résumer ...</B>
                         <br>
-                        <p><B>Pour résumer ...</B>
-                            <br>
-                            Nous avons ajouté &agrave; notre carte la possibilité d'afficher plusieurs fond de cartes
-                            différents.
-                            En conservant le même principe, il vous sera facile de choisir quel fond afficher</p>
-                    </div>
+                        Nous avons ajouté &agrave; notre carte la possibilité d'afficher plusieurs fond de cartes
+                        différents.
+                        En conservant le même principe, il vous sera facile de choisir quel fond afficher</p>
                 </div>
+            </div>
 
-                <div class="va-slice va-slice-3">
-                    <h3 class="va-title">Afficher mes données ...</h3>
-                    <div class="va-content">
-                        <p>Dans cette section nous allons voir, pas &agrave; pas, comment insérer nos données sur la
-                            carte.
-                            <br>
-                            Le résultat doit s'approcher de cet exemple :<br></p>
-                        <iframe src="http://www.webarmature.fr/resources/lab03_code_afficherpoints.html" width="100%"
-                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                        <br><br>
-                        <p>Il est possible que vous souhaitiez afficher votre propres données.L'exemple présent ici va
-                            nous permettre d'afficher un fichier de point au format vectoriel directement sur la carte.
-                            <br>
-                            Nous utilisons un fichier au format GeoJSON issu d'un Shapefile convertit avec le logiciel
-                            QGIS. <i>Plus d'informations sur le format GeoJSON : <a target="_blank"
-                                                                                    href="http://geojson.org/">(1)</a> -
-                                <a target="_blank" href="https://fr.wikipedia.org/wiki/GeoJSON">(2)</a></i></p>
+            <div class="va-slice va-slice-3">
+                <h3 class="va-title">Afficher mes données ...</h3>
+                <div class="va-content">
+                    <p>Dans cette section nous allons voir, pas &agrave; pas, comment insérer nos données sur la
+                        carte.
                         <br>
-                        <p>La structure générale du code reste semblable, nous allons juste ajouter quelques éléments.
-                            <br>
-                            <br>
-                            <B>Quelques précisions avant de commencer</B><br>
-                            Le but de cet article est de présenter une mani&egrave;re d'afficher un jeu de données issu
-                            de relevés GPS.
-                            Pour pouvoir utiliser vos données sans trop de difficultés, il vous faudra :<br>
-                            &nbsp;&nbsp;- Importer les données GPS dans un SIG <br>
-                            &nbsp;&nbsp;- Veiller &agrave; renseigner le syst&egrave;me de coordonnées au format
-                            latitude/longitude <br>
-                            &nbsp;&nbsp;- Exporter les données au format JSON <br>
-                            &nbsp;&nbsp;- Mettre votre jeu de donnée JSON dans un des répertoires de travail de votre
-                            projet.</p>
+                        Le résultat doit s'approcher de cet exemple :<br></p>
+                    <iframe src="http://www.webarmature.fr/resources/lab03_code_afficherpoints.html" width="100%"
+                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <br><br>
+                    <p>Il est possible que vous souhaitiez afficher votre propres données.L'exemple présent ici va
+                        nous permettre d'afficher un fichier de point au format vectoriel directement sur la carte.
+                        <br>
+                        Nous utilisons un fichier au format GeoJSON issu d'un Shapefile convertit avec le logiciel
+                        QGIS. <i>Plus d'informations sur le format GeoJSON : <a target="_blank"
+                                                                                href="http://geojson.org/">(1)</a> -
+                            <a target="_blank" href="https://fr.wikipedia.org/wiki/GeoJSON">(2)</a></i></p>
+                    <br>
+                    <p>La structure générale du code reste semblable, nous allons juste ajouter quelques éléments.
                         <br>
                         <br>
-                        <p><B>Ajout de l'élément JQurey</B></p>
-                        <br>
-                        <p>Dans l'en-t&ecirc;te, nous ajoutons un script <a target="_blank" href="http://jquery.com/">JQuery</a>
-                            nous permettant de manipuler des fichers externes. </p>
+                        <B>Quelques précisions avant de commencer</B><br>
+                        Le but de cet article est de présenter une mani&egrave;re d'afficher un jeu de données issu
+                        de relevés GPS.
+                        Pour pouvoir utiliser vos données sans trop de difficultés, il vous faudra :<br>
+                        &nbsp;&nbsp;- Importer les données GPS dans un SIG <br>
+                        &nbsp;&nbsp;- Veiller &agrave; renseigner le syst&egrave;me de coordonnées au format
+                        latitude/longitude <br>
+                        &nbsp;&nbsp;- Exporter les données au format JSON <br>
+                        &nbsp;&nbsp;- Mettre votre jeu de donnée JSON dans un des répertoires de travail de votre
+                        projet.</p>
+                    <br>
+                    <br>
+                    <p><B>Ajout de l'élément JQurey</B></p>
+                    <br>
+                    <p>Dans l'en-t&ecirc;te, nous ajoutons un script <a target="_blank"
+                                                                        href="http://jquery.com/">JQuery</a>
+                        nous permettant de manipuler des fichers externes. </p>
 
-                        <pre><code class="language-markup line-numbers">&lt;script src="jquery-2.1.1.min.js"&gt;&lt;/script&gt;</code></pre>
+                    <pre><code class="language-markup line-numbers">&lt;script src="jquery-2.1.1.min.js"&gt;&lt;/script&gt;</code></pre>
+                    <br>
+                    <p><b>Ajout du fichier GeoJSON (point)</b></p>
+                    <br>
+                    <p>Apr&egrave;s avoir ajouté notre structure de base, nous utilisons la fonction <i>getJSON</i>
+                        pour charger notre fichier de points.
                         <br>
-                        <p><b>Ajout du fichier GeoJSON (point)</b></p>
-                        <br>
-                        <p>Apr&egrave;s avoir ajouté notre structure de base, nous utilisons la fonction <i>getJSON</i>
-                            pour charger notre fichier de points.
-                            <br>
-                            La premi&egrave;re étape consiste &agrave; définir le chemin d'acc&egrave;s &agrave; la
-                            donnée :</p>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("ma_donnee_point.geojson",function(data_point){</code></pre>
-                        <p>La seconde étape va exécuter le script une fois le fichier chargé et analysé.<br>A
-                            l'intérieur de cette fonction, nous utilisons <i>L.geoJson ()</i> pour recréer la couche
-                            vectorielle &agrave; partir du fichier GeoJSON. Puis en l'ajoutant &agrave; la carte avec la
-                            fonction <i>addTo()</i></p>
-                        <pre><code class="language-javascript line-numbers">L.geoJson(data).addTo(map)</code></pre>
-                        <br>
-                        <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                        La premi&egrave;re étape consiste &agrave; définir le chemin d'acc&egrave;s &agrave; la
+                        donnée :</p>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("ma_donnee_point.geojson",function(data_point){</code></pre>
+                    <p>La seconde étape va exécuter le script une fois le fichier chargé et analysé.<br>A
+                        l'intérieur de cette fonction, nous utilisons <i>L.geoJson ()</i> pour recréer la couche
+                        vectorielle &agrave; partir du fichier GeoJSON. Puis en l'ajoutant &agrave; la carte avec la
+                        fonction <i>addTo()</i></p>
+                    <pre><code class="language-javascript line-numbers">L.geoJson(data).addTo(map)</code></pre>
+                    <br>
+                    <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Donnée point&lt;/title&gt;
@@ -373,15 +373,15 @@ layers: [osmMap]
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+                    <br>
+                    <p><b>Ajout du fichier GeoJSON (polygone)</b></p>
+                    <p>La démarche est similaire. A la place d'appeler le fichier <i>pont</i> nous appelons le
+                        fichier <i>polygone</i>
                         <br>
-                        <p><b>Ajout du fichier GeoJSON (polygone)</b></p>
-                        <p>La démarche est similaire. A la place d'appeler le fichier <i>pont</i> nous appelons le
-                            fichier <i>polygone</i>
-                            <br>
-                            <br>
-                            <B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
                         <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                        <B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Donnée point&lt;/title&gt;
@@ -412,26 +412,26 @@ layers: [osmMap]
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        <br>
-                        <p><b>Afficher toutes mes données (points + polygones)</b></p>
-                        <p>Maintenant que nous savons afficher des fichiers <i>GeoJSON</i>, nous allons voir comment
-                            insérer nos deux données sur la carte.<br>
-                            La démarche est tr&egrave;s simple, il suffit d'utiliser deux fois la fonction : <br></p>
-                        <pre><code class="language-javascript line-numbers">$.getJSON</code></pre>
-                        <p>et penser &agrave; changer le nom de la fonction pour chaque fichier &agrave; afficher :<br>
-                            &nbsp;&nbsp;- pour les polygones :</p>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("ma_donnee_polygone.geojson",function(poly_data){
+                    <br>
+                    <p><b>Afficher toutes mes données (points + polygones)</b></p>
+                    <p>Maintenant que nous savons afficher des fichiers <i>GeoJSON</i>, nous allons voir comment
+                        insérer nos deux données sur la carte.<br>
+                        La démarche est tr&egrave;s simple, il suffit d'utiliser deux fois la fonction : <br></p>
+                    <pre><code class="language-javascript line-numbers">$.getJSON</code></pre>
+                    <p>et penser &agrave; changer le nom de la fonction pour chaque fichier &agrave; afficher :<br>
+                        &nbsp;&nbsp;- pour les polygones :</p>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("ma_donnee_polygone.geojson",function(poly_data){
   L.geoJson(poly_data).addTo(map);
 });</code></pre>
-                        <p>&nbsp;&nbsp;- pour les points :</p>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("ma_donnee_point.geojson",function(point_data){
+                    <p>&nbsp;&nbsp;- pour les points :</p>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("ma_donnee_point.geojson",function(point_data){
   L.geoJson(point_data).addTo(map);
 });</code></pre>
-                        <br>
-                        <br>
-                        <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                    <br>
+                    <br>
+                    <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Donnée polygone&lt;/title&gt;
@@ -465,103 +465,104 @@ layers: [osmMap]
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-                        <div class="col-md-12 row" id="bloc1">
-                            <div class="col-xs-6 col-lg-4">
-                                <p class="text-center">
+                    <div class="col-md-12 row" id="bloc1">
+                        <div class="col-xs-6 col-lg-4">
+                            <p class="text-center">
                                 <a href="resources/webmap_code03.html" download="webmap_code03.html"
-                                           target="_blank" style="color: black" data-toggle="collapse"
-                                           data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez le code</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-4" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/data/webmap_data_point.geojson"
-                                           download="webmap_data_point.geojson" target="_blank" style="color: black"
-                                           data-toggle="collapse" data-target=".navbar-collapse.in"><i
-                                        class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez la données (points)</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-4" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/data/webmap_data_polygone.geojson"
-                                           download="webmap_data_polygone.geojson" target="_blank" style="color: black"
-                                           data-toggle="collapse" data-target=".navbar-collapse.in"><i
-                                        class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez la données (polygones)</b>
-                                </p>
-                            </div>
+                                   target="_blank" style="color: black" data-toggle="collapse"
+                                   data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez le code</b>
+                            </p>
                         </div>
-                        <p><br><B>Pour résumer ...</B></p>
-                        <br>
-                        <p>Nous avons ajouté &agrave; de l'information vectoriel &agrave; notre carte &agrave; l'aide de
-                            JQuery et de GeoJSON.</p>
-                        <br>
-                        <p>Attention penser &agrave; l'ordre des fichiers lorsqu'ils sont utilisés. On appel en 1er le
-                            fichier polygone, et ensuite le fichier de points. De cette mani&egrave;re, le cript
-                            s'executant de haut en bas, le fichier de points sera placé par dessus le ficher de
-                            polygones.<br>
-                            D'autres méthodes existent afin d'utiliser de la donnée externe, cette méthode en est une
-                            parmi d'autres.
-                            <br>
-                            Je vous laisse consulter internet pour trouver des informations sur les autres méthodes.</p>
+                        <div class="col-xs-6 col-lg-4" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/data/webmap_data_point.geojson"
+                                   download="webmap_data_point.geojson" target="_blank" style="color: black"
+                                   data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                                        class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez la données (points)</b>
+                            </p>
+                        </div>
+                        <div class="col-xs-6 col-lg-4" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/data/webmap_data_polygone.geojson"
+                                   download="webmap_data_polygone.geojson" target="_blank" style="color: black"
+                                   data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                                        class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez la données (polygones)</b>
+                            </p>
+                        </div>
                     </div>
+                    <p><br><B>Pour résumer ...</B></p>
+                    <br>
+                    <p>Nous avons ajouté &agrave; de l'information vectoriel &agrave; notre carte &agrave; l'aide de
+                        JQuery et de GeoJSON.</p>
+                    <br>
+                    <p>Attention penser &agrave; l'ordre des fichiers lorsqu'ils sont utilisés. On appel en 1er le
+                        fichier polygone, et ensuite le fichier de points. De cette mani&egrave;re, le cript
+                        s'executant de haut en bas, le fichier de points sera placé par dessus le ficher de
+                        polygones.<br>
+                        D'autres méthodes existent afin d'utiliser de la donnée externe, cette méthode en est une
+                        parmi d'autres.
+                        <br>
+                        Je vous laisse consulter internet pour trouver des informations sur les autres méthodes.</p>
                 </div>
+            </div>
 
-                <div class="va-slice va-slice-4">
-                    <h3 class="va-title">Styliser mes données ...</h3>
-                    <div class="va-content">
-                        <p>Dans cette section nous allons voir, pas &agrave; pas, comment styliser nos données. Du style
-                            pour les points, mais aussi du style pour les polygones!
-                            <br>
-                            Le résultat doit s'approcher de ces deux exemples :<br></p>
-                        <iframe src="http://www.webarmature.fr/resources/lab03_code_stylepoints.html" width="100%"
-                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                        <iframe src="http://www.webarmature.fr/resources/lab03_code_stylepolygones.html" width="100%"
-                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                        <br><br>
-                        <p><b>Styliser les points</b></p>
-                        <p>Par défault, vos points s'affiche avec un marqueur bleu. Si l'on souhaite personnaliser sa
-                            carte il est possible de remplacer ces marqueurs par une image de votre choix.
-                            <br>
-                            La structure générale du code reste semblable, nous allons juste ajouter quelques éléments.
-                            <br>
-                            <br>
-                            <B>Ajout de l'élément de personnalisation &agrave; partir de la commande d'import des
-                                données :</B></p>
+            <div class="va-slice va-slice-4">
+                <h3 class="va-title">Styliser mes données ...</h3>
+                <div class="va-content">
+                    <p>Dans cette section nous allons voir, pas &agrave; pas, comment styliser nos données. Du style
+                        pour les points, mais aussi du style pour les polygones!
                         <br>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data){;</code></pre>
+                        Le résultat doit s'approcher de ces deux exemples :<br></p>
+                    <iframe src="http://www.webarmature.fr/resources/lab03_code_stylepoints.html" width="100%"
+                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <iframe src="http://www.webarmature.fr/resources/lab03_code_stylepolygones.html" width="100%"
+                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <br><br>
+                    <p><b>Styliser les points</b></p>
+                    <p>Par défault, vos points s'affiche avec un marqueur bleu. Si l'on souhaite personnaliser sa
+                        carte il est possible de remplacer ces marqueurs par une image de votre choix.
                         <br>
-                        <p>Nous allons ajouter les éléments de personnalisation (adresse de l'image et taille, en
-                            pixels, de celle-ci) dans une variable appelée styleIcon :</p>
-                        <pre><code class="language-javascript line-numbers">var styleIcon = L.icon({ iconUrl: 'mon_icon.png', iconSize: [15,20]</code></pre>
+                        La structure générale du code reste semblable, nous allons juste ajouter quelques éléments.
                         <br>
-                        <p><B>Appel des données</B>
-                            Précédemment nous avons utilisé la commande suivante pour afficher notre fichier de points :
-                        </p>
-                        <pre><code
-                                class="language-javascript line-numbers">L.geoJson(data_point).addTo(map);</code></pre>
                         <br>
-                        <p><B>Affichage des données</B><br>
-                            L'élément de personnalisation va &ecirc;tre ajouté &agrave; l'appel des données sur la
-                            carte. Notre pr&eacutec&eacutedente commande va &ecirc;tre mise &agrave; jour pour
-                            ressembler &agrave; ceci :</p>
-                        <pre><code class="language-javascript line-numbers">L.geoJson(data_point,{
+                        <B>Ajout de l'élément de personnalisation &agrave; partir de la commande d'import des
+                            données :</B></p>
+                    <br>
+                    <pre><code
+                            class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data){;</code></pre>
+                    <br>
+                    <p>Nous allons ajouter les éléments de personnalisation (adresse de l'image et taille, en
+                        pixels, de celle-ci) dans une variable appelée styleIcon :</p>
+                    <pre><code class="language-javascript line-numbers">var styleIcon = L.icon({ iconUrl: 'mon_icon.png', iconSize: [15,20]</code></pre>
+                    <br>
+                    <p><B>Appel des données</B>
+                        Précédemment nous avons utilisé la commande suivante pour afficher notre fichier de points :
+                    </p>
+                    <pre><code
+                            class="language-javascript line-numbers">L.geoJson(data_point).addTo(map);</code></pre>
+                    <br>
+                    <p><B>Affichage des données</B><br>
+                        L'élément de personnalisation va &ecirc;tre ajouté &agrave; l'appel des données sur la
+                        carte. Notre pr&eacutec&eacutedente commande va &ecirc;tre mise &agrave; jour pour
+                        ressembler &agrave; ceci :</p>
+                    <pre><code class="language-javascript line-numbers">L.geoJson(data_point,{
   pointToLayer: function(feature,latlng){
     return L.marker(latlng,{icon: styleIcon});
   }
 }).addTo(map);</code></pre>
-                        <br>
-                        <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                    <br>
+                    <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Style point&lt;/title&gt;
@@ -600,17 +601,17 @@ layers: [osmMap]
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        <br>
-                        <p><b>Styliser les polygones</b></p>
-                        <p>Nous allons afficher les polygones en fonction de la population et y incorporer une popup
-                            indiquant le nombre d'habitant par commune.<br>
-                            La structure générale du code reste semblable, nous allons juste ajouter quelques
-                            éléments.<br></p>
-                        <p><br><B>Affichage des données</B><br></p>
-                        <p>L'élément de personnalisation va &ecirc;tre ajouté &agrave; l'appel des données sur la carte.
-                            Notre pr&eacutec&eacutedente commande va &ecirc;tre mise &agrave; jour pour
-                            ressembler &agrave; ceci :</p>
-                        <pre><code class="language-javascript line-numbers">L.geoJson(poly_data,{
+                    <br>
+                    <p><b>Styliser les polygones</b></p>
+                    <p>Nous allons afficher les polygones en fonction de la population et y incorporer une popup
+                        indiquant le nombre d'habitant par commune.<br>
+                        La structure générale du code reste semblable, nous allons juste ajouter quelques
+                        éléments.<br></p>
+                    <p><br><B>Affichage des données</B><br></p>
+                    <p>L'élément de personnalisation va &ecirc;tre ajouté &agrave; l'appel des données sur la carte.
+                        Notre pr&eacutec&eacutedente commande va &ecirc;tre mise &agrave; jour pour
+                        ressembler &agrave; ceci :</p>
+                    <pre><code class="language-javascript line-numbers">L.geoJson(poly_data,{
 style: function(feature){
  var fillColor, 
    pop = feature.properties.DENSITE;
@@ -626,15 +627,15 @@ onEachFeature: function(feature, layer){
  layer.bindPopup("<strong>" + feature.properties.NOM_COM + "</strong><br/>" + feature.properties.POPULATION + " habitants" +"<br>"+ feature.properties.DENSITE + " habitants/kmҢ)
  }
 }).addTo(map);</code></pre>
-                        <br>
-                        <p>Nous avons défini différents seuils, sous forme conditionnelle, pour permettre un affichage
-                            dans un dégradé de couleurs. Puis avons défini l'affichage de la popup d'information
-                            (explication dans la section du dessous : <i>Intéragir avec mes données 2...</i>)..</p>
-                        <br>
-                        <br>
-                        <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                    <br>
+                    <p>Nous avons défini différents seuils, sous forme conditionnelle, pour permettre un affichage
+                        dans un dégradé de couleurs. Puis avons défini l'affichage de la popup d'information
+                        (explication dans la section du dessous : <i>Intéragir avec mes données 2...</i>)..</p>
+                    <br>
+                    <br>
+                    <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Style polygone&lt;/title&gt;
@@ -680,79 +681,79 @@ onEachFeature: function(feature, layer){
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        <br>
-                        <div class="col-md-12 row" id="bloc1">
-                            <div class="col-xs-6 col-lg-3">
-                                <p class="text-center">
+                    <br>
+                    <div class="col-md-12 row" id="bloc1">
+                        <div class="col-xs-6 col-lg-3">
+                            <p class="text-center">
                                 <a href="resources/webmap_code04a.html" download="webmap_code04a.html"
-                                           target="_blank" style="color: black" data-toggle="collapse"
-                                           data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez le code (points)</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-3" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/webmap_code04b.html" download="webmap_code04b.html"
-                                           target="_blank" style="color: black" data-toggle="collapse"
-                                           data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez le code (polyognes)</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-3" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/data/webmap_data_point.geojson"
-                                           download="webmap_data_point.geojson" target="_blank" style="color: black"
-                                           data-toggle="collapse" data-target=".navbar-collapse.in"><i
-                                        class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez la données (points)</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-3" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/data/webmap_data_polygone.geojson"
-                                           download="webmap_data_polygone.geojson" target="_blank" style="color: black"
-                                           data-toggle="collapse" data-target=".navbar-collapse.in"><i
-                                        class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez la données (polygones)</b>
-                                </p>
-                            </div>
+                                   target="_blank" style="color: black" data-toggle="collapse"
+                                   data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez le code (points)</b>
+                            </p>
                         </div>
-                        <p><br><B>Pour résumer ...</B></p>
-                        <br>
-                        <p>Par ces deux exemples, nous avons observé comment changer de marker pour personnaliser
-                            l'affichage d'un fichier de points et comment afficher un dégradé de couleur en fonction
-                            d'une variable &agrave; partir de la table attributaire d'un fichier de
-                            polygones..Maintenant notre fichier de polygone s'affiche en fonction des informations
-                            contenue dans la table attributaire du fichier d'origine.
-                            <br>
-                            A partir de maintenant, vous pouvez laisser libre cours &agrave; votre imagination
-                            pour &ecirc;tre créatif et insérer n'importe quelle image en fonction de votre projet.</p>
+                        <div class="col-xs-6 col-lg-3" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/webmap_code04b.html" download="webmap_code04b.html"
+                                   target="_blank" style="color: black" data-toggle="collapse"
+                                   data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez le code (polyognes)</b>
+                            </p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/data/webmap_data_point.geojson"
+                                   download="webmap_data_point.geojson" target="_blank" style="color: black"
+                                   data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                                        class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez la données (points)</b>
+                            </p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/data/webmap_data_polygone.geojson"
+                                   download="webmap_data_polygone.geojson" target="_blank" style="color: black"
+                                   data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                                        class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez la données (polygones)</b>
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="va-slice va-slice-5">
-                    <h3 class="va-title">Intéraction (1)...</h3>
-                    <div class="va-content">
-                        <p>L'avantage majeur des cartes en ligne réside dans la possibilité d'interagir avec. Dans
-                            l'exemple ci-dessus nous avons déj&agrave; intégré cette fonction, nous allons ici en
-                            expliquer la procédure en affichant une <i>popup</i> portant le numéro de chaque site et ses
-                            coordonn&eacutes.
-                            <br> Le résultat doit s'approcher de cet exemple : <br></p>
-                        <iframe src="http://www.webarmature.fr/resources/lab03_code_interactionpoints.html" width="100%"
-                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <p><br><B>Pour résumer ...</B></p>
+                    <br>
+                    <p>Par ces deux exemples, nous avons observé comment changer de marker pour personnaliser
+                        l'affichage d'un fichier de points et comment afficher un dégradé de couleur en fonction
+                        d'une variable &agrave; partir de la table attributaire d'un fichier de
+                        polygones..Maintenant notre fichier de polygone s'affiche en fonction des informations
+                        contenue dans la table attributaire du fichier d'origine.
                         <br>
-                        <p><B>Ajout de la popup sur le fichier de points</B></p>
-                        <br>$<p>Nous avons utilisé cette fonction pour ajouter notre fichier de points sur la carte
-                        :</p>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
+                        A partir de maintenant, vous pouvez laisser libre cours &agrave; votre imagination
+                        pour &ecirc;tre créatif et insérer n'importe quelle image en fonction de votre projet.</p>
+                </div>
+            </div>
+
+            <div class="va-slice va-slice-5">
+                <h3 class="va-title">Intéraction (1)...</h3>
+                <div class="va-content">
+                    <p>L'avantage majeur des cartes en ligne réside dans la possibilité d'interagir avec. Dans
+                        l'exemple ci-dessus nous avons déj&agrave; intégré cette fonction, nous allons ici en
+                        expliquer la procédure en affichant une <i>popup</i> portant le numéro de chaque site et ses
+                        coordonn&eacutes.
+                        <br> Le résultat doit s'approcher de cet exemple : <br></p>
+                    <iframe src="http://www.webarmature.fr/resources/lab03_code_interactionpoints.html" width="100%"
+                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <br>
+                    <p><B>Ajout de la popup sur le fichier de points</B></p>
+                    <br>$<p>Nous avons utilisé cette fonction pour ajouter notre fichier de points sur la carte
+                    :</p>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
       var styleIcon = L.icon({
       iconUrl: 'icon.png',
       iconSize: [15,20]
@@ -764,48 +765,50 @@ onEachFeature: function(feature, layer){
     }).addTo(map);</code></pre>
 
 
-                        <br>
-                        <p>Nous allons ici, uniquement, modifier la partie contenue dans <br></p>
-                        <pre><code class="language-javascript line-numbers">L.geoJson(data_point,{
+                    <br>
+                    <p>Nous allons ici, uniquement, modifier la partie contenue dans <br></p>
+                    <pre><code class="language-javascript line-numbers">L.geoJson(data_point,{
       pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: styleIcon});
       }
     }).addTo(map);</code></pre>
+                    <br>
+                    <p>Pour définir l'affichage de la <i>popup</i>.
                         <br>
-                        <p>Pour définir l'affichage de la <i>popup</i>.
-                            <br>
-                            L'ajout de cette fonction est relativement simple, il s'agira d'ajouter un argument <i>bindPopup</i>
-                            pour permettre l'intereaction avec les points. <br> A partir de la table attributaire de la
-                            donnée nous souhaitons afficher le nom de site (SiteName) et ses coordonnées <i>x ; y</i>.
-                            <br> Pour cela :</p>
-                        <pre><code class="language-javascript line-numbers">marker.bindPopup(
+                        L'ajout de cette fonction est relativement simple, il s'agira d'ajouter un argument
+                        <i>bindPopup</i>
+                        pour permettre l'intereaction avec les points. <br> A partir de la table attributaire de la
+                        donnée nous souhaitons afficher le nom de site (SiteName) et ses coordonnées <i>x ; y</i>.
+                        <br> Pour cela :</p>
+                    <pre><code class="language-javascript line-numbers">marker.bindPopup(
     'Site name : ' + feature.properties.SiteName + '' + 
     'Long. : ' + feature.properties.XCOORD + '' + 
     'Lat. : ' + feature.properties.YCOORD
     );</code></pre>
-                        <br>
-                        <p>Les param&egrave;tres renseignés dans <i>marker.bindPopup</i> permettent d'afficher sur une 1&egrave;re
-                            ligne le nom de site, sur une seconde la longitude et sur la derni&egrave; la latitude du
-                            point.<br>
-                            La premi&egrave;re partie dans les '' permet de définir ce qui va s'afficher dans la <i>popup</i>
-                            (ici ; SiteName). Le "+" indique qu'une information arrive &agrave; la suite. <i>feature.properties.SiteName</i>
-                            quand &agrave; lui, retourne la valeur correspondante au point sélectionné. <br><br>
-                            Ensuite il ne reste plus qu'&agrave; permettre l'affichage de la <i>popup</i> de cette mani&egrave;re
-                            :</p>
-                        <pre><code class="language-javascript line-numbers">return marker;</code></pre>
-                        <br>
-                        <p>La partie du code adaptée doit maintenant ressembler &agrave; ceci :</p>
-                        <pre><code class="language-javascript line-numbers">pointToLayer: function(feature,latlng){
+                    <br>
+                    <p>Les param&egrave;tres renseignés dans <i>marker.bindPopup</i> permettent d'afficher sur une 1&egrave;re
+                        ligne le nom de site, sur une seconde la longitude et sur la derni&egrave; la latitude du
+                        point.<br>
+                        La premi&egrave;re partie dans les '' permet de définir ce qui va s'afficher dans la
+                        <i>popup</i>
+                        (ici ; SiteName). Le "+" indique qu'une information arrive &agrave; la suite. <i>feature.properties.SiteName</i>
+                        quand &agrave; lui, retourne la valeur correspondante au point sélectionné. <br><br>
+                        Ensuite il ne reste plus qu'&agrave; permettre l'affichage de la <i>popup</i> de cette mani&egrave;re
+                        :</p>
+                    <pre><code class="language-javascript line-numbers">return marker;</code></pre>
+                    <br>
+                    <p>La partie du code adaptée doit maintenant ressembler &agrave; ceci :</p>
+                    <pre><code class="language-javascript line-numbers">pointToLayer: function(feature,latlng){
   var marker = L.marker(latlng,{icon: styleIcon});
   marker.bindPopup('Site name : ' + feature.properties.SiteName + '' + 
       'Long. : ' + feature.properties.XCOORD + '' + 
       'Lat. : ' + feature.properties.YCOORD);
   return marker;
 } </code></pre>
-                        <br>
-                        <p>et de fait, l'ensemble du code : </p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">
+                    <br>
+                    <p>et de fait, l'ensemble du code : </p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
@@ -852,66 +855,66 @@ onEachFeature: function(feature, layer){
 &lt;/html&gt;</code></pre>
 
 
-                        <div class="col-md-12 row" id="bloc1">
-                            <div class="col-xs-6 col-lg-6">
-                                <p class="text-center">
+                    <div class="col-md-12 row" id="bloc1">
+                        <div class="col-xs-6 col-lg-6">
+                            <p class="text-center">
                                 <a href="resources/webmap_code05.html" download="webmap_code05.html"
-                                           target="_blank" style="color: black" data-toggle="collapse"
-                                           data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez le code</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-6" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/data/webmap_data_point.geojson"
-                                           download="webmap_data_point.geojson" target="_blank" style="color: black"
-                                           data-toggle="collapse" data-target=".navbar-collapse.in"><i
-                                        class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez la données (points)</b>
-                                </p>
-                            </div>
+                                   target="_blank" style="color: black" data-toggle="collapse"
+                                   data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez le code</b>
+                            </p>
                         </div>
-                        <br>
-                        <p><B>Pour résumer ...</B></p>
-                        <p>Nous avons ajouté &agrave; notre carte du dynamisme par la présence de popup.
-                            <br>
-                            Il est possible d'ajouter encore plus d'information mais aussi de styler la popup en
-                            ajoutant de la couleur, en affichant / masquant un type d'information particulier.Je vous
-                            laisse consulter internet pour trouver des informations sur les autres méthodes.</p>
+                        <div class="col-xs-6 col-lg-6" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/data/webmap_data_point.geojson"
+                                   download="webmap_data_point.geojson" target="_blank" style="color: black"
+                                   data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                                        class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez la données (points)</b>
+                            </p>
+                        </div>
                     </div>
+                    <br>
+                    <p><B>Pour résumer ...</B></p>
+                    <p>Nous avons ajouté &agrave; notre carte du dynamisme par la présence de popup.
+                        <br>
+                        Il est possible d'ajouter encore plus d'information mais aussi de styler la popup en
+                        ajoutant de la couleur, en affichant / masquant un type d'information particulier.Je vous
+                        laisse consulter internet pour trouver des informations sur les autres méthodes.</p>
                 </div>
+            </div>
 
-                <div class="va-slice va-slice-6">
-                    <h3 class="va-title">Intéraction (2)...</h3>
-                    <div class="va-content">
-                        <p>Nous savons afficher une carte, et y insérer des données, pour autant le résultat semble un
-                            petit peu brouillon, du fait du nombre de points &agrave; afficher. Afin de permettre une
-                            meilleure lecture nous allons voir comment grouper automatiquement nos points afni de
-                            permettre un meilleur affichage des données. Ceci en consevant l'affichage des <i>popup</i>
-                            bien sur.
-                            <br> Le résultat doit s'approcher de cet exemple : <br></p>
-                        <iframe src="http://www.webarmature.fr/resources/lab03_code_clusterpoints.html" width="100%"
-                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                        <p>Nous allons utiliser le pluggin <i>Leaflet.markercluster</i> de Leaflet disponible <a
-                                target="_blank"
-                                href="https://github.com/Leaflet/Leaflet.markercluster#all-options">ici</a>. Deux
-                            fichiers sont &agrave; télécharger <B> MarkerCluster.css</B> et <B>MarkerCluster.js</B>
-                            et &agrave; appeler dans le code. <br></p>
-                        <pre><code class="language-markup line-numbers">&lt;link rel="stylesheet" href="MarkerCluster.css" /&gt;
+            <div class="va-slice va-slice-6">
+                <h3 class="va-title">Intéraction (2)...</h3>
+                <div class="va-content">
+                    <p>Nous savons afficher une carte, et y insérer des données, pour autant le résultat semble un
+                        petit peu brouillon, du fait du nombre de points &agrave; afficher. Afin de permettre une
+                        meilleure lecture nous allons voir comment grouper automatiquement nos points afni de
+                        permettre un meilleur affichage des données. Ceci en consevant l'affichage des <i>popup</i>
+                        bien sur.
+                        <br> Le résultat doit s'approcher de cet exemple : <br></p>
+                    <iframe src="http://www.webarmature.fr/resources/lab03_code_clusterpoints.html" width="100%"
+                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    <p>Nous allons utiliser le pluggin <i>Leaflet.markercluster</i> de Leaflet disponible <a
+                            target="_blank"
+                            href="https://github.com/Leaflet/Leaflet.markercluster#all-options">ici</a>. Deux
+                        fichiers sont &agrave; télécharger <B> MarkerCluster.css</B> et <B>MarkerCluster.js</B>
+                        et &agrave; appeler dans le code. <br></p>
+                    <pre><code class="language-markup line-numbers">&lt;link rel="stylesheet" href="MarkerCluster.css" /&gt;
 &lt;script src="MarkerCluster.js"&gt;&lt;/script&gt;</code></pre>
-                        <br>
-                        <p>L'utilisation de ce pluggin est <i>relativement simple</i> si l'on se base sur le dernier
-                            exemple utilisé.<br>
-                            nous créons une nouvelle variable <i>cluster</i> dans laquelle nous allons appeler nos
-                            données sous forme de variable.<br>
-                            Si l'on reprend la partie de code de l'exemple précédent, nous nous somme arr&ecirc;té ici :
-                        </p>
-                        <br>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
+                    <br>
+                    <p>L'utilisation de ce pluggin est <i>relativement simple</i> si l'on se base sur le dernier
+                        exemple utilisé.<br>
+                        nous créons une nouvelle variable <i>cluster</i> dans laquelle nous allons appeler nos
+                        données sous forme de variable.<br>
+                        Si l'on reprend la partie de code de l'exemple précédent, nous nous somme arr&ecirc;té ici :
+                    </p>
+                    <br>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
     var styleIcon = L.icon({
     iconUrl: 'icon.png',
     iconSize: [15,20]
@@ -929,11 +932,11 @@ onEachFeature: function(feature, layer){
  });</code></pre>
 
 
-                        <p>Une premi&egrave;re étape consiste &agrave; définir notre jeu de donn&eacutees en tant que
-                            variable. Pour cel&agrave, il suffit de placer <i>var data_point =</i> devant <i>L.geoJson(data_point,{</i>
-                            et de supprimer l'argument <i>.addTo(map);</i>.</p>
-                        <br>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("data.geojson",function(data){
+                    <p>Une premi&egrave;re étape consiste &agrave; définir notre jeu de donn&eacutees en tant que
+                        variable. Pour cel&agrave, il suffit de placer <i>var data_point =</i> devant <i>L.geoJson(data_point,{</i>
+                        et de supprimer l'argument <i>.addTo(map);</i>.</p>
+                    <br>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("data.geojson",function(data){
   var styleIcon = L.icon({
     iconUrl: 'icon.png',
     iconSize: [15,20]
@@ -948,20 +951,20 @@ onEachFeature: function(feature, layer){
   return marker;
    }
   });</code></pre>
-                        <br>
-                        <p>Maintenant, nous créons une variable <i>cluters</i> :</p>
-                        <br>
-                        <pre><code
-                                class="language-javascript line-numbers">var clusters = L.markerClusterGroup();</code></pre>
-                        <br>
-                        <p>Dans laquelle nous ajoutons nos donn&eacutees : </p>
-                        <pre><code class="language-javascript line-numbers">clusters.addLayer(data_point);</code></pre>
-                        <br>
-                        <p>Que nous ajoutons &agrave; la carte :</p>
-                        <pre><code class="language-javascript line-numbers">map.addLayer(clusters);</code></pre>
-                        <br>
-                        <p>La mise &agrave; du bloc de donn&eacutees doit ressembler &agrave; ceci : </p>
-                        <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
+                    <br>
+                    <p>Maintenant, nous créons une variable <i>cluters</i> :</p>
+                    <br>
+                    <pre><code
+                            class="language-javascript line-numbers">var clusters = L.markerClusterGroup();</code></pre>
+                    <br>
+                    <p>Dans laquelle nous ajoutons nos donn&eacutees : </p>
+                    <pre><code class="language-javascript line-numbers">clusters.addLayer(data_point);</code></pre>
+                    <br>
+                    <p>Que nous ajoutons &agrave; la carte :</p>
+                    <pre><code class="language-javascript line-numbers">map.addLayer(clusters);</code></pre>
+                    <br>
+                    <p>La mise &agrave; du bloc de donn&eacutees doit ressembler &agrave; ceci : </p>
+                    <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
   var styleIcon = L.icon({
     iconUrl: 'icon.png',
     iconSize: [15,20]
@@ -980,11 +983,11 @@ onEachFeature: function(feature, layer){
   clusters.addLayer(data_point);
   map.addLayer(clusters);
  });</code></pre>
-                        <br>
-                        <p>Nous obtenons maintenant une carte avec l'ensemble de nos points proches groupés en fonction
-                            du niveau de zoom de la carte : </p>
-                        <br>
-                        <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+                    <br>
+                    <p>Nous obtenons maintenant une carte avec l'ensemble de nos points proches groupés en fonction
+                        du niveau de zoom de la carte : </p>
+                    <br>
+                    <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Cluster&lt;/title&gt;
@@ -1032,60 +1035,59 @@ onEachFeature: function(feature, layer){
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        <div class="col-md-12 row" id="bloc1">
-                            <div class="col-xs-6 col-lg-4">
-                                <p class="text-center">
+                    <div class="col-md-12 row" id="bloc1">
+                        <div class="col-xs-6 col-lg-4">
+                            <p class="text-center">
                                 <a href="resources/webmap_code06.html" download="webmap_code06.html"
-                                           target="_blank" style="color: black" data-toggle="collapse"
-                                           data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Téléchargez le code</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-4" id="bloc1">
-                                <p class="text-center">
-                                <a href="resources/data/webmap_data_point.geojson"
-                                           download="webmap_data_point.geojson" target="_blank" style="color: black"
-                                           data-toggle="collapse" data-target=".navbar-collapse.in"><i
-                                        class="fa fa-cloud-download fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                <b>Téléchargez la données (points)</b>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 col-lg-4" id="bloc1">
-                                <p class="text-center">
-                                <a href="https://github.com/Leaflet/Leaflet.markercluster" target="_blank"
-                                           style="color: black" data-toggle="collapse"
-                                           data-target=".navbar-collapse.in"><i class="fa fa-github fa-5x"></i></a>
-                                </p>
-                                <p class="text-center">
-                                    <b>Dép&ocirc;t GitHub (Markercluster)</b>
-                                </p>
-                            </div>
+                                   target="_blank" style="color: black" data-toggle="collapse"
+                                   data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez le code</b>
+                            </p>
                         </div>
-                        <br>
-                        <p><B>Pour résumer ...</B>
-                            <br>
-                            La fonction <i>MarkerCluster</i> permet de regrouper un ensemble de points afin de permettre
-                            une meilleure visibilité lorsque nous avons de nombreux points &agrave; afficher sur la
-                            carte, permettant d'ajouter du dynamisme &agrave; notre carte.</p>
+                        <div class="col-xs-6 col-lg-4" id="bloc1">
+                            <p class="text-center">
+                                <a href="resources/data/webmap_data_point.geojson"
+                                   download="webmap_data_point.geojson" target="_blank" style="color: black"
+                                   data-toggle="collapse" data-target=".navbar-collapse.in"><i
+                                        class="fa fa-cloud-download fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Téléchargez la données (points)</b>
+                            </p>
+                        </div>
+                        <div class="col-xs-6 col-lg-4" id="bloc1">
+                            <p class="text-center">
+                                <a href="https://github.com/Leaflet/Leaflet.markercluster" target="_blank"
+                                   style="color: black" data-toggle="collapse"
+                                   data-target=".navbar-collapse.in"><i class="fa fa-github fa-5x"></i></a>
+                            </p>
+                            <p class="text-center">
+                                <b>Dép&ocirc;t GitHub (Markercluster)</b>
+                            </p>
+                        </div>
                     </div>
+                    <br>
+                    <p><B>Pour résumer ...</B>
+                        <br>
+                        La fonction <i>MarkerCluster</i> permet de regrouper un ensemble de points afin de permettre
+                        une meilleure visibilité lorsque nous avons de nombreux points &agrave; afficher sur la
+                        carte, permettant d'ajouter du dynamisme &agrave; notre carte.</p>
                 </div>
+            </div>
 
-                <div class="va-slice va-slice-7">
-                    <h3 class="va-title">Ressources externes</h3>
-                    <div class="va-content">
-                        <p>Quelques ressources externes</p>
-                        <br>
-                        <p>
-                            <a target="_blank" href="http://leafletjs.com/examples.html">Tutoriels Leaflet</a><br>
-                            <a target="_blank" href="http://getbootstrap.com">Bootstrap</a><br>
-                            <a target="_blank" href="https://leaflet-extras.github.io/leaflet-providers/preview">Fond de
-                                carte</a><br>
-                        </p>
-                    </div>
+            <div class="va-slice va-slice-7">
+                <h3 class="va-title">Ressources externes</h3>
+                <div class="va-content">
+                    <p>Quelques ressources externes</p>
+                    <br>
+                    <p>
+                        <a target="_blank" href="http://leafletjs.com/examples.html">Tutoriels Leaflet</a><br>
+                        <a target="_blank" href="http://getbootstrap.com">Bootstrap</a><br>
+                        <a target="_blank" href="https://leaflet-extras.github.io/leaflet-providers/preview">Fond de
+                            carte</a><br>
+                    </p>
                 </div>
             </div>
         </div>

@@ -10,24 +10,6 @@ body{
 	font-size:12px;
 }
 
-
-.fix{
-    width:100%;height:100%;
-    position: fixed;
-    margin-bottom:40px;
-    top:0;
-    z-index: 1;
-    background-image: url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
-}
-.fixed{
- position:fixed;
- top:0;
- z-index: 1;
- width:100%;
- height:100%;
- background-image:url(../../media/other/background_lyon.jpg) no-repeat center center fixed;
-}
-
 .panel-group{
 	position: relative;
 	margin: 40px auto 0 auto;
