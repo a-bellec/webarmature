@@ -38,6 +38,10 @@
     background: #000 url(../../media/other/333.jpg) no-repeat center center;
 }
 
+.accordion4{
+    background:#000 url(../../media/other/444.jpg) no-repeat center center;
+}
+
 .panel-body p{
     font-size: 22px;
     font-style: italic;
