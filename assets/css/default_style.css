@@ -33,3 +33,22 @@ body{
     margin-top: 50px;
     color: #FFFFFF;
 }
+
+.bloc1 {
+    background-color:rgba(156, 156, 156,0.7);
+    border-radius: 25px;
+}
+
+.bloc2 {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 25px;
+}
+
+.clr{
+    clear:both;
+}
+
+.content {
+    width:1000px;
+    margin:0 auto;
+}
