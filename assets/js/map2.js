@@ -113,7 +113,8 @@ var Lscan50_70 = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
 var Lscan50_80 = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
 	layers: 'scan50_all_1980_clip',
 	transparent: true,
-	attribution: 'Ann&#233;e : 1980 - &copy; <a href="http://ign.fr/"> Scan 50 1980</a>'});	
+	attribution: 'Ann&#233;e : 1980 - &copy; <a href="http://ign.fr/"> Scan 50 1980</a>'});
+
 var popup = L.popup();
 
 map1.zoomControl.setPosition('topright');
