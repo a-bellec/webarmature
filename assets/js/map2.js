@@ -41,7 +41,7 @@ var ROSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
     //Create the new layer
-    var layerName = this.id;
+    var layerName = this.value;
     var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
         layers: layerName,
         transparent: true
