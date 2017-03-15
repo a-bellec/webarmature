@@ -1,0 +1,53 @@
+.mapImage {
+    position: relative;
+}
+
+.webarmature {
+    z-index: 0;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    background: #fff;
+    opacity: 0.85;
+    border-radius: 2px;
+    width: 50%;
+    height: 20%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #000;
+    z-index: 1;
+    margin-top: 20%;
+    margin-left: -70%;
+}
+
+#simpleView:before{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.webarmature:hover + #simpleView {
+    display: inline-block;
+}
+
+#simpleView:hover{
+    display: inline-block;
+}
+
+#doubleView:before{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.webarmature:hover + #doubleView{
+    display: inline-block;
+}
+
+#doubleView:hover{
+    display: inline-block;
+}
