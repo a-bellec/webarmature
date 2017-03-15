@@ -3,8 +3,12 @@
 .panel-group{
     position: relative;
     margin: 40px auto 0 auto;
-    margin-top: 200px;
-}
+    margin-top: 200px;}
+    @media(min-width: 1000px){
+        .panel-group{
+            width:1000px;
+        }
+    }
 
 .panel{
     width: 100%;
