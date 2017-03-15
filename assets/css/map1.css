@@ -15,9 +15,3 @@ label {
     position: absolute;
     z-index: 9000;
 }
-
-.sidebar {
-    top: 50px;  }
-@media (min-width: 768px) {
-    .sidebar {
-        top: 60px;  } }

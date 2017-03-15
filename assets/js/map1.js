@@ -14,7 +14,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var popup = L.popup();
 
-map1.zoomControl.setPosition('topleft');
+map1.zoomControl.setPosition('topright');
 
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
