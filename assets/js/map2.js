@@ -60,6 +60,8 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                 }
             ).addTo(map1);
         }
+        map1.sync(map2, {syncCursor: true});
+        map2.sync(map1, {syncCursor: true});
     }
     //If checking right group
     else if(this.checked && this.name == "GroupedSwitchesR"){
@@ -73,6 +75,8 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                 }
             ).addTo(map2);
         }
+        map1.sync(map2, {syncCursor: true});
+        map2.sync(map1, {syncCursor: true});
     }
 });
 
