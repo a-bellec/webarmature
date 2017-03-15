@@ -4,13 +4,13 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.container {
     color:#fff;
     font-family: 'PT Sans Narrow', Arial, sans-serif;
     font-size:14px;
     overflow:auto;
-}
-
-.container {
     width:100%;
     position:relative;
     z-index:80;

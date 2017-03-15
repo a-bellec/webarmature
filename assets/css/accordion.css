@@ -15,6 +15,9 @@
 .panel-body{
     height: 400px;
     overflow-y: auto;
+    font-size: 22px;
+    font-style: italic;
+    font-family: Georgia, serif;
 }
 
 .panel-title {
@@ -42,12 +45,6 @@
     background:#000 url(../../media/other/444.jpg) no-repeat center center;
 }
 
-.panel-body p{
-    font-size: 22px;
-    font-style: italic;
-    font-family: Georgia, serif;
-}
-
 .panel-body ul {
     margin-top: 20px;
 }
@@ -60,5 +57,4 @@
 .panel-body a {
     color: #fff;
     padding: 3px 6px;
-    text-transform: uppercase;
 }
