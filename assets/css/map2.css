@@ -1,18 +1,18 @@
 label {
-  font-weight: normal;
-  margin-bottom: 1em;
+    font-weight: normal;
+    margin-bottom: 1em;
 }
 
-.map{
-	float: left;
-	position:absolute;
-	left:0;
-	right:50%;
-	top:50px;
-	bottom:0;
+.map {
+    float: left;
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: 50px;
+    bottom: 0;
     width: 49.9%;
 }
 
 #map2 {
-    left:50%;
+    left: 50%;
 }

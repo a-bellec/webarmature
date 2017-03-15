@@ -1,18 +1,23 @@
-#map1{
-	position:absolute;
-	top:50px;
-	bottom:0;
-	width: 100%;	
-}
-
-#selector_menu1{
-	position: absolute;
-	z-index: 9000;
-}
-
 label {
-	font-weight: normal;
-	margin-bottom: 1em;
+    font-weight: normal;
+    margin-bottom: 1em;
 }
 
-	
+#map1 {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    width: 100%;
+}
+
+#selector_menu1 {
+    position: absolute;
+    z-index: 9000;
+}
+
+.sidebar {
+    top: 50px;  }
+@media (min-width: 768px) {
+    .sidebar {
+        top: 60px;  } }

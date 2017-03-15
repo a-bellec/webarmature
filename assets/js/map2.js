@@ -102,13 +102,13 @@ L.popup();
 
 //Collapse and put inactive the selected element of the other sidebar on click
 $("#sidebar_right").click(function(){
-   $("#sidebar_left").addClass("collapsed");
-   $("#sidebar_left-elements").find("li").each(function(){
+   $("#sidebar").addClass("collapsed");
+   $("#sidebar-elements").find("li").each(function(){
         $(this).removeClass("active");
    });
 });
 
-$("#sidebar_left").click(function(){
+$("#sidebar").click(function(){
     $("#sidebar_right").addClass("collapsed");
     $("#sidebar_right-elements").find("li").each(function(){
         $(this).removeClass("active");
