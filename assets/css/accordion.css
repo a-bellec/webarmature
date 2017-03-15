@@ -54,7 +54,12 @@
     margin: 2px;
 }
 
-.panel-body a {
+.panel-body a:link {
     color: #fff;
     padding: 3px 6px;
+    text-decoration: underline;
+}
+
+.panel-body a:link:hover {
+    color: #2b7eee;
 }
