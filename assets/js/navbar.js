@@ -17,7 +17,7 @@ document.getElementById("navMenu").innerHTML =
                         '<li> <a href="partners.html" style="color: white"> <i class="fa fa-users fontawesome" style="color: white"> </i> Partenaires </a> </li>' +
                         '<li> <a href="map.html" style="color: white"> <i class="fa fa-map" style="color: white"> </i> Cartes </a></li>' +
                     '<li class="dropdown">' +
-                        '<a role="button" style="color: white" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flask" style="color: white"> </i> &nbsp;&nbsp;Lab <b class="caret"></b> </a>' +
+                        '<a role="button" style="color: white" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flask" style="color: white"> </i> Lab <b class="caret"></b> </a>' +
                         '<ul class="dropdown-menu">' +
                             '<li> <a href="lab01.html" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"> <i class="fa fa-wrench"> </i> Géoportail</a> </li>' +
                             '<li> <a href="lab02.html" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"> <i class="fa fa-wrench"> </i> Assemblage pseudo-ortho</a> </li>' +
