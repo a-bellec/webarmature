@@ -1,7 +1,5 @@
 document.getElementById("navMenu").innerHTML =
-    '<!--.navbar-navigation -->' +
-    '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">' +
-        '<!--.container-fluid -->' +
+    '<nav class="navbar navbar-inverse navbar-fixed-top">' +
         '<div class="container-fluid">' +
             '<div class="navbar-header">' +
                 '<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">' +
@@ -12,8 +10,7 @@ document.getElementById("navMenu").innerHTML =
                 '</button>' +
                 '<a href="index.html" class="navbar-brand">Armature</a>' +
             '</div>' +
-            '<!--.navbar-collapse -->' +
-            '<div class="navbar-collapse collapse">' +
+            '<div class="navbar-collapse collapse" id="navbarCollapse">' +
                 '<ul class="nav navbar-nav">' +
                         '<li> <a href="about.html" style="color: white"> <i class="fa fa-question-circle" style="color: white"> </i> &nbsp;&nbsp;A propos </a> </li>' +
                         '<li> <a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn" style="color: white"> <i class="fa fa-envelope"> </i> &nbsp;&nbsp;Contact </a> </li>' +
@@ -30,10 +27,9 @@ document.getElementById("navMenu").innerHTML =
                         '</ul>' +
                     '</li>' +
                 '</ul>' +
-            '</div><!--/.navbar-collapse -->' +
-        '</div><!--/.container-fluid -->' +
-    '</div>' +
-    '<!--/.navbar-navigation -->';
+            '</div>' +
+        '</div>' +
+    '</nav>';
 
 document.getElementById("contactMenu").innerHTML =
     '<!-- mailling box -->'+
