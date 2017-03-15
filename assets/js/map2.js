@@ -47,34 +47,38 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
         transparent: true
     });
 
-    //If checking left group
-    if (this.checked && this.name == "GroupedSwitchesL") {
-        removeAllMap1Layers();
-        //Every map has the same structure except the default one. Make sure you don't have the default one selected
-        if (layerName != "LOSM") {
-            map1.addLayer(layer);
+    if(this.checked){
+
+        //If checking left group
+        if (this.name == "GroupedSwitchesL") {
+            removeAllMap1Layers();
+            //Every map has the same structure except the default one. Make sure you don't have the default one selected
+            if (layerName != "LOSM") {
+                map1.addLayer(layer);
+            }
+            else {
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    }
+                ).addTo(map1);
+            }
+            map1.sync(map2, {syncCursor: true});
+            map2.sync(map1, {syncCursor: true});
         }
-        else {
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                }
-            ).addTo(map1);
+        //If checking right group
+        else if(this.name == "GroupedSwitchesR"){
+            removeAllMap2Layers();
+            if (layerName != "ROSM") {
+                map2.addLayer(layer);
+            }
+            else {
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    }
+                ).addTo(map2);
+            }
         }
-        map1.sync(map2, {syncCursor: true});
-        map2.sync(map1, {syncCursor: true});
-    }
-    //If checking right group
-    else if(this.checked && this.name == "GroupedSwitchesR"){
-        removeAllMap2Layers();
-        if (layerName != "ROSM") {
-            map2.addLayer(layer);
-        }
-        else {
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                }
-            ).addTo(map2);
-        }
+
         map1.sync(map2, {syncCursor: true});
         map2.sync(map1, {syncCursor: true});
     }
