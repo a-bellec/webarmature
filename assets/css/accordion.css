@@ -63,3 +63,7 @@
 .panel-body a:link:hover {
     color: #2b7eee;
 }
+
+.panel-title a:focus, a:hover{
+    text-decoration: none;
+}
