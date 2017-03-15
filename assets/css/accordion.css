@@ -12,12 +12,18 @@
     left: 0;
 }
 
-.panel-body{
+.panel-collapse{
     height: 400px;
     overflow-y: auto;
+}
+
+.panel-body{
     font-size: 22px;
     font-style: italic;
     font-family: Georgia, serif;
+    background-color: rgba(99, 99, 99, 0.7);
+    border-radius: 2em;
+    margin: 1em;
 }
 
 .panel-title {
@@ -61,7 +67,7 @@
 }
 
 .panel-body a:link:hover {
-    color: #2b7eee;
+    color: #484aee;
 }
 
 .panel-title a:focus, a:hover{
