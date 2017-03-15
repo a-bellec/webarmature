@@ -12,13 +12,14 @@ document.getElementById("navMenu").innerHTML =
             '</div>' +
             '<div class="navbar-collapse collapse" id="navbarCollapse">' +
                 '<ul class="nav navbar-nav">' +
-                        '<li> <a href="about.html" style="color: white"> <i class="fa fa-question-circle" style="color: white"> </i> À propos </a> </li>' +
-                        '<li> <a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn" style="color: white"> <i class="fa fa-envelope"> </i> Contact </a> </li>' +
-                        '<li> <a href="partners.html" style="color: white"> <i class="fa fa-users fontawesome" style="color: white"> </i> Partenaires </a> </li>' +
-                        '<li> <a href="map.html" style="color: white"> <i class="fa fa-map" style="color: white"> </i> Cartes </a></li>' +
+                        '<li> <a href="about.html"> <i class="fa fa-question-circle"> </i> À propos </a> </li>' +
+                        '<li> <a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"> <i class="fa fa-envelope"> </i> Contact </a> </li>' +
+                        '<li> <a href="partners.html"> <i class="fa fa-users fontawesome"> </i> Partenaires </a> </li>' +
+                        '<li> <a href="map.html"> <i class="fa fa-map"> </i> Cartes </a></li>' +
                     '<li class="dropdown">' +
-                        '<a role="button" style="color: white" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flask" style="color: white"> </i> Lab <b class="caret"></b> </a>' +
+                        '<a role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flask"> </i> Lab <b class="caret"></b> </a>' +
                         '<ul class="dropdown-menu">' +
+                            '<li> <a href="lab00.html" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"> <i class="fa fa-wrench"> </i> Menu des labs</a> </li>' +
                             '<li> <a href="lab01.html" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"> <i class="fa fa-wrench"> </i> Géoportail</a> </li>' +
                             '<li> <a href="lab02.html" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"> <i class="fa fa-wrench"> </i> Assemblage pseudo-ortho</a> </li>' +
                             '<li> <a href="lab03.html" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"> <i class="fa fa-wrench"> </i> Classification</a> </li>' +
