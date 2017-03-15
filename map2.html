@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Cartographie en ligne issue du projet de recherche ARMATURE">
     <meta name="author" content="Arnaud BELLEC">
-    <meta name="keywords" content="armature, trame verte, v�g�tation, Lyon, g�ographie">
+    <meta name="keywords" content="armature, trame verte, végétation, Lyon, géographie">
     <title>Armature</title>
 
     <!-- Core  -->
@@ -28,6 +28,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/default_style.css">
     <link rel="stylesheet" href="assets/css/map2.css"/>
+    <link rel="stylesheet" href="assets/leaflet-sidebar/css/leaflet-sidebar_left.css"/>
+    <link rel="stylesheet" href="assets/leaflet-sidebar/css/leaflet-sidebar_right.css"/>
     <link rel="icon" type="image/ico" href="media/logo/favicon.png"/>
 
     <!--/link-->
@@ -41,7 +43,7 @@
 <div id="contactMenu"></div>
 
 <div>
-    <div id="map1">
+    <div class="map" id="map1">
         <div id="sidebar_left" class="sidebar_left collapsed">
             <!-- Nav tabs -->
             <div class="sidebar_left-tabs">
@@ -167,7 +169,7 @@
         </div>
     </div>
 
-    <div id="map2">
+    <div class="map" id="map2">
         <div id="sidebar_right" class="sidebar_right collapsed">
             <!-- Nav tabs -->
             <div class="sidebar_right-tabs">
@@ -291,7 +293,7 @@
         </div>
     </div>
 
-    <!-- stay here # DON'T MOOVE -->
+    <!-- stay here # DON'T MOVE -->
     <script src="assets/js/sync_map.js"></script>
     <!-- /stay here -->
 </div>
