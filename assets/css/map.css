@@ -20,6 +20,8 @@
     z-index: 1;
     margin-top: 20%;
     margin-left: -70%;
+    justify-content:center;
+    align-items:center;
 }
 
 #simpleView:before{
@@ -30,11 +32,11 @@
 }
 
 .webarmature:hover + #simpleView {
-    display: inline-block;
+    display: inline-flex;
 }
 
 #simpleView:hover{
-    display: inline-block;
+    display: inline-flex;
 }
 
 #doubleView:before{
@@ -45,9 +47,9 @@
 }
 
 .webarmature:hover + #doubleView{
-    display: inline-block;
+    display: inline-flex;
 }
 
 #doubleView:hover{
-    display: inline-block;
+    display: inline-flex;
 }
