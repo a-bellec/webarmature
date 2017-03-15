@@ -29,3 +29,7 @@
 .dropdown-menu{
 	width: 15em;
 }
+
+.navbar-collapse{
+	background-color: #000000;
+}
