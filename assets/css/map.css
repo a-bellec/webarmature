@@ -1,9 +1,12 @@
 .mapImage {
     position: relative;
+    margin-bottom: 30px;
 }
 
 .webarmature {
     z-index: 0;
+    width: 90%;
+    height: 90%;
 }
 
 .popup {
