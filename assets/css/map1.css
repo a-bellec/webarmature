@@ -34,7 +34,7 @@ hr{
 }
 
 
-.btn-default:focus{
+.sidebarButton:focus{
     background-color: #fff;
     border-color: #ccc;
 }
@@ -44,7 +44,7 @@ hr{
     border-color: #adadad;
 }
 
-.btn-default{
+.sidebarButton{
     background-color: #fff;
     border-color: #ccc;
 }
@@ -54,7 +54,7 @@ hr{
     border-color: #adadad;
 }
 
-.btn-default:hover{
+.sidebarButton:hover{
     background-color: #e6e6e6;
     border-color: #adadad;
 }
