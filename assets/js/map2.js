@@ -25,6 +25,10 @@ map2.zoomControl.setPosition('topright');
 map1.sync(map2, {syncCursor: true});
 map2.sync(map1, {syncCursor: true});
 
+//Add the sidebar to the maps
+var sidebar = L.control.sidebar('sidebar').addTo(map1);
+var sidebar_right = L.control.sidebar('sidebar_right').addTo(map1);
+
 //Set default map
 var LOSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

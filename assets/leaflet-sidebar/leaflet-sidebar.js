@@ -2,10 +2,10 @@
  * @name Sidebar
  * @class L.Control.Sidebar
  * @extends L.Control
- * @param {string} id - The id of the sidebar_right element (without the # character)
+ * @param {string} id - The id of the sidebar element (without the # character)
  * @param {Object} [options] - Optional options object
- * @param {string} [options.position=left] - Position of the sidebar_right: 'left' or 'right'
- * @see L.control.sidebar_right
+ * @param {string} [options.position=left] - Position of the sidebar: 'left' or 'right'
+ * @see L.control.sidebar
  */
 L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
     includes: L.Mixin.Events,
@@ -19,40 +19,40 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
 
         L.setOptions(this, options);
 
-        // Find sidebar_right HTMLElement
-        this._sidebar_right = L.DomUtil.get(id);
+        // Find sidebar HTMLElement
+        this._sidebar = L.DomUtil.get(id);
 
-        // Attach .sidebar_right-left/right class
-        L.DomUtil.addClass(this._sidebar_right, 'sidebar_right-' + this.options.position);
+        // Attach .sidebar-left/right class
+        L.DomUtil.addClass(this._sidebar, 'sidebar-' + this.options.position);
 
         // Attach touch styling if necessary
         if (L.Browser.touch)
-            L.DomUtil.addClass(this._sidebar_right, 'leaflet-touch');
+            L.DomUtil.addClass(this._sidebar, 'leaflet-touch');
 
-        // Find sidebar_right > div.sidebar_right-content
-        for (i = this._sidebar_right.children.length - 1; i >= 0; i--) {
-            child = this._sidebar_right.children[i];
+        // Find sidebar > div.sidebar-content
+        for (i = this._sidebar.children.length - 1; i >= 0; i--) {
+            child = this._sidebar.children[i];
             if (child.tagName == 'DIV' &&
-                    L.DomUtil.hasClass(child, 'sidebar_right-content'))
+                    L.DomUtil.hasClass(child, 'sidebar-content'))
                 this._container = child;
         }
 
-        // Find sidebar_right ul.sidebar_right-tabs > li, sidebar_right .sidebar_right-tabs > ul > li
-        this._tabitems = this._sidebar_right.querySelectorAll('ul.sidebar_right-tabs > li, .sidebar_right-tabs > ul > li');
+        // Find sidebar ul.sidebar-tabs > li, sidebar .sidebar-tabs > ul > li
+        this._tabitems = this._sidebar.querySelectorAll('ul.sidebar-tabs > li, .sidebar-tabs > ul > li');
         for (i = this._tabitems.length - 1; i >= 0; i--) {
-            this._tabitems[i]._sidebar_right = this;
+            this._tabitems[i]._sidebar = this;
         }
 
-        // Find sidebar_right > div.sidebar_right-content > div.sidebar_right-pane
+        // Find sidebar > div.sidebar-content > div.sidebar-pane
         this._panes = [];
         this._closeButtons = [];
         for (i = this._container.children.length - 1; i >= 0; i--) {
             child = this._container.children[i];
             if (child.tagName == 'DIV' &&
-                L.DomUtil.hasClass(child, 'sidebar_right-pane')) {
+                L.DomUtil.hasClass(child, 'sidebar-pane')) {
                 this._panes.push(child);
 
-                var closeButtons = child.querySelectorAll('.sidebar_right-close');
+                var closeButtons = child.querySelectorAll('.sidebar-close');
                 for (var j = 0, len = closeButtons.length; j < len; j++)
                     this._closeButtons.push(closeButtons[j]);
             }
@@ -60,7 +60,7 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
     },
 
     /**
-     * Add this sidebar_right to the specified map.
+     * Add this sidebar to the specified map.
      *
      * @param {L.Map} map
      * @returns {Sidebar}
@@ -90,7 +90,7 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
 
     /**
      * @deprecated - Please use remove() instead of removeFrom(), as of Leaflet 0.8-dev, the removeFrom() has been replaced with remove()
-     * Removes this sidebar_right from the map.
+     * Removes this sidebar from the map.
      * @param {L.Map} map
      * @returns {Sidebar}
      */
@@ -100,7 +100,7 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
      },
 
     /**
-     * Remove this sidebar_right from the map.
+     * Remove this sidebar from the map.
      *
      * @param {L.Map} map
      * @returns {Sidebar}
@@ -124,7 +124,7 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
     },
 
     /**
-     * Open sidebar_right (if necessary) and show the specified tab.
+     * Open sidebar (if necessary) and show the specified tab.
      *
      * @param {string} id - The id of the tab to show (without the # character)
      */
@@ -151,17 +151,17 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
 
         this.fire('content', { id: id });
 
-        // open sidebar_right (if necessary)
-        if (L.DomUtil.hasClass(this._sidebar_right, 'collapsed')) {
+        // open sidebar (if necessary)
+        if (L.DomUtil.hasClass(this._sidebar, 'collapsed')) {
             this.fire('opening');
-            L.DomUtil.removeClass(this._sidebar_right, 'collapsed');
+            L.DomUtil.removeClass(this._sidebar, 'collapsed');
         }
 
         return this;
     },
 
     /**
-     * Close the sidebar_right (if necessary).
+     * Close the sidebar (if necessary).
      */
     close: function() {
         // remove old active highlights
@@ -171,10 +171,10 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
                 L.DomUtil.removeClass(child, 'active');
         }
 
-        // close sidebar_right
-        if (!L.DomUtil.hasClass(this._sidebar_right, 'collapsed')) {
+        // close sidebar
+        if (!L.DomUtil.hasClass(this._sidebar, 'collapsed')) {
             this.fire('closing');
-            L.DomUtil.addClass(this._sidebar_right, 'collapsed');
+            L.DomUtil.addClass(this._sidebar, 'collapsed');
         }
 
         return this;
@@ -185,9 +185,9 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
      */
     _onClick: function() {
         if (L.DomUtil.hasClass(this, 'active'))
-            this._sidebar_right.close();
+            this._sidebar.close();
         else if (!L.DomUtil.hasClass(this, 'disabled'))
-            this._sidebar_right.open(this.querySelector('a').hash.slice(1));
+            this._sidebar.open(this.querySelector('a').hash.slice(1));
     },
 
     /**
@@ -199,16 +199,17 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
 });
 
 /**
- * Creates a new sidebar_right.
+ * Creates a new sidebar.
  *
  * @example
- * var sidebar_right = L.control.sidebar_right('sidebar_right').addTo(map);
+ * var sidebar = L.control.sidebar('sidebar').addTo(map);
  *
- * @param {string} id - The id of the sidebar_right element (without the # character)
+ * @param {string} id - The id of the sidebar element (without the # character)
  * @param {Object} [options] - Optional options object
- * @param {string} [options.position=left] - Position of the sidebar_right: 'left' or 'right'
- * @returns {Sidebar} A new sidebar_right instance
+ * @param {string} [options.position=left] - Position of the sidebar: 'left' or 'right'
+ * @returns {Sidebar} A new sidebar instance
  */
-L.control.sidebar_right = function (id, options) {
+L.control.sidebar = function (id, options) {
     return new L.Control.Sidebar(id, options);
 };
+

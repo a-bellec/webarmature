@@ -16,6 +16,8 @@ var popup = L.popup();
 
 map1.zoomControl.setPosition('topright');
 
+var sidebar = L.control.sidebar('sidebar').addTo(map1);
+
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
     if(this.checked){

@@ -1,1 +1,0 @@
-var sidebar_left = L.control.sidebar_left('sidebar_left').addTo(map1);
