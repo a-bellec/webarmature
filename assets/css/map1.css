@@ -21,22 +21,46 @@ hr{
     margin-top: 10px;
 }
 
-.sidebarButton:focus{
-    background-color: #FFFFFF;
-    border-color: #adadad;
-}
-
-.sidebarButton:hover{
-    background-color: #e6e6e6;
-    border-color: #adadad;
-}
-
 .mapSelection{
     padding-left: 1.5em;
 }
 
+.sidebar-content{
+    background-color: rgba(255, 255, 255, 1);
+}
+
 .panel{
-    border: 0;
-    border-radius: 0;
     box-shadow: 0 0 0 white;
 }
+
+
+.btn-default:focus{
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.selected:focus{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn-default{
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.selected{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn-default:hover{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.selected:hover{
+    background-color: #e6e6e6;
+    border-color: #6e6e6e;
+}
+
