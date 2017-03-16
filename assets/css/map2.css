@@ -22,8 +22,35 @@ hr{
     margin-top: 10px;
 }
 
+.mapSelection{
+    padding-left: 1.5em;
+}
+
+.sidebar-content{
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.panel{
+    box-shadow: 0 0 0 white;
+}
+
 .sidebarButton:focus{
-    background-color: #FFFFFF;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.selected:focus{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.sidebarButton{
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.selected{
+    background-color: #e6e6e6;
     border-color: #adadad;
 }
 
@@ -32,6 +59,7 @@ hr{
     border-color: #adadad;
 }
 
-.mapSelection{
-    padding-left: 1.5em;
+.selected:hover{
+    background-color: #e6e6e6;
+    border-color: #6e6e6e;
 }

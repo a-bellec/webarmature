@@ -120,3 +120,15 @@ $("#sidebar").click(function(){
         $(this).removeClass("active");
     });
 });
+
+$(".sidebarButton").click(function(){
+    if(!($(this).hasClass("selected"))){
+        $(".sidebarButton").each(function(){
+            $(this).removeClass("selected");
+        });
+        $(this).addClass("selected");
+    }
+    else{
+        $(this).removeClass("selected");
+    }
+});
