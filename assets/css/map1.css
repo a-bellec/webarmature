@@ -21,12 +21,12 @@ hr{
     margin-top: 10px;
 }
 
-.btn-default:focus{
+.sidebarButton:focus{
     background-color: #FFFFFF;
     border-color: #adadad;
 }
 
-.btn-default:hover{
+.sidebarButton:hover{
     background-color: #e6e6e6;
     border-color: #adadad;
 }
