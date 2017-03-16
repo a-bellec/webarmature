@@ -20,7 +20,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
     if(this.checked){
         removeAllLayers();
-        var layerName = this.id;
+        var layerName = this.value;
         if(layerName != "LOSM"){
             var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
                 layers: layerName,
