@@ -21,10 +21,12 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
     if(this.checked){
         removeAllLayers();
         var layerName = this.value;
+        var attribution = this.alt;
         if(layerName != "LOSM"){
             var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
                 layers: layerName,
-                transparent: true
+                transparent: true,
+                attribution: attribution
             });
             map1.addLayer(layer);
         }
