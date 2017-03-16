@@ -31,10 +31,10 @@ var mapLandsat = [
     ["landsat1999", "Année : 1999 - NASA Landsat Program, 1984, Landsat ETM scene LE71970281999236EDC00_MTL, L1T, USGS, Sioux Falls, 2017"],
     ["landsat2003", "Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, USGS, Sioux Falls, 2017"],
     ["landsat2013", "Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, USGS, Sioux Falls, 2017"]
-]
+];
 
 var mapSpot = [
     ["spot1987", "Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016"],
     ["spot1993", "Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016"],
     ["spot2003", "Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016"]
-]
+];
