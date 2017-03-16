@@ -15,3 +15,8 @@ label {
     position: absolute;
     z-index: 9000;
 }
+
+hr{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
