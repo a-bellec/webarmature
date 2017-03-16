@@ -21,3 +21,13 @@ hr{
     margin-bottom: 5px;
     margin-top: 10px;
 }
+
+.btn-default:focus{
+    background-color: #FFFFFF;
+    border-color: #adadad;
+}
+
+.btn-default:hover{
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
