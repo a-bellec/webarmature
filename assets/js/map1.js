@@ -66,3 +66,14 @@ $(".sidebarButton").click(function(){
         $(this).removeClass("selected");
     }
 });
+
+$("#map1").click(function(event) {
+    if(!$(event.target).closest('#sidebar').length) {
+        if(!($("#sidebar").hasClass("collapsed"))) {
+            $('#sidebar').addClass("collapsed");
+            $('#sidebar').find("li").each(function(){
+                $(this).removeClass("active");
+            });
+        }
+    }
+});
