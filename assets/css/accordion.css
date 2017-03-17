@@ -17,6 +17,7 @@
 
 .panel-collapse{
     height: 400px;
+    background-size: cover;
     overflow-y: auto;
 }
 
@@ -39,19 +40,19 @@
 }
 
 .accordion1 {
-    background: #000 url(../../media/other/111.jpg) no-repeat center center;
+    background: #000 url(../../media/other/111.jpg) center center;
 }
 
 .accordion2 {
-    background: #000 url(../../media/other/222.jpg) no-repeat center center;
+    background: #000 url(../../media/other/222.jpg) center center;
 }
 
 .accordion3 {
-    background: #000 url(../../media/other/333.jpg) no-repeat center center;
+    background: #000 url(../../media/other/333.jpg) center center;
 }
 
 .accordion4{
-    background:#000 url(../../media/other/444.jpg) no-repeat center center;
+    background:#000 url(../../media/other/444.jpg) center center;
 }
 
 .panel-body ul {
