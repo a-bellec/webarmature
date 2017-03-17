@@ -52,7 +52,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
         //If checking left group
         if (this.name == "GroupedSwitchesL") {
-            removeAllMap1Layers();
+            removeAllMapLayers(map1);
             //Every map has the same structure except the default one. Make sure you don't have the default one selected
             if (layerName != "LOSM") {
                 map1.addLayer(layer);
@@ -64,7 +64,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
         //If checking right group
         else if(this.name == "GroupedSwitchesR"){
-            removeAllMap2Layers();
+            removeAllMapLayers(map2);
             if (layerName != "ROSM") {
                 map2.addLayer(layer);
             }
@@ -88,15 +88,9 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
 $(".bs").bootstrapSwitch('state', false);
 
-function removeAllMap1Layers() {
-    map1.eachLayer(function (layer) {
-        map1.removeLayer(layer);
-    });
-}
-
-function removeAllMap2Layers() {
-    map2.eachLayer(function (layer) {
-        map2.removeLayer(layer);
+function removeAllMapLayers(map) {
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
     });
 }
 
