@@ -17,7 +17,7 @@ var map2 = L.map('map2', {
     minZoom: 13
 });
 
-//SetZoomePosition
+//SetZoomPosition
 map1.zoomControl.setPosition('topright');
 map2.zoomControl.setPosition('topright');
 
@@ -26,20 +26,22 @@ map1.sync(map2, {syncCursor: true});
 map2.sync(map1, {syncCursor: true});
 
 //Add the sidebar to the maps
-var sidebar = L.control.sidebar('sidebar').addTo(map1);
-var sidebar_right = L.control.sidebar('sidebar_right').addTo(map1);
+L.control.sidebar('sidebar').addTo(map1);
+L.control.sidebar('sidebar_right').addTo(map1);
 
 //Set default map
-var LOSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }
-).addTo(map1);
+);
 
-//Set default map
 var ROSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }
-).addTo(map2);
+);
+
+map1.addLayer(OSM);
+map2.addLayer(ROSM);
 
 //Upon change of map selection
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
@@ -63,10 +65,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                 map1.addLayer(layer);
             }
             else {
-                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    }
-                ).addTo(map1);
+                map1.addLayer(OSM);
             }
 
             var groupId = $(this).closest("div[id]").attr("id");
@@ -86,10 +85,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                 map2.addLayer(layer);
             }
             else {
-                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    }
-                ).addTo(map2);
+                map2.addLayer(ROSM);
             }
 
             var groupId = $(this).closest("div[id]").attr("id");
