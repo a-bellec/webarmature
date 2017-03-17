@@ -1,21 +1,13 @@
-//Define the center of the map
-var center = [45.7604276, 4.8335709];
-
-//Create left map
-var map1 = L.map('map1', {
-    center: center,
+var defaultMapConfig = {
+    center: [45.7604276, 4.8335709],
     zoom: 16,
     maxZoom: 18,
     minZoom: 13
-});
+};
 
-//Create right map
-var map2 = L.map('map2', {
-    center: center,
-    zoom: 16,
-    maxZoom: 18,
-    minZoom: 13
-});
+//Create maps
+var map1 = L.map('map1', defaultMapConfig);
+var map2 = L.map('map2', defaultMapConfig);
 
 //SetZoomPosition
 map1.zoomControl.setPosition('topright');
