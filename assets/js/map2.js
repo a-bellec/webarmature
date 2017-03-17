@@ -76,9 +76,6 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
         if(groupId == "landsatGroup" || groupId == "spotGroup"){
             map1.setZoom(13);
         }
-        else{
-            map1.setZoom(16);
-        }
 
         map1.sync(map2, {syncCursor: true});
         map2.sync(map1, {syncCursor: true});
