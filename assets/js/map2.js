@@ -94,8 +94,6 @@ function removeAllMapLayers(map) {
     });
 }
 
-L.popup();
-
 //Collapse and put inactive the selected element of the other sidebar on click
 $("#sidebar_right").click(function(){
    $("#sidebar").addClass("collapsed");

@@ -12,8 +12,6 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }
 ).addTo(map1);
 
-var popup = L.popup();
-
 map1.zoomControl.setPosition('topright');
 
 var sidebar = L.control.sidebar('sidebar').addTo(map1);
