@@ -245,8 +245,8 @@ hr{
 }
 
 .sidebarButton:hover{
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  background-color: #fff;
+  border-color: #6e6e6e;
 }
 
 .selected:hover{
