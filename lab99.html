@@ -47,71 +47,69 @@
             </div>
             <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body">
-                    <p>La premi&egrave;re carte permet d'afficher un fond OpenStreetMap, nous allons voir ici
-                        comment gérer plusieurs fonds de carte et comment permettre une interaction entre ces fonds.
-                        Nous utilisons 3 fonds de carte.
+                    <p>Pour commencer, nous allons créer une simple visualisation &agrave; partir d'un fond de carte
+                        Open Street Map.<br>
+                        <br> Le résultat doit s'approcher de cet exemple<br>
+                        <iframe src="http://www.webarmature.fr/resources/lab03_code_simplemap.html" width="100%"
+                                height="310" frameborder="0" scrolling="no" align="middle"></iframe>
+                    </p>
+                    <br>
+                    <p><B>Fichiers Leaflet : CSS & JS</B></p>
+                    <p>L'utilisation de Leaflet nécessite de faire appel &agrave; des fichiers CSS et JS dans le
+                        fichier HTML.
                         <br>
-                        Le résultat doit s'approcher de cet exemple :<br></p>
-                    <iframe src="http://www.webarmature.fr/resources/lab03_code_multilayer.html" width="100%"
-                            height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-                    <br><br>
-                    <p>La structure générale du code reste semblable, nous allons juste ajouter quelques éléments en
-                        créant plusieurs variables.
-                        <br>
-                        <br>
+                        Dans les exemples suivants, nous allons appeler directement via internet les fichiers qu'ils
+                        nous faut. Pour cela, il va falloir insérer ce code dans la section &lt;head&gt; de la page
+                        HTML.</p><br>
 
-                        <B>Ajout de la variable référence (link)</B>
-                        Nous ajoutons une variable permettant de gérer les liens internet de nos sources.</p>
-                    <pre><code class="language-javascript line-numbers">var osmLink = '<a
-                            href="http://openstreetmap.org">OpenStreetMap</a>',
-thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>',
-esriLink = '<a href="http://esri.com/">Esri</a>'</code></pre>
+                    <pre><code class="language-markup line-numbers">&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/&gt;&lt;script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"&gt;&lt;/script&gt;</code></pre>
                     <br>
-                    <p><B>Ajout de la variable <i>adresse</i> (Url) et <i>attribution</i> (Attrib)</B></p>
-                    <p>Nous ajoutons une variable permettant de gérer les liens d'appel de la source et la mani&egrave;re
-                        dont va s'afficher la source en bas &agrave; droite de la carte.</p>
-                    <pre><code class="language-javascript line-numbers">var osmUrl = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
-osmAttrib = '&copy; ' + osmLink + ' Contributors',
-landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
-thunAttrib = '&copy; '+thunLink,
-esriUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-esriAttrib = '&copy; '+esriLink;</code></pre>
+                    <p><B>Ajout de l'élément Div et stylage</B></p>
+                    <p>Leaflet a besoin d'un élément &lt;div/&gt; contenant la carte. Cet élément du &lt;div/&gt;
+                        contient les informations relatives &agrave; la taille de la carte.
+                        <br>
+                        Créez un élément &lt;div/&gt; avec l'id "map" en ajoutant ce qui suit :</p>
+                    <pre><code class="language-markup line-numbers">&lt;div id="map"&gt;&lt;/div&gt;</code></pre>
+                    <p>Pour créer une carte de 960px de largeur et 500px de hauteur, ajoutez ce code dans le fichier
+                        css, ou entre balises &lt;style&gt; dans la section &lt;head&gt; de la page HTML.</p>
+                    <pre><code class="language-CSS line-numbers">#map {
+width: 960px;
+height: 500px;
+}
+							</code></pre>
                     <br>
-                    <p><B>Ajout de la variable <i>carte</i></B></p>
-                    <p>Nous ajoutons une variable permettant de gérer ensemble les fonds et les légendes.</p>
-                    <pre><code class="language-javascript line-numbers">var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
-landMap = L.tileLayer(landUrl, {attribution: thunAttrib}),
-esriMap = L.tileLayer(esriUrl, {attribution: esriAttrib});</code></pre>
-                    <br>
-                    <p><B>Ajout de la variable <i>base</i></B></p>
-                    <p>Nous ajoutons une variable permettant de gérer la couche &agrave; afficher au chargement de
-                        la page, le centre de la carte et le niveau de zoom.</p>
-                    <pre><code class="language-javascript line-numbers">var map = L.map('map', {
-layers: [osmMap]
-})
-.setView([45.7604276, 4.8335709], 18);</code></pre>
-                    <br>
-                    <p><B>Ajout de la variable <i>nom</i></B></p>
-                    <p>Nous ajoutons une variable permettant de gérer l'affichage du nom des couches.</p>
-                    <pre><code class="language-javascript line-numbers">var baseLayers = {
-"OSM B&W": osmMap,
-"Landscape": landMap,
-"Aerial": esriMap
-};</code></pre>
-                    <br>
-                    <p><B>Ajout de la fonction <i>contr&ocirc;le</i></B></p>
-                    <br>
-                    <p>Nous ajoutons une fonction permettant de gérer le contr&ocirc;le des couches.</p>
-                    <pre><code
-                            class="language-javascript line-numbers">L.control.layers(baseLayers).addTo(map);</code></pre>
+                    <p>A partir de maintenant, les bases sont présentes pour créer la carte. Il ne manque juste que
+                        quelques lignes de JavaScript.</p>
                     <br>
                     <br>
-                    <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
+                    <p><B>Appeler le fond de carte OSM</B></p>
+                    <br>
+                    <p>Insérez le code suivant entre les balises &lt;script&gt; du fichier HTML.</p>
+                    <br>
+                    <pre><code class="language-javascript line-numbers">&lt;script&gt;
+ var map = L.map('map',{
+ center: [45.7604276, 4.8335709],
+ zoom: 13
+ });
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+ attribution: '&copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'
+ }).addTo(map);
+&lt;/script&gt;</code></pre>
+                    <br><br>
+                    <p>La variable <i>center</i> indique les coordonn&eacutes du centre de la carte, et la variable
+                        <i>zoom</i> ger&egrave; le niveau de zoom par défaut.
+                        <br>
+                        La ligne <i>attribution</i> permet de définir la légende de la carte qui s'affichera, par
+                        défaut, en bas &agrave; droite.
+                        <br>
+                        <br>
+                        <B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
                     <br>
                     <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
+
 &lt;html&gt;
  &lt;head&gt;
-  &lt;title&gt;Multi Layer&lt;/title&gt;
+  &lt;title&gt;Ma premi&egrave;re carte&lt;/title&gt;
   &lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /&gt;
   &lt;script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"&gt;&lt;/script&gt;
   &lt;style&gt;
@@ -122,36 +120,24 @@ layers: [osmMap]
   &lt;/style&gt;
  &lt;/head&gt;
 
-&lt;body&gt;
+ &lt;body&gt;
   &lt;div id="map"&gt;&lt;/div&gt;
   &lt;script&gt;
-   var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
-    thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>',
-    esriLink = '<a href="http://esri.com/">Esri</a>';
-   var osmUrl = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
-    osmAttrib = '&copy; ' + osmLink + ' Contributors',
-    landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
-    thunAttrib = '&copy; '+thunLink,
-    esriUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    esriAttrib = '&copy; '+esriLink;
-   var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
-    landMap = L.tileLayer(landUrl, {attribution: thunAttrib}),
-    esriMap = L.tileLayer(esriUrl, {attribution: esriAttrib});
-   var map = L.map('map', {
-    layers: [osmMap]
-     })
-     .setView([45.7604276, 4.8335709], 18);
-   var baseLayers = {
-    "OSM B&W": osmMap,
-    "Landscape": landMap,
-    "Aerial": esriMap
-    };
-   L.control.layers(baseLayers).addTo(map);
+
+    var map = L.map('map',{
+    center: [45.7604276, 4.8335709],
+    zoom: 13
+    });
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'
+    }).addTo(map);
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+
                     <p class="text-center">
-                        <a href="resources/webmap_code02.html" download="webmap_code02.html" target="_blank"
+                        <a href="resources/webmap_code01.html" download="webmap_code01.html" target="_blank"
                            style="color: black" data-toggle="collapse" data-target=".navbar-collapse.in"><i
                                 class="fa fa-cloud-download fa-5x"></i></a>
                     </p>
@@ -161,9 +147,21 @@ layers: [osmMap]
                     <br>
                     <p><B>Pour résumer ...</B>
                         <br>
-                        Nous avons ajouté &agrave; notre carte la possibilité d'afficher plusieurs fond de cartes
-                        différents.
-                        En conservant le même principe, il vous sera facile de choisir quel fond afficher</p>
+                        Nous avons créé une variable "map" puis nous avons assigné, via Leaflet, un objet "L.map"
+                        correspondant, dans l'élément Div.
+                        <br>
+                        De plus, nous avons ajouté une information sur la localisation du centre de la carte et le
+                        niveau de zoom de référence.
+                        <br>
+                        Maintenant la carte s'affiche, il est possible de la manipuler (déplacement / zoom)
+                        <br>
+                        Le fond de carte OSM est appelé via la fonction "L.tileLayer". L'option "attribution" permet
+                        d'afficher les informations relatives au fond de carte.
+                        <br>
+                        D'autres fonds de carte peuvent &ecirc;tre utilisés. Via <a target="_blank"
+                                                                                    href="https://leaflet-extras.github.io/leaflet-providers/preview/">ce
+                            site web</a>, une liste de fonds de cartes non exhaustives
+                        <br></p>
                 </div>
             </div>
         </div>
