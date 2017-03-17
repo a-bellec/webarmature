@@ -39,11 +39,13 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
             ).addTo(map1);
         }
 
-        //console.log($(this).closest("div").attr("id"));
+        var groupId = $(this).closest("div[id]").attr("id");
 
-        //TO DO FIX THIS
-        if($(this).parent().parent().parent().parent().attr("id") == "landsatGroup" || $(this).parent().parent().parent().parent().attr("id") == "spotGroup"){
+        if(groupId == "landsatGroup" || groupId == "spotGroup"){
             map1.setZoom(8);
+        }
+        else{
+            map1.setZoom(16);
         }
     }
 });
