@@ -3,3 +3,4 @@ $("#about-btn").click(function() {
   $(".navbar-collapse.in").collapse("hide");
   return false;
 });
+
