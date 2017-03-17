@@ -5,8 +5,7 @@
 
 .webarmature {
     z-index: 0;
-    width: 90%;
-    height: 90%;
+    width: 100%
 }
 
 .popup {
@@ -15,44 +14,26 @@
     background: #fff;
     opacity: 0.85;
     border-radius: 2px;
-    width: 50%;
-    height: 20%;
+    width: 286px;
+    height: 50px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     color: #000;
     z-index: 1;
-    margin-top: 20%;
-    margin-left: -70%;
     justify-content:center;
     align-items:center;
 }
 
-#simpleView:before{
-    content: "";
-    position: absolute;
+#map1:hover .popup{
     z-index: 2;
-    pointer-events: none;
+    display: block;
+    left: 143px;
+    top: 122px;
 }
 
-.webarmature:hover + #simpleView {
-    display: inline-flex;
-}
-
-#simpleView:hover{
-    display: inline-flex;
-}
-
-#doubleView:before{
-    content: "";
-    position: absolute;
+#map2:hover .popup{
     z-index: 2;
-    pointer-events: none;
-}
-
-.webarmature:hover + #doubleView{
-    display: inline-flex;
-}
-
-#doubleView:hover{
-    display: inline-flex;
+    display: block;
+    left: 143px;
+    top: 122px;
 }
