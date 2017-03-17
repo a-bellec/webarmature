@@ -68,14 +68,6 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
             else {
                 map1.addLayer(OSM);
             }
-
-            if(groupId == "landsatGroup" || groupId == "spotGroup"){
-                map1.setZoom(13);
-            }
-            else{
-                map1.setZoom(16);
-            }
-
         }
 
         //If checking right group
@@ -87,14 +79,13 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
             else {
                 map2.addLayer(ROSM);
             }
+        }
 
-            if(groupId == "landsatGroup" || groupId == "spotGroup"){
-                map2.setZoom(13);
-            }
-            else{
-                map2.setZoom(16);
-            }
-
+        if(groupId == "landsatGroup" || groupId == "spotGroup"){
+            map1.setZoom(13);
+        }
+        else{
+            map1.setZoom(16);
         }
 
         map1.sync(map2, {syncCursor: true});
