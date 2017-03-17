@@ -46,16 +46,17 @@ map2.addLayer(ROSM);
 //Upon change of map selection
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
-    //Create the new layer
-    var layerName = this.value;
-    var attribution = this.alt;
-    var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
-        layers: layerName,
-        transparent: true,
-        attribution: attribution
-    });
-
     if(this.checked){
+
+        //Create the new layer
+        var layerName = this.value;
+        var attribution = this.alt;
+        var groupId = $(this).closest("div[id]").attr("id");
+        var layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
+            layers: layerName,
+            transparent: true,
+            attribution: attribution
+        });
 
         //If checking left group
         if (this.name == "GroupedSwitchesL") {
@@ -68,8 +69,6 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                 map1.addLayer(OSM);
             }
 
-            var groupId = $(this).closest("div[id]").attr("id");
-
             if(groupId == "landsatGroup" || groupId == "spotGroup"){
                 map1.setZoom(13);
             }
@@ -78,6 +77,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
             }
 
         }
+
         //If checking right group
         else if(this.name == "GroupedSwitchesR"){
             removeAllMap2Layers();
@@ -87,8 +87,6 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
             else {
                 map2.addLayer(ROSM);
             }
-
-            var groupId = $(this).closest("div[id]").attr("id");
 
             if(groupId == "landsatGroup" || groupId == "spotGroup"){
                 map2.setZoom(13);
@@ -102,6 +100,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
         map1.sync(map2, {syncCursor: true});
         map2.sync(map1, {syncCursor: true});
     }
+
 });
 
 $(".bs").bootstrapSwitch('state', false);
