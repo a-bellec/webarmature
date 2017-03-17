@@ -140,6 +140,29 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <div class="panel">
+                            <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#accordion" data-target="#landsat-dataL"> Images landsat &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                            <div id="landsat-dataL" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body" id="landsatGroup">
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, USGS, Sioux Falls, 2017" value="landsat1984" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 1999 - NASA Landsat Program, 1999, Landsat ETM scene LE71970281999236EDC00_MTL, L1T, USGS, Sioux Falls, 2017" value="landsat1999" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1999 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, USGS, Sioux Falls, 2017" value="landsat2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, USGS, Sioux Falls, 2017" value="landsat2013" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="panel">
+                            <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#accordion" data-target="#spot-dataL"> Images spot &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                            <div id="spot-dataL" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body" id="spotGroup">
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot1987" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot1993" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesL" alt="Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -222,7 +245,7 @@
                         <div class="panel">
                             <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#accordionR" data-target="#scan25-dataR"> Scan 25 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
                             <div id="scan25-dataR" class="panel-collapse collapse" role="tabpanel">
-                                <div class="panel-body" id="landsatGroup">
+                                <div class="panel-body" id="scan25Group">
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 25 1950</a>" value="scan25_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1950 </label> <br>
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 25 1960</a>" value="scan25_all_1960" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1960 </label> <br>
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 25 1970</a>" value="scan25_all_1970" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1970 </label> <br>
@@ -237,11 +260,34 @@
                         <div class="panel">
                             <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#accordionR" data-target="#scan50-dataR"> Scan 50 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
                             <div id="scan50-dataR" class="panel-collapse collapse" role="tabpanel">
-                                <div class="panel-body" id="spotGroup">
+                                <div class="panel-body" id="scan50Group">
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 50 1950</a>" value="scan50_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1950 </label> <br>
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 50 1960</a>" value="scan50_all_1960_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1960 </label> <br>
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 50 1970</a>" value="scan50_all_1970_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1970 </label> <br>
                                     <label> <input type="radio" name="GroupedSwitchesR" alt="Année: 1980 &copy; <a href='http://ign.fr/'> Scan 50 1980</a>" value="scan50_all_1980_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1980 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="panel">
+                            <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#accordion" data-target="#landsat-dataR"> Images landsat &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                            <div id="landsat-dataR" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body" id="landsatGroup">
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, USGS, Sioux Falls, 2017" value="landsat1984" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 1999 - NASA Landsat Program, 1999, Landsat ETM scene LE71970281999236EDC00_MTL, L1T, USGS, Sioux Falls, 2017" value="landsat1999" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1999 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, USGS, Sioux Falls, 2017" value="landsat2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, USGS, Sioux Falls, 2017" value="landsat2013" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="panel">
+                            <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#accordion" data-target="#spot-dataR"> Images spot &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                            <div id="spot-dataR" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body" id="spotGroup">
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot1987" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot1993" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                                    <label> <input type="radio" name="GroupedSwitchesR" alt="Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label>
                                 </div>
                             </div>
                         </div>

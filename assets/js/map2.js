@@ -68,8 +68,16 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                     }
                 ).addTo(map1);
             }
-            map1.sync(map2, {syncCursor: true});
-            map2.sync(map1, {syncCursor: true});
+
+            var groupId = $(this).closest("div[id]").attr("id");
+
+            if(groupId == "landsatGroup" || groupId == "spotGroup"){
+                map1.setZoom(13);
+            }
+            else{
+                map1.setZoom(16);
+            }
+
         }
         //If checking right group
         else if(this.name == "GroupedSwitchesR"){
@@ -83,6 +91,16 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
                     }
                 ).addTo(map2);
             }
+
+            var groupId = $(this).closest("div[id]").attr("id");
+
+            if(groupId == "landsatGroup" || groupId == "spotGroup"){
+                map2.setZoom(13);
+            }
+            else{
+                map2.setZoom(16);
+            }
+
         }
 
         map1.sync(map2, {syncCursor: true});

@@ -42,7 +42,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
         var groupId = $(this).closest("div[id]").attr("id");
 
         if(groupId == "landsatGroup" || groupId == "spotGroup"){
-            map1.setZoom(8);
+            map1.setZoom(13);
         }
         else{
             map1.setZoom(16);
