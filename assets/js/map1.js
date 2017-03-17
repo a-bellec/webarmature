@@ -1,16 +1,18 @@
-var center = [45.7604276, 4.8335709];
-
-var map1 = L.map('map1', {
-    center: center,
+var defaultMapConfig = {
+    center: [45.7604276, 4.8335709],
     zoom: 16,
     maxZoom: 18,
     minZoom: 13
-});
+};
 
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var map1 = L.map('map1', defaultMapConfig);
+
+var OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }
-).addTo(map1);
+);
+
+map1.addLayer(OSM);
 
 map1.zoomControl.setPosition('topright');
 
@@ -19,7 +21,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map1);
 $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
     if(this.checked){
-        removeAllLayers();
+        removeAllLayers(map1);
         var layerName = this.value;
         var attribution = this.alt;
         if(layerName != "LOSM"){
@@ -31,10 +33,7 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
             map1.addLayer(layer);
         }
         else{
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                }
-            ).addTo(map1);
+            map1.addLayer(OSM);
         }
 
         var groupId = $(this).closest("div[id]").attr("id");
@@ -50,9 +49,9 @@ $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
 $(".bs").bootstrapSwitch('state', false);
 
-function removeAllLayers() {
-    map1.eachLayer(function(layer) {
-        map1.removeLayer(layer);
+function removeAllLayers(map) {
+    map.eachLayer(function(layer) {
+        map.removeLayer(layer);
     });
 }
 
