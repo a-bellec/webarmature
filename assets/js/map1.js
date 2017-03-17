@@ -55,6 +55,7 @@ function removeAllLayers(map) {
     });
 }
 
+//Add class to sidebar buttons when clicking them. Remove it from the other buttons since they will collapse
 $(".sidebarButton").click(function(){
     if(!($(this).hasClass("selected"))){
         $(".sidebarButton").each(function(){
@@ -67,6 +68,7 @@ $(".sidebarButton").click(function(){
     }
 });
 
+//When clicking inside of map if the sidebar is not collapsed, collapsed it and deactivate its selected elements
 $("#map1").click(function(event) {
     if(!$(event.target).closest('#sidebar').length) {
         if(!($("#sidebar").hasClass("collapsed"))) {

@@ -94,21 +94,6 @@ function removeAllMapLayers(map) {
     });
 }
 
-//Collapse and put inactive the selected element of the other sidebar on click
-$("#sidebar_right").click(function(){
-   $("#sidebar").addClass("collapsed");
-   $("#sidebar-elements").find("li").each(function(){
-        $(this).removeClass("active");
-   });
-});
-
-$("#sidebar").click(function(){
-    $("#sidebar_right").addClass("collapsed");
-    $("#sidebar_right-elements").find("li").each(function(){
-        $(this).removeClass("active");
-    });
-});
-
 $(".sidebarButton").click(function(){
     if(!($(this).hasClass("selected"))){
         $(".sidebarButton").each(function(){
@@ -119,4 +104,38 @@ $(".sidebarButton").click(function(){
     else{
         $(this).removeClass("selected");
     }
+});
+
+//Collapse sidebar_right if clicking anywhere on map1
+//Collapse sidebar if not clicking on it
+$("#map1").click(function(event) {
+    if(!$(event.target).closest('#sidebar').length) {
+        if(!($("#sidebar").hasClass("collapsed"))) {
+            $('#sidebar').addClass("collapsed");
+            $('#sidebar').find("li").each(function(){
+                $(this).removeClass("active");
+            });
+        }
+    }
+    $("#sidebar_right").addClass("collapsed");
+    $("#sidebar_right-elements").find("li").each(function(){
+        $(this).removeClass("active");
+    });
+});
+
+//Collapse sidebar if clicking anywhere on map2
+//Collapse sidebar_right if not clicking on it
+$("#map2").click(function(event) {
+    if(!$(event.target).closest('#sidebar_right').length) {
+        if(!($("#sidebar_right").hasClass("collapsed"))) {
+            $('#sidebar_right').addClass("collapsed");
+            $('#sidebar_right').find("li").each(function(){
+                $(this).removeClass("active");
+            });
+        }
+    }
+    $("#sidebar").addClass("collapsed");
+    $("#sidebar-elements").find("li").each(function(){
+        $(this).removeClass("active");
+    });
 });
