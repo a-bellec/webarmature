@@ -12,7 +12,7 @@ export default function seedDatabaseIfNeeded() {
     let Thing = sqldb.Thing;
     let User = sqldb.User;
 
-    return Thing.destroy({ where: {} })
+    /*return Thing.destroy({ where: {} })
       .then(() => Thing.bulkCreate([{
         name: 'Development Tools',
         info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '
@@ -42,9 +42,9 @@ export default function seedDatabaseIfNeeded() {
                 + 'and openshift subgenerators'
       }]))
     .then(() => console.log('finished populating things'))
-    .catch(err => console.log('error populating things', err));
+    .catch(err => console.log('error populating things', err));*/
 
-    User.destroy({ where: {} })
+    return User.destroy({ where: {} })
       .then(() => User.bulkCreate([{
         provider: 'local',
         name: 'Test User',
