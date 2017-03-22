@@ -1,2 +1,10 @@
-.idea/*
-.idea/vcs.xml
+node_modules
+public
+.tmp
+.idea
+client/bower_components
+client/index.html
+dist
+/server/config/local.env.js
+npm-debug.log
+coverage

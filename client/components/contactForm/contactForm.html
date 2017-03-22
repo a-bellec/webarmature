@@ -1,0 +1,52 @@
+<!-- <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" ng-show="showModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="well well-sm">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Envoyez nous un message &nbsp;&nbsp;&nbsp;<i class="fa fa-paper-plane-o"></i></h3>
+            <form role="form" id="contactForm" data-toggle="validator" class="shake">
+              <div class="row">
+                <div class="form-group col-sm-6">
+                  <label for="name" class="h4">Nom</label>
+                  <input type="text" class="form-control" id="name" placeholder="Nom & Prénom" required
+                         data-error="Veuillez compléter ce champ.">
+                  <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="email" class="h4">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message" class="h4 ">Message</label>
+                <textarea id="message" class="form-control" rows="5" placeholder="Entrez votre message"
+                          required></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+              <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Envoyer</button>
+              <div id="msgSubmit" class="h3 text-center hidden"></div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="modal-title">Modal title</h4>
+</div>
+<div class="modal-body">
+  <p>One fine body&hellip;</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Close</button>
+  <button type="button" class="btn btn-primary" ng-click="$close()">Save changes</button>
+</div>
