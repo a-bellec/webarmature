@@ -115,7 +115,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         maps: '=',
         groupName: '='
       },
-      templateUrl: '/app/map/sidebar/sidebar.html',
+      template: require('./sidebar.html'),
       link: link
     }
   })
