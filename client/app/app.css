@@ -137,6 +137,90 @@ body{
   background-color: #000000;
 }
 
+/* Vertical Accordion Style */
+
+.container .panel-group{
+  position: relative;
+  margin: 40px auto 0 auto;
+  margin-top: 200px;}
+@media(min-width: 1000px){
+  .panel-group{
+    width:1000px;
+  }
+}
+
+.container .panel-group .panel{
+  width: 100%;
+  left: 0;
+}
+
+.container .panel-group .panel .panel-collapse{
+  height: 400px;
+  background-size: cover;
+  overflow-y: auto;
+}
+
+.container .panel-group .panel .panel-collapse .panel-body{
+  font-size: 22px;
+  font-style: italic;
+  font-family: Georgia, serif;
+  background-color: rgba(99, 99, 99, 0.7);
+  border-radius: 2em;
+  margin: 1em;
+}
+
+.container .panel-group .panel .panel-heading{
+  background: inherit;
+}
+
+.container .panel-group .panel .panel-heading .panel-title {
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 60px;
+  margin-left: 20px;
+  color: #fff;
+  text-shadow: 0px 0px 1px white;
+}
+
+.accordion1 {
+  background: #000 url(../assets/images/111.jpg) center center;
+}
+
+.accordion2 {
+  background: #000 url(../assets/images/222.jpg) center center;
+}
+
+.accordion3 {
+  background: #000 url(../assets/images/333.jpg) center center;
+}
+
+.accordion4{
+  background: #000 url(../assets/images/444.jpg) center center;
+}
+
+.container .panel-group .panel .panel-collapse .panel-body ul {
+  margin-top: 20px;
+}
+
+.container .panel-group .panel .panel-collapse .panel-body ul li {
+  float: left;
+  margin: 2px;
+}
+
+.container .panel-group .panel .panel-collapse .panel-body a:link {
+  color: #fff;
+  padding: 3px 6px;
+  text-decoration: underline;
+}
+
+.container .panel-group .panel .panel-collapse .panel-body a:link:hover {
+  color: #484aee;
+}
+
+.container .panel-group .panel .panel-collapse .panel-body a:focus, a:hover{
+  text-decoration: none;
+}
+
 
 
 /* Component styles are injected through gulp */
