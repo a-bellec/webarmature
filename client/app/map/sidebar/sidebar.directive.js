@@ -107,6 +107,53 @@ export default angular.module('webarmatureApp.sidebar', [])
 
       };
 
+      scope.startTour = function(){
+        let tour = new Tour({
+          name: "mapTour",
+          storage: false,
+          backdrop: true,
+          steps: [
+            {
+              element: "#howTab",
+              title: "Aide",
+              content: "Ceci est l'onglet pour l'aide. Pour avoir plus d'informations sur le fonctionnement des différentes sections, consultez cet onglet.",
+              onShow: function(){
+                $("#howTab").click();
+              }
+            },
+            {
+              element: "#mapTab",
+              title: "Maps",
+              content: "Ceci est la vue pour les différentes cartes. Dans cet onglet vous pouvez choisir quelles cartes seront affichées.",
+              onShow: function(){
+                $("#mapTab").click();
+              }
+            },
+            {
+              element: ".leaflet-control-zoom",
+              title: "Zoom",
+              content: "Ceci est le zoom. Vous pouvez cliquez cet élément pour agrandir ou rétrécir la carte.",
+              smartplacement: false,
+              placement: "left"
+            },
+            {
+              element: ".leaflet-control-attribution",
+              title: "Source",
+              content: "Ceci est la source pour chacune des cartes. Nous remercions nos partenaires.",
+              smartplacement: false,
+              placement: "top"
+            },
+            {
+              element: "#navbarCollapse",
+              title: "Apprenez en plus",
+              content: "Choississez les autres onglets pour en apprendre plus sur le projet",
+              smartplacement: false,
+              placement: "bottom"
+            }
+          ]}
+        ).init().start();
+      };
+
     }
 
     return {

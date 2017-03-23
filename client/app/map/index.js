@@ -15,6 +15,7 @@ require("leaflet");
 require("leaflet-sidebar-v2");
 require("leaflet.sync");
 require("d3");
+require("bootstrap-tour");
 
 export default angular.module('webarmatureApp.map', [uiRouter, mapMenu, mapSimple, mapDouble, sidebar])
   .config(routing)
