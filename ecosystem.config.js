@@ -15,7 +15,7 @@ module.exports = {
   deploy : {
     production : {
       user : "node",
-      host : "webarmature.fr",
+      host : "www.webarmature.fr",
       ref  : "origin/master",
       repo : "git@github.com:abellec29/webarmature.git",
       path : "/var/www/production",
@@ -23,7 +23,7 @@ module.exports = {
     },
     dev : {
       user : "node",
-      host : "webarmature.fr",
+      host : "www.webarmature.fr",
       ref  : "origin/master",
       repo : "git@github.com:abellec29/webarmature.git",
       path : "/var/www/development",
