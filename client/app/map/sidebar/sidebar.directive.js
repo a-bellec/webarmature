@@ -111,7 +111,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         let tour = new Tour({
           name: "mapTour",
           storage: false,
-          backdrop: true,
+          backdrop: false,
           steps: [
             {
               element: "#howTab",
@@ -133,6 +133,27 @@ export default angular.module('webarmatureApp.sidebar', [])
               }
             },
             {
+              element: ".sidebarButton:first",
+              title: "Catégorie",
+              content: "Choississez la catégorie que vous souhaitez visionner.",
+              onShow: function(){
+                $(".sidebarButton:first").click();
+              }
+            },
+            {
+              element: "input[type=radio]:eq(1)",
+              title: "Sélection de carte",
+              content: "Puis sélectionnez la carte que vous souhaitez visionner.",
+              smartplacement: false,
+              placement: "bottom",
+              onShow: function(){
+                $("input[type=radio]:eq(1)").bootstrapSwitch('state', true);
+              },
+              onNext: function () {
+                $("#mapsArea").click();
+              }
+            },
+            {
               element: ".leaflet-control-zoom",
               title: "Zoom",
               content: "Ceci est le zoom. Vous pouvez cliquez cet élément pour agrandir ou rétrécir la carte.",
@@ -149,7 +170,7 @@ export default angular.module('webarmatureApp.sidebar', [])
             {
               element: "#navbarCollapse",
               title: "Apprenez en plus",
-              content: "Choississez les autres onglets pour en apprendre plus sur le projet",
+              content: "Choississez les autres onglets pour en apprendre plus sur le projet!",
               smartplacement: false,
               placement: "bottom"
             }
