@@ -108,10 +108,10 @@ export default angular.module('webarmatureApp.sidebar', [])
       };
 
       scope.startTour = function(){
+
         let tour = new Tour({
           name: "mapTour",
           storage: false,
-          backdrop: false,
           steps: [
             {
               element: "#howTab",
@@ -129,7 +129,8 @@ export default angular.module('webarmatureApp.sidebar', [])
               content: "Ceci est la vue pour les différentes cartes. Dans cet onglet vous pouvez choisir quelles cartes seront affichées.",
               onShow: function(){
                 if(!($("#mapPane").hasClass("active"))){
-                  $("#mapTab")[0].click();                }
+                  $("#mapTab")[0].click();
+                }
               }
             },
             {
