@@ -96,14 +96,9 @@ body{
   color: white;
 }
 
-.navbar .navbar-nav {
-  font-size: 15px;
-  color: white;
-}
-
 .navbar-inverse .navbar-nav li a {
   font-size: 15px;
-  color: white;
+  color: #e6e6e6;
 }
 
 .navbar-collapse.in {
@@ -118,23 +113,21 @@ body{
 
 .dropdown-menu{
   width: 17em;
-  background-color: #000000;
+  background-color: #222;
 }
 
-.dropdown-menu li a {
-  color: #FFFFFF;
+.navbar li .active a{
+  color: white;
+  background-color: #000;
 }
 
-.navbar-collapse{
-  background-color: #000000;
+.navbar li a:hover{
+  color: white;
+  background-color: #222;
 }
 
-.navbar-collapse .collapse .in{
-  background-color: #000000;
-}
-
-.navbar{
-  background-color: #000000;
+.navbar li .active a:hover{
+  background-color: #000;
 }
 
 /* Vertical Accordion Style */
