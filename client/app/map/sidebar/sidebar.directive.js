@@ -118,7 +118,9 @@ export default angular.module('webarmatureApp.sidebar', [])
               title: "Aide",
               content: "Ceci est l'onglet pour l'aide. Pour avoir plus d'informations sur le fonctionnement des différentes sections, consultez cet onglet.",
               onShow: function(){
-                $("#howTab").click();
+                if(!($("#how").hasClass("active"))){
+                  $("#howTab")[0].click();
+                }
               }
             },
             {
@@ -126,7 +128,8 @@ export default angular.module('webarmatureApp.sidebar', [])
               title: "Maps",
               content: "Ceci est la vue pour les différentes cartes. Dans cet onglet vous pouvez choisir quelles cartes seront affichées.",
               onShow: function(){
-                $("#mapTab").click();
+                if(!($("#mapPane").hasClass("active"))){
+                  $("#mapTab")[0].click();                }
               }
             },
             {
@@ -150,8 +153,8 @@ export default angular.module('webarmatureApp.sidebar', [])
               smartplacement: false,
               placement: "bottom"
             }
-          ]}
-        ).init().start();
+          ]
+        }).init().start();
       };
 
     }
