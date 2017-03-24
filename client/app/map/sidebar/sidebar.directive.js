@@ -106,7 +106,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
 
       };
-      
+
       scope.tourTemplate =
         "<div class='popover tour'>"+
           "<div class='arrow'></div>"+
@@ -200,6 +200,7 @@ export default angular.module('webarmatureApp.sidebar', [])
 
       scope.restartTour = function(){
         scope.tour.restart();
+        scope.tour.next();
       };
 
       scope.startTour = function(){
