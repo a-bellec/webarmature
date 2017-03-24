@@ -102,7 +102,8 @@ body{
 }
 
 .navbar-collapse.in {
-  overflow-y: hidden
+  overflow-y: hidden;
+  background-color: #222;
 }
 
 .modal-content {
