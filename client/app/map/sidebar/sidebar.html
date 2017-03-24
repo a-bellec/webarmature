@@ -2,6 +2,7 @@
   <ul>
     <li><a href="#how" role="tab" id="howTab"><i class="fa fa-question-circle"></i></a></li>
     <li><a href="#mapPane" role="tab" id="mapTab"><i class="fa fa-map"></i></a></li>
+    <li><a href="#printPane" role="tab" id="printTab"><i class="fa fa-print"></i></a></li>
   </ul>
 </div>
 
@@ -125,6 +126,22 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="sidebar-pane" id="printPane" align="justify">
+    <h1 class="sidebar-header">
+      Impression
+      <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+    </h1>
+    <br>
+
+    <h4> Imprimez la carte <i class="fa fa-print"></i> </h4>
+    <button ng-click="printMap()">Imprimer</button>
+    <br>
+    <div ng-show="loadingPrint">
+      <br>
+      <p> Génération de l'impression en cours. </p>
+      <div class="loader"></div>
     </div>
   </div>
 </div>

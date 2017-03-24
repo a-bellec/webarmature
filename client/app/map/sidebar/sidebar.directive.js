@@ -2,7 +2,7 @@
 const angular = require('angular');
 
 export default angular.module('webarmatureApp.sidebar', [])
-  .directive('sidebar', function () {
+  .directive('sidebar', function ($timeout) {
 
     function link(scope, element, attrs) {
 
@@ -170,6 +170,18 @@ export default angular.module('webarmatureApp.sidebar', [])
             },
             onNext: function () {
               $("input[type=radio]:eq(0)").bootstrapSwitch('state', true);
+            }
+          },
+          {
+            element: "#printTab",
+            title: "Impression",
+            content: "Ceci est l'onglet pour l'impression. Pour imprimer les cartes affichés à l'écran consultez cette page.",
+            onShow: function(){
+              if(!($("#printPane").hasClass("active")) || $("#sidebar").hasClass("collapsed")){
+                $("#printTab")[0].click();
+              }
+            },
+            onNext: function () {
               $("#mapsArea").click();
             }
           },
@@ -211,6 +223,23 @@ export default angular.module('webarmatureApp.sidebar', [])
       scope.$on('$destroy', function() {
         scope.tour.end();
       });
+
+      scope.printMap = function(){
+        //Magic number. Bad. Wait for leaflet to be loaded before showing print
+        let timeBeforeShowingPrint = 5000;
+
+        scope.loadingPrint = true;
+        $("#mapsArea").print({
+          timeout: timeBeforeShowingPrint,
+          noPrintSelector: "sidebar"
+        });
+
+        $timeout( function(){
+          scope.loadingPrint = false;
+        }, timeBeforeShowingPrint);
+
+
+      }
     }
 
     return {

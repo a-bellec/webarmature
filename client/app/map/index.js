@@ -9,6 +9,7 @@ import mapMenu from './mapMenu';
 import mapSimple from './mapSimple';
 import mapDouble from './mapDouble';
 import sidebar from './sidebar/sidebar.directive';
+import "jQuery.print/jQuery.print.js";
 
 require("bootstrap-switch");
 require("leaflet");

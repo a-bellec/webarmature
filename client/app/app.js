@@ -8,13 +8,8 @@ import ngSanitize from 'angular-sanitize';
 import 'angular-socket-io';
 
 import uiRouter from 'angular-ui-router';
-import 'jquery';
-import 'bootstrap/dist/js/bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import ngMessages from 'angular-messages';
-// import ngValidationMatch from 'angular-validation-match';
-
+require("jquery");
+require("bootstrap");
 
 import {
   routeConfig
