@@ -208,6 +208,10 @@ export default angular.module('webarmatureApp.sidebar', [])
       };
 
       scope.startTour();
+
+      scope.$on('$destroy', function() {
+        scope.tour.end();
+      });
     }
 
     return {
