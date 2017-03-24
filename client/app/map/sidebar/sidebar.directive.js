@@ -2,9 +2,11 @@
 const angular = require('angular');
 
 export default angular.module('webarmatureApp.sidebar', [])
-  .directive('sidebar', function ($timeout) {
+  .directive('sidebar', function () {
 
     function link(scope, element, attrs) {
+
+      scope.accordion = scope.groupName + "Accordion";
 
       let defaultMapConfig = {
         center: [45.7604276, 4.8335709],
@@ -16,6 +18,7 @@ export default angular.module('webarmatureApp.sidebar', [])
       let mapId = $(element).parent().attr("id");
       let sidebarId = element.attr("id");
       let sidebarGroupName = scope.groupName;
+
 
       let map = L.map(mapId, defaultMapConfig);
 
@@ -63,8 +66,6 @@ export default angular.module('webarmatureApp.sidebar', [])
           syncMaps();
         }
       });
-
-      $(".bs").bootstrapSwitch('state', false);
 
       function removeAllMapLayers(map) {
         map.eachLayer(function (layer) {
@@ -224,22 +225,6 @@ export default angular.module('webarmatureApp.sidebar', [])
         scope.tour.end();
       });
 
-      scope.printMap = function(){
-        //Magic number. Bad. Wait for leaflet to be loaded before showing print
-        let timeBeforeShowingPrint = 5000;
-
-        scope.loadingPrint = true;
-        $("#mapsArea").print({
-          timeout: timeBeforeShowingPrint,
-          noPrintSelector: "sidebar"
-        });
-
-        $timeout( function(){
-          scope.loadingPrint = false;
-        }, timeBeforeShowingPrint);
-
-
-      }
     }
 
     return {
@@ -249,7 +234,32 @@ export default angular.module('webarmatureApp.sidebar', [])
         groupName: '='
       },
       template: require('./sidebar.html'),
-      link: link
+      link: link,
+      controller: 'sidebarController'
     }
   })
+  .controller('sidebarController', ['$scope', '$timeout', function($scope, $timeout){
+
+    $scope.printMap = function(){
+
+      //Magic number. Bad. Wait for leaflet to be loaded before showing print
+      let timeBeforeShowingPrint = 5000;
+
+      $scope.loadingPrint = true;
+      $("#mapsArea").print({
+        timeout: timeBeforeShowingPrint,
+        noPrintSelector: "sidebar"
+      });
+
+      $timeout( function(){
+        $scope.loadingPrint = false;
+      }, timeBeforeShowingPrint);
+
+    };
+
+    $timeout( function(){
+      $(".bs").bootstrapSwitch('state', false);
+    }, 1);
+
+  }])
   .name;

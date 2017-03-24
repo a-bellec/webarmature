@@ -8,8 +8,9 @@ import ngSanitize from 'angular-sanitize';
 import 'angular-socket-io';
 
 import uiRouter from 'angular-ui-router';
-require("jquery");
-require("bootstrap");
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   routeConfig
