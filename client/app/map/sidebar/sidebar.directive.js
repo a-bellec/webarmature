@@ -122,7 +122,6 @@ export default angular.module('webarmatureApp.sidebar', [])
 
       scope.tour = new Tour({
         name: "mapTour",
-        storage: false,
         template: scope.tourTemplate,
         steps: [
           {
