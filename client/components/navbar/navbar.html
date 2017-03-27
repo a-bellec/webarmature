@@ -1,14 +1,3 @@
-<!--
-
-Keeping this for future reference to know if a user is logged in and how to show some pages
-
-        <li ng-repeat="item in $ctrl.menu" ui-sref-active="active">
-            <a ui-sref="{{item.state}}">{{item.title}}</a>
-        </li>
-        <li ng-show="$ctrl.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
-        <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
--->
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -39,6 +28,13 @@ Keeping this for future reference to know if a user is logged in and how to show
             <li ui-sref-active="active"><a ui-sref="labWebMap" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> WebMap</a></li>
           </ul>
         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ui-sref-active="active" ng-hide="$ctrl.isLoggedIn()" > <a ui-sref="signup"> Inscription </a> </li>
+        <li ui-sref-active="active" ng-hide="$ctrl.isLoggedIn()" > <a ui-sref="login"> Connexion </a> </li>
+        <li ui-sref-active="active" ng-show="$ctrl.isAdmin()" > <a ui-sref="admin"> Admin </a> </li>
+        <li ui-sref-active="active" ng-show="$ctrl.isLoggedIn()" > <a ui-sref="settings"> Paramètres </a> </li>
+        <li ui-sref-active="active" ng-show="$ctrl.isLoggedIn()" > <a ui-sref="logout"> Déconnexion </a> </li>
       </ul>
     </div>
   </div>
