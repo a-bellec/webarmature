@@ -3,6 +3,7 @@
 class _User {
   _id = '';
   name = '';
+  occupation = '';
   email = '';
   role = '';
   $promise = undefined;

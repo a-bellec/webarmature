@@ -16,10 +16,11 @@ export default function(sequelize, DataTypes) {
       autoIncrement: true
     },
     name: DataTypes.STRING,
+    occupation: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: {
-        msg: 'The specified email address is already in use.'
+        msg: 'Cette adresse courrielle est déjà utilisée.'
       },
       validate: {
         isEmail: true

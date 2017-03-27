@@ -10,10 +10,18 @@
                                             'has-error': form.name.$invalid && vm.submitted }">
           <label>Nom</label>
 
-          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
-                 required/>
+          <input type="text" name="name" class="form-control" ng-model="vm.user.name" required/>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
             Veuillez entrer votre nom.
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.occupation.$valid && vm.submitted, 'has-error': form.occupation.$invalid && vm.submitted }">
+          <label>Occupation</label>
+
+          <input type="text" name="occupation" class="form-control" ng-model="vm.user.occupation" required/>
+          <p class="help-block" ng-show="form.occupation.$error.required && vm.submitted">
+            Veuillez entrer votre occupation.
           </p>
         </div>
 
@@ -21,9 +29,7 @@
                                             'has-error': form.email.$invalid && vm.submitted }">
           <label>Adresse courielle</label>
 
-          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
-                 required
-                 mongoose-error/>
+          <input type="email" name="email" class="form-control" ng-model="vm.user.email" required mongoose-error/>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
             Veuillez entrer une adresse courrielle valide.
           </p>
@@ -39,10 +45,7 @@
                                             'has-error': form.password.$invalid && vm.submitted }">
           <label>Mot de passe</label>
 
-          <input type="password" name="password" class="form-control" ng-model="vm.user.password"
-                 ng-minlength="3"
-                 required
-                 mongoose-error/>
+          <input type="password" name="password" class="form-control" ng-model="vm.user.password" ng-minlength="3" required mongoose-error/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
             Les mots de passe doivent avoir au minimum 3 caractères.
