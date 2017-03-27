@@ -19,22 +19,20 @@ export default angular.module('webarmatureApp.sidebar', [])
       let sidebarId = element.attr("id");
       let sidebarGroupName = scope.groupName;
 
-
-      let map = L.map(mapId, defaultMapConfig);
-
-      scope.maps.push(map);
+      scope.map = L.map(mapId, defaultMapConfig);
+      scope.maps.push(scope.map);
 
       syncMaps();
 
-      map.zoomControl.setPosition('topright');
+      scope.map.zoomControl.setPosition('topright');
 
-      L.control.sidebar(sidebarId).addTo(map);
+      L.control.sidebar(sidebarId).addTo(scope.map);
 
       let OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       });
 
-      map.addLayer(OSM);
+      scope.map.addLayer(OSM);
 
       $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
@@ -50,17 +48,17 @@ export default angular.module('webarmatureApp.sidebar', [])
           });
 
           if(this.name == sidebarGroupName) {
-            removeAllMapLayers(map);
+            removeAllMapLayers(scope.map);
             if (layerName != "OSM") {
-              map.addLayer(layer);
+              scope.map.addLayer(layer);
             }
             else {
-              map.addLayer(OSM);
+              scope.map.addLayer(OSM);
             }
           }
 
           if(groupId == "landsatGroup" || groupId == "spotGroup"){
-            map.setZoom(13);
+            scope.map.setZoom(13);
           }
 
           syncMaps();
@@ -107,7 +105,6 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
 
       };
-
     }
 
     return {
