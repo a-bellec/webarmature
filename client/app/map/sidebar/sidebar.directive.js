@@ -123,31 +123,10 @@ export default angular.module('webarmatureApp.sidebar', [])
   })
   .controller('sidebarController', ['$scope', '$timeout', function($scope, $timeout){
 
-    $scope.printMap = function(){
-
-      //Magic number. Bad. Wait for leaflet to be loaded before showing print
-      let timeBeforeShowingPrint = 5000;
-
-      $scope.loadingPrint = true;
-      $("#mapsArea").print({
-        timeout: timeBeforeShowingPrint,
-        noPrintSelector: "sidebar"
-      });
-
-      $timeout( function(){
-        $scope.loadingPrint = false;
-      }, timeBeforeShowingPrint);
-
-    };
-
     //Dirty hack to make bootstrap switch work if there is more than one use of the directive on the page
     $timeout( function(){
       $(".bs").bootstrapSwitch('state', false);
     }, 0);
-
-    $scope.$on('$destroy', function() {
-
-    });
 
   }])
   .name;
