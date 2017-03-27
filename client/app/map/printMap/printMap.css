@@ -9,13 +9,13 @@ And that it still change the style for the print
 @media(max-width: 1px){
 
   .map {
-    height: calc(49.9% - 25px);
+    height: calc(48% - 25px);
     width: 100%;
     bottom: 50%;
   }
 
   #map2 {
-    top: calc(49.9% + 25px);
+    top: calc(48% + 30px);
     left: 0;
   }
 
