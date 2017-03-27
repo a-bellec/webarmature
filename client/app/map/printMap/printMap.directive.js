@@ -13,17 +13,21 @@ export default angular.module('webarmatureApp.printMap', [])
   })
   .controller('printMapController', ['$scope', '$timeout', function($scope, $timeout){
 
+    $scope.loadingPrint = false;
+
     $scope.printMap = function(){
 
       $scope.loadingPrint = true;
 
-      let print = $("#mapsArea").print({
-        noPrintSelector: "sidebar"
-      });
+      let printShown = function() {
+        //Fix to properly be able to change value
+        $timeout(function(){ $scope.loadingPrint = false;}, 0);
+      };
 
-      $timeout(function(){
-        $scope.loadingPrint = false;
-      }, 750);
+      let print = $("#mapsArea").print({
+        noPrintSelector: "sidebar",
+        deferred: $.Deferred().done(printShown)
+      });
 
     };
 

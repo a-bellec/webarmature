@@ -1,3 +1,6 @@
+//Note: seems like version 1.5.1 should fix the issue that made me have to copy this file. When it is out on NPM, should try to use it
+
+
 /* @license
  * jQuery.print, version 1.4.0
  *  (c) Sathvik Ponangi, Doers' Guild
@@ -30,6 +33,8 @@
       }
       wdoc.write(content);
       wdoc.close();
+
+      //Changed to onload so we don't need to rely on timeout
 
       frameWindow.onload = function () {
         // Fix for IE : Allow it to render the iframe
