@@ -20,7 +20,7 @@ export default angular.module('webarmatureApp.printMap', [])
       $scope.loadingPrint = true;
 
       let printShown = function() {
-        //Fix to properly be able to change value
+        //Hack to make sure you can change the value
         $timeout(function(){ $scope.loadingPrint = false;}, 0);
       };
 
