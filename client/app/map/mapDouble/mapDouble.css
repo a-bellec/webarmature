@@ -11,3 +11,17 @@
 #map2 {
   left: 50%;
 }
+
+@media(max-width: 768px){
+  .map {
+    height: calc(49.9% - 25px);
+    width: 100%;
+    bottom: 50%;
+  }
+
+  #map2 {
+    top: calc(49.9% + 25px);
+    left: 0;
+  }
+
+}
