@@ -10,10 +10,10 @@ export default class AdminController {
     this.users.users = User.getAllUsers();
     this.users.pending = User.getAllPending();
 
-    $scope.delete = function (user) {
+    /*$scope.delete = function (user) {
       User.delete({id: user._id});
       $state.reload();
-    };
+    };*/
 
 
     $scope.confirm = function (user) {
@@ -21,5 +21,10 @@ export default class AdminController {
       $state.reload();
     };
   }
+
+  delete(user, userArray) {
+    user.$remove();
+    userArray.splice(userArray.indexOf(user), 1);
+  };
 
 }
