@@ -45,6 +45,7 @@ export function index(req, res) {
  */
 export function getAllUserByRole(req, res) {
   let userRole = req.params.role;
+
   return User.findAll({
     attributes: [
       '_id',

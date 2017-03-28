@@ -25,6 +25,30 @@ export function UserResource($resource) {
         id: 'me'
       }
     },
+    getAllAdmins: {
+      method: 'GET',
+      isArray: true,
+      params: {
+        id: 'role',
+        controller: 'admin'
+      }
+    },
+    getAllUsers: {
+      method: 'GET',
+      isArray: true,
+      params: {
+        id: 'role',
+        controller: 'user'
+      }
+    },
+    getAllPending: {
+      method: 'GET',
+      isArray: true,
+      params: {
+        id: 'role',
+        controller: 'pending'
+      }
+    },
     delete:{
       method: 'DELETE'
     }
