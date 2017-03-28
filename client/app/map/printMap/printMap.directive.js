@@ -1,6 +1,6 @@
 'use strict';
 const angular = require('angular');
-import "./printMap";
+require("jQuery.print");
 
 export default angular.module('webarmatureApp.printMap', [])
   .directive('printMap', function () {
@@ -26,7 +26,9 @@ export default angular.module('webarmatureApp.printMap', [])
 
       let print = $("#mapsArea").print({
         noPrintSelector: "sidebar",
-        deferred: $.Deferred().done(printShown)
+        deferred: $.Deferred().done(printShown),
+        //After one minute it's going to print whatever it has been able to load. Otherwise load as soon as ready
+        timeout: 60000
       });
 
     };
