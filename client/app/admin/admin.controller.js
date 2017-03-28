@@ -3,28 +3,22 @@
 export default class AdminController {
 
   /*@ngInject*/
-  constructor($scope, $state, User) {
+  constructor($scope, $state, User, $q) {
 
     this.users = {};
     this.users.admins = User.getAllAdmins();
     this.users.users = User.getAllUsers();
     this.users.pending = User.getAllPending();
 
-    /*$scope.delete = function (user) {
-      User.delete({id: user._id});
-      $state.reload();
-    };*/
-
-
-    $scope.confirm = function (user) {
-      User.changeRole({_id: user._id, role: 'user'});
-      $state.reload();
+    $scope.confirm = function(user){
+      let changeRolePromise = $q(function(){
+        User.changeRole({_id: user._id, role: 'user'});
+      });
+      changeRolePromise.then($state.reload());
     };
+
+    $scope.delete = function(user){
+      user.$remove().then($state.reload());
+    }
   }
-
-  delete(user, userArray) {
-    user.$remove();
-    userArray.splice(userArray.indexOf(user), 1);
-  };
-
 }
