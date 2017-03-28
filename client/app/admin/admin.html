@@ -1,8 +1,34 @@
 <div class="container">
   <div class="row jumbotron" id="jumbo">
-    <p>Seulement les administrateurs peuvent accéder cette page.</p>
+    <p>Administrateurs: </p>
     <ul class="list-group user-list">
-      <li class="list-group-item" ng-repeat="user in admin.users">
+      <li class="list-group-item" ng-repeat="user in admin.users.admins">
+        <div class="user-info">
+          <strong>{{user.name}}</strong><br>
+          <span class="text-muted">{{user.email}}</span>
+          <span class="text-muted"> - {{user.role}}</span>
+          <span class="text-muted"> - {{user.occupation}}</span>
+        </div>
+        <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+      </li>
+    </ul>
+
+    <p>Utilisateurs: </p>
+    <ul class="list-group user-list">
+      <li class="list-group-item" ng-repeat="user in admin.users.users">
+        <div class="user-info">
+          <strong>{{user.name}}</strong><br>
+          <span class="text-muted">{{user.email}}</span>
+          <span class="text-muted"> - {{user.role}}</span>
+          <span class="text-muted"> - {{user.occupation}}</span>
+        </div>
+        <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+      </li>
+    </ul>
+
+    <p>Utilisateurs en attente de confirmation: </p>
+    <ul class="list-group user-list">
+      <li class="list-group-item" ng-repeat="user in admin.users.pending">
         <div class="user-info">
           <strong>{{user.name}}</strong><br>
           <span class="text-muted">{{user.email}}</span>

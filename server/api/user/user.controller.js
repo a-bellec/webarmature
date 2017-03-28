@@ -43,7 +43,8 @@ export function index(req, res) {
  * Get list of users with specific role
  * restriction: 'admin'
  */
-export function getAllAdmins(req, res) {
+export function getAllUserByRole(req, res) {
+  let userRole = req.params.role;
   return User.findAll({
     attributes: [
       '_id',
@@ -54,7 +55,7 @@ export function getAllAdmins(req, res) {
       'provider'
     ],
     where: {
-      role: 'admin'
+      role: userRole
     }
   })
     .then(users => {
