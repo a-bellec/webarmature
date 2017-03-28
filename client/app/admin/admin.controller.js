@@ -3,8 +3,9 @@
 export default class AdminController {
 
   /*@ngInject*/
-  constructor($resource) {
-    let User = $resource('/api/users/role/:role', {
+  constructor($resource, $scope, $state, User) {
+
+    let UserRole = $resource('/api/users/role/:role', {
       role: '@role'
     }, {
       get: {
@@ -13,13 +14,14 @@ export default class AdminController {
     });
 
     this.users = {};
-    this.users.admins = User.query({role: 'admin'});
-    this.users.users = User.query({role: 'user'});
-    this.users.pending = User.query({role: 'pending'});
+    this.users.admins = UserRole.query({role: 'admin'});
+    this.users.users = UserRole.query({role: 'user'});
+    this.users.pending = UserRole.query({role: 'pending'});
+
+    $scope.delete = function(user){
+      User.delete({id: user._id});
+      $state.reload();
+    }
   }
 
-  delete(user) {
-    user.$remove();
-    this.users.splice(this.users.indexOf(user), 1);
-  }
 }

@@ -17,6 +17,12 @@ export function UserResource($resource) {
       params: {
         id: 'me'
       }
+    },
+    delete:{
+      method: 'DELETE',
+      params: {
+        id: 'id'
+      }
     }
   });
 }
