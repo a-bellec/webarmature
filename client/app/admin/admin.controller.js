@@ -18,7 +18,10 @@ export default class AdminController {
     };
 
     $scope.delete = function(user){
-      user.$remove().then($state.reload());
+      let deletePromise = $q(function(){
+        user.$remove();
+      });
+      deletePromise.then($state.reload());
     }
   }
 }
