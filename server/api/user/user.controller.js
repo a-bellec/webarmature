@@ -40,6 +40,30 @@ export function index(req, res) {
 }
 
 /**
+ * Get list of users with specific role
+ * restriction: 'admin'
+ */
+export function getAllAdmins(req, res) {
+  return User.findAll({
+    attributes: [
+      '_id',
+      'name',
+      'occupation',
+      'email',
+      'role',
+      'provider'
+    ],
+    where: {
+      role: 'admin'
+    }
+  })
+    .then(users => {
+      res.status(200).json(users);
+    })
+    .catch(handleError(res));
+}
+
+/**
  * Creates a new user
  */
 export function create(req, res) {

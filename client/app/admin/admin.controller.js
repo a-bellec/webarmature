@@ -3,9 +3,14 @@
 export default class AdminController {
 
   /*@ngInject*/
-  constructor(User) {
-    this.users = User.query();
+  constructor($resource) {
+    let User = $resource('/api/users/admin', {
+      get: {
+        method: 'GET'
+      }
+    });
 
+    this.users = User.query();
   }
 
   delete(user) {
