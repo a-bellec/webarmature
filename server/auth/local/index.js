@@ -15,6 +15,9 @@ router.post('/', function(req, res, next) {
     if(!user) {
       return res.status(404).json({message: 'Something went wrong, please try again.'});
     }
+    if(user.role == 'pending'){
+      return res.status(401).json({message: 'Nous sommes encore en train de traiter votre demande d\'accès. Veuillez réessayer plus tard.'});
+    }
 
     var token = signToken(user._id, user.role);
     res.json({ token });

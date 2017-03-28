@@ -6,6 +6,10 @@
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
+        <div class="alert alert-success" ng-show="vm.formValidated">
+          <strong>Demande d'accès envoyé!</strong> Veuillez attendre l'approbation de notre administrateur pour pouvoir vous connecter.
+        </div>
+
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
           <label>Nom</label>
@@ -31,10 +35,10 @@
 
           <input type="email" name="email" class="form-control" ng-model="vm.user.email" required mongoose-error/>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-            Veuillez entrer une adresse courrielle valide.
+            Veuillez entrer une adresse courriel valide.
           </p>
           <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
-            Veuillez entrer une adresse courrielle.
+            Veuillez entrer une adresse courriel.
           </p>
           <p class="help-block" ng-show="form.email.$error.mongoose">
             {{ vm.errors.email }}

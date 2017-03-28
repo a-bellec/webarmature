@@ -30,8 +30,7 @@ export default class SignupController {
         password: this.user.password
       })
         .then(() => {
-          // Account created, redirect to home
-          this.$state.go('main');
+          this.formValidated=true;
         })
         .catch(err => {
           err = err.data;
