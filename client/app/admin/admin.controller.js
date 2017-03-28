@@ -5,12 +5,18 @@ export default class AdminController {
   /*@ngInject*/
   constructor($resource, $scope, $state, User) {
 
-    let UserRole = $resource('/api/users/role/:role', {
+    let UserRole = $resource('/api/users/role/:role/:id', {
       role: '@role'
     }, {
       get: {
         method: 'GET'
-      }
+      },
+      changeRole:{
+        method: 'PUT',
+        params: {
+          id: '@id'
+        }
+      },
     });
 
     this.users = {};
@@ -21,7 +27,12 @@ export default class AdminController {
     $scope.delete = function(user){
       User.delete({id: user._id});
       $state.reload();
-    }
+    };
+
+    $scope.confirm = function(user){
+      UserRole.changeRole({role:'user', id: user._id});
+      $state.reload();
+    };
   }
 
 }

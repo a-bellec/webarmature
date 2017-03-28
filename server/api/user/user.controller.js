@@ -6,14 +6,14 @@ import jwt from 'jsonwebtoken';
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
-  return function(err) {
+  return function (err) {
     return res.status(statusCode).json(err);
   };
 }
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     return res.status(statusCode).send(err);
   };
 }
@@ -72,11 +72,11 @@ export function create(req, res) {
   newUser.setDataValue('provider', 'local');
   newUser.setDataValue('role', 'user');
   return newUser.save()
-    .then(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+    .then(function (user) {
+      var token = jwt.sign({_id: user._id}, config.secrets.session, {
         expiresIn: 60 * 60 * 5
       });
-      res.json({ token });
+      res.json({token});
     })
     .catch(validationError(res));
 }
@@ -93,7 +93,7 @@ export function show(req, res, next) {
     }
   })
     .then(user => {
-      if(!user) {
+      if (!user) {
         return res.status(404).end();
       }
       res.json(user.profile);
@@ -106,8 +106,8 @@ export function show(req, res, next) {
  * restriction: 'admin'
  */
 export function destroy(req, res) {
-  return User.destroy({ where: { _id: req.params.id } })
-    .then(function() {
+  return User.destroy({where: {_id: req.params.id}})
+    .then(function () {
       res.status(204).end();
     })
     .catch(handleError(res));
@@ -127,7 +127,7 @@ export function changePassword(req, res) {
     }
   })
     .then(user => {
-      if(user.authenticate(oldPass)) {
+      if (user.authenticate(oldPass)) {
         user.password = newPass;
         return user.save()
           .then(() => {
@@ -137,6 +137,28 @@ export function changePassword(req, res) {
       } else {
         return res.status(403).end();
       }
+    });
+}
+
+/**
+ * Change a users password
+ */
+export function changeRole(req, res) {
+  let userId = req.params.id;
+  let newRole = req.params.role;
+
+  return User.find({
+    where: {
+      _id: userId
+    }
+  })
+    .then(user => {
+      user.role = newRole;
+      return user.save()
+        .then(() => {
+          res.status(204).end();
+        })
+        .catch(validationError(res));
     });
 }
 
@@ -160,7 +182,7 @@ export function me(req, res, next) {
     ]
   })
     .then(user => { // don't ever give out the password or salt
-      if(!user) {
+      if (!user) {
         return res.status(401).end();
       }
       res.json(user);
