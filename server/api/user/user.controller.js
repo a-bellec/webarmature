@@ -71,7 +71,6 @@ export function getAllUserByRole(req, res) {
 export function create(req, res) {
   var newUser = User.build(req.body);
   newUser.setDataValue('provider', 'local');
-  newUser.setDataValue('role', 'user');
   return newUser.save()
     .then(function (user) {
       var token = jwt.sign({_id: user._id}, config.secrets.session, {
