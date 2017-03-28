@@ -18,3 +18,15 @@
 	align-items: center;
 	text-decoration: none;
 }
+
+.user-list li .check {
+  color: #4cae4c;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.user-list li .check:hover {
+  color: #337ab7;
+}
