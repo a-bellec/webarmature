@@ -16,8 +16,38 @@ export default function seedDatabaseIfNeeded() {
         provider: 'local',
         name: 'Pending user',
         occupation: 'Pending',
-        email: 'pending@example.com',
-        password: 'pending'
+        email: 'pendig@example.com',
+        password: 'test'
+      }, {
+        provider: 'local',
+        name: 'Pending user',
+        occupation: 'Pending',
+        email: 'pendng@example.com',
+        password: 'test'
+      }, {
+        provider: 'local',
+        name: 'Pending user',
+        occupation: 'Pending',
+        email: 'peing@example.com',
+        password: 'test'
+      }, {
+        provider: 'local',
+        name: 'Pending user',
+        occupation: 'Pending',
+        email: 'pening@example.com',
+        password: 'test'
+      }, {
+        provider: 'local',
+        name: 'Pending user',
+        occupation: 'Pending',
+        email: 'peding@example.com',
+        password: 'test'
+      }, {
+        provider: 'local',
+        name: 'Pending user',
+        occupation: 'Pending',
+        email: 'ending@example.com',
+        password: 'test'
       }, {
         provider: 'local',
         role: 'user',
