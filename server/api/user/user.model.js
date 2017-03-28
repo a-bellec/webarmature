@@ -28,7 +28,7 @@ export default function(sequelize, DataTypes) {
     },
     role: {
       type: DataTypes.STRING,
-      defaultValue: 'user'
+      defaultValue: 'pending'
     },
     password: {
       type: DataTypes.STRING,

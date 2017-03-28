@@ -1,6 +1,6 @@
 /*
 This is a slightly disgusting hack.
-This is to make sure that when you have 2 maps to get on top of each other in print.
+This is to make sure that when you have 2 maps they get on top of each other in print.
 jQuery.print() doesn't look at @media and apply anyway
 This makes sure that it doesn't affect anything else (because max-width 1 px)
 And that it still change the style for the print

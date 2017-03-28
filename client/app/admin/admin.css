@@ -5,6 +5,7 @@
 	border: none;
 	border-bottom: 1px lightgray solid;
 	margin-bottom: 0;
+  color: #000;
 }
 .user-list li:last-child {
 	border-bottom: none;
