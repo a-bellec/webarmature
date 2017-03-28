@@ -3,13 +3,20 @@
 export function UserResource($resource) {
   'ngInject';
 
-  return $resource('/api/users/:id/:controller', {
+  return $resource('/api/users/:id/:controller/:item', {
     id: '@_id'
   }, {
     changePassword: {
       method: 'PUT',
       params: {
         controller: 'password'
+      }
+    },
+    changeRole:{
+      method: 'PUT',
+      params: {
+        controller: 'role',
+        item: '@role'
       }
     },
     get: {
@@ -19,10 +26,7 @@ export function UserResource($resource) {
       }
     },
     delete:{
-      method: 'DELETE',
-      params: {
-        id: 'id'
-      }
+      method: 'DELETE'
     }
   });
 }

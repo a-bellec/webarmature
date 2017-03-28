@@ -10,13 +10,7 @@ export default class AdminController {
     }, {
       get: {
         method: 'GET'
-      },
-      changeRole:{
-        method: 'PUT',
-        params: {
-          id: '@id'
-        }
-      },
+      }
     });
 
     this.users = {};
@@ -25,12 +19,12 @@ export default class AdminController {
     this.users.pending = UserRole.query({role: 'pending'});
 
     $scope.delete = function(user){
-      User.delete({id: user._id});
+      User.delete( {id: user._id} );
       $state.reload();
     };
 
     $scope.confirm = function(user){
-      UserRole.changeRole({role:'user', id: user._id});
+      User.changeRole({_id: user._id, role:'user'});
       $state.reload();
     };
   }
