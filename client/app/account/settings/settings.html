@@ -31,10 +31,7 @@
         <div class="form-group">
           <label>Confirmez votre mot de passe</label>
 
-          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
-                 match="vm.user.newPassword"
-                 ng-minlength="3"
-                 required=""/>
+          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword" match="vm.user.newPassword" ng-minlength="3" required=""/>
           <p class="help-block" ng-show="form.confirmPassword.$error.match && vm.submitted">
             Les mots de passe doivent être identiques.
           </p>

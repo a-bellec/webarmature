@@ -6,6 +6,7 @@ import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
 import 'angular-socket-io';
+import ngMatch from 'angular-validation-match';
 
 import uiRouter from 'angular-ui-router';
 import 'jquery';
@@ -32,7 +33,7 @@ import socket from '../components/socket/socket.service';
 
 import './app.css';
 
-angular.module('webarmatureApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
+angular.module('webarmatureApp', [ngCookies, ngResource, ngSanitize, ngMatch, 'btford.socket-io', uiRouter,
   _Auth, account, admin, navbar, footer, main, constants, socket, util, about, partners, map, lab
 ])
   .config(routeConfig)
