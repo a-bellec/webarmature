@@ -1,117 +1,177 @@
-<div class="container">
-  <div class="row jumbotron" id="jumbo">
+<div>
+  <div style="display: inline-block">
+    <img src="assets/images/logo/logo_webarmature_final.png" id="webArmatureLogo"/>
+    <h2>Armature</h2>
+    <h2>L'Évolution du territoire de Lyon</h2>
+  </div>
+
+
+  <div class="row bloc">
     <div class="col-md-8 col-md-offset-2">
-      <div class="text-center">
-        <h1>Bienvenue!</h1>
-        <p>
-          Ce site est une plate-forme Web dédiée à présenter les travaux de recherches du projet ARMATURE mis
-          en place par le LABEX IMU.
-        </p>
+      <div>
+        <div class="section-header">
+          <h2 class="dark-text"> Qu'est-ce que WebARMATURE? </h2>
+          <h6> Une simple introduction au projet</h6>
+        </div>
+        <div class="col-xs-12 col-sm-6 center-vertical">
+          <p>
+            Ce site est une plate-forme Web dédiée à présenter les travaux de recherches du projet ARMATURE mis
+            en place par le LABEX IMU.
+          </p>
 
-        <p>
-          Les différentes images présentes sur le site permettent de visualiser l'évolution du territoire de
-          Lyon des années 1950 &agrave; aujourd'hui.
-        </p>
-        <br>
-        <p>
-          <a class="btn btn-primary btn-lg" ui-sref="mapMenu" role="button">Commencez &agrave; explorer &raquo;</a>
-        </p>
+          <p>
+            Les différentes images présentes sur le site permettent de visualiser l'évolution du territoire de
+            Lyon des années 1950 &agrave; aujourd'hui.
+          </p>
+          <br>
+          <p class="text-center">
+            <a class="btn btn-primary btn-lg" ui-sref="mapMenu" role="button">Commencez &agrave; explorer &raquo;</a>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <img src="assets/images/webarmature_single_view.jpg" style="width: 100%; height: 100%;"/>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 row bloc1 text-center">
-    <div class="col-sm-6 col-md-6 col-lg-4">
-      <h2> Cartes interactives </h2>
-      <p>Les cartes des années 1950 &agrave; 1986 sont issues d'une compilation d'images.
-        Entre 200 et 500 images ont été compilées par années afin d'obtenir une mosa&iuml;que compl&egravete
-        du territoire. </p>
-      <br>
-      <p><a class="btn btn-default" ui-sref="mapMenu" role="button">Voir les cartes &raquo;</a>
-      </p>
-    </div>
-    <div class="col-sm-6 col-md-6 col-lg-4">
-      <h2>À propos d'ARMATURE</h2>
-      <p>Porté par le LABEX Intelligence des Mondes Urbains de Lyon, le projet de recherche ARMATURE
-        porte sur le theme de la nature en ville et s'interroge sur l'évolution de la végétation. </p>
-      <br>
-      <p><a class="btn btn-default" ui-sref="about" role="button">À propos &raquo;</a></p>
-    </div>
-    <div class="col-sm-6 col-md-6 col-lg-4">
-      <h2> Méthodologies </h2>
-      <p>"Plongez dans le Lab ARMATURE o&ugrave; les techniques d'assemblage et d'analyse d'image
-        sont utilisés afin d'apporter un éclairage sur les méthodologies appliquées."</p>
-      <br>
-      <p><a class="btn btn-default" ui-sref="labMenu" role="button">Le Lab &raquo;</a></p>
-    </div>
-  </div>
-
-  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 row text-center bloc2">
-    <div class="row-centered">
-      <div class="col-sm-6 col-md-4">
-        <a href="http://imu.universite-lyon.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_imu.png" alt="IMU logo"/>
-        </a>
+  <div class="darkSection container">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 row text-center">
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="chart">
+          <h2> Cartes interactives </h2>
+          <p>Les cartes des années 1950 &agrave; 1986 sont issues d'une compilation d'images.
+            Entre 200 et 500 images ont été compilées par années afin d'obtenir une mosa&iuml;que compl&egravete
+            du territoire. </p>
+          <br>
+          <p><a class="btn btn-default" ui-sref="mapMenu" role="button">Voir les cartes &raquo;</a>
+          </p>
+        </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://umr5600.ish-lyon.cnrs.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_evs.png" alt="EVS logo"/>
-        </a>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="chart">
+          <h2>À propos d'ARMATURE</h2>
+          <p>Porté par le LABEX Intelligence des Mondes Urbains de Lyon, le projet de recherche ARMATURE
+            porte sur le theme de la nature en ville et s'interroge sur l'évolution de la végétation. </p>
+          <br>
+          <p><a class="btn btn-default" ui-sref="about" role="button">À propos &raquo;</a></p>
+        </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://umr5023.univ-lyon1.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_lehna.png" alt="LEHNA logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="https://liris.cnrs.fr/?set_language=fr" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_liris.png" alt="LIRIS logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.huma-num.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_humanum.png" alt="Huma-Num logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.cnrs.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_cnrs.png" alt="CNRS logo"/>
-        </a>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="chart">
+          <h2 class="text-center"> Méthodologies </h2>
+          <p>"Plongez dans le Lab ARMATURE o&ugrave; les techniques d'assemblage et d'analyse d'image
+            sont utilisés afin d'apporter un éclairage sur les méthodologies appliquées."</p>
+          <br>
+          <p><a class="btn btn-default" ui-sref="labMenu" role="button">Le Lab &raquo;</a></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 row text-center bloc2">
-    <div class="row-centered">
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.grandlyon.com/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_grandlyon.png" alt="Grand Lyon logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.urbalyon.org/site/Accueil" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_urbalyon.png" alt="UrbaLyon logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.universite-lyon.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_UDL.png" alt="UDL logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.univ-lyon3.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_lyon3.png" alt="Lyon3 logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://www.univ-lyon1.fr/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_ucbl.png" alt="Lyon1 logo"/>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <a href="http://imualpha.hypotheses.org/" target="_blank">
-          <img class="img-responsive" src="/assets/images/logo/logo_imualpha.png" alt="IMUalpha logo"/>
-        </a>
+  <div class="container bloc">
+    <div class="section-header">
+      <h2 class="dark-text"> Nos partenaires </h2>
+      <h6> Nous remercions grandement nos partenaires pour leur support. </h6>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1 row text-center bloc2">
+      <div class="row-centered">
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://imu.universite-lyon.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_imu.png" alt="IMU logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-red"> IMU </h5>
+          <p>Intelligence des Mondes Urbains</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://umr5600.ish-lyon.cnrs.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_evs.png" alt="EVS logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-green"> EVS </h5>
+          <p>Environnement Ville Société</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://umr5023.univ-lyon1.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_lehna.png" alt="LEHNA logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-blue"> LEHNA </h5>
+          <p>Laboratoire d'Ecologie des Hydrosystèmes Naturels et Anthropisés</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="https://liris.cnrs.fr/?set_language=fr" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_liris.png" alt="LIRIS logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-yellow"> LIRIS </h5>
+          <p>Laboratoire d'InfoRmatique en Image et Systèmes d'information</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.huma-num.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_humanum.png" alt="Huma-Num logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-red"> Huma-Num </h5>
+          <p>La TGIR des humanités numériques</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.cnrs.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_cnrs.png" alt="CNRS logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-green"> CNRS </h5>
+          <p>Centre National de la Recherche Scientifique</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.grandlyon.com/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_grandlyon.png" alt="Grand Lyon logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-blue"> Grand Lyon </h5>
+          <p>Grand Lyon</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.urbalyon.org/site/Accueil" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_urbalyon.png" alt="UrbaLyon logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-yellow"> UrbaLyon </h5>
+          <p>Agence d'urbanisme pour le développement de l'agglomération lyonnaise</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.universite-lyon.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_UDL.png" alt="UDL logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-red"> UDL </h5>
+          <p>Université de Lyon</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.univ-lyon3.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_lyon3.png" alt="Lyon3 logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-green"> Lyon3 </h5>
+          <p>Université Lyon 3 - Jean-Moulin</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://www.univ-lyon1.fr/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_ucbl.png" alt="Lyon1 logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-blue"> Lyon1 </h5>
+          <p> Université Lyon 1 - Claude-Bernard</p>
+        </div>
+        <div class="col-sm-6 col-md-3 partnerLogo">
+          <a href="http://imualpha.hypotheses.org/" target="_blank">
+            <img class="img-responsive" src="/assets/images/logo/logo_imualpha.png" alt="IMUalpha logo"/>
+          </a>
+          <br>
+          <h5 class="border-bottom border-yellow"> IMUalpha </h5>
+          <p>IMUAlpha</p>
+        </div>
       </div>
     </div>
   </div>
