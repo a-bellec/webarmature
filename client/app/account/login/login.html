@@ -1,21 +1,29 @@
-<div class="container">
-  <div class="row jumbotron" id="jumbo">
-    <div class="col-sm-12">
+<div class="container" style="margin-top: 10%; max-width: 350px">
+  <div class="formPage">
+    <div class="text-center">
       <h1>Connexion</h1>
+      <br>
     </div>
-    <div class="col-sm-12">
+
+    <div>
       <form class="form" name="form" ng-submit="vm.login(form)" novalidate>
 
         <div class="form-group">
           <label>Adresse courriel</label>
 
-          <input type="email" name="email" class="form-control" ng-model="vm.user.email" required>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+            <input type="email" name="email" placeholder="Entrez votre adresse courriel" class="form-control" ng-model="vm.user.email" required>
+          </div>
         </div>
 
         <div class="form-group">
           <label>Mot de passe</label>
 
-          <input type="password" name="password" class="form-control" ng-model="vm.user.password" required>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+            <input type="password" name="password" placeholder="Entrez votre mot de passe" class="form-control" ng-model="vm.user.password" required>
+          </div>
         </div>
 
         <div class="form-group has-error">
@@ -29,11 +37,12 @@
           <p class="help-block">{{ vm.errors.login }}</p>
         </div>
 
-        <div>
-          <button class="btn btn-default btn-primary" type="submit">
+        <div class="text-center">
+          <br>
+          <button class="btn btn-default btn-primary col-xs-12" type="submit" style="margin-bottom: 10px">
             Connexion
           </button>
-          <a class="btn btn-default" ui-sref="signup">
+          <a ui-sref="signup">
             Inscription
           </a>
         </div>
@@ -41,5 +50,4 @@
       </form>
     </div>
   </div>
-  <hr>
 </div>

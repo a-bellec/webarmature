@@ -105,6 +105,17 @@ body{
   color: #808080;
 }
 
+.formPage{
+  background: #ffffff;
+  padding: 25px 25px 40px 25px;
+  border-radius: 10px;
+}
+
+.formPage label{
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
 .bloc{
   background: #ffffff;
   padding-top: 100px;
