@@ -1,3 +1,53 @@
 .img-responsive{
   display: inline;
 }
+
+.partnerLogo{
+  padding-bottom: 25px;
+}
+
+.border-bottom:before {
+  position: absolute;
+  margin: auto;
+  z-index: 1;
+  content: "";
+  width: 75%;
+  height: 2px;
+  background: #000;
+  bottom: -9px;
+  left: 12.5%;
+}
+
+.border-yellow:before{
+  background: #f7d861;
+}
+
+.border-green:before{
+  background: #34d293;
+}
+
+.border-blue:before{
+  background: #3ab0e2;
+}
+
+.border-red:before{
+  background: #e96656;
+}
+
+#webArmatureLogo{
+  height: 90%;
+}
+
+#banner{
+  background:url(/assets/images/background_lyon_parc.jpg) no-repeat;
+  background-size: cover;
+  height: 350px;
+}
+
+#bannerText{
+  font-family: "Palatino";
+  padding-left: 10%;
+  padding-top: 100px;
+  color: #fff;
+}
+

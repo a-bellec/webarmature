@@ -141,47 +141,6 @@ body{
   font-size: 14px;
 }
 
-.center-vertical{
-  top: 50%;
-  transform: translateY(+50%);
-}
-
-.partnerLogo{
-  padding-bottom: 25px;
-}
-
-.border-bottom:before {
-  position: absolute;
-  margin: auto;
-  z-index: 1;
-  content: "";
-  width: 75%;
-  height: 2px;
-  background: #000;
-  bottom: -9px;
-  left: 12.5%;
-}
-
-.border-yellow:before{
-  background: #f7d861;
-}
-
-.border-green:before{
-  background: #34d293;
-}
-
-.border-blue:before{
-  background: #3ab0e2;
-}
-
-.border-red:before{
-  background: #e96656;
-}
-
-#webArmatureLogo{
-  height: 150px;
-}
-
 /* Contenu navbar */
 .navbar-fixed-top{
   width:auto;
@@ -253,6 +212,7 @@ body{
 }
 
 .container .panel-body{
+  color: #fff;
   font-size: 22px;
   font-style: italic;
   font-family: Georgia, serif;
