@@ -143,18 +143,18 @@ body{
   }
 }
 
-.container .panel-group .panel{
+.container .panel{
   width: 100%;
   left: 0;
 }
 
-.container .panel-group .panel .panel-collapse{
+.container .panel-collapse{
   height: 400px;
   background-size: cover;
   overflow-y: auto;
 }
 
-.container .panel-group .panel .panel-collapse .panel-body{
+.container .panel-body{
   font-size: 22px;
   font-style: italic;
   font-family: Georgia, serif;
@@ -163,11 +163,11 @@ body{
   margin: 1em;
 }
 
-.container .panel-group .panel .panel-heading{
+.container .panel-heading{
   background: inherit;
 }
 
-.container .panel-group .panel .panel-heading .panel-title {
+.container .panel-title {
   font-family: 'Open Sans Condensed', sans-serif;
   text-transform: uppercase;
   font-size: 60px;
@@ -192,26 +192,26 @@ body{
   background: #000 url(../assets/images/444.jpg) center center;
 }
 
-.container .panel-group .panel .panel-collapse .panel-body ul {
+.container .panel-body ul {
   margin-top: 20px;
 }
 
-.container .panel-group .panel .panel-collapse .panel-body ul li {
+.container .panel-body ul li {
   float: left;
   margin: 2px;
 }
 
-.container .panel-group .panel .panel-collapse .panel-body a:link {
+.container .panel-body a:link {
   color: #fff;
   padding: 3px 6px;
   text-decoration: underline;
 }
 
-.container .panel-group .panel .panel-collapse .panel-body a:link:hover {
+.container .panel-body a:link:hover {
   color: #484aee;
 }
 
-.container .panel-group .panel .panel-collapse .panel-body a:focus, a:hover{
+.container .panel-body a:focus, a:hover{
   text-decoration: none;
 }
 
