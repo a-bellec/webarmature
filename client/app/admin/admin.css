@@ -2,14 +2,11 @@
 
 .user-list li {
 	display: flex;
-	border: none;
-	border-bottom: 1px lightgray solid;
+	border: 1px lightgray solid;
 	margin-bottom: 0;
   color: #000;
 }
-.user-list li:last-child {
-	border-bottom: none;
-}
+
 .user-list li .user-info {
 	flex-grow: 1;
 }

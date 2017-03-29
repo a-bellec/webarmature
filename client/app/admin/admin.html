@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row jumbotron" id="jumbo">
-    <p>Administrateurs: </p>
+<div class="container bloc" style="max-width: 768px">
+  <div>
+    <h5>Administrateurs: </h5>
     <ul class="list-group user-list">
       <li class="list-group-item" ng-repeat="user in admin.users.admins">
         <div class="user-info">
@@ -12,7 +12,7 @@
       </li>
     </ul>
 
-    <p>Utilisateurs: </p>
+    <h5>Utilisateurs: </h5>
     <ul class="list-group user-list">
       <li class="list-group-item" ng-repeat="user in admin.users.users">
         <div class="user-info">
@@ -25,7 +25,7 @@
       </li>
     </ul>
 
-    <p>Utilisateurs en attente de confirmation: </p>
+    <h5>Utilisateurs en attente de confirmation: </h5>
     <ul class="list-group user-list">
       <li class="list-group-item" ng-repeat="user in admin.users.pending">
         <div class="user-info">
