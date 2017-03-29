@@ -116,6 +116,10 @@ body{
   margin-bottom: 0;
 }
 
+.formPage .btn-primary{
+  margin-bottom: 10px;
+}
+
 .bloc{
   background: #ffffff;
   padding-top: 100px;
