@@ -2,6 +2,7 @@
   <div class="formPage">
     <div class="text-center">
       <h1>Inscription</h1>
+      <br>
     </div>
     <div>
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
@@ -16,7 +17,7 @@
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-            <input type="text" name="name" class="form-control" ng-model="vm.user.name" required/>
+            <input type="text" placeholder="Entrez votre nom" name="name" class="form-control" ng-model="vm.user.name" required/>
           </div>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
             Veuillez entrer votre nom.
@@ -28,7 +29,7 @@
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-suitcase fa" aria-hidden="true"></i></span>
-            <input type="text" name="occupation" class="form-control" ng-model="vm.user.occupation" required/>
+            <input type="text" placeholder="Entrez votre occupation" name="occupation" class="form-control" ng-model="vm.user.occupation" required/>
           </div>
           <p class="help-block" ng-show="form.occupation.$error.required && vm.submitted">
             Veuillez entrer votre occupation.
@@ -41,7 +42,7 @@
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-            <input type="email" name="email" class="form-control" ng-model="vm.user.email" required mongoose-error/>
+            <input type="email" placeholder="Entrez votre adresse courriel" name="email" class="form-control" ng-model="vm.user.email" required mongoose-error/>
           </div>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
             Veuillez entrer une adresse courriel valide.
@@ -60,7 +61,7 @@
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-            <input type="password" name="password" class="form-control" ng-model="vm.user.password" ng-minlength="3" required mongoose-error/>
+            <input type="password" placeholder="Entrez votre mot de passe" name="password" class="form-control" ng-model="vm.user.password" ng-minlength="3" required mongoose-error/>
           </div>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
@@ -75,7 +76,7 @@
           <label>Confirmez le mot de passe</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
-            <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword" match="vm.user.password" ng-minlength="3" required/>
+            <input type="password" placeholder="Confirmez votre mot de passe" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword" match="vm.user.password" ng-minlength="3" required/>
           </div>
           <p class="help-block"
              ng-show="form.confirmPassword.$error.match && vm.submitted">
