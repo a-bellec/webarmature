@@ -17,6 +17,7 @@ export default function(sequelize, DataTypes) {
     },
     name: DataTypes.STRING,
     occupation: DataTypes.STRING,
+    occupationPlace: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: {

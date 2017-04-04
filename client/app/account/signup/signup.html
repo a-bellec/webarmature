@@ -36,6 +36,18 @@
           </p>
         </div>
 
+        <div class="form-group" ng-class="{ 'has-success': form.occupation.$valid && vm.submitted, 'has-error': form.occupation.$invalid && vm.submitted }">
+          <label>Lieu de l'occupation</label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-globe fa" aria-hidden="true"></i></span>
+            <input type="text" placeholder="Entrez votre lieu d'occupation" name="occupationPlace" class="form-control" ng-model="vm.user.occupationPlace" required/>
+          </div>
+          <p class="help-block" ng-show="form.occupationPlace.$error.required && vm.submitted">
+            Veuillez entrer votre lieu d'occupation.
+          </p>
+        </div>
+
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
                                             'has-error': form.email.$invalid && vm.submitted }">
           <label>Adresse courriel</label>

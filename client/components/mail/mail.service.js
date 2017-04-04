@@ -37,6 +37,7 @@ export function MailService($http, $q) {
      *
      * @param name
      * @param occupation
+     * @param occupationPlace
      * @param email
      * @param callback
      */
@@ -44,12 +45,14 @@ export function MailService($http, $q) {
     signUpNotify({
       name,
       occupation,
+      occupationPlace,
       email
     }, callback)
     {
       return $http.post('/api/mails/signUpNotify', {
         name,
         occupation,
+        occupationPlace,
         email
       })
         .then(res => {

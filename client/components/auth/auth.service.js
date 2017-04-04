@@ -81,6 +81,7 @@ export function AuthService($location, $http, $cookies, $q, appConfig, Util, Use
         Mail.signUpNotify({
           name: user.name,
           occupation: user.occupation,
+          occupationPlace: user.occupationPlace,
           email: user.email
         });
 

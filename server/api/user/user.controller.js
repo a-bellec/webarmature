@@ -28,6 +28,7 @@ export function index(req, res) {
       '_id',
       'name',
       'occupation',
+      'occupationPlace',
       'email',
       'role',
       'provider'
@@ -51,6 +52,7 @@ export function getAllUserByRole(req, res) {
       '_id',
       'name',
       'occupation',
+      'occupationPlace',
       'email',
       'role',
       'provider'
@@ -176,6 +178,7 @@ export function me(req, res, next) {
       '_id',
       'name',
       'occupation',
+      'occupationPlace',
       'email',
       'role',
       'provider'

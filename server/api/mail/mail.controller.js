@@ -38,6 +38,7 @@ export function signUpNotifyMail(req, res){
     "Voici les détails: " + "\n" +
     "Nom: " + req.body.name + "\n" +
     "Occupation: " + req.body.occupation + "\n" +
+    "Lieu de l'occupation: " + req.body.occupationPlace + "\n" +
     "Email: " + req.body.email + "\n" +
     "Allez dans la section administrative de www.webarmature.fr pour accepter ou refuser la demande.";
 
