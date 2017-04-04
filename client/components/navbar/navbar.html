@@ -48,7 +48,7 @@
           <div class="well well-sm">
             <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h3>Envoyez nous un message &nbsp;&nbsp;&nbsp;<i class="fa fa-paper-plane-o"></i></h3>
-            <form class="form" name="form" ng-submit="$ctrl.sendMail(form)" novalidate>
+            <form class="form" name="form" ng-submit="$ctrl.sendMail(form)" novalidate ng-hide="$ctrl.successful">
 
               <div class="row">
                 <div class="form-group col-sm-6">
@@ -87,8 +87,14 @@
                 <button type="submit" class="btn btn-success btn-lg pull-right">Envoyer</button>
               </div>
             </form>
+
+            <div ng-show="$ctrl.successful">
+              <div class="alert alert-success">
+                <p><strong>Succès!</strong> Votre message a bien été envoyé.</p>
+              </div>
+            </div>
+
           </div>
-        </div>
       </div>
     </div>
   </div>

@@ -10,6 +10,10 @@ export class NavbarComponent {
     messsage: ""
   };
   submitted = false;
+  successful = false;
+  errors = {
+    sendMail: undefined
+  };
 
   constructor(Auth, $scope, $http, Mail) {
     'ngInject';
@@ -36,9 +40,17 @@ export class NavbarComponent {
         email: this.message.email,
         text: this.message.text
       })
+        .then((res) => {
+          if(res.data.yo == "error"){
+            this.errors.sendMail = "Failed to send your email. Please try again later.";
+          }
+          else{
+            this.successful = true;
+          }
+        })
         .catch(err => {
           this.errors.sendMail = err.message;
-      });
+        });
     }
   }
 

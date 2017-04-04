@@ -1,6 +1,6 @@
 'use strict';
 
-export function MailService($http) {
+export function MailService($http, $q) {
   'ngInject';
 
   let Mail = {
@@ -15,11 +15,18 @@ export function MailService($http) {
       text
     }, callback)
     {
-      return $http.post('/sayHello', {
+      return $http.post('/api/mails/contact', {
         name,
         email,
         text
-      });
+      })
+        .then(res => {
+          return res;
+        })
+        .catch(err => {
+          console.log("hmm?");
+          return $q.reject(err.data);
+        });
     }
 
   };
