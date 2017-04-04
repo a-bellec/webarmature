@@ -1,12 +1,10 @@
 'use strict';
 
 var nodemailer = require('nodemailer');
+var contactEmail = 'bellec.arnaud@webarmature.fr';
+var transporter = nodemailer.createTransport();
 
 export function contactMail(req, res) {
-
-  var contactEmail = 'bellec.arnaud@webarmature.fr';
-
-  var transporter = nodemailer.createTransport();
 
   var text = 'Nouveau message via le site: www.webarmature.fr. ' + "\n" +
     "Voici les détails: " + "\n" +
@@ -22,7 +20,6 @@ export function contactMail(req, res) {
   };
 
   transporter.sendMail(mailOptions, function(error, info){
-
     if(error){
       console.log(error);
       res.json({yo: 'error'});
@@ -31,7 +28,35 @@ export function contactMail(req, res) {
       console.log('Message sent');
       res.json({yo: info.response});
     }
+  });
 
+}
+
+export function signUpNotifyMail(req, res){
+
+  var text = "Nouvelle demande d'accès via: www.webarmature.fr. " + "\n" +
+    "Voici les détails: " + "\n" +
+    "Nom: " + req.body.name + "\n" +
+    "Occupation: " + req.body.occupation + "\n" +
+    "Email: " + req.body.email + "\n" +
+    "Allez dans la section administrative de www.webarmature.fr pour accepter ou refuser la demande.";
+
+  var mailOptions = {
+    from: "noreply@webarmature.fr",
+    to: contactEmail,
+    subject: "Demande d'accès: " + req.body.name,
+    text: text
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      console.log(error);
+      res.json({yo: 'error'});
+    }
+    else{
+      console.log('Message sent');
+      res.json({yo: info.response});
+    }
   });
 
 }

@@ -9,7 +9,7 @@ class _User {
   $promise = undefined;
 }
 
-export function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
+export function AuthService($location, $http, $cookies, $q, appConfig, Util, User, Mail) {
   'ngInject';
 
   var safeCb = Util.safeCb;
@@ -77,6 +77,13 @@ export function AuthService($location, $http, $cookies, $q, appConfig, Util, Use
      */
     createUser(user, callback) {
       return User.save(user, function(data) {
+
+        Mail.signUpNotify({
+          name: user.name,
+          occupation: user.occupation,
+          email: user.email
+        });
+
         return safeCb(callback);
       }, function(err) {
         Auth.logout();
