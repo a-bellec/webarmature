@@ -11,8 +11,10 @@ export class NavbarComponent {
   };
   submitted = false;
 
-  constructor(Auth, $scope) {
+  constructor(Auth, $scope, $http, Mail) {
     'ngInject';
+
+    this.Mail = Mail;
 
     this.isLoggedIn = Auth.isLoggedInSync;
     this.isAdmin = Auth.isAdminSync;
@@ -26,8 +28,18 @@ export class NavbarComponent {
   }
 
   sendMail(form){
-    console.log(1);
     this.submitted = true;
+
+    if(form.$valid) {
+      this.Mail.contactMail({
+        name: this.message.name,
+        email: this.message.email,
+        text: this.message.text
+      })
+        .catch(err => {
+          this.errors.sendMail = err.message;
+      });
+    }
   }
 
 }

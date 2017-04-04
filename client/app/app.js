@@ -18,6 +18,7 @@ import {
 } from './app.config';
 
 import _Auth from '../components/auth/auth.module';
+import _Mail from '../components/mail/mail.module';
 import account from './account';
 import admin from './admin';
 import about from './about';
@@ -34,7 +35,7 @@ import socket from '../components/socket/socket.service';
 import './app.css';
 
 angular.module('webarmatureApp', [ngCookies, ngResource, ngSanitize, ngMatch, 'btford.socket-io', uiRouter,
-  _Auth, account, admin, navbar, footer, main, constants, socket, util, about, partners, map, lab
+  _Auth, _Mail, account, admin, navbar, footer, main, constants, socket, util, about, partners, map, lab
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
