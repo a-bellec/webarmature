@@ -4,6 +4,13 @@ import angular from 'angular';
 
 export class NavbarComponent {
 
+  message = {
+    name: "",
+    email: "",
+    messsage: ""
+  };
+  submitted = false;
+
   constructor(Auth, $scope) {
     'ngInject';
 
@@ -16,6 +23,11 @@ export class NavbarComponent {
       $(".navbar-collapse.in").collapse("hide");
     });
 
+  }
+
+  sendMail(form){
+    console.log(1);
+    this.submitted = true;
   }
 
 }

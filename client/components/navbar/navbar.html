@@ -48,28 +48,44 @@
           <div class="well well-sm">
             <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h3>Envoyez nous un message &nbsp;&nbsp;&nbsp;<i class="fa fa-paper-plane-o"></i></h3>
-            <form role="form" id="contactForm" data-toggle="validator" class="shake">
+            <form class="form" name="form" ng-submit="$ctrl.sendMail(form)" novalidate>
+
               <div class="row">
                 <div class="form-group col-sm-6">
-                  <label for="name" class="h4">Nom</label>
-                  <input type="text" class="form-control" id="name" placeholder="Nom & Prénom" required
-                         data-error="Veuillez compléter ce champ.">
-                  <div class="help-block with-errors"></div>
+                  <label class="h4">Nom</label>
+                  <input type="text" name="name" class="form-control" placeholder="Nom & Prénom" ng-model="$ctrl.message.name" required>
                 </div>
                 <div class="form-group col-sm-6">
-                  <label for="email" class="h4">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Votre email" required>
-                  <div class="help-block with-errors"></div>
+                  <label class="h4">Email</label>
+                  <input type="email" name="email" class="form-control" placeholder="Votre email" ng-model="$ctrl.message.email" required>
                 </div>
               </div>
+
               <div class="form-group">
-                <label for="message" class="h4 ">Message</label>
-                <textarea id="message" class="form-control" rows="5" placeholder="Entrez votre message" required></textarea>
-                <div class="help-block with-errors"></div>
+                <label class="h4">Message</label>
+                <textarea name="text" class="form-control" rows="5" placeholder="Entrez votre message" ng-model="$ctrl.message.text" required></textarea>
               </div>
-              <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Envoyer</button>
-              <div id="msgSubmit" class="h3 text-center hidden"></div>
-              <div class="clearfix"></div>
+
+              <div class="form-group has-error h4">
+                <p class="help-block" ng-show="form.name.$error.required && $ctrl.submitted">
+                  Veuillez remplir votre nom.
+                </p>
+                <p class="help-block" ng-show="form.email.$error.required && $ctrl.submitted">
+                  Veuillez remplir votre adresse courriel.
+                </p>
+                <p class="help-block" ng-show="form.text.$error.required && $ctrl.submitted">
+                  Veuillez remplir le sujet du message.
+                </p>
+                <p class="help-block" ng-show="form.email.$error.email && $ctrl.submitted">
+                  Veuillez entrer une adresse courriel valide.
+                </p>
+
+                <p class="help-block">{{ $ctrl.errors.sendMail }}</p>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg pull-right">Envoyer</button>
+              </div>
             </form>
           </div>
         </div>
