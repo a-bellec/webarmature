@@ -16,6 +16,7 @@ require("bootstrap-switch");
 require("leaflet");
 require("leaflet-sidebar-v2");
 require("leaflet.sync");
+require("leaflet.wms");
 require("d3");
 require("bootstrap-tour");
 

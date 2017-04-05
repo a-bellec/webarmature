@@ -56,14 +56,14 @@
     <br>
 
     <label> <input type="radio" name="{{groupName}}" alt="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors" value="OSM" data-size="mini" data-off-text="Off" data-on-text="On" checked class="bs" /> OpenStreetMap </label> <br>
-    <label> <input type="radio" name="{{groupName}}Misc" value="towns_border-d2015" data-size="mini" data-off-text="Off" data-on-text="On" class="bs" checked> Limites administratives (2015) </label>
+    <label> <input type="checkbox" name="{{groupName}}Misc" value="towns_border-d2015"> Limites administratives (2015) </label>
 
-    <div class="panel-group" id="{{accordion}}" role="tablist">
+    <div class="panel-group" id="{{groupName}}Accordion" role="tablist">
 
       <br>
 
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}Aerial"> Images aériennes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Aerial"> Images aériennes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}Aerial" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
             <label> <input type="radio" name="{{groupName}}" alt="Année: 1954 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1954</a>" value="data_all_1954" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1954 </label> <br>
@@ -79,7 +79,7 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}Scan25"> Scan 25 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Scan25"> Scan 25 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}Scan25" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
             <label> <input type="radio" name="{{groupName}}" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 25 1950</a>" value="scan25_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1950 </label> <br>
@@ -94,7 +94,7 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}Scan50"> Scan 50 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Scan50"> Scan 50 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}Scan50" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
             <label> <input type="radio" name="{{groupName}}" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 50 1950</a>" value="scan50_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1950 </label> <br>
@@ -106,7 +106,7 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}Landsat"> Images landsat &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Landsat"> Images landsat &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}Landsat" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body" id="landsatGroup">
             <label> <input type="radio" name="{{groupName}}" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, USGS, Sioux Falls, 2017" value="landsat_d1984_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
@@ -118,7 +118,7 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}Spot"> Images spot &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Spot"> Images spot &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}Spot" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body" id="spotGroup">
             <label> <input type="radio" name="{{groupName}}" alt="Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d1987_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
@@ -130,7 +130,7 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}LandsatMesh"> Images landsat mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}LandsatMesh"> Images landsat mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}LandsatMesh" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body" id="landsatMeshGroup">
             <label> <input type="radio" name="{{groupName}}" value="landsat_d1984_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 Mesh </label> <br>
@@ -142,7 +142,7 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}SpotMesh"> Images spot mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}SpotMesh"> Images spot mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}SpotMesh" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body" id="spotMeshGroup">
             <label> <input type="radio" name="{{groupName}}" value="spot_d1987_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 Mesh </label> <br>

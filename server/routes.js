@@ -12,6 +12,7 @@ export default function(app) {
   app.use('/api/mails', require('./api/mail'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
+  app.use('/api/mapInfo', require('./api/mapInfo'));
 
   app.use('/auth', require('./auth').default);
 
