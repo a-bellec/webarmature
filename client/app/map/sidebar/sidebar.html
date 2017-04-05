@@ -55,7 +55,8 @@
 
     <br>
 
-    <label> <input type="radio" name="{{groupName}}" alt="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors" value="OSM" data-size="mini" data-off-text="Off" data-on-text="On" checked class="bs" /> OpenStreetMap </label>
+    <label> <input type="radio" name="{{groupName}}" alt="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors" value="OSM" data-size="mini" data-off-text="Off" data-on-text="On" checked class="bs" /> OpenStreetMap </label> <br>
+    <label> <input type="radio" name="{{groupName}}Misc" value="towns_border-d2015" data-size="mini" data-off-text="Off" data-on-text="On" class="bs" checked> Limites administratives (2015) </label>
 
     <div class="panel-group" id="{{accordion}}" role="tablist">
 
@@ -124,6 +125,29 @@
             <label> <input type="radio" name="{{groupName}}" alt="Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d1993_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
             <label> <input type="radio" name="{{groupName}}" alt="Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d2003_16b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
             <label> <input type="radio" name="{{groupName}}" alt="Année : 2014 - CNES, 2014, SPOT HRV1 scene 20140715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d2014_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2014 </label>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}LandsatMesh"> Images landsat mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{groupName}}LandsatMesh" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body" id="landsatMeshGroup">
+            <label> <input type="radio" name="{{groupName}}" value="landsat_d1984_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 Mesh </label> <br>
+            <label> <input type="radio" name="{{groupName}}" value="landsat_d1992_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 Mesh </label> <br>
+            <label> <input type="radio" name="{{groupName}}" value="landsat_d2003_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 Mesh </label> <br>
+            <label> <input type="radio" name="{{groupName}}" value="landsat_d2013_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 Mesh </label> <br>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{accordion}}" data-target="#{{groupName}}SpotMesh"> Images spot mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{groupName}}SpotMesh" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body" id="spotMeshGroup">
+            <label> <input type="radio" name="{{groupName}}" value="spot_d1987_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 Mesh </label> <br>
+            <label> <input type="radio" name="{{groupName}}" value="spot_d1993_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 Mesh </label> <br>
+            <label> <input type="radio" name="{{groupName}}" value="spot_d2003_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 Mesh </label> <br>
           </div>
         </div>
       </div>
