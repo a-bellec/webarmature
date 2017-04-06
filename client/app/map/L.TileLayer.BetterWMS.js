@@ -68,32 +68,61 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     return this._url + L.Util.getParamString(params, this._url, true);
   },
 
-  showGetFeatureInfo: function (err, latlng, content) {
+  showGetFeatureInfo: function (err, latlng, data) {
     if (err) { console.log(err); return; }
 
-    var contentToShow = this.extractContent(content);
-
-    //let popupContent = $(".leaflet-popup-content").html();
+    var oldContent = $(".leaflet-popup-content").html();
 
     var popup = L.popup({ maxWidth: 800})
       .setLatLng(latlng)
-      .setContent(contentToShow)
-      .openOn(this._map);
+      .openOn(this._map)
+      .setContent(oldContent);
 
-    //$(".leaflet-popup-content").append(popupContent);
+    this.createNewContent(data);
+
   },
 
-  extractContent: function(content){
-    let contentJson = JSON.parse(content);
-    let actualInfo = contentJson.features[0].properties;
+  createNewContent: function(newData){
 
-    if(actualInfo.hasOwnProperty('NOM_COM')){
-      return "Commune: " + actualInfo.NOM_COM + "\n";
+    let dataToAdd = this.getDataToAdd(newData);
+
+    let dataToAddId = Object.keys(dataToAdd)[0];
+    let dataToAddItem = dataToAdd[dataToAddId];
+
+    let popupNodeExists = this.popupNodeExists(dataToAddId);
+
+    if(!popupNodeExists){
+      this.createPopupNode(dataToAddId);
+    }
+    this.insertData(dataToAddItem, dataToAddId);
+
+  },
+
+  getDataToAdd: function (data) {
+
+    let dataJson = JSON.parse(data);
+    let dataProperties = dataJson.features[0].properties;
+
+    if(dataProperties.hasOwnProperty('NOM_COM')){
+      return {"Commune" : dataProperties.NOM_COM};
     }
     else{
-      let percent = +actualInfo.percent_a.toFixed(2);
-      return "% d'imperméable: " + percent.toString() + "\n";
+      let percent = +dataProperties.percent_a.toFixed(2);
+      return {"Impermeable": percent.toString()};
     }
+
+  },
+
+  popupNodeExists: function(nodeToCheck){
+    return $(".leaflet-popup-content").children("#" + nodeToCheck).length > 0;
+  },
+
+  createPopupNode: function(nodeToCreate){
+    $(".leaflet-popup-content").append("<div id='"+nodeToCreate+"'>"+nodeToCreate+": <div class='data'></div></div>");
+  },
+
+  insertData: function(data, dataId){
+    $(".leaflet-popup-content").children("#" + dataId).children(".data").text(data);
   }
 
 });
