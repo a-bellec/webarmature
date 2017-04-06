@@ -63,15 +63,24 @@ export default angular.module('webarmatureApp.sidebar', [])
             attribution: attribution
           });
 
+          if(groupId == "spotMeshGroup" || groupId == "landsatMeshGroup"){
+            layer = L.tileLayer.betterWms('http://a.map.webarmature.fr/geoserver/wms/', {
+              layers: layerName,
+              transparent: true,
+              attribution: attribution,
+              format: 'image/png'
+            });
+          }
+
           if(this.name == sidebarGroupName) {
             removeAllMapLayers(scope.map);
-            if (layerName != "OSM") {
-              scope.map.addLayer(layer);
-              layer.bringToBack();
-            }
-            else {
+            if (layerName == "OSM") {
               scope.map.addLayer(OSM);
               OSM.bringToBack();
+            }
+            else {
+              scope.map.addLayer(layer);
+              layer.bringToBack();
             }
           }
 
@@ -100,6 +109,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       }
 
+      //Close sidebar when clicking outside of it
       $("#mapsArea").click(function (event) {
         if (!$(event.target).closest("#"+sidebarId).length) {
           if (!($("#"+sidebarId).hasClass("collapsed"))) {
@@ -112,8 +122,9 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       });
 
+      //Add style to accordion button when opening them
+      //And remove style from other accordion buttons
       scope.addSelected = function(event){
-
         if (!(angular.element(event.target).hasClass("selected"))) {
           $(".sidebarButton").each(function () {
             $(this).removeClass("selected");
@@ -123,10 +134,8 @@ export default angular.module('webarmatureApp.sidebar', [])
         else {
           angular.element(event.target).removeClass("selected");
         }
-
       };
     }
-
     return {
       restrict: 'E',
       scope: {
