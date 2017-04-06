@@ -35,6 +35,7 @@ export default angular.module('webarmatureApp.sidebar', [])
 
       $("input[type=checkbox]").on('change', function(){
         if(this.checked){
+          $("input[type=checkbox]").prop("checked", true);
           L.tileLayer.betterWms('http://a.map.webarmature.fr/geoserver/wms/', {
             layers: 'towns_border-d2015',
             transparent: true,
@@ -42,6 +43,7 @@ export default angular.module('webarmatureApp.sidebar', [])
           }).addTo(scope.map);
         }
         else{
+          $("input[type=checkbox]").prop("checked", false);
           scope.map.eachLayer(function (layer) {
             if(layer.options.layers == "towns_border-d2015"){
               scope.map.removeLayer(layer);
