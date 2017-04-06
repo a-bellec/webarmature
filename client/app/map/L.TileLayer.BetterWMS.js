@@ -18,8 +18,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
   getFeatureInfo: function (evt) {
     // Make an AJAX request to the server and hope for the best
-    let url = this.getFeatureInfoUrl(evt.latlng),
-      showResults = L.Util.bind(this.showGetFeatureInfo, this);
+    let url = this.getFeatureInfoUrl(evt.latlng);
+    let showResults = L.Util.bind(this.showGetFeatureInfo, this);
 
     var getMapInfo = function(){
       $.ajax({
@@ -59,7 +59,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
         width: size.x,
         layers: this.wmsParams.layers,
         query_layers: this.wmsParams.layers,
-        info_format: 'text/html'
+        info_format: 'application/json'
       };
 
     params[params.version === '1.3.0' ? 'i' : 'x'] = point.x;
@@ -71,11 +71,31 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   showGetFeatureInfo: function (err, latlng, content) {
     if (err) { console.log(err); return; }
 
-    L.popup({ maxWidth: 800})
+    var contentToShow = this.extractContent(content);
+
+    //let popupContent = $(".leaflet-popup-content").html();
+
+    var popup = L.popup({ maxWidth: 800})
       .setLatLng(latlng)
-      .setContent(content)
+      .setContent(contentToShow)
       .openOn(this._map);
+
+    //$(".leaflet-popup-content").append(popupContent);
+  },
+
+  extractContent: function(content){
+    let contentJson = JSON.parse(content);
+    let actualInfo = contentJson.features[0].properties;
+
+    if(actualInfo.hasOwnProperty('NOM_COM')){
+      return "Commune: " + actualInfo.NOM_COM + "\n";
+    }
+    else{
+      let percent = +actualInfo.percent_a.toFixed(2);
+      return "% d'imperméable: " + percent.toString() + "\n";
+    }
   }
+
 });
 
 L.tileLayer.betterWms = function (url, options) {
