@@ -7,6 +7,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     //   Register a click listener, then do all the upstream WMS things
     L.TileLayer.WMS.prototype.onAdd.call(this, map);
     map.on('click', this.getFeatureInfo, this);
+    map.on('moveend', this.getMapInfo, this);
   },
 
   onRemove: function (map) {
@@ -14,6 +15,11 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     //   Unregister a click listener, then do all the upstream WMS things
     L.TileLayer.WMS.prototype.onRemove.call(this, map);
     map.off('click', this.getFeatureInfo, this);
+    map.off('moveend', this.getMapInfo, this);
+  },
+
+  getMapInfo: function(){
+    console.log(this._map.getBounds().toBBoxString());
   },
 
   getFeatureInfo: function (evt) {
@@ -21,9 +27,9 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     let url = this.getFeatureInfoUrl(evt.latlng);
     let showResults = L.Util.bind(this.showGetFeatureInfo, this);
 
-    var getMapInfo = function(){
+    var getPointInfo = function(){
       $.ajax({
-        url: "/api/mapInfo",
+        url: "/api/mapInfo/pointInfo",
         data: {
           url: url
         },
@@ -36,7 +42,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
     //If not clicking inside the sidebar getMapInfo
     if (!$(evt.originalEvent.srcElement).closest("sidebar").length) {
-      getMapInfo();
+      getPointInfo();
     }
 
   },
@@ -126,7 +132,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   createPopupNode: function(popupMapId, nodeToCreate){
     $("#"+popupMapId).find(".leaflet-popup-content").append("<div id='"+nodeToCreate+"'>"+nodeToCreate+": <div class='data'></div></div>");
   },
-  
+
   insertData: function(popupMapId, data, dataId){
     $("#"+popupMapId).find(".leaflet-popup-content").children("#" + dataId).children(".data").text(data);
   }
