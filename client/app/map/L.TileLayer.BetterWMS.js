@@ -22,17 +22,19 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   getMapInfo: function(){
     let url = this.getMapInfoUrl();
 
-    var getPointInfo = function(){
+    var getMapInfo = function(){
       $.ajax({
-        url: "/api/mapInfo/",
+        url: "/api/mapInfo",
         data: {
           url: url
         },
         success: function (data) {
-
+          console.log(data);
         }
       });
     };
+
+    getMapInfo();
   },
 
   getMapInfoUrl(){
