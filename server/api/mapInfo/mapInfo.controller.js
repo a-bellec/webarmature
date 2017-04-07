@@ -28,3 +28,14 @@ export function proxyMapInfo(req, res){
   });
 }
 
+export function proxyTownInfo(req, res){
+
+  request(url, function (error, response, body) {
+
+  });
+}
+
+let getTownBoundingBox = function(town){
+
+};
+
