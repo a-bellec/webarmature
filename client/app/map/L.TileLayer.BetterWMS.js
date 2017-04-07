@@ -1,4 +1,5 @@
 require("leaflet");
+const proj4 = require("proj4");
 
 L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
@@ -19,7 +20,16 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   },
 
   getMapInfo: function(){
-    console.log(this._map.getBounds().toBBoxString());
+    let mapBounds = this._map.getBounds();
+    console.log(mapBounds);
+
+    proj4.defs('EPSG:2154', "+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ");
+    let southWest = proj4('EPSG:2154', [mapBounds._southWest.lng, mapBounds._southWest.lat]);
+    let northEast = proj4('EPSG:2154', [mapBounds._northEast.lng, mapBounds._northEast.lat]);
+
+    let coordinateArray = [southWest[0], southWest[1], northEast[0], northEast[1]];
+
+    console.log(coordinateArray);
   },
 
   getFeatureInfo: function (evt) {
