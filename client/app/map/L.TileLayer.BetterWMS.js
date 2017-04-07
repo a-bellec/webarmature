@@ -20,16 +20,43 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   },
 
   getMapInfo: function(){
+    let url = this.getMapInfoUrl();
+
+    var getPointInfo = function(){
+      $.ajax({
+        url: "/api/mapInfo/",
+        data: {
+          url: url
+        },
+        success: function (data) {
+
+        }
+      });
+    };
+  },
+
+  getMapInfoUrl(){
     let mapBounds = this._map.getBounds();
-    console.log(mapBounds);
 
     proj4.defs('EPSG:2154', "+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ");
     let southWest = proj4('EPSG:2154', [mapBounds._southWest.lng, mapBounds._southWest.lat]);
     let northEast = proj4('EPSG:2154', [mapBounds._northEast.lng, mapBounds._northEast.lat]);
 
     let coordinateArray = [southWest[0], southWest[1], northEast[0], northEast[1]];
+    let coordinateArrayString = ""+coordinateArray[0]+","+coordinateArray[1]+","+coordinateArray[2]+","+coordinateArray[3];
 
-    console.log(coordinateArray);
+    // Construct a GetFeature request URL given a box
+    var params = {
+        request: 'GetFeature',
+        service: 'WFS',
+        srs: 'EPSG:2154',
+        version: "2.0.0",
+        bbox: coordinateArrayString,
+        typeNames: "test:" + this.wmsParams.layers,
+        outputFormat: 'application/json'
+      };
+
+    return this._url + L.Util.getParamString(params, this._url, true);
   },
 
   getFeatureInfo: function (evt) {
