@@ -84,18 +84,24 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
   createNewContent: function(newData){
 
+    let popupMapId = this.getMapId();
+
     let dataToAdd = this.getDataToAdd(newData);
 
     let dataToAddId = Object.keys(dataToAdd)[0];
     let dataToAddItem = dataToAdd[dataToAddId];
 
-    let popupNodeExists = this.popupNodeExists(dataToAddId);
+    let popupNodeExists = this.popupNodeExists(popupMapId, dataToAddId);
 
     if(!popupNodeExists){
-      this.createPopupNode(dataToAddId);
+      this.createPopupNode(popupMapId, dataToAddId);
     }
-    this.insertData(dataToAddItem, dataToAddId);
+    this.insertData(popupMapId, dataToAddItem, dataToAddId);
 
+  },
+
+  getMapId: function () {
+    return this._map._container.id;
   },
 
   getDataToAdd: function (data) {
@@ -108,21 +114,21 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     }
     else{
       let percent = +dataProperties.percent_a.toFixed(2);
-      return {"Impermeable": percent.toString()};
+      return {"Imperméable": percent.toString()};
     }
 
   },
 
-  popupNodeExists: function(nodeToCheck){
-    return $(".leaflet-popup-content").children("#" + nodeToCheck).length > 0;
+  popupNodeExists: function(popupMapId, nodeToCheck){
+    return $("#"+popupMapId).find(".leaflet-popup-content").children("#" + nodeToCheck).length > 0;
   },
 
-  createPopupNode: function(nodeToCreate){
-    $(".leaflet-popup-content").append("<div id='"+nodeToCreate+"'>"+nodeToCreate+": <div class='data'></div></div>");
+  createPopupNode: function(popupMapId, nodeToCreate){
+    $("#"+popupMapId).find(".leaflet-popup-content").append("<div id='"+nodeToCreate+"'>"+nodeToCreate+": <div class='data'></div></div>");
   },
-
-  insertData: function(data, dataId){
-    $(".leaflet-popup-content").children("#" + dataId).children(".data").text(data);
+  
+  insertData: function(popupMapId, data, dataId){
+    $("#"+popupMapId).find(".leaflet-popup-content").children("#" + dataId).children(".data").text(data);
   }
 
 });
