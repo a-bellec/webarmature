@@ -61,8 +61,147 @@
     <div class="panel-group" id="{{groupName}}Accordion" role="tablist">
 
       <br>
-
       <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Aerial"> Images aériennes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{groupName}}Aerial" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+            <div class="panel-group" id="{{groupName}}AccordionAerial">
+              <div class="panel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionAerial" data-target="#{{groupName}}OrthoGroup"> Orthophotographies &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}OrthoGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="orthoGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1954 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1954</a>" value="data_all_1954" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1954 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1966 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1966</a>" value="data_all_1966" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1966 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1978 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1978</a>" value="data_all_1978" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1978 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1986 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1986</a>" value="data_all_1986" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1986 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1993 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 1993</a>" value="data_all_1993" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1993 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1997 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 1997</a>" value="data_all_1997" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1997 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2003 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 2003</a>" value="data_all_2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2007 &copy; <a href='http://www.geoportail.gouv.fr/'> Photos aériennes 2007</a>" value="data_all_2007" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 2007 </label>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionAerial" data-target="#{{groupName}}LandsatGroup"> Landsat &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}LandsatGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="landsatGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, USGS, Sioux Falls, 2017" value="landsat_d1984_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1999 - NASA Landsat Program, 1999, Landsat ETM scene LE71970281999236EDC00_MTL, L1T, USGS, Sioux Falls, 2017" value="landsat_d1999_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1999 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, USGS, Sioux Falls, 2017" value="landsat_d2003_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, USGS, Sioux Falls, 2017" value="landsat_d2013_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionAerial" data-target="#{{groupName}}SpotGroup"> Spot &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}SpotGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="spotGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d1987_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d1993_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d2003_16b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2014 - CNES, 2014, SPOT HRV1 scene 20140715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 , Montpellier, 2016" value="spot_d2014_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2014 </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Scan"> Scans topographiques &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{groupName}}Scan" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+            <div class="panel-group" id="{{groupName}}AccordionScan">
+              <div class="panel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionScan" data-target="#{{groupName}}Scan25Group"> Scan 25 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}Scan25Group" class="panel-collapse collapse" role="tabpanel">
+                  <div id="spot25Group" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 25 1950</a>" value="scan25_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1950 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 25 1960</a>" value="scan25_all_1960" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1960 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 25 1970</a>" value="scan25_all_1970" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1970 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1985 &copy; <a href='http://ign.fr/'> Scan 25 1985</a>" value="scan25_all_1985" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1985 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1998 &copy; <a href='http://ign.fr/'> Scan 25 1998</a>" value="scan25_lyon_1998" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1998 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2003 &copy; <a href='http://ign.fr/'> Scan 25 2003</a>" value="scan25_all_2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2015 &copy; <a href='http://ign.fr/'> Scan 25 2015</a>" value="scan25_all_2015" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 2015 </label>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionScan" data-target="#{{groupName}}Scan50Group"> Scan 50 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}Scan50Group" class="panel-collapse collapse" role="tabpanel">
+                  <div id="spot50Group" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 50 1950</a>" value="scan50_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1950 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 50 1960</a>" value="scan50_all_1960_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1960 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 50 1970</a>" value="scan50_all_1970_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1970 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1980 &copy; <a href='http://ign.fr/'> Scan 50 1980</a>" value="scan50_all_1980_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1980 </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Classification"> Classification &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{groupName}}Classification" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+            <div class="panel-group" id="{{groupName}}AccordionClassification">
+              <div class="panel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}LandsatMeshGroup"> Landsat Mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}LandsatMeshGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="landsatMeshGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" value="d1984_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 Mesh </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1992_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 Mesh </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 Mesh </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 Mesh </label> <br>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}ScanMeshGroup"> Spot Mesh &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}ScanMeshGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="spotMeshGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" value="spot_d1987_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 Mesh </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="spot_d1993_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 Mesh </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="spot_d2003_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 Mesh </label> <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}TownInfo"> Information sur les communes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{groupName}}TownInfo" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+            <button ng-click="getTownInfo('Bron')"> Press me plz? </button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--<div class="panel">
         <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Aerial"> Images aériennes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
         <div id="{{groupName}}Aerial" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
@@ -150,16 +289,7 @@
             <label> <input type="radio" name="{{groupName}}" value="spot_d2003_gl_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 Mesh </label> <br>
           </div>
         </div>
-      </div>
-      <br>
-      <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}TownInfo"> Information sur les communes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-        <div id="{{groupName}}TownInfo" class="panel-collapse collapse" role="tabpanel">
-          <div class="panel-body">
-            <button ng-click="getTownInfo('Bron')"> Press me plz? </button>
-          </div>
-        </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="sidebar-pane" id="printPane" align="justify">
