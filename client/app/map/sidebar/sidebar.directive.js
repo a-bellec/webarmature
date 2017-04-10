@@ -37,7 +37,7 @@ export default angular.module('webarmatureApp.sidebar', [])
       $("input[type=checkbox]").on('change', function(){
         if(this.checked){
           $("input[type=checkbox]").prop("checked", true);
-          L.tileLayer.betterWms(geoServerBaseUrl, {
+          L.tileLayer.wms(geoServerBaseUrl, {
             layers: 'towns_border-d2015',
             transparent: true,
             format: 'image/png'
@@ -148,7 +148,6 @@ export default angular.module('webarmatureApp.sidebar', [])
           srs: 'EPSG:2154',
           version: "2.0.0",
           typeNames: "test:towns_border-d2015",
-          propertyName: "NOM_COM",
           CQL_Filter: "NOM_COM= '"+townName+"'",
           outputFormat: 'application/json'
         };

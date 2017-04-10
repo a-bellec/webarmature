@@ -52,14 +52,15 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
     // Construct a GetFeature request URL given a box
     var params = {
-        request: 'GetFeature',
-        service: 'WFS',
-        srs: 'EPSG:2154',
-        version: "2.0.0",
-        bbox: coordinateArrayString,
-        typeNames: "test:" + this.wmsParams.layers,
-        outputFormat: 'application/json'
-      };
+      request: 'GetFeature',
+      service: 'WFS',
+      srs: 'EPSG:2154',
+      version: "2.0.0",
+      bbox: coordinateArrayString,
+      typeNames: "test:" + this.wmsParams.layers,
+      outputFormat: 'application/json',
+      propertyName: "percent_aa"
+    };
 
     return this._url + L.Util.getParamString(params, this._url, true);
   },
@@ -82,7 +83,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       });
     };
 
-    //If not clicking inside the sidebar getMapInfo
+    //If not clicking inside the sidebar getPointInfo
     if (!$(evt.originalEvent.srcElement).closest("sidebar").length) {
       getPointInfo();
     }
@@ -90,6 +91,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   },
 
   getFeatureInfoUrl: function (latlng) {
+
     // Construct a GetFeatureInfo request URL given a point
     var point = this._map.latLngToContainerPoint(latlng, this._map.getZoom()),
       size = this._map.getSize(),
@@ -107,7 +109,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
         width: size.x,
         layers: this.wmsParams.layers,
         query_layers: this.wmsParams.layers,
-        info_format: 'application/json'
+        info_format: 'application/json',
+        propertyName: "percent_aa"
       };
 
     params[params.version === '1.3.0' ? 'i' : 'x'] = point.x;
@@ -161,7 +164,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       return {"Commune" : dataProperties.NOM_COM};
     }
     else{
-      let percent = +dataProperties.percent_a.toFixed(2);
+      let percent = +dataProperties.percent_aa.toFixed(2);
 
       //If value are outside of possible scope show generic message
       if(percent < 0 || percent > 100){
