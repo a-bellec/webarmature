@@ -10,6 +10,15 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [Node.js and npm](nodejs.org) Node >= 4.x.x, npm >= 2.x.x
 - [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
 - [SQLite](https://www.sqlite.org/quickstart.html)
+- [Node-gyp](https://github.com/nodejs/node-gyp)
+
+### Production environment variables
+
+The seed for the database use two environment variables to create the first admin account. You have to set them up to be able to use the admin account. They will be used to log in with the admin account.
+
+You have to set them up in `/server/config/local.env.js`. Look at `/server/config/local.env.sample.js` for an example on how to set up those variables
+
+These are the variables you have to set up: `DB_ADMIN_EMAIL` and `DB_ADMIN_PASSWORD`
 
 ### Developing
 

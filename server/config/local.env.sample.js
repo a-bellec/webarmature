@@ -8,6 +8,8 @@
 module.exports = {
   DOMAIN: 'http://localhost:9000',
   SESSION_SECRET: 'webarmature-secret',
+  DB_ADMIN_EMAIL: 'admin_email_here',
+  DB_ADMIN_PASSWORD: 'admin_password_here',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
