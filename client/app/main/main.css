@@ -40,7 +40,7 @@
 }
 
 #banner{
-  background:url(/assets/images/background_lyon_parc.jpg) no-repeat;
+  background:url(../../assets/images/background_lyon_parc.jpg) no-repeat;
   background-size: cover;
   height: 350px;
 }
