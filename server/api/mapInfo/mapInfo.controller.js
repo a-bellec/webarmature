@@ -39,14 +39,9 @@ export function proxyMapInfo(req, res){
 }
 
 export function proxyTownInfo(req, res){
+  let url = req.query.url;
 
   request(url, function (error, response, body) {
-
+    console.log(response);
   });
 }
-
-let getTownBoundingBox = function(town){
-
-  //http://gis.stackexchange.com/questions/110399/passing-filter-parameters-to-geoserver-wfs-via-url
-};
-

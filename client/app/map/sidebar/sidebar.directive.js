@@ -7,6 +7,7 @@ export default angular.module('webarmatureApp.sidebar', [])
 
     function link(scope, element, attrs, MapInfo) {
 
+      let geoServerBaseUrl = 'http://a.map.webarmature.fr/geoserver/wms/';
       let defaultMapConfig = {
         center: [45.7604276, 4.8335709],
         zoom: 16,
@@ -36,7 +37,7 @@ export default angular.module('webarmatureApp.sidebar', [])
       $("input[type=checkbox]").on('change', function(){
         if(this.checked){
           $("input[type=checkbox]").prop("checked", true);
-          L.tileLayer.betterWms('http://a.map.webarmature.fr/geoserver/wms/', {
+          L.tileLayer.betterWms(geoServerBaseUrl, {
             layers: 'towns_border-d2015',
             transparent: true,
             format: 'image/png'
@@ -59,14 +60,14 @@ export default angular.module('webarmatureApp.sidebar', [])
           let layerName = this.value;
           let attribution = this.alt;
           let groupId = $(this).closest("div[id]").attr("id");
-          let layer = L.tileLayer.wms('http://a.map.webarmature.fr/geoserver/wms/', {
+          let layer = L.tileLayer.wms(geoServerBaseUrl, {
             layers: layerName,
             transparent: true,
             attribution: attribution
           });
 
           if(groupId == "spotMeshGroup" || groupId == "landsatMeshGroup"){
-            layer = L.tileLayer.betterWms('http://a.map.webarmature.fr/geoserver/wms/', {
+            layer = L.tileLayer.betterWms(geoServerBaseUrl, {
               layers: layerName,
               transparent: true,
               attribution: attribution,
@@ -137,6 +138,34 @@ export default angular.module('webarmatureApp.sidebar', [])
           angular.element(event.target).removeClass("selected");
         }
       };
+
+
+      scope.getTownInfo = function(townName){
+
+        var params = {
+          request: 'GetFeature',
+          service: 'WFS',
+          srs: 'EPSG:2154',
+          version: "2.0.0",
+          typeNames: "test:towns_border-d2015",
+          propertyName: "NOM_COM",
+          CQL_Filter: "NOM_COM= '"+townName+"'",
+          outputFormat: 'application/json'
+        };
+
+        let url = geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+
+        $.ajax({
+          url: "/api/mapInfo/town",
+          data: {
+            url: url
+          },
+          success: function (data) {
+            console.log(data);
+          }
+        });
+      };
+
     }
     return {
       restrict: 'E',
