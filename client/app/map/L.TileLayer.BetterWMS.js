@@ -20,7 +20,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   },
 
   getMapInfo: function(){
-    let url = this.getMapInfoUrl();
+    /*let url = this.getMapInfoUrl();
 
     var getMapInfo = function(){
       $.ajax({
@@ -34,7 +34,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       });
     };
 
-    getMapInfo();
+    getMapInfo();*/
   },
 
   getMapInfoUrl(){
