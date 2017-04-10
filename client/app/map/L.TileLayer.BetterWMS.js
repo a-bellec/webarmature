@@ -161,7 +161,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       return {"Commune" : dataProperties.NOM_COM};
     }
     else{
-      let percent = +dataProperties.percent_a.toFixed(2);
+      let percent = +dataProperties.percent_aa.toFixed(2);
       return {"Imperméable": percent.toString()};
     }
 
