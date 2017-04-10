@@ -8,9 +8,9 @@ import routing from './map.routes';
 import mapMenu from './mapMenu';
 import mapSimple from './mapSimple';
 import mapDouble from './mapDouble';
-import sidebar from './sidebar/sidebar.directive';
-import tour from './tour/tour.directive';
-import printMap from './printMap/printMap.directive';
+import sidebar from './mapDirectives/sidebarDirective/sidebar.directive';
+import tour from './mapDirectives/tourDirective/tour.directive';
+import printMap from './mapDirectives/printMapDirective/printMap.directive';
 
 require("bootstrap-switch");
 require("leaflet");

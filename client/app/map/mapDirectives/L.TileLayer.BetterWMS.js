@@ -82,8 +82,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       });
     };
 
-    //If not clicking inside the sidebar getPointInfo
-    if (!$(evt.originalEvent.srcElement).closest("sidebar").length) {
+    //If not clicking inside the sidebarDirective getPointInfo
+    if (!$(evt.originalEvent.srcElement).closest("sidebarDirective").length) {
       getPointInfo();
     }
 

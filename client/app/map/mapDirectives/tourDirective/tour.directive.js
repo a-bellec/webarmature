@@ -33,7 +33,7 @@ export default angular.module('webarmatureApp.tour', [])
             title: "Aide",
             content: "Ceci est l'onglet pour l'aide. Pour avoir plus d'informations sur le fonctionnement des différentes sections, consultez cet onglet.",
             onShow: function(){
-              if(!($("#how").hasClass("active")) || $("#sidebar").hasClass("collapsed")){
+              if(!($("#how").hasClass("active")) || $("#sidebarDirective").hasClass("collapsed")){
                 $("#howTab")[0].click();
               }
             }
@@ -43,7 +43,7 @@ export default angular.module('webarmatureApp.tour', [])
             title: "Maps",
             content: "Ceci est la vue pour les différentes cartes. Dans cet onglet vous pouvez choisir quelles cartes seront affichées.",
             onShow: function(){
-              if(!($("#mapPane").hasClass("active")) || $("#sidebar").hasClass("collapsed")){
+              if(!($("#mapPane").hasClass("active")) || $("#sidebarDirective").hasClass("collapsed")){
                 $("#mapTab")[0].click();
               }
             }
@@ -76,7 +76,7 @@ export default angular.module('webarmatureApp.tour', [])
             title: "Impression",
             content: "Ceci est l'onglet pour l'impression. Pour imprimer les cartes affichés à l'écran consultez cette page.",
             onShow: function(){
-              if(!($("#printPane").hasClass("active")) || $("#sidebar").hasClass("collapsed")){
+              if(!($("#printPane").hasClass("active")) || $("#sidebarDirective").hasClass("collapsed")){
                 $("#printTab")[0].click();
               }
             },

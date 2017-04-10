@@ -282,8 +282,8 @@ body{
 @import 'map/mapDouble/mapDouble.css';
 @import 'map/mapMenu/mapMenu.css';
 @import 'map/mapSimple/mapSimple.css';
-@import 'map/printMap/printMap.css';
-@import 'map/sidebar/sidebar.css';
+@import 'map/mapDirectives/printMapDirective/printMap.css';
+@import 'map/mapDirectives/sidebarDirective/sidebar.css';
 @import 'partners/partners.css';
 @import '../components/footer/footer.css';
 /* endinject */

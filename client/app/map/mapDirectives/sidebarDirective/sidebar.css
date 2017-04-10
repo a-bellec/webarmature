@@ -1,6 +1,6 @@
-@import '~leaflet/dist/leaflet.css';
-@import '~bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css';
-@import '~bootstrap-tour/build/css/bootstrap-tour.css';
+@import '../../../../../node_modules/leaflet/dist/leaflet.css';
+@import '../../../../../node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css';
+@import '../../../../../node_modules/bootstrap-tour/build/css/bootstrap-tour.css';
 
 .sidebar {
   position: absolute;

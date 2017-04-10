@@ -112,7 +112,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       }
 
-      //Close sidebar when clicking outside of it
+      //Close sidebarDirective when clicking outside of it
       $("#mapsArea").click(function (event) {
         if (!$(event.target).closest("#"+sidebarId).length) {
           if (!($("#"+sidebarId).hasClass("collapsed"))) {
