@@ -16,16 +16,26 @@ export function proxyMapInfo(req, res){
   let url = req.query.url;
 
   request(url, function (error, response, body) {
+
     let dataToAnalyse = response.body;
     dataToAnalyse = JSON.parse(dataToAnalyse);
     let features = dataToAnalyse.features;
 
     let total = 0;
-    for( var i=0; i < features.length; i++){
-      total += features[i].properties.percent_a;
+    let numberOfValidFeatures = 0;
+    
+    for( let i=0; i < features.length; i++){
+      let percentageToCheck = features[i].properties.percent_a;
+
+      if(percentageToCheck >= 0 && percentageToCheck <= 100){
+        total += percentageToCheck;
+        numberOfValidFeatures++;
+      }
     }
-    res.send((total/features.length).toString());
+    res.send((total/numberOfValidFeatures).toString());
+
   });
+
 }
 
 export function proxyTownInfo(req, res){
@@ -37,5 +47,6 @@ export function proxyTownInfo(req, res){
 
 let getTownBoundingBox = function(town){
 
+  //http://gis.stackexchange.com/questions/110399/passing-filter-parameters-to-geoserver-wfs-via-url
 };
 
