@@ -20,7 +20,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   },
 
   getMapInfo: function(){
-    /*let url = this.getMapInfoUrl();
+    let url = this.getMapInfoUrl();
 
     var getMapInfo = function(){
       $.ajax({
@@ -34,13 +34,12 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       });
     };
 
-    getMapInfo();*/
+    if(this.wmsParams.layers != "towns_border-d2015"){
+      getMapInfo();
+    }
   },
 
   getMapInfoUrl(){
-    if(this.wmsParams.layers == "towns_border-d2015"){
-      return "";
-    }
 
     let mapBounds = this._map.getBounds();
 
