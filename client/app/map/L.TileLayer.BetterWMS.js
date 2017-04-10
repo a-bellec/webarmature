@@ -121,37 +121,13 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   showGetFeatureInfo: function (err, latlng, data) {
     if (err) { console.log(err); return; }
 
-    var oldContent = $(".leaflet-popup-content").html();
+    let percent = this.getDataToAdd(data);
 
     var popup = L.popup({ maxWidth: 800})
       .setLatLng(latlng)
       .openOn(this._map)
-      .setContent(oldContent);
+      .setContent("Imperméable: " + percent);
 
-    this.createNewContent(data);
-
-  },
-
-  createNewContent: function(newData){
-
-    let popupMapId = this.getMapId();
-
-    let dataToAdd = this.getDataToAdd(newData);
-
-    let dataToAddId = Object.keys(dataToAdd)[0];
-    let dataToAddItem = dataToAdd[dataToAddId];
-
-    let popupNodeExists = this.popupNodeExists(popupMapId, dataToAddId);
-
-    if(!popupNodeExists){
-      this.createPopupNode(popupMapId, dataToAddId);
-    }
-    this.insertData(popupMapId, dataToAddItem, dataToAddId);
-
-  },
-
-  getMapId: function () {
-    return this._map._container.id;
   },
 
   getDataToAdd: function (data) {
@@ -160,7 +136,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
     //If pointing outside show generic message
     if(!dataJson.features.length > 0){
-      return {"Imperméable": "Aucune donnée"};
+      return "Aucune donnée";
     }
 
     let dataProperties = dataJson.features[0].properties;
@@ -168,23 +144,10 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
     //If value are outside of possible scope show generic message
     if(percent < 0 || percent > 100){
-      return {"Imperméable": "Aucune donnée"};
+      return "Aucune donnée";
     }
 
-    return {"Imperméable": percent.toString()};
-
-  },
-
-  popupNodeExists: function(popupMapId, nodeToCheck){
-    return $("#"+popupMapId).find(".leaflet-popup-content").children("#" + nodeToCheck).length > 0;
-  },
-
-  createPopupNode: function(popupMapId, nodeToCreate){
-    $("#"+popupMapId).find(".leaflet-popup-content").append("<div id='"+nodeToCreate+"'>"+nodeToCreate+": <div class='data'></div></div>");
-  },
-
-  insertData: function(popupMapId, data, dataId){
-    $("#"+popupMapId).find(".leaflet-popup-content").children("#" + dataId).children(".data").text(data);
+    return percent.toString();
   }
 
 });
