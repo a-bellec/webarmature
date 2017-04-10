@@ -25,7 +25,7 @@ export function proxyMapInfo(req, res){
     let numberOfValidFeatures = 0;
 
     for( let i=0; i < features.length; i++){
-      let percentageToCheck = features[i].properties.percent_aa;
+      let percentageToCheck = features[i].properties.percent_a;
 
       if(percentageToCheck >= 0 && percentageToCheck <= 100){
         total += percentageToCheck;
