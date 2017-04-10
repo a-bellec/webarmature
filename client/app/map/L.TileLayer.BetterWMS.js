@@ -76,8 +76,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           url: url
         },
         success: function (data) {
-          var err = typeof data.body === 'string' ? null : data.body;
-          showResults(err, evt.latlng, data.body);
+          var err = typeof data === 'string' ? null : data;
+          showResults(err, evt.latlng, data);
         }
       });
     };
@@ -162,6 +162,12 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     }
     else{
       let percent = +dataProperties.percent_a.toFixed(2);
+
+      //If value are outside of possible scope show generic message
+      if(percent < 0 || percent > 100){
+        return {"Imperméable": "Aucune donnée"};
+      }
+
       return {"Imperméable": percent.toString()};
     }
 

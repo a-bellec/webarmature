@@ -7,7 +7,7 @@ export function proxyPointInfo(req, res) {
   let url = req.query.url;
 
   request(url, function (error, response, body) {
-    res.send(response);
+    res.send(response.body);
   });
 
 }
