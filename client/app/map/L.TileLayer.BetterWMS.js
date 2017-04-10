@@ -34,9 +34,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       });
     };
 
-    if(this.wmsParams.layers != "towns_border-d2015"){
-      getMapInfo();
-    }
+    getMapInfo();
   },
 
   getMapInfoUrl(){
@@ -158,21 +156,21 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   getDataToAdd: function (data) {
 
     let dataJson = JSON.parse(data);
+
+    //If pointing outside show generic message
+    if(!dataJson.features.length > 0){
+      return {"Imperméable": "Aucune donnée"};
+    }
+
     let dataProperties = dataJson.features[0].properties;
+    let percent = +dataProperties.percent_aa.toFixed(2);
 
-    if(dataProperties.hasOwnProperty('NOM_COM')){
-      return {"Commune" : dataProperties.NOM_COM};
+    //If value are outside of possible scope show generic message
+    if(percent < 0 || percent > 100){
+      return {"Imperméable": "Aucune donnée"};
     }
-    else{
-      let percent = +dataProperties.percent_aa.toFixed(2);
 
-      //If value are outside of possible scope show generic message
-      if(percent < 0 || percent > 100){
-        return {"Imperméable": "Aucune donnée"};
-      }
-
-      return {"Imperméable": percent.toString()};
-    }
+    return {"Imperméable": percent.toString()};
 
   },
 
