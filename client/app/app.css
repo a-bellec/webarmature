@@ -279,11 +279,11 @@ body{
 @import 'about/about.css';
 @import 'admin/admin.css';
 @import 'main/main.css';
+@import 'map/mapDirectives/printMapDirective/printMap.css';
+@import 'map/mapDirectives/sidebarDirective/sidebar.css';
 @import 'map/mapDouble/mapDouble.css';
 @import 'map/mapMenu/mapMenu.css';
 @import 'map/mapSimple/mapSimple.css';
-@import 'map/mapDirectives/printMapDirective/printMap.css';
-@import 'map/mapDirectives/sidebarDirective/sidebar.css';
 @import 'partners/partners.css';
 @import '../components/footer/footer.css';
 /* endinject */

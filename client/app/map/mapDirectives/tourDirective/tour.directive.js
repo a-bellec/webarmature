@@ -55,6 +55,7 @@ export default angular.module('webarmatureApp.tour', [])
             onShow: function(){
               if(!($(".sidebarButton:first").hasClass("selected"))){
                 $(".sidebarButton:first").click();
+                $(".sidebarButton:eq(1)").click();
               }
             }
           },
