@@ -12,19 +12,12 @@ export default angular.module('webarmatureApp.statArea', [])
       controller: 'statAreaController'
     }
   })
-  .controller('statAreaController', ['$scope', function ($scope) {
+  .controller('statAreaController', ['$scope', '$timeout', function ($scope, $timeout) {
 
     $scope.printChart = function(dataset){
 
-      //Dataset example
-
-      /*var dataset = [
-        { label: 'Abulia', count: 10 },
-        { label: 'Betelgeuse', count: 20 },
-        { label: 'Cantaloupe', count: 30 },
-        { label: 'Dijkstra', count: 40 }
-      ];*/
-
+      //remove svg to draw new chart
+      d3.selectAll("#" + $scope.chartId + "SVG").remove();
 
       var height = $("stat-area").height();
       var width = $("stat-area").width();
@@ -34,6 +27,7 @@ export default angular.module('webarmatureApp.statArea', [])
 
       var svg = d3.select('#' + $scope.chartId)
         .append('svg')
+        .attr('id', $scope.chartId + "SVG")
         .attr('width', width)
         .attr('height', height)
         .append('g')
@@ -48,7 +42,7 @@ export default angular.module('webarmatureApp.statArea', [])
         .sort(null);
 
       var path = svg.selectAll('path')
-        .data(pie(dataset))
+        .data(pie($scope.dataset))
         .enter()
         .append('path')
         .attr('d', arc)
@@ -56,6 +50,30 @@ export default angular.module('webarmatureApp.statArea', [])
           return color(d.data.label);
         });
     };
+
+    $scope.$watch('dataset', function(){
+      if(typeof $scope.dataset != "undefined"){
+        $scope.printChart();
+      }
+    });
+
+    $timeout( function(){
+      $scope.dataset = [
+        { label: 'Abulia', count: 10 },
+        { label: 'Betelgeuse', count: 20 },
+        { label: 'Cantaloupe', count: 30 },
+        { label: 'Dijkstra', count: 40 }
+      ];
+    }, 2000);
+
+    $timeout( function(){
+      $scope.dataset = [
+        { label: 'Abulia', count: 5 },
+        { label: 'Betelgeuse', count: 5 },
+        { label: 'Cantaloupe', count: 5 },
+        { label: 'Dijkstra', count: 85 }
+      ];
+    }, 4000);
 
   }])
   .name;

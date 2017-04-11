@@ -80,7 +80,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         service: 'WFS',
         srs: 'EPSG:2154',
         version: "2.0.0",
-        typeNames: "test:towns_border-d2015",
+        typeNames: "towns_border-d2015",
         CQL_Filter: "NOM_COM= '"+townName+"'",
         outputFormat: 'application/json'
       };
