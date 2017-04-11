@@ -56,7 +56,7 @@ export default angular.module('webarmatureApp.statArea', [])
           return color(d.data.label);
         });
     };
-    
+
   }])
   .name;
 

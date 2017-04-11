@@ -85,7 +85,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         outputFormat: 'application/json'
       };
 
-      let url = $scope.geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+      let url = $scope.geoServerBaseUrl + L.Util.getParamString(params, $scope.geoServerBaseUrl, true);
 
       $.ajax({
         url: "/api/mapInfo/town",
