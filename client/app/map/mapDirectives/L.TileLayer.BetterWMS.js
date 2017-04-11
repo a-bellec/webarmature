@@ -29,7 +29,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           url: url
         },
         success: function (data) {
-          console.log(data);
+          $("#chartBlock").text(data);
         }
       });
     };
@@ -132,8 +132,6 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
   getDataToAdd: function (data) {
 
-    console.log(data);
-
     let dataJson = JSON.parse(data);
 
     //If pointing outside show generic message
@@ -146,7 +144,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
     //If value are outside of possible scope show generic message
     if(percent < 0 || percent > 100){
-      return "Aucune donnée";
+      return "Donnée non disponible";
     }
 
     return percent.toString();
