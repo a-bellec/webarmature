@@ -56,7 +56,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       srs: 'EPSG:2154',
       version: "2.0.0",
       bbox: coordinateArrayString,
-      typeNames: "test:" + this.wmsParams.layers,
+      typeNames: this.wmsParams.layers,
       outputFormat: 'application/json',
       propertyName: "percent_aa"
     };
