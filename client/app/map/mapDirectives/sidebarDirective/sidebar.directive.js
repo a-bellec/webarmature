@@ -46,13 +46,17 @@ export default angular.module('webarmatureApp.sidebar', [])
             attribution: attribution
           });
 
-          if(groupId == "spotMeshGroup" || groupId == "landsatMeshGroup"){
-            layer = L.tileLayer.betterWms(scope.geoServerBaseUrl, {
-              layers: layerName,
-              transparent: true,
-              attribution: attribution,
-              format: 'image/png'
-            });
+          let classificationGroup = ['spotMeshGroup', 'landsatMeshGroup', 'spotIrisGroup', 'landsatIrisGroup', 'spotTownGroup', 'landsatTownGroup'];
+          for(let group of classificationGroup){
+            if(groupId == group){
+              layer = L.tileLayer.betterWms(scope.geoServerBaseUrl, {
+                layers: layerName,
+                transparent: true,
+                attribution: attribution,
+                format: 'image/png'
+              });
+              break;
+            }
           }
 
           if(this.name == sidebarGroupName) {
