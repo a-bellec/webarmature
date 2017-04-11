@@ -279,6 +279,7 @@ body{
 @import 'about/about.css';
 @import 'admin/admin.css';
 @import 'main/main.css';
+@import 'map/mapDirectives/leafletMapDirective/leafletMap.css';
 @import 'map/mapDirectives/printMapDirective/printMap.css';
 @import 'map/mapDirectives/sidebarDirective/sidebar.css';
 @import 'map/mapDouble/mapDouble.css';

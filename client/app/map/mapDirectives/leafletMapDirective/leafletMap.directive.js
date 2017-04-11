@@ -51,20 +51,6 @@ export default angular.module('webarmatureApp.leafletMap', [])
           }
         }
       });
-      
-      //Add style to accordion button when opening them
-      //And remove style from other accordion buttons
-      scope.addSelected = function(event){
-        if (!(angular.element(event.target).hasClass("selected"))) {
-          $(".sidebarButton").each(function () {
-            $(this).removeClass("selected");
-          });
-          angular.element(event.target).addClass("selected");
-        }
-        else {
-          angular.element(event.target).removeClass("selected");
-        }
-      };
 
     }
     return {
@@ -92,8 +78,8 @@ export default angular.module('webarmatureApp.leafletMap', [])
         CQL_Filter: "NOM_COM= '"+townName+"'",
         outputFormat: 'application/json'
       };
-
-      let url = geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+      
+      let url = $scope.geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
 
       $.ajax({
         url: "/api/mapInfo/town",
@@ -104,6 +90,20 @@ export default angular.module('webarmatureApp.leafletMap', [])
           console.log(data);
         }
       });
+    };
+
+    //Add style to accordion button when opening them
+    //And remove style from other accordion buttons
+    $scope.addSelected = function(event){
+      if (!(angular.element(event.target).hasClass("selected"))) {
+        $(".sidebarButton").each(function () {
+          $(this).removeClass("selected");
+        });
+        angular.element(event.target).addClass("selected");
+      }
+      else {
+        angular.element(event.target).removeClass("selected");
+      }
     };
 
   }])
