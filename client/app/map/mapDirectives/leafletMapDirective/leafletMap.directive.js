@@ -1,8 +1,13 @@
 'use strict';
 const angular = require('angular');
-import "../L.TileLayer.BetterWMS";
 
-export default angular.module('webarmatureApp.leafletMap', [])
+import "../L.TileLayer.BetterWMS";
+import statArea from '../statAreaDirective/statArea.directive';
+import sidebar from '../sidebarDirective/sidebar.directive';
+import tour from '../tourDirective/tour.directive';
+import printMap from '../printMapDirective/printMap.directive';
+
+export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, tour, printMap])
   .directive('leafletMap', function () {
 
     function link(scope, element, attrs) {
@@ -78,7 +83,7 @@ export default angular.module('webarmatureApp.leafletMap', [])
         CQL_Filter: "NOM_COM= '"+townName+"'",
         outputFormat: 'application/json'
       };
-      
+
       let url = $scope.geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
 
       $.ajax({
