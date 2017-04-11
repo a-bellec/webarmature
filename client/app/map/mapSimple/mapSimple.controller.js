@@ -6,6 +6,7 @@ export default class MapSimpleController {
   constructor($scope) {
     $scope.groupName = "neutralGroup";
     $scope.sidebar = "sidebar";
+    $scope.chart = "chart";
     $scope.maps = [];
   }
 

@@ -132,6 +132,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
   getDataToAdd: function (data) {
 
+    console.log(data);
+
     let dataJson = JSON.parse(data);
 
     //If pointing outside show generic message

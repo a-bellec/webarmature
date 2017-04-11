@@ -63,6 +63,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       scope: {
         maps: '=',
         sidebarId: '=',
+        chartId: '=',
         groupName: '='
       },
       template: require('./leafletMap.html'),

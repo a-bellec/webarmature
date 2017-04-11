@@ -4,14 +4,4 @@ leaflet-map{
   align-items:flex-end;
 }
 
-stat-area{
-  position: absolute;
-  z-index: 10000;
-  width:50%;
-  height:10%;
-}
 
-#chartBlock{
-  background-color: rgba( 255, 255, 255, 0.8);
-  margin-bottom: 10px;
-}
