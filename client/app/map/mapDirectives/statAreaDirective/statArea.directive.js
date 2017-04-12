@@ -12,7 +12,7 @@ export default angular.module('webarmatureApp.statArea', [])
       controller: 'statAreaController'
     }
   })
-  .controller('statAreaController', ['$scope', '$timeout', function ($scope, $timeout) {
+  .controller('statAreaController', ['$scope', function ($scope) {
 
     $scope.printChart = function(dataset){
 
@@ -20,10 +20,12 @@ export default angular.module('webarmatureApp.statArea', [])
       d3.selectAll("#" + $scope.chartId + "SVG").remove();
 
       var height = $("stat-area").height();
-      var width = $("stat-area").width();
+      var width = height;
       var radius = Math.min(width, height) / 2;
 
-      var color = d3.scaleOrdinal(d3.schemeCategory20b);
+      var color = d3.scaleOrdinal()
+        .domain(["darkGreen", "lightGreen", "yellow", "orange", "red"])
+        .range(["#006a01", "#00b515" , "#e2d920", "#f85402", "#a40005"]);
 
       var svg = d3.select('#' + $scope.chartId)
         .append('svg')
@@ -42,7 +44,7 @@ export default angular.module('webarmatureApp.statArea', [])
         .sort(null);
 
       var path = svg.selectAll('path')
-        .data(pie($scope.dataset))
+        .data(pie(dataset))
         .enter()
         .append('path')
         .attr('d', arc)
@@ -51,29 +53,13 @@ export default angular.module('webarmatureApp.statArea', [])
         });
     };
 
-    $scope.$watch('dataset', function(){
-      if(typeof $scope.dataset != "undefined"){
-        $scope.printChart();
+    $scope.$watch('dataset.impermeable', function(){
+      if(typeof $scope.dataset.impermeable != "undefined"){
+        $scope.printChart($scope.dataset.impermeable);
       }
     });
 
-    /*$timeout( function(){
-      $scope.dataset = [
-        { label: 'Abulia', count: 10 },
-        { label: 'Betelgeuse', count: 20 },
-        { label: 'Cantaloupe', count: 30 },
-        { label: 'Dijkstra', count: 40 }
-      ];
-    }, 2000);
-
-    $timeout( function(){
-      $scope.dataset = [
-        { label: 'Abulia', count: 5 },
-        { label: 'Betelgeuse', count: 5 },
-        { label: 'Cantaloupe', count: 5 },
-        { label: 'Dijkstra', count: 85 }
-      ];
-    }, 4000);*/
+    $scope.dataset = {};
 
   }])
   .name;
