@@ -57,7 +57,7 @@ export default angular.module('webarmatureApp.statArea', [])
       }
     });
 
-    $timeout( function(){
+    /*$timeout( function(){
       $scope.dataset = [
         { label: 'Abulia', count: 10 },
         { label: 'Betelgeuse', count: 20 },
@@ -73,7 +73,7 @@ export default angular.module('webarmatureApp.statArea', [])
         { label: 'Cantaloupe', count: 5 },
         { label: 'Dijkstra', count: 85 }
       ];
-    }, 4000);
+    }, 4000);*/
 
   }])
   .name;

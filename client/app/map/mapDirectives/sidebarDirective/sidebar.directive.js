@@ -1,6 +1,5 @@
 'use strict';
 const angular = require('angular');
-import "../L.TileLayer.BetterWMS";
 
 export default angular.module('webarmatureApp.sidebar', [])
   .directive('sidebar', function () {
@@ -43,21 +42,9 @@ export default angular.module('webarmatureApp.sidebar', [])
           let layer = L.tileLayer.wms(scope.geoServerBaseUrl, {
             layers: layerName,
             transparent: true,
-            attribution: attribution
+            attribution: attribution,
+            format: 'image/png'
           });
-
-          let classificationGroup = ['spotMeshGroup', 'landsatMeshGroup', 'spotIrisGroup', 'landsatIrisGroup', 'spotTownGroup', 'landsatTownGroup'];
-          for(let group of classificationGroup){
-            if(groupId == group){
-              layer = L.tileLayer.betterWms(scope.geoServerBaseUrl, {
-                layers: layerName,
-                transparent: true,
-                attribution: attribution,
-                format: 'image/png'
-              });
-              break;
-            }
-          }
 
           if(this.name == sidebarGroupName) {
             removeAllMapLayers(scope.map);
@@ -71,6 +58,24 @@ export default angular.module('webarmatureApp.sidebar', [])
             }
           }
 
+          let classificationGroup = ['meshGroup', 'irisGroup', 'townGroup'];
+          for(let group of classificationGroup){
+            if(groupId == group){
+
+              //Defining the function to call directly seem to throw an error where leaflet can't properly get a callback
+              //calling the function inside the callback doesn't throw an error
+              scope.map.on('click', function(event){
+                scope.getFeatureInfo(event, layerName);
+              });
+              scope.map.on('moveend', function(){
+                scope.getMapInfo(layerName);
+              });
+
+              scope.map.setZoom(13);
+              break;
+            }
+          }
+
           if(groupId == "landsatGroup" || groupId == "spotGroup"){
             scope.map.setZoom(13);
           }
@@ -80,6 +85,7 @@ export default angular.module('webarmatureApp.sidebar', [])
       });
 
       function removeAllMapLayers(map) {
+        map.clearAllEventListeners();
         map.eachLayer(function (layer) {
           if(layer.options.layers != "towns_border-d2015"){
             map.removeLayer(layer);
