@@ -126,27 +126,34 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
 
     let setChartData = function(data){
       let newDataset = [];
+      let dataToShow = {"darkGreen": 0, "lightGreen" : 0, "yellow": 0, "orange": 0, "red": 0};
       for(let point of data){
 
         let label = "";
         if(point <= 20){
-          label = "darkGreen";
+          dataToShow.darkGreen++;
         }
         else if(point > 20 && point <= 40){
-          label = "lightGreen";
+          dataToShow.lightGreen++;
         }
         else if(point > 40 && point <= 60){
-          label = "yellow";
+          dataToShow.yellow++;
         }
         else if(point > 60 && point <= 80){
-          label = "orange";
+          dataToShow.orange++;
         }
         else{
-          label = "red";
+          dataToShow.red++;
         }
 
-        newDataset.push({"label": label, "count": point});
       }
+
+      $scope.dataToShow = dataToShow;
+
+      for(let key in dataToShow){
+        newDataset.push({"label": key, "count": dataToShow[key]});
+      }
+
       $scope.dataset.impermeable = newDataset;
       $scope.$apply();
     };
