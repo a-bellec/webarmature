@@ -86,7 +86,7 @@
                 <div id="{{groupName}}LandsatGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="landsatGroup" class="panel-body">
                     <label> <input type="radio" name="{{groupName}}" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, USGS, Sioux Falls, 2017" value="landsat_d1984_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1999 - NASA Landsat Program, 1999, Landsat ETM scene LE71970281999236EDC00_MTL, L1T, USGS, Sioux Falls, 2017" value="landsat_d1999_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1999 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1999 - NASA Landsat Program, 1999, Landsat ETM scene LE71970281999236EDC00_MTL, L1T, USGS, Sioux Falls, 2017" value="landsat_d1992_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, USGS, Sioux Falls, 2017" value="landsat_d2003_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, USGS, Sioux Falls, 2017" value="landsat_d2013_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
                   </div>
@@ -149,43 +149,44 @@
           <div class="panel-body">
             <div class="panel-group" id="{{groupName}}AccordionClassification">
               <div class="panel">
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}LandsatMeshGroup"> Landsat (Maille 200m.) &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}LandsatMeshGroup"> Maille 200m. &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
                 <div id="{{groupName}}LandsatMeshGroup" class="panel-collapse collapse" role="tabpanel">
-                  <div id="landsatMeshGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" value="d1984_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 Mesh </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d1992_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 Mesh </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d2003_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 Mesh </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 Mesh </label> <br>
+                  <div id="meshGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" value="d1984_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1992_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1987_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1993_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}ScanMeshGroup"> Spot (Maille 200m.) &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}ScanMeshGroup" class="panel-collapse collapse" role="tabpanel">
-                  <div id="spotMeshGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" value="d1987_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 Mesh </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d1993_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 Mesh </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 Mesh </label> <br>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}irisGroup"> Quartiers &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}irisGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="irisGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" value="d1984_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1992_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2013_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1987_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1993_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}ScanIrisGroup"> Spot Quartiers &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}ScanIrisGroup" class="panel-collapse collapse" role="tabpanel">
-                  <div id="spotIrisGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" value="d1987_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 Quartiers </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d1993_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 Quartiers </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d2003_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 Quartiers </label> <br>
-                  </div>
-                </div>
-                <br>
-                <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}ScanTownGroup"> Spot Commune &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}ScanTownGroup" class="panel-collapse collapse" role="tabpanel">
-                  <div id="spotTownGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" value="d1987_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 Commune </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d1993_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 Commune </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" value="d2003_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 Commune </label> <br>
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}townGroup"> Commune &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{groupName}}townGroup" class="panel-collapse collapse" role="tabpanel">
+                  <div id="townGroup" class="panel-body">
+                    <label> <input type="radio" name="{{groupName}}" value="d1984_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1992_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2013_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1987_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d1993_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" value="d2003_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
                   </div>
                 </div>
               </div>
