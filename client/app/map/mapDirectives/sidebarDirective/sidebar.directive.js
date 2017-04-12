@@ -56,24 +56,24 @@ export default angular.module('webarmatureApp.sidebar', [])
               scope.map.addLayer(layer);
               layer.bringToBack();
             }
-          }
 
-          //Create events for classification layers
-          let classificationGroup = ['meshGroup', 'irisGroup', 'townGroup'];
-          for(let group of classificationGroup){
-            if(groupId == group){
+            //Create events for classification layers
+            let classificationGroup = ['meshGroup', 'irisGroup', 'townGroup'];
+            for(let group of classificationGroup){
+              if(groupId == group){
 
-              //Defining the function to call directly seem to throw an error where leaflet can't properly get a callback
-              //calling the function inside the callback doesn't throw an error
-              scope.map.on('click', function(event){
-                scope.getFeatureInfo(event, layerName);
-              });
-              scope.map.on('moveend', function(){
-                scope.getMapInfo(layerName);
-              });
+                //Defining the function to call directly seem to throw an error where leaflet can't properly get a callback
+                //calling the function inside the callback doesn't throw an error
+                scope.map.on('click', function(event){
+                  scope.getFeatureInfo(event, layerName);
+                });
+                scope.map.on('moveend', function(){
+                  scope.getMapInfo(layerName);
+                });
 
-              scope.map.setZoom(13);
-              break;
+                scope.map.setZoom(13);
+                break;
+              }
             }
           }
 
