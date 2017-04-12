@@ -149,28 +149,28 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
 
     let getDataToAdd = function (data) {
 
-      let dataJson = data;
       try{
         let dataJson = JSON.parse(data);
+
+        //If pointing outside show generic message
+        if (!dataJson.features.length > 0) {
+          return "Aucune donnée";
+        }
+
+        let dataProperties = dataJson.features[0].properties;
+        let percent = +dataProperties.percent_aa.toFixed(2);
+
+        //If value are outside of possible scope show generic message
+        if (percent < 0 || percent > 100) {
+          return "Donnée non disponible";
+        }
+
+        return percent.toString();
       }
       catch(err){
         return "Erreur";
       }
 
-      //If pointing outside show generic message
-      if (!dataJson.features.length > 0) {
-        return "Aucune donnée";
-      }
-
-      let dataProperties = dataJson.features[0].properties;
-      let percent = +dataProperties.percent_aa.toFixed(2);
-
-      //If value are outside of possible scope show generic message
-      if (percent < 0 || percent > 100) {
-        return "Donnée non disponible";
-      }
-
-      return percent.toString();
     };
 
     let showGetFeatureInfo = function (err, latlng, data) {
