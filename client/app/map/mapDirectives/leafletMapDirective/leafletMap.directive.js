@@ -124,6 +124,15 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       return $scope.geoServerBaseUrl + L.Util.getParamString(params, $scope.geoServerBaseUrl, true);
     };
 
+    let setChartData = function(data){
+      let newDataset = [];
+      for(let point of data){
+        newDataset.push({"label": "oneColor", "count": point});
+      }
+      $scope.dataset = newDataset;
+      console.log($scope.dataset);
+    };
+
     $scope.getMapInfo = function(layerName){
       let url = getMapInfoUrl(layerName);
 
@@ -133,14 +142,20 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
           url: url
         },
         success: function (data) {
-          $("#chartBlock").text(data);
+          setChartData(data);
         }
       });
     };
 
     let getDataToAdd = function (data) {
 
-      let dataJson = JSON.parse(data);
+      let dataJson = data;
+      try{
+        let dataJson = JSON.parse(data);
+      }
+      catch(err){
+        return "Erreur";
+      }
 
       //If pointing outside show generic message
       if (!dataJson.features.length > 0) {

@@ -58,6 +58,7 @@ export default angular.module('webarmatureApp.sidebar', [])
             }
           }
 
+          //Create events for classification layers
           let classificationGroup = ['meshGroup', 'irisGroup', 'townGroup'];
           for(let group of classificationGroup){
             if(groupId == group){

@@ -18,19 +18,25 @@ export function proxyMapInfo(req, res){
   request(url, function (error, response, body) {
 
     let dataToAnalyse = response.body;
-    dataToAnalyse = JSON.parse(dataToAnalyse);
-    let features = dataToAnalyse.features;
+    try{
+      dataToAnalyse = JSON.parse(dataToAnalyse);
 
-    let dataToReturn = [];
-    for( let i=0; i < features.length; i++){
-      let percentageToCheck = features[i].properties.percent_aa;
+      let features = dataToAnalyse.features;
 
-      if(percentageToCheck >= 0 && percentageToCheck <= 100){
-        dataToReturn.push(percentageToCheck.toFixed(2));
+      let dataToReturn = [];
+      for( let i=0; i < features.length; i++){
+        let percentageToCheck = features[i].properties.percent_aa;
+
+        if(percentageToCheck >= 0 && percentageToCheck <= 100){
+          dataToReturn.push(percentageToCheck.toFixed(2));
+        }
       }
-    }
 
-    res.send(dataToReturn.sort());
+      res.send(dataToReturn.sort((a, b) => a - b));
+    }
+    catch(err){
+      res.status(500).send(err);
+    }
 
   });
 
