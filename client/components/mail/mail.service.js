@@ -59,7 +59,6 @@ export function MailService($http, $q) {
           return res;
         })
         .catch(err => {
-          console.log("hmm?");
           return $q.reject(err.data);
         });
     }

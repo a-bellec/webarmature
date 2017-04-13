@@ -200,7 +200,6 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
 
     let showGetFeatureInfo = function (err, latlng, data) {
       if (err) {
-        console.log(err);
         return;
       }
 
