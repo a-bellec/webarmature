@@ -2,10 +2,13 @@
   float: left;
   position: absolute;
   left: 0;
-  right: 50%;
   top: 50px;
   bottom: 0;
   width: 49.9%;
+}
+
+#map1 {
+  right: 50%;
 }
 
 #map2 {
