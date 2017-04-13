@@ -11,22 +11,28 @@ export default angular.module('webarmatureApp.sidebar', [])
         L.control.sidebar(sidebarId).addTo(scope.map);
       }, 0);
 
+      //Add style to accordion button when opening them
+      //And remove style from other accordion buttons
+      scope.addSelected = function(event){
+        if (!(angular.element(event.target).hasClass("selected"))) {
+          $(".sidebarButton").each(function () {
+            $(this).removeClass("selected");
+          });
+          angular.element(event.target).addClass("selected");
+        }
+        else {
+          angular.element(event.target).removeClass("selected");
+        }
+      };
+
       $("input[type=checkbox]").on('change', function(){
         if(this.checked){
           $("input[type=checkbox]").prop("checked", true);
-          L.tileLayer.wms(scope.geoServerBaseUrl, {
-            layers: 'towns_border-d2015',
-            transparent: true,
-            format: 'image/png'
-          }).addTo(scope.map);
+          scope.addTownBorders();
         }
         else{
           $("input[type=checkbox]").prop("checked", false);
-          scope.map.eachLayer(function (layer) {
-            if(layer.options.layers == "towns_border-d2015"){
-              scope.map.removeLayer(layer);
-            }
-          });
+          scope.removeTownBorders();
         }
       });
 
