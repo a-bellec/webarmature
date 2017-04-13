@@ -68,9 +68,18 @@ export default angular.module('webarmatureApp.sidebar', [])
                   scope.getFeatureInfo(event, layerName);
                 });
 
-                scope.map.on('moveend', function(){
+                //TODO send a pull request to leaflet.sync to make them change their moveend trigger to a move trigger
+                scope.map.on('moveend syncmoveend', function(){
                   scope.getMapInfo(layerName);
                 });
+
+                scope.syncMoveEndTrigger = function(){
+                  scope.map._syncMaps.forEach(function (toSync) {
+                    toSync.fire('syncmoveend');
+                  });
+                };
+
+                scope.map.on('moveend', scope.syncMoveEndTrigger, this);
 
                 scope.map.setZoom(13);
                 break;
@@ -88,13 +97,11 @@ export default angular.module('webarmatureApp.sidebar', [])
       });
 
       function removeAllMapLayers(map) {
-
-        map.removeEventListener('click');
-        map.removeEventListener('moveend');
+        map.clearAllEventListeners();
 
         map.eachLayer(function (layer) {
           if(layer.options.layers != "towns_border-d2015"){
-            map.removeLayer(layer);
+            scope.map.removeLayer(layer);
           }
         });
       }
