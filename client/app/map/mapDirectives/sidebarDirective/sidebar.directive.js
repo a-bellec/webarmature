@@ -74,9 +74,11 @@ export default angular.module('webarmatureApp.sidebar', [])
                 });
 
                 scope.syncMoveEndTrigger = function(){
-                  scope.map._syncMaps.forEach(function (toSync) {
-                    toSync.fire('syncmoveend');
-                  });
+                  if(typeof scope.map._syncMaps != "undefined"){
+                    scope.map._syncMaps.forEach(function (toSync) {
+                      toSync.fire('syncmoveend');
+                    });
+                  }
                 };
 
                 scope.map.on('moveend', scope.syncMoveEndTrigger, this);

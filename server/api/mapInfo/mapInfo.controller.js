@@ -34,7 +34,7 @@ export function proxyMapInfo(req, res) {
         dataToReturn.push(itemToAdd);
       }
     }
-    
+
     let dataToShow = {"darkGreen": 0, "lightGreen": 0, "yellow": 0, "orange": 0, "red": 0};
     for (let point of dataToReturn) {
       if (point.percentPermeable <= 20) {
