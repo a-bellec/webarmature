@@ -17,7 +17,7 @@ export default angular.module('webarmatureApp.statArea', [])
     $scope.printChart = function(dataset){
 
       //remove svg to draw new chart
-      d3.selectAll("#" + $scope.chartId + "SVG").remove();
+      d3.select("#" + $scope.chartId + "SVG").remove();
 
       var height = $("stat-area").height();
       var width = height;
