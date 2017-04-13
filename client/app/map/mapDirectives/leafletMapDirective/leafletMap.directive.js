@@ -244,6 +244,77 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       }
     };
 
+    let removeAllMapLayers = function(map) {
+      map.clearAllEventListeners();
+
+      map.eachLayer(function (layer) {
+        if(layer.options.layers != "towns_border-d2015"){
+          map.removeLayer(layer);
+        }
+      });
+    };
+
+    let addMapEvents = function(layerName){
+      //Defining the function to call directly seem to throw an error where leaflet can't properly get a callback
+      //calling the function inside the callback doesn't throw an error
+      $scope.map.on('click', function(event){
+        $scope.getFeatureInfo(event, layerName);
+      });
+
+      //TODO send a pull request to leaflet.sync to make them change their moveend trigger to a move trigger
+      $scope.map.on('moveend syncmoveend', function(){
+        $scope.getMapInfo(layerName);
+      });
+
+      $scope.syncMoveEndTrigger = function(){
+        if(typeof $scope.map._syncMaps != "undefined"){
+          $scope.map._syncMaps.forEach(function (toSync) {
+            toSync.fire('syncmoveend');
+          });
+        }
+      };
+
+      $scope.map.on('moveend', $scope.syncMoveEndTrigger, this);
+    };
+
+    $scope.changeLayer = function(layerName, attribution, groupId, itemName){
+      let layer = L.tileLayer.wms($scope.geoServerBaseUrl, {
+        layers: layerName,
+        transparent: true,
+        attribution: attribution,
+        format: 'image/png'
+      });
+
+      if(itemName == $scope.groupName) {
+        removeAllMapLayers($scope.map);
+        if (layerName == "OSM") {
+          $scope.map.addLayer($scope.OSMLayer);
+          $scope.OSMLayer.bringToBack();
+        }
+        else {
+          $scope.map.addLayer(layer);
+          layer.bringToBack();
+        }
+
+        //Create events for classification layers
+        let classificationGroup = ['meshGroup', 'irisGroup', 'townGroup'];
+        for(let group of classificationGroup){
+          if(groupId == group){
+            addMapEvents(layerName);
+
+            $scope.map.setZoom(13);
+            break;
+          }
+        }
+      }
+
+      if(groupId == "landsatGroup" || groupId == "spotGroup"){
+        $scope.map.setZoom(13);
+      }
+
+      $scope.syncMaps();
+    };
+
     //Add style to accordion button when opening them
     //And remove style from other accordion buttons
     $scope.addSelected = function(event){

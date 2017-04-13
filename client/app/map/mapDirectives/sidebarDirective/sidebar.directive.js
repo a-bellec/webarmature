@@ -6,8 +6,6 @@ export default angular.module('webarmatureApp.sidebar', [])
 
     function link(scope, element, attrs) {
 
-      let sidebarGroupName = scope.groupName;
-
       setTimeout(function () {
         let sidebarId = element.attr("id");
         L.control.sidebar(sidebarId).addTo(scope.map);
@@ -35,78 +33,16 @@ export default angular.module('webarmatureApp.sidebar', [])
       $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
         if(this.checked){
+
           //Create the new layer
           let layerName = this.value;
           let attribution = this.alt;
           let groupId = $(this).closest("div[id]").attr("id");
-          let layer = L.tileLayer.wms(scope.geoServerBaseUrl, {
-            layers: layerName,
-            transparent: true,
-            attribution: attribution,
-            format: 'image/png'
-          });
+          let itemName = this.name;
 
-          if(this.name == sidebarGroupName) {
-            removeAllMapLayers(scope.map);
-            if (layerName == "OSM") {
-              scope.map.addLayer(scope.OSMLayer);
-              scope.OSMLayer.bringToBack();
-            }
-            else {
-              scope.map.addLayer(layer);
-              layer.bringToBack();
-            }
-
-            //Create events for classification layers
-            let classificationGroup = ['meshGroup', 'irisGroup', 'townGroup'];
-            for(let group of classificationGroup){
-              if(groupId == group){
-
-                //Defining the function to call directly seem to throw an error where leaflet can't properly get a callback
-                //calling the function inside the callback doesn't throw an error
-                scope.map.on('click', function(event){
-                  scope.getFeatureInfo(event, layerName);
-                });
-
-                //TODO send a pull request to leaflet.sync to make them change their moveend trigger to a move trigger
-                scope.map.on('moveend syncmoveend', function(){
-                  scope.getMapInfo(layerName);
-                });
-
-                scope.syncMoveEndTrigger = function(){
-                  if(typeof scope.map._syncMaps != "undefined"){
-                    scope.map._syncMaps.forEach(function (toSync) {
-                      toSync.fire('syncmoveend');
-                    });
-                  }
-                };
-
-                scope.map.on('moveend', scope.syncMoveEndTrigger, this);
-
-                scope.map.setZoom(13);
-                break;
-              }
-            }
-          }
-
-          if(groupId == "landsatGroup" || groupId == "spotGroup"){
-            scope.map.setZoom(13);
-          }
-
-          scope.syncMaps();
-
+          scope.changeLayer(layerName, attribution, groupId, itemName);
         }
       });
-
-      function removeAllMapLayers(map) {
-        map.clearAllEventListeners();
-
-        map.eachLayer(function (layer) {
-          if(layer.options.layers != "towns_border-d2015"){
-            scope.map.removeLayer(layer);
-          }
-        });
-      }
 
     }
     return {
