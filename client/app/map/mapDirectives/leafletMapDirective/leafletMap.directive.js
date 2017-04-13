@@ -118,7 +118,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         bbox: coordinateArrayString,
         typeNames: layerName,
         outputFormat: 'application/json',
-        propertyName: "percent_aa"
+        propertyName: "percent_aa,Shape_Area"
       };
 
       return $scope.geoServerBaseUrl + L.Util.getParamString(params, $scope.geoServerBaseUrl, true);
@@ -126,32 +126,11 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
 
     let setChartData = function(data){
       let newDataset = [];
-      let dataToShow = {"darkGreen": 0, "lightGreen" : 0, "yellow": 0, "orange": 0, "red": 0};
-      for(let point of data){
 
-        let label = "";
-        if(point <= 20){
-          dataToShow.darkGreen++;
-        }
-        else if(point > 20 && point <= 40){
-          dataToShow.lightGreen++;
-        }
-        else if(point > 40 && point <= 60){
-          dataToShow.yellow++;
-        }
-        else if(point > 60 && point <= 80){
-          dataToShow.orange++;
-        }
-        else{
-          dataToShow.red++;
-        }
+      $scope.dataToShow = data;
 
-      }
-
-      $scope.dataToShow = dataToShow;
-
-      for(let key in dataToShow){
-        newDataset.push({"label": key, "count": dataToShow[key]});
+      for(let key in data){
+        newDataset.push({"label": key, "count": data[key]});
       }
 
       $scope.dataset.impermeable = newDataset;
