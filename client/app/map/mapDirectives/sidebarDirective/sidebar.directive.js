@@ -67,6 +67,7 @@ export default angular.module('webarmatureApp.sidebar', [])
                 scope.map.on('click', function(event){
                   scope.getFeatureInfo(event, layerName);
                 });
+
                 scope.map.on('moveend', function(){
                   scope.getMapInfo(layerName);
                 });
@@ -82,11 +83,15 @@ export default angular.module('webarmatureApp.sidebar', [])
           }
 
           scope.syncMaps();
+
         }
       });
 
       function removeAllMapLayers(map) {
-        map.clearAllEventListeners();
+
+        map.removeEventListener('click');
+        map.removeEventListener('moveend');
+
         map.eachLayer(function (layer) {
           if(layer.options.layers != "towns_border-d2015"){
             map.removeLayer(layer);
