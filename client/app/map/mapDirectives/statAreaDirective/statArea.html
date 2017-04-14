@@ -1,7 +1,18 @@
 <div id="chartBlock" class="text-center">
+  <div id="chartNumbers">
+    <table>
+      <tr>
+        <th>Catégorie:</th>
+        <th class="text-center">
+          %
+        </th>
+      </tr>
+      <tr ng-repeat="(key, val) in dataToShow">
+        <td><strong>{{key}}: &nbsp;</strong></td>
+        <td>{{val}}</td>
+      </tr>
+    </table>
+  </div>
   <div id="{{chartId}}">
-    <div id="chartNumbers">
-      {{dataToShow}}
-    </div>
   </div>
 </div>

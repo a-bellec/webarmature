@@ -2,7 +2,7 @@ stat-area{
   position: absolute;
   z-index: 10000;
   width:50%;
-  height:10%;
+  height:15%;
 }
 
 #chartBlock{
@@ -11,5 +11,6 @@ stat-area{
 }
 
 #chartNumbers{
-  position: relative;
+  float: right;
+  text-align: left;
 }

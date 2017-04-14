@@ -54,6 +54,19 @@ let sortData = function(dataToSort){
   return dataToShow;
 };
 
+let convertDataToPercent = function(dataToConvert){
+  let shapeAreaTotal = 0;
+  console.log(dataToConvert);
+  for(let key in dataToConvert){
+    shapeAreaTotal += dataToConvert[key];
+  }
+
+  for(let key in dataToConvert){
+    dataToConvert[key] = ((dataToConvert[key]/shapeAreaTotal) * 100).toFixed(2);
+  }
+  return dataToConvert;
+};
+
 export function proxyMapInfo(req, res) {
   let url = req.body.url;
 
@@ -66,7 +79,8 @@ export function proxyMapInfo(req, res) {
 
       let dataToSort = getDataToSort(dataToAnalyse);
       let sortedData = sortData(dataToSort);
-      res.send(sortedData);
+      let convertedData = convertDataToPercent(sortedData);
+      res.send(convertedData);
     }
     catch(err){
       res.status(500).send(err);
