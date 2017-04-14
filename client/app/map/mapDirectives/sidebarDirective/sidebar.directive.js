@@ -1,11 +1,14 @@
 'use strict';
 const angular = require('angular');
 
+require("bootstrap-switch");
+
 export default angular.module('webarmatureApp.sidebar', [])
   .directive('sidebar', function () {
 
     function link(scope, element, attrs) {
 
+      //Wait for map to load properly before setting up sidebar
       setTimeout(function () {
         let sidebarId = element.attr("id");
         L.control.sidebar(sidebarId).addTo(scope.map);
