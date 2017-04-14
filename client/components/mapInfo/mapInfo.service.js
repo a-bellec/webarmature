@@ -100,7 +100,12 @@ export function MapInfoService($http, $q) {
       };
 
       return geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+    },
+
+    getGeoserverBaseUrl(){
+      return geoServerBaseUrl;
     }
+
 
   };
 

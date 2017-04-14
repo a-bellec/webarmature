@@ -5,6 +5,8 @@ export default class leafletMapController {
   /*@ngInject*/
   constructor($scope, $timeout, MapInfo) {
 
+    $scope.geoServerBaseUrl = MapInfo.getGeoserverBaseUrl();
+
     $scope.getTownInfo = function (townName) {
 
       var params = {

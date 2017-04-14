@@ -15,8 +15,6 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
 
     function link(scope, element, attrs) {
 
-      scope.geoServerBaseUrl = 'http://a.map.webarmature.fr/geoserver/wms/';
-
       let defaultMapConfig = {
         center: [45.7604276, 4.8335709],
         zoom: 16,
