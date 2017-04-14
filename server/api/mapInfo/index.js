@@ -5,8 +5,8 @@ var controller = require('./mapInfo.controller');
 
 var router = express.Router();
 
-router.get('/pointInfo', controller.proxyPointInfo);
-router.get('/town', controller.proxyTownInfo);
-router.get('/', controller.proxyMapInfo);
+router.post('/pointInfo', controller.proxyPointInfo);
+router.post('/town', controller.proxyTownInfo);
+router.post('/', controller.proxyMapInfo);
 
 module.exports = router;

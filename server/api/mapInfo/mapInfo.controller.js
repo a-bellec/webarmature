@@ -4,7 +4,7 @@ var request = require('request');
 
 export function proxyPointInfo(req, res) {
 
-  let url = req.query.url;
+  let url = req.body.url;
 
   request(url, function (error, response, body) {
     res.send(response.body);
@@ -55,9 +55,7 @@ let sortData = function(dataToSort){
 };
 
 export function proxyMapInfo(req, res) {
-  let url = req.query.url;
-
-  console.log(url);
+  let url = req.body.url;
 
   request(url, function (error, response, body) {
 
@@ -78,7 +76,7 @@ export function proxyMapInfo(req, res) {
 }
 
 export function proxyTownInfo(req, res) {
-  let url = req.query.url;
+  let url = req.body.url;
 
   request(url, function (error, response, body) {
     console.log(response);

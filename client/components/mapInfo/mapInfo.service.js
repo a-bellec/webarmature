@@ -13,23 +13,19 @@ export function MapInfoService($http, $q) {
 
   let MapInfo = {
 
-    getFeatureInfo(map, layerName, event){
-
+    getFeatureInfo({
+      map,
+      layerName,
+      event
+    }, callback)
+    {
       let url = this.getFeatureInfoUrl(map, layerName, event.latlng);
-
-      let getPointInfo = function () {
-        $.ajax({
-          url: "/api/mapInfo/pointInfo",
-          data: {
-            url: url
-          },
-          success: function (data) {
-            return data;
-          }
+      return $http.post('/api/mapInfo/pointInfo', {
+        url
+      })
+        .then(res => {
+          return res.data;
         });
-      };
-
-      getPointInfo();
     },
 
     getFeatureInfoUrl(map, layerName, latlng){
@@ -72,18 +68,18 @@ export function MapInfoService($http, $q) {
       return coordinateArrayString;
     },
 
-    getMapInfo(map, layerName){
+    getMapInfo({
+      map,
+      layerName
+    }, callback)
+    {
       let url = this.getMapInfoUrl(map, layerName);
-
-      $.ajax({
-        url: "/api/mapInfo",
-        data: {
-          url: url
-        },
-        success: function (data) {
-          return data;
-        }
-      });
+      return $http.post('/api/mapInfo', {
+        url
+      })
+        .then(res => {
+          return res.data;
+        });
     },
 
     getMapInfoUrl(map, layerName){
