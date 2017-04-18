@@ -60,7 +60,7 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('class', 'legend')
         .attr('transform', function(d, i){
           var height = legendRectSize + legendSpacing;
-          var offset =  height * color.domain().length / 2;
+          var offset =  height * (color.domain().length+1) / 2;
           var horz = $("stat-area").height()/2 + 10;
           var vert = i * height - offset;
           return 'translate(' + horz + ',' + vert + ')';
@@ -89,6 +89,32 @@ export default angular.module('webarmatureApp.statArea', [])
         .text(function(d, i){
           return d.count + "%";
         });
+
+      let legendTotal = svg.append('g')
+        .attr('class', 'legend')
+        .attr('transform', function(d, i){
+          var height = legendRectSize + legendSpacing;
+          var offset =  height * (color.domain().length+1) / 2;
+          var horz = $("stat-area").height()/2 + 10;
+          var vert = 5 * height - offset;
+          return 'translate(' + horz + ',' + vert + ')';
+        });
+
+      legendTotal.append('rect')
+        .attr('width', legendRectSize)
+        .attr('height', legendRectSize)
+        .style('fill', "white")
+        .style('stroke-width', "1px")
+        .style('stroke', "black");
+      legendTotal.append('text')
+        .attr('x', legendRectSize + legendSpacing)
+        .attr('y', legendRectSize - legendSpacing)
+        .style("font-weight", "bold")
+        .text("% total: ");
+      legendTotal.append('text')
+        .attr('x', legendRectSize + legendSpacing + 55)
+        .attr('y', legendRectSize - legendSpacing)
+        .text($scope.dataAverage + "%");
 
       let title = svg.append("text")
         .text("Pourcentage d'imperméabilité")
