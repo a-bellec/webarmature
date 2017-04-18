@@ -70,7 +70,8 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('width', legendRectSize)
         .attr('height', legendRectSize)
         .style('fill', color)
-        .style('stroke', color);
+        .style('stroke-width', "1px")
+        .style('stroke', "black");
 
       legend.append('text')
         .data(dataset)
@@ -79,9 +80,12 @@ export default angular.module('webarmatureApp.statArea', [])
         .style("font-weight", "bold")
         .text(function(d, i) {
           return i*20 + "-" + (i*20 + 20) + "%: ";
-        })
-        .append('text')
-        .style("font-weight", "normal")
+        });
+
+      legend.append('text')
+        .data(dataset)
+        .attr('x', legendRectSize + legendSpacing + 55)
+        .attr('y', legendRectSize - legendSpacing)
         .text(function(d, i){
           return d.count + "%";
         });
