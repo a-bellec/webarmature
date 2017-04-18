@@ -35,10 +35,11 @@ export default class leafletMapController {
     let setChartData = function (data) {
       let newDataset = [];
 
-      $scope.dataToShow = data;
+      $scope.dataToShow = data.percentPerSection;
+      $scope.dataAverage = data.averagePercent;
 
-      for (let key in data) {
-        newDataset.push({"label": key, "count": data[key]});
+      for (let i = 0; i < $scope.dataToShow.length; i++) {
+        newDataset.push({"label": i, "count": $scope.dataToShow[i] });
       }
 
       $scope.dataset.impermeable = newDataset;

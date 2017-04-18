@@ -91,10 +91,13 @@ export function proxyMapInfo(req, res) {
       let sortedData = sortData(dataToSort);
 
       let shapeAreaTotal = getShapeAreaTotal(sortedData);
-      let averagePercent = getAveragePercent(dataToSort, shapeAreaTotal);
 
+      let averagePercent = getAveragePercent(dataToSort, shapeAreaTotal);
       let convertedData = convertDataToPercent(sortedData, shapeAreaTotal);
-      res.send(convertedData);
+
+      let objectToReturn =  { "averagePercent" : averagePercent, "percentPerSection": convertedData};
+
+      res.send(objectToReturn);
     }
     catch(err){
       res.status(500).send(err);
