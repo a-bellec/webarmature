@@ -1,22 +1,4 @@
-<div id="chartBlock" class="text-center">
-  <div id="chartNumbers">
-    <table>
-      <tr>
-        <th>Catégorie: &nbsp;</th>
-        <th class="text-center">
-          %
-        </th>
-      </tr>
-      <tr ng-repeat="(key, val) in dataToShow track by $index">
-        <td><strong>{{$index * 20}} - {{($index * 20) + 20}}: &nbsp;</strong></td>
-        <td>{{val}}</td>
-      </tr>
-      <tr>
-        <td><strong>Moyenne:</strong></td>
-        <td>{{dataAverage}}</td>
-      </tr>
-    </table>
-  </div>
-  <div id="{{chartId}}">
-  </div>
+<div id="chartBlock">
+  <svg id="{{chartId}}" class="chartArea">
+  </svg>
 </div>

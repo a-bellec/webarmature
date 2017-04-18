@@ -1,16 +1,20 @@
 stat-area{
   position: absolute;
-  z-index: 10000;
+  z-index: 999;
   width:50%;
   height:15%;
-}
-
-#chartBlock{
+  padding: 10px;
   background-color: rgba( 255, 255, 255, 0.6);
-  margin-bottom: 10px;
 }
 
 #chartNumbers{
   float: right;
-  text-align: left;
+}
+
+.legend {
+  font-size: 12px;
+}
+
+rect {
+  stroke-width: 2;
 }
