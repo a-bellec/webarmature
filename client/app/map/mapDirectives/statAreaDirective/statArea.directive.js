@@ -24,7 +24,6 @@ export default angular.module('webarmatureApp.statArea', [])
       var radius = Math.min(width, height) / 2;
 
       var color = d3.scaleOrdinal()
-        .domain(["darkGreen", "lightGreen", "yellow", "orange", "red"])
         .range(["#006a01", "#00b515" , "#e2d920", "#f85402", "#a40005"]);
 
       var svg = d3.select('#' + $scope.chartId)

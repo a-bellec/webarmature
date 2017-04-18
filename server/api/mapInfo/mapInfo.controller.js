@@ -32,22 +32,22 @@ let getDataToSort = function(dataToAnalyse){
 };
 
 let sortData = function(dataToSort){
-  let dataToShow = {"darkGreen": 0, "lightGreen": 0, "yellow": 0, "orange": 0, "red": 0};
+  let dataToShow = [0, 0, 0, 0, 0];
   for (let point of dataToSort) {
     if (point.percentPermeable <= 20) {
-      dataToShow.darkGreen += point.shapeArea;
+      dataToShow[0] += point.shapeArea;
     }
     else if (point.percentPermeable > 20 && point.percentPermeable <= 40) {
-      dataToShow.lightGreen += point.shapeArea;
+      dataToShow[1] += point.shapeArea;
     }
     else if (point.percentPermeable > 40 && point.percentPermeable <= 60) {
-      dataToShow.yellow += point.shapeArea;
+      dataToShow[2] += point.shapeArea;
     }
     else if (point.percentPermeable > 60 && point.percentPermeable <= 80) {
-      dataToShow.orange += point.shapeArea;
+      dataToShow[3] += point.shapeArea;
     }
     else {
-      dataToShow.red += point.shapeArea;
+      dataToShow[4] += point.shapeArea;
     }
   }
 
@@ -56,15 +56,15 @@ let sortData = function(dataToSort){
 
 let getShapeAreaTotal = function(data){
   let shapeAreaTotal = 0;
-  for(let key in data){
-    shapeAreaTotal += data[key];
+  for(let i = 0; i < data.length; i++){
+    shapeAreaTotal += data[i];
   }
   return shapeAreaTotal;
 };
 
 let convertDataToPercent = function(data, shapeAreaTotal){
-  for(let key in data){
-    data[key] = ((data[key]/shapeAreaTotal) * 100).toFixed(2);
+  for(let i = 0; i < data.length; i++){
+    data[i] = ((data[i]/shapeAreaTotal) * 100).toFixed(2);
   }
   return data;
 };
@@ -92,7 +92,7 @@ export function proxyMapInfo(req, res) {
 
       let shapeAreaTotal = getShapeAreaTotal(sortedData);
       let averagePercent = getAveragePercent(dataToSort, shapeAreaTotal);
-      
+
       let convertedData = convertDataToPercent(sortedData, shapeAreaTotal);
       res.send(convertedData);
     }

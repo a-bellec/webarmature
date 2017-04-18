@@ -7,7 +7,7 @@
           %
         </th>
       </tr>
-      <tr ng-repeat="(key, val) in dataToShow">
+      <tr ng-repeat="(key, val) in dataToShow track by $index">
         <td><strong>{{key}}: &nbsp;</strong></td>
         <td>{{val}}</td>
       </tr>
