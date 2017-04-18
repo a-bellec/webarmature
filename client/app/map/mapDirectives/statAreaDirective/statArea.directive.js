@@ -18,19 +18,20 @@ export default angular.module('webarmatureApp.statArea', [])
 
       //remove svg to draw new chart
       d3.select("#" + $scope.chartId + " g").remove();
-      
-      var height = $("stat-area").height();
+
+      var height = $("stat-area").height() *0.9;
       var width = $("stat-area").width();
       var radius = Math.min(width, height) / 2;
+      var margin = {top: 40, bottom: 40};
 
       var color = d3.scaleOrdinal()
         .range(["#006a01", "#00b515" , "#e2d920", "#f85402", "#a40005"]);
 
       var svg = d3.select('#' + $scope.chartId)
         .attr('width', width)
-        .attr('height', height)
+        .attr('height', height + margin.top + margin.bottom)
         .append('g')
-        .attr('transform', 'translate(' + width/2 +  ',' + (height / 2) + ')');
+        .attr('transform', 'translate(' + (width/2-75) +  ',' + ((height / 2)+margin.top/2) + ')');
 
       var arc = d3.arc()
         .innerRadius(0)
@@ -80,8 +81,9 @@ export default angular.module('webarmatureApp.statArea', [])
         });
 
       let title = svg.append("text")
-        .attr("x", width/2)
-        .attr("y", 0 - (height/2))
+        .attr("x", height/2)
+        .attr("y", 0 - (height/2) - 5)
+        .attr("text-anchor", "middle")
         .style("font-size", "14px")
         .text("Pourcentage imperméable: " + $scope.dataAverage + "%");
     };
