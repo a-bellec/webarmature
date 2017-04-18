@@ -76,16 +76,27 @@ export default angular.module('webarmatureApp.statArea', [])
         .data(dataset)
         .attr('x', legendRectSize + legendSpacing)
         .attr('y', legendRectSize - legendSpacing)
+        .style("font-weight", "bold")
         .text(function(d, i) {
-          return i*20 + "-" + (i*20 + 20) + "%: " + d.count + "%";
+          return i*20 + "-" + (i*20 + 20) + "%: ";
+        })
+        .append('text')
+        .style("font-weight", "normal")
+        .text(function(d, i){
+          return d.count + "%";
         });
 
       let title = svg.append("text")
-        .attr("x", height/2)
+        .text("Pourcentage d'imperméabilité")
+        .attr("x", function(){
+          let parentWidth = this.parentNode.getBoundingClientRect().width;
+          let elementWidth = this.getBoundingClientRect().width;
+          return (parentWidth - elementWidth) /2;
+        })
         .attr("y", 0 - (height/2) - 5)
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
-        .text("Pourcentage imperméable: " + $scope.dataAverage + "%");
+        .style("font-weight", "bold");
     };
 
     $scope.$watch('dataset.impermeable', function(){
