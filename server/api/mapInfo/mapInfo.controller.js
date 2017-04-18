@@ -54,17 +54,27 @@ let sortData = function(dataToSort){
   return dataToShow;
 };
 
-let convertDataToPercent = function(dataToConvert){
+let getShapeAreaTotal = function(data){
   let shapeAreaTotal = 0;
-  console.log(dataToConvert);
-  for(let key in dataToConvert){
-    shapeAreaTotal += dataToConvert[key];
+  for(let key in data){
+    shapeAreaTotal += data[key];
   }
+  return shapeAreaTotal;
+};
 
-  for(let key in dataToConvert){
-    dataToConvert[key] = ((dataToConvert[key]/shapeAreaTotal) * 100).toFixed(2);
+let convertDataToPercent = function(data, shapeAreaTotal){
+  for(let key in data){
+    data[key] = ((data[key]/shapeAreaTotal) * 100).toFixed(2);
   }
-  return dataToConvert;
+  return data;
+};
+
+let getAveragePercent = function(data, shapeAreaTotal){
+  let shapeAreaAffected = 0;
+  for(let i=0; i < data.length; i++){
+    shapeAreaAffected += data[i].percentPermeable * data[i].shapeArea;
+  }
+  return (shapeAreaAffected/shapeAreaTotal).toFixed(2);
 };
 
 export function proxyMapInfo(req, res) {
@@ -79,7 +89,11 @@ export function proxyMapInfo(req, res) {
 
       let dataToSort = getDataToSort(dataToAnalyse);
       let sortedData = sortData(dataToSort);
-      let convertedData = convertDataToPercent(sortedData);
+
+      let shapeAreaTotal = getShapeAreaTotal(sortedData);
+      let averagePercent = getAveragePercent(dataToSort, shapeAreaTotal);
+      
+      let convertedData = convertDataToPercent(sortedData, shapeAreaTotal);
       res.send(convertedData);
     }
     catch(err){
