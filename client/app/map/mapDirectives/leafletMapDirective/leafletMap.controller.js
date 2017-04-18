@@ -91,7 +91,7 @@ export default class leafletMapController {
 
     $scope.getFeatureInfo = function (evt, layerName) {
       //If not clicking inside the sidebarDirective getPointInfo
-      if (!$(evt.originalEvent.srcElement).closest("sidebarDirective").length) {
+      if (!$(evt.originalEvent.srcElement).closest("sidebar").length) {
 
         MapInfo.getFeatureInfo({
           map: $scope.map,
