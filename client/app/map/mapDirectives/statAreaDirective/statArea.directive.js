@@ -22,7 +22,7 @@ export default angular.module('webarmatureApp.statArea', [])
       var height = $("stat-area").height() *0.9;
       var width = $("stat-area").width();
       var radius = Math.min(width, height) / 2;
-      var margin = {top: 40, bottom: 40};
+      var margin = {top: 40, bottom: 45};
 
       var color = d3.scaleOrdinal()
         .range(["#006a01", "#00b515" , "#e2d920", "#f85402", "#a40005"]);
