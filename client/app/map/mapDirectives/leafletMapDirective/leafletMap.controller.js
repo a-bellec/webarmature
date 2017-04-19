@@ -111,6 +111,9 @@ export default class leafletMapController {
           map.removeLayer(layer);
         }
       });
+
+      $scope.showStat = false;
+      $scope.$apply();
     };
 
     let addMapEvents = function (layerName) {

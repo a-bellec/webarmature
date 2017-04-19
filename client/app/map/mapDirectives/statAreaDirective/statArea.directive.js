@@ -14,8 +14,6 @@ export default angular.module('webarmatureApp.statArea', [])
   })
   .controller('statAreaController', ['$scope', function ($scope) {
 
-    $scope.showStat = false;
-
     $scope.printChart = function(dataset){
 
       //remove svg to draw new chart
