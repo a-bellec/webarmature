@@ -51,6 +51,8 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       });
 
+      scope.statTrigger = true;
+
     }
     return {
       restrict: 'E',

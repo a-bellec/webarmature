@@ -57,7 +57,7 @@
 
     <label> <input type="radio" name="{{groupName}}" alt="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors" value="OSM" data-size="mini" data-off-text="Off" data-on-text="On" checked class="bs" /> OpenStreetMap </label> <br>
     <label> <input type="checkbox" ng-change="changeTownBorders()" ng-model="showTownBorders"> Limites administratives (2015) </label>
-    <!-- <label> <input type="checkbox" ng-checked="showStat" name="{{groupName}}Misc"> Graphiques et statistiques (Classification) </label> -->
+    <label> <input type="checkbox" ng-model="statTrigger"> Graphiques et statistiques (Classification) </label>
 
     <div class="panel-group" id="{{groupName}}Accordion" role="tablist">
 
