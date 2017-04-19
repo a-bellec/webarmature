@@ -107,9 +107,7 @@ export default class leafletMapController {
       map.clearAllEventListeners();
 
       map.eachLayer(function (layer) {
-        if (layer.options.layers != "towns_border-d2015") {
-          map.removeLayer(layer);
-        }
+        map.removeLayer(layer);
       });
 
       $scope.showStat = false;
@@ -156,6 +154,10 @@ export default class leafletMapController {
         else {
           $scope.map.addLayer(layer);
           layer.bringToBack();
+        }
+
+        if($scope.showTownBorders){
+          $scope.addTownBorders();
         }
 
         //Create events for classification layers
