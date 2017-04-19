@@ -35,11 +35,10 @@ export default class leafletMapController {
     let setChartData = function (data) {
       let newDataset = [];
 
-      $scope.dataToShow = data.percentPerSection;
       $scope.dataAverage = data.averagePercent;
 
-      for (let i = 0; i < $scope.dataToShow.length; i++) {
-        newDataset.push({"label": i, "count": $scope.dataToShow[i] });
+      for (let i = 0; i < data.percentPerSection.length; i++) {
+        newDataset.push({"label": i, "count": data.percentPerSection[i] });
       }
 
       $scope.dataset.impermeable = newDataset;
@@ -112,6 +111,9 @@ export default class leafletMapController {
           map.removeLayer(layer);
         }
       });
+
+      $scope.showStat = false;
+      $scope.$apply();
     };
 
     let addMapEvents = function (layerName) {

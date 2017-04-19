@@ -28,16 +28,14 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       };
 
-      $("input[type=checkbox]").on('change', function(){
-        if(this.checked){
-          $("input[type=checkbox]").prop("checked", true);
+      scope.changeTownBorders = function(){
+        if(scope.showTownBorders){
           scope.addTownBorders();
         }
         else{
-          $("input[type=checkbox]").prop("checked", false);
           scope.removeTownBorders();
         }
-      });
+      };
 
       $("input[type=radio]").on('switchChange.bootstrapSwitch', function (e, s) {
 
@@ -52,6 +50,8 @@ export default angular.module('webarmatureApp.sidebar', [])
           scope.changeLayer(layerName, attribution, groupId, itemName);
         }
       });
+
+      scope.statTrigger = true;
 
     }
     return {
