@@ -4,20 +4,13 @@ stat-area{
   width:100%;
   height:20%;
   min-height: 150px;
+}
+
+#chartBlock{
   background-color: rgba( 255, 255, 255, 0.6);
 }
 
 svg{
-}
-
-#chartNumbers{
-  float: right;
-}
-
-.legend {
-  font-size: 12px;
-}
-
-rect {
-  stroke-width: 2;
+  display: block;
+  margin: auto;
 }

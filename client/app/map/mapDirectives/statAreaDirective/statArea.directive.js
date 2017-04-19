@@ -14,13 +14,15 @@ export default angular.module('webarmatureApp.statArea', [])
   })
   .controller('statAreaController', ['$scope', function ($scope) {
 
+    $scope.showStat = false;
+
     $scope.printChart = function(dataset){
 
       //remove svg to draw new chart
       d3.select("#" + $scope.chartId + " g").remove();
 
       var height = $("stat-area").height() *0.9;
-      var width = $("stat-area").width();
+      var width = 350;
       var radius = Math.min(width, height) / 2;
       var margin = {top: 40, bottom: 45};
 
@@ -117,16 +119,15 @@ export default angular.module('webarmatureApp.statArea', [])
         .text($scope.dataAverage + "%");
 
       let title = svg.append("text")
-        .text("Pourcentage d'imperméabilité")
-        .attr("x", function(){
-          let parentWidth = this.parentNode.getBoundingClientRect().width;
-          let elementWidth = this.getBoundingClientRect().width;
-          return (parentWidth - elementWidth) /2;
-        })
+        .attr("x", width/2)
         .attr("y", 0 - (height/2) - 5)
-        .attr("text-anchor", "middle")
+        .attr("text-anchor", "end")
         .style("font-size", "14px")
-        .style("font-weight", "bold");
+        .style("font-weight", "bold")
+        .text("Pourcentage d'imperméabilité");
+
+      $scope.showStat = true;
+
     };
 
     $scope.$watch('dataset.impermeable', function(){
