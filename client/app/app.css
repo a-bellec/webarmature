@@ -173,6 +173,11 @@ body{
   background-color: #222;
 }
 
+.navbar li a{
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
 .navbar li .active a{
   color: white;
   background-color: #000;
