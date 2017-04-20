@@ -137,6 +137,15 @@ export default class leafletMapController {
       $scope.map.on('moveend', $scope.syncMoveEndTrigger, this);
     };
 
+    $scope.syncMaps = function(){
+      for(let i=0; i < $scope.maps.length -1; i++){
+        let firstMap = $scope.maps[i];
+        let secondMap = $scope.maps[i+1];
+        firstMap.sync(secondMap, {syncCursor: true});
+        secondMap.sync(firstMap, {syncCursor: true});
+      }
+    };
+
     $scope.changeLayer = function (layerName, attribution, groupId, itemName) {
       let layer = L.tileLayer.wms($scope.geoServerBaseUrl, {
         layers: layerName,
