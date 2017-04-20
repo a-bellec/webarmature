@@ -79,12 +79,12 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('y', legendRectSize - legendSpacing)
         .style("font-weight", "bold")
         .text(function(d, i) {
-          return i*20 + "-" + (i*20 + 20) + "%: ";
+          return i*20 + "-" + (i*20 + 20) + "% : ";
         });
 
       legend.append('text')
         .data(dataset)
-        .attr('x', legendRectSize + legendSpacing + 55)
+        .attr('x', legendRectSize + legendSpacing + 58)
         .attr('y', legendRectSize - legendSpacing)
         .text(function(d, i){
           return d.count + "%";
@@ -100,19 +100,13 @@ export default angular.module('webarmatureApp.statArea', [])
           return 'translate(' + horz + ',' + vert + ')';
         });
 
-      legendTotal.append('rect')
-        .attr('width', legendRectSize)
-        .attr('height', legendRectSize)
-        .style('fill', "white")
-        .style('stroke-width', "1px")
-        .style('stroke', "black");
       legendTotal.append('text')
         .attr('x', legendRectSize + legendSpacing)
         .attr('y', legendRectSize - legendSpacing)
         .style("font-weight", "bold")
         .text("% total: ");
       legendTotal.append('text')
-        .attr('x', legendRectSize + legendSpacing + 55)
+        .attr('x', legendRectSize + legendSpacing + 58)
         .attr('y', legendRectSize - legendSpacing)
         .text($scope.dataAverage + "%");
 
