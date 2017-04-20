@@ -51,6 +51,19 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       });
 
+      //Close sidebarDirective when clicking outside of it
+      $("#mapsArea").click(function (event) {
+        if (!$(event.target).closest("#"+scope.sidebarId).length) {
+          if (!($("#"+scope.sidebarId).hasClass("collapsed"))) {
+            $("#"+scope.sidebarId).addClass("collapsed");
+            $("#"+scope.sidebarId).find("li").each(function () {
+              $(this).removeClass("active");
+            });
+            $().addClass("collapsed");
+          }
+        }
+      });
+
       scope.statTrigger = true;
 
     }

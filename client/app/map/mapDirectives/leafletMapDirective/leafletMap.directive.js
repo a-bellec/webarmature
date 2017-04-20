@@ -27,15 +27,6 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       scope.map = L.map(mapId, defaultMapConfig);
       scope.maps.push(scope.map);
 
-      scope.syncMaps = function(){
-        for(let i=0; i < scope.maps.length -1; i++){
-          let firstMap = scope.maps[i];
-          let secondMap = scope.maps[i+1];
-          firstMap.sync(secondMap, {syncCursor: true});
-          secondMap.sync(firstMap, {syncCursor: true});
-        }
-      };
-
       scope.syncMaps();
 
       scope.map.zoomControl.setPosition('topright');
@@ -45,20 +36,6 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       });
 
       scope.map.addLayer(scope.OSMLayer);
-
-      //Close sidebarDirective when clicking outside of it
-      $("#mapsArea").click(function (event) {
-        if (!$(event.target).closest("#"+scope.sidebarId).length) {
-          if (!($("#"+scope.sidebarId).hasClass("collapsed"))) {
-            $("#"+scope.sidebarId).addClass("collapsed");
-            $("#"+scope.sidebarId).find("li").each(function () {
-              $(this).removeClass("active");
-            });
-            $().addClass("collapsed");
-          }
-        }
-      });
-
     }
     return {
       restrict: 'E',
