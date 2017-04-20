@@ -19,7 +19,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         center: [45.7604276, 4.8335709],
         zoom: 16,
         maxZoom: 18,
-        minZoom: 13
+        minZoom: 11
       };
 
       let mapId = element.attr("id");
