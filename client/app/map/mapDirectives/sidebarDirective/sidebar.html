@@ -28,12 +28,12 @@
     <p>Cliquez sur l'onglet <i class="fa fa-map"></i> de la barre latérale.</p>
 
     <p>À partir de cet onglet, il vous est possible de choisir la couche &agrave; afficher sur
-      la carte.<br> Quatre sections sont disponibles : </p>
+      la carte.<br> Trois sections principales sont disponibles : </p>
     <ul>
-      <li>Images aériennes</li>
-      <li>Scan 25</li>
-      <li>Scan 50</li>
-      <li>Photo interprétation</li>
+      <li>Images aériennes (différents types de données sont disponibles (orthophotographies aériennes, images provenant des satellites SPOT et LandSat)</li>
+      <li>Scans topographiques (scan topographique au 25 000ème et 50 000ème</li>
+      <li>Occupation du sol (interprétation de l'occupation du sol à partir des images disponibles (plus d'informations 
+	  <a ui-sref="labClassification">ici</a>).<br> Trois niveaux d'interprétation : la maille (carroyage de 200 mètres de côtés sur l'ensemble du territoire du grand Lyon), l'IRIS (Ilots Regroupés pour l'Information Statistique) et la commune.</li>
     </ul>
     Cliquez sur la section qui vous intéresse et déplacez le curseur pour le faire passer sur <i>on</i>&nbsp;
     (<i class="fa fa-toggle-on" >)</i> .
@@ -41,11 +41,23 @@
     <p>Le fond de carte va automatiquement se mettre &agrave; jour.</p>
 
     <p>En bas &agrave; droite de la carte, une légende permet de repérer rapidement quelle est
-      l'image affichée aisi que la date de celle-ci.</p>
+      l'image affichée ainsi que la date de celle-ci.</p>
     <hr>
-    <h4>Utilisation des outils de mesure&nbsp;&nbsp;&nbsp;<i class="fa fa-wrench"></i></h4>
+    <h4>Informations complémentaires</h4>
 
-    <p>A venir ...</p>
+    <p>
+	 <ul>
+      <li><u>Orthophotographies :</u> <br>Image obtenue par traitement d’un cliché aérien numérique ou argentique dont la géométrie a été redressée de sorte que chaque point soit superposable à une carte plane qui lui correspond.
+      </li>
+      <li><u>Landsat (satellite) :</u> <br>Premier programme civil d'observation de la Terre par satellite (lancement du premier LANDSAT en 1972). Depuis janvier 2009, l’entièreté des images d’archive Landsat est accessible gratuitement via <a href="https://earthexplorer.usgs.gov/" target="_blank">Internet</a>.
+      </li>
+      <li><u>Spot (satellite) :</u> <br>Décidé en 1977 par la France, SPOT est le premier programme européen dédié à l'observation de la Terre. Entre 1986 et 2002, 5 satellites SPOT sont lancés depuis Kourou.</a>.
+      </li>
+      <li><u>Occupation du sol :</u> <br>Analyse des images combinant plusieurs traitements dans le but de regrouper les pixels semblables afin de définir les principales catégories d’occupation du sol, en minimisant les confusions.</a>
+      </li>
+	 </ul>
+	</p>
+	
   </div>
   <div class="sidebar-pane" id="mapPane">
     <h1 class="sidebar-header">
