@@ -35,6 +35,7 @@ export class NavbarComponent {
     this.submitted = true;
 
     if(form.$valid) {
+      this.valid = true;
       this.Mail.contactMail({
         name: this.message.name,
         email: this.message.email,

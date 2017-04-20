@@ -84,7 +84,8 @@
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg pull-right">Envoyer</button>
+                <button type="submit" class="btn btn-success btn-lg pull-right" ng-hide="$ctrl.valid">Envoyer</button>
+                <div class="loader pull-right" ng-show="$ctrl.valid"></div>
                 <!-- Dirty hack to make button position appear correctly -->
                 <p style="text-indent: -9999px; ">Test</p>
               </div>
