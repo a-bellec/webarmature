@@ -158,6 +158,17 @@ body{
   color: #e6e6e6;
 }
 
+@media(min-width: 768px) and (max-width: 992px){
+  .navbar-inverse .navbar-nav li a {
+    font-size: 14px;
+  }
+
+  .navbar li a{
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+}
+
 .navbar-collapse.in {
   overflow-y: hidden;
   background-color: #222;
@@ -171,11 +182,6 @@ body{
 .dropdown-menu{
   width: 17em;
   background-color: #222;
-}
-
-.navbar li a{
-  padding-left: 9px;
-  padding-right: 9px;
 }
 
 .navbar li .active a{
