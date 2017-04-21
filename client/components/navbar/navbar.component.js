@@ -15,7 +15,7 @@ export class NavbarComponent {
     sendMail: undefined
   };
 
-  constructor(Auth, $scope, $http, Mail) {
+  constructor(Auth, $scope, $http, Mail, $location) {
     'ngInject';
 
     this.Mail = Mail;
@@ -29,6 +29,9 @@ export class NavbarComponent {
       $(".navbar-collapse.in").collapse("hide");
     });
 
+    $scope.$on("$locationChangeStart", function(){
+      $(".navbar-collapse.in").collapse("hide");
+    });
   }
 
   sendMail(form){
