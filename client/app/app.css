@@ -81,6 +81,14 @@ body{
   top: 37px;
 }
 
+.chart h2{
+   overflow-wrap: break-word;
+}
+
+.chart h3{
+  overflow-wrap: break-word;
+}
+
 .dark-text {
   color: #404040;
 }
