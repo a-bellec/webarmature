@@ -1,13 +1,3 @@
-.mapImageContainer{
-  margin-top: 10%;
-}
-
-@media(max-width: 768px){
-  .mapImageContainer{
-    margin-top: 75px;
-  }
-}
-
 .mapImage {
   position: relative;
   margin-bottom: 30px;

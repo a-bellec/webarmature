@@ -58,6 +58,16 @@ body{
   width:100%;
 }
 
+.defaultContainer{
+  margin-top: 10%;
+}
+
+@media(max-width: 768px){
+  .defaultContainer{
+    margin-top: 75px;
+  }
+}
+
 .darkSection {
   background: #5E7A9B;
   background: -webkit-linear-gradient(top, #355069 0, #5E7A9B 100%);
