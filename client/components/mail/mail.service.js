@@ -17,7 +17,7 @@ export function MailService($http, $q) {
       name,
       email,
       text
-    }, callback) {
+    }) {
       return $http.post('/api/mails/contact', {
         name,
         email,
@@ -42,7 +42,7 @@ export function MailService($http, $q) {
       occupation,
       occupationPlace,
       email
-    }, callback) {
+    }) {
       return $http.post('/api/mails/signUpNotify', {
         name,
         occupation,

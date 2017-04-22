@@ -1,3 +1,4 @@
+/* eslint-disable no-sync */
 'use strict';
 
 import angular from 'angular';
@@ -15,7 +16,7 @@ export class NavbarComponent {
     sendMail: undefined
   };
 
-  constructor(Auth, $scope, $http, Mail, $location) {
+  constructor(Auth, $scope, $http, Mail) {
     'ngInject';
 
     this.Mail = Mail;

@@ -172,123 +172,123 @@
     this._map && (this._map._mapPane.className = this._map._mapPane.className.replace(' leaflet-cluster-anim', '')), this._inZoomAnimation--, this.fire('animationend');
   }, _animationZoomIn(t, e) {
     var i,
-    n = this._getExpandedVisibleBounds(),
-    s = this._featureGroup; this._topClusterLevel._recursively(n, t, 0, function(r) {
-      var o,
-        a = r._latlng,
-        h = r._markers; for(n.contains(a) || (a = null), r._isSingleParent() && t + 1 === e ? (s.removeLayer(r), r._recursivelyAddChildrenToMap(null, e, n)) : (r.setOpacity(0), r._recursivelyAddChildrenToMap(a, e, n)), i = h.length - 1; i >= 0; i--)o = h[i], n.contains(o._latlng) || s.removeLayer(o);
-    }), this._forceLayout(), this._topClusterLevel._recursivelyBecomeVisible(n, e), s.eachLayer(function(t) {
-      t instanceof L.MarkerCluster || !t._icon || t.setOpacity(1);
-    }), this._topClusterLevel._recursively(n, t, e, function(t) {
-      t._recursivelyRestoreChildPositions(e);
-    }), this._enqueue(function() {
-      this._topClusterLevel._recursively(n, t, 0, function(t) {
-        s.removeLayer(t), t.setOpacity(1);
-      }), this._animationEnd();
-    });
-  }, _animationZoomOut(t, e) {
-  this._animationZoomOutSingle(this._topClusterLevel, t - 1, e), this._topClusterLevel._recursivelyAddChildrenToMap(null, e, this._getExpandedVisibleBounds()), this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds, t, this._getExpandedVisibleBounds());
-}, _animationZoomOutSingle(t, e, i) {
-  var n = this._getExpandedVisibleBounds(); t._recursivelyAnimateChildrenInAndAddSelfToMap(n, e + 1, i); var s = this; this._forceLayout(), t._recursivelyBecomeVisible(n, i), this._enqueue(function() {
-    if(t._childCount === 1) {
-      var r = t._markers[0]; r.setLatLng(r.getLatLng()), r.setOpacity && r.setOpacity(1);
-    } else {
-      t._recursively(n, i, 0, function(t) {
-        t._recursivelyRemoveChildrenFromMap(n, e + 1);
+      n = this._getExpandedVisibleBounds(),
+      s = this._featureGroup; this._topClusterLevel._recursively(n, t, 0, function(r) {
+        var o,
+          a = r._latlng,
+          h = r._markers; for(n.contains(a) || (a = null), r._isSingleParent() && t + 1 === e ? (s.removeLayer(r), r._recursivelyAddChildrenToMap(null, e, n)) : (r.setOpacity(0), r._recursivelyAddChildrenToMap(a, e, n)), i = h.length - 1; i >= 0; i--)o = h[i], n.contains(o._latlng) || s.removeLayer(o);
+      }), this._forceLayout(), this._topClusterLevel._recursivelyBecomeVisible(n, e), s.eachLayer(function(t) {
+        t instanceof L.MarkerCluster || !t._icon || t.setOpacity(1);
+      }), this._topClusterLevel._recursively(n, t, e, function(t) {
+        t._recursivelyRestoreChildPositions(e);
+      }), this._enqueue(function() {
+        this._topClusterLevel._recursively(n, t, 0, function(t) {
+          s.removeLayer(t), t.setOpacity(1);
+        }), this._animationEnd();
       });
-    } s._animationEnd();
-  });
-}, _animationAddLayer(t, e) {
-  var i = this,
-    n = this._featureGroup; n.addLayer(t), e !== t && (e._childCount > 2 ? (e._updateIcon(), this._forceLayout(), this._animationStart(), t._setPos(this._map.latLngToLayerPoint(e.getLatLng())), t.setOpacity(0), this._enqueue(function() {
-      n.removeLayer(t), t.setOpacity(1), i._animationEnd();
-    })) : (this._forceLayout(), i._animationStart(), i._animationZoomOutSingle(e, this._map.getMaxZoom(), this._map.getZoom())));
-}, _forceLayout() {
-  L.Util.falseFn(e.body.offsetWidth);
-}} : {_animationStart() {}, _animationZoomIn(t, e) {
-  this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds, t), this._topClusterLevel._recursivelyAddChildrenToMap(null, e, this._getExpandedVisibleBounds()), this.fire('animationend');
-}, _animationZoomOut(t, e) {
-  this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds, t), this._topClusterLevel._recursivelyAddChildrenToMap(null, e, this._getExpandedVisibleBounds()), this.fire('animationend');
-}, _animationAddLayer(t, e) {
-  this._animationAddLayerNonAnimated(t, e);
-}}), L.markerClusterGroup = function(t) {
-  return new L.MarkerClusterGroup(t);
-}, L.MarkerCluster = L.Marker.extend({initialize(t, e, i, n) {
-  L.Marker.prototype.initialize.call(this, i ? i._cLatLng || i.getLatLng() : new L.LatLng(0, 0), {icon: this}), this._group = t, this._zoom = e, this._markers = [], this._childClusters = [], this._childCount = 0, this._iconNeedsUpdate = !0, this._bounds = new L.LatLngBounds(), i && this._addChild(i), n && this._addChild(n);
-}, getAllChildMarkers(t) {
-  t = t || []; for(var e = this._childClusters.length - 1; e >= 0; e--) this._childClusters[e].getAllChildMarkers(t); for(var i = this._markers.length - 1; i >= 0; i--)t.push(this._markers[i]); return t;
-}, getChildCount() {
-  return this._childCount;
-}, zoomToBounds() {
-  for(var t, e = this._childClusters.slice(), i = this._group._map, n = i.getBoundsZoom(this._bounds), s = this._zoom + 1, r = i.getZoom(); e.length > 0 && n > s;) {
-    s++; var o = []; for(t = 0; t < e.length; t++)o = o.concat(e[t]._childClusters); e = o;
-  }n > s ? this._group._map.setView(this._latlng, s) : r >= n ? this._group._map.setView(this._latlng, r + 1) : this._group._map.fitBounds(this._bounds);
-}, getBounds() {
-  var t = new L.LatLngBounds(); return t.extend(this._bounds), t;
-}, _updateIcon() {
-  this._iconNeedsUpdate = !0, this._icon && this.setIcon(this);
-}, createIcon() {
-  return this._iconNeedsUpdate && (this._iconObj = this._group.options.iconCreateFunction(this), this._iconNeedsUpdate = !1), this._iconObj.createIcon();
-}, createShadow() {
-  return this._iconObj.createShadow();
-}, _addChild(t, e) {
-  this._iconNeedsUpdate = !0, this._expandBounds(t), t instanceof L.MarkerCluster ? (e || (this._childClusters.push(t), t.__parent = this), this._childCount += t._childCount) : (e || this._markers.push(t), this._childCount++), this.__parent && this.__parent._addChild(t, !0);
-}, _expandBounds(t) {
-  var e,
-    i = t._wLatLng || t._latlng; t instanceof L.MarkerCluster ? (this._bounds.extend(t._bounds), e = t._childCount) : (this._bounds.extend(i), e = 1), this._cLatLng || (this._cLatLng = t._cLatLng || i); var n = this._childCount + e; this._wLatLng ? (this._wLatLng.lat = (i.lat * e + this._wLatLng.lat * this._childCount) / n, this._wLatLng.lng = (i.lng * e + this._wLatLng.lng * this._childCount) / n) : this._latlng = this._wLatLng = new L.LatLng(i.lat, i.lng);
-}, _addToMap(t) {
-  t && (this._backupLatlng = this._latlng, this.setLatLng(t)), this._group._featureGroup.addLayer(this);
-}, _recursivelyAnimateChildrenIn(t, e, i) {
-  this._recursively(t, 0, i - 1, function(t) {
-    var i, n,
-      s = t._markers; for(i = s.length - 1; i >= 0; i--)n = s[i], n._icon && (n._setPos(e), n.setOpacity(0));
-  }, function(t) {
-    var i, n,
-      s = t._childClusters; for(i = s.length - 1; i >= 0; i--)n = s[i], n._icon && (n._setPos(e), n.setOpacity(0));
-  });
-}, _recursivelyAnimateChildrenInAndAddSelfToMap(t, e, i) {
-  this._recursively(t, i, 0, function(n) {
-    n._recursivelyAnimateChildrenIn(t, n._group._map.latLngToLayerPoint(n.getLatLng()).round(), e), n._isSingleParent() && e - 1 === i ? (n.setOpacity(1), n._recursivelyRemoveChildrenFromMap(t, e)) : n.setOpacity(0), n._addToMap();
-  });
-}, _recursivelyBecomeVisible(t, e) {
-  this._recursively(t, 0, e, null, function(t) {
-    t.setOpacity(1);
-  });
-}, _recursivelyAddChildrenToMap(t, e, i) {
-  this._recursively(i, -1, e, function(n) {
-    if(e !== n._zoom) {
-      for(var s = n._markers.length - 1; s >= 0; s--) {
-        var r = n._markers[s]; i.contains(r._latlng) && (t && (r._backupLatlng = r.getLatLng(), r.setLatLng(t), r.setOpacity && r.setOpacity(0)), n._group._featureGroup.addLayer(r));
+  }, _animationZoomOut(t, e) {
+    this._animationZoomOutSingle(this._topClusterLevel, t - 1, e), this._topClusterLevel._recursivelyAddChildrenToMap(null, e, this._getExpandedVisibleBounds()), this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds, t, this._getExpandedVisibleBounds());
+  }, _animationZoomOutSingle(t, e, i) {
+    var n = this._getExpandedVisibleBounds(); t._recursivelyAnimateChildrenInAndAddSelfToMap(n, e + 1, i); var s = this; this._forceLayout(), t._recursivelyBecomeVisible(n, i), this._enqueue(function() {
+      if(t._childCount === 1) {
+        var r = t._markers[0]; r.setLatLng(r.getLatLng()), r.setOpacity && r.setOpacity(1);
+      } else {
+        t._recursively(n, i, 0, function(t) {
+          t._recursivelyRemoveChildrenFromMap(n, e + 1);
+        });
+      } s._animationEnd();
+    });
+  }, _animationAddLayer(t, e) {
+    var i = this,
+      n = this._featureGroup; n.addLayer(t), e !== t && (e._childCount > 2 ? (e._updateIcon(), this._forceLayout(), this._animationStart(), t._setPos(this._map.latLngToLayerPoint(e.getLatLng())), t.setOpacity(0), this._enqueue(function() {
+        n.removeLayer(t), t.setOpacity(1), i._animationEnd();
+      })) : (this._forceLayout(), i._animationStart(), i._animationZoomOutSingle(e, this._map.getMaxZoom(), this._map.getZoom())));
+  }, _forceLayout() {
+    L.Util.falseFn(e.body.offsetWidth);
+  }} : {_animationStart() {}, _animationZoomIn(t, e) {
+    this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds, t), this._topClusterLevel._recursivelyAddChildrenToMap(null, e, this._getExpandedVisibleBounds()), this.fire('animationend');
+  }, _animationZoomOut(t, e) {
+    this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds, t), this._topClusterLevel._recursivelyAddChildrenToMap(null, e, this._getExpandedVisibleBounds()), this.fire('animationend');
+  }, _animationAddLayer(t, e) {
+    this._animationAddLayerNonAnimated(t, e);
+  }}), L.markerClusterGroup = function(t) {
+    return new L.MarkerClusterGroup(t);
+  }, L.MarkerCluster = L.Marker.extend({initialize(t, e, i, n) {
+    L.Marker.prototype.initialize.call(this, i ? i._cLatLng || i.getLatLng() : new L.LatLng(0, 0), {icon: this}), this._group = t, this._zoom = e, this._markers = [], this._childClusters = [], this._childCount = 0, this._iconNeedsUpdate = !0, this._bounds = new L.LatLngBounds(), i && this._addChild(i), n && this._addChild(n);
+  }, getAllChildMarkers(t) {
+    t = t || []; for(var e = this._childClusters.length - 1; e >= 0; e--) this._childClusters[e].getAllChildMarkers(t); for(var i = this._markers.length - 1; i >= 0; i--)t.push(this._markers[i]); return t;
+  }, getChildCount() {
+    return this._childCount;
+  }, zoomToBounds() {
+    for(var t, e = this._childClusters.slice(), i = this._group._map, n = i.getBoundsZoom(this._bounds), s = this._zoom + 1, r = i.getZoom(); e.length > 0 && n > s;) {
+      s++; var o = []; for(t = 0; t < e.length; t++)o = o.concat(e[t]._childClusters); e = o;
+    }n > s ? this._group._map.setView(this._latlng, s) : r >= n ? this._group._map.setView(this._latlng, r + 1) : this._group._map.fitBounds(this._bounds);
+  }, getBounds() {
+    var t = new L.LatLngBounds(); return t.extend(this._bounds), t;
+  }, _updateIcon() {
+    this._iconNeedsUpdate = !0, this._icon && this.setIcon(this);
+  }, createIcon() {
+    return this._iconNeedsUpdate && (this._iconObj = this._group.options.iconCreateFunction(this), this._iconNeedsUpdate = !1), this._iconObj.createIcon();
+  }, createShadow() {
+    return this._iconObj.createShadow();
+  }, _addChild(t, e) {
+    this._iconNeedsUpdate = !0, this._expandBounds(t), t instanceof L.MarkerCluster ? (e || (this._childClusters.push(t), t.__parent = this), this._childCount += t._childCount) : (e || this._markers.push(t), this._childCount++), this.__parent && this.__parent._addChild(t, !0);
+  }, _expandBounds(t) {
+    var e,
+      i = t._wLatLng || t._latlng; t instanceof L.MarkerCluster ? (this._bounds.extend(t._bounds), e = t._childCount) : (this._bounds.extend(i), e = 1), this._cLatLng || (this._cLatLng = t._cLatLng || i); var n = this._childCount + e; this._wLatLng ? (this._wLatLng.lat = (i.lat * e + this._wLatLng.lat * this._childCount) / n, this._wLatLng.lng = (i.lng * e + this._wLatLng.lng * this._childCount) / n) : this._latlng = this._wLatLng = new L.LatLng(i.lat, i.lng);
+  }, _addToMap(t) {
+    t && (this._backupLatlng = this._latlng, this.setLatLng(t)), this._group._featureGroup.addLayer(this);
+  }, _recursivelyAnimateChildrenIn(t, e, i) {
+    this._recursively(t, 0, i - 1, function(t) {
+      var i, n,
+        s = t._markers; for(i = s.length - 1; i >= 0; i--)n = s[i], n._icon && (n._setPos(e), n.setOpacity(0));
+    }, function(t) {
+      var i, n,
+        s = t._childClusters; for(i = s.length - 1; i >= 0; i--)n = s[i], n._icon && (n._setPos(e), n.setOpacity(0));
+    });
+  }, _recursivelyAnimateChildrenInAndAddSelfToMap(t, e, i) {
+    this._recursively(t, i, 0, function(n) {
+      n._recursivelyAnimateChildrenIn(t, n._group._map.latLngToLayerPoint(n.getLatLng()).round(), e), n._isSingleParent() && e - 1 === i ? (n.setOpacity(1), n._recursivelyRemoveChildrenFromMap(t, e)) : n.setOpacity(0), n._addToMap();
+    });
+  }, _recursivelyBecomeVisible(t, e) {
+    this._recursively(t, 0, e, null, function(t) {
+      t.setOpacity(1);
+    });
+  }, _recursivelyAddChildrenToMap(t, e, i) {
+    this._recursively(i, -1, e, function(n) {
+      if(e !== n._zoom) {
+        for(var s = n._markers.length - 1; s >= 0; s--) {
+          var r = n._markers[s]; i.contains(r._latlng) && (t && (r._backupLatlng = r.getLatLng(), r.setLatLng(t), r.setOpacity && r.setOpacity(0)), n._group._featureGroup.addLayer(r));
+        }
       }
-    }
-  }, function(e) {
-    e._addToMap(t);
-  });
-}, _recursivelyRestoreChildPositions(t) {
-  for(var e = this._markers.length - 1; e >= 0; e--) {
-    var i = this._markers[e]; i._backupLatlng && (i.setLatLng(i._backupLatlng), delete i._backupLatlng);
-  } if(t - 1 === this._zoom) for(var n = this._childClusters.length - 1; n >= 0; n--) this._childClusters[n]._restorePosition(); else for(var s = this._childClusters.length - 1; s >= 0; s--) this._childClusters[s]._recursivelyRestoreChildPositions(t);
-}, _restorePosition() {
-  this._backupLatlng && (this.setLatLng(this._backupLatlng), delete this._backupLatlng);
-}, _recursivelyRemoveChildrenFromMap(t, e, i) {
-  var n, s; this._recursively(t, -1, e - 1, function(t) {
-    for(s = t._markers.length - 1; s >= 0; s--)n = t._markers[s], i && i.contains(n._latlng) || (t._group._featureGroup.removeLayer(n), n.setOpacity && n.setOpacity(1));
-  }, function(t) {
-    for(s = t._childClusters.length - 1; s >= 0; s--)n = t._childClusters[s], i && i.contains(n._latlng) || (t._group._featureGroup.removeLayer(n), n.setOpacity && n.setOpacity(1));
-  });
-}, _recursively(t, e, i, n, s) {
-  var r, o,
-    a = this._childClusters,
-    h = this._zoom; if(e > h) for(r = a.length - 1; r >= 0; r--)o = a[r], t.intersects(o._bounds) && o._recursively(t, e, i, n, s); else if(n && n(this), s && this._zoom === i && s(this), i > h) for(r = a.length - 1; r >= 0; r--)o = a[r], t.intersects(o._bounds) && o._recursively(t, e, i, n, s);
-}, _recalculateBounds() {
-  var t,
-    e = this._markers,
-    i = this._childClusters; for(this._bounds = new L.LatLngBounds(), delete this._wLatLng, t = e.length - 1; t >= 0; t--) this._expandBounds(e[t]); for(t = i.length - 1; t >= 0; t--) this._expandBounds(i[t]);
-}, _isSingleParent() {
-  return this._childClusters.length > 0 && this._childClusters[0]._childCount === this._childCount;
-}}), L.DistanceGrid = function(t) {
-  this._cellSize = t, this._sqCellSize = t * t, this._grid = {}, this._objectPoint = {};
-}, L.DistanceGrid.prototype = {addObject(t, e) {
+    }, function(e) {
+      e._addToMap(t);
+    });
+  }, _recursivelyRestoreChildPositions(t) {
+    for(var e = this._markers.length - 1; e >= 0; e--) {
+      var i = this._markers[e]; i._backupLatlng && (i.setLatLng(i._backupLatlng), delete i._backupLatlng);
+    } if(t - 1 === this._zoom) for(var n = this._childClusters.length - 1; n >= 0; n--) this._childClusters[n]._restorePosition(); else for(var s = this._childClusters.length - 1; s >= 0; s--) this._childClusters[s]._recursivelyRestoreChildPositions(t);
+  }, _restorePosition() {
+    this._backupLatlng && (this.setLatLng(this._backupLatlng), delete this._backupLatlng);
+  }, _recursivelyRemoveChildrenFromMap(t, e, i) {
+    var n, s; this._recursively(t, -1, e - 1, function(t) {
+      for(s = t._markers.length - 1; s >= 0; s--)n = t._markers[s], i && i.contains(n._latlng) || (t._group._featureGroup.removeLayer(n), n.setOpacity && n.setOpacity(1));
+    }, function(t) {
+      for(s = t._childClusters.length - 1; s >= 0; s--)n = t._childClusters[s], i && i.contains(n._latlng) || (t._group._featureGroup.removeLayer(n), n.setOpacity && n.setOpacity(1));
+    });
+  }, _recursively(t, e, i, n, s) {
+    var r, o,
+      a = this._childClusters,
+      h = this._zoom; if(e > h) for(r = a.length - 1; r >= 0; r--)o = a[r], t.intersects(o._bounds) && o._recursively(t, e, i, n, s); else if(n && n(this), s && this._zoom === i && s(this), i > h) for(r = a.length - 1; r >= 0; r--)o = a[r], t.intersects(o._bounds) && o._recursively(t, e, i, n, s);
+  }, _recalculateBounds() {
+    var t,
+      e = this._markers,
+      i = this._childClusters; for(this._bounds = new L.LatLngBounds(), delete this._wLatLng, t = e.length - 1; t >= 0; t--) this._expandBounds(e[t]); for(t = i.length - 1; t >= 0; t--) this._expandBounds(i[t]);
+  }, _isSingleParent() {
+    return this._childClusters.length > 0 && this._childClusters[0]._childCount === this._childCount;
+  }}), L.DistanceGrid = function(t) {
+    this._cellSize = t, this._sqCellSize = t * t, this._grid = {}, this._objectPoint = {};
+  }, L.DistanceGrid.prototype = {addObject(t, e) {
   var i = this._getCoord(e.x),
     n = this._getCoord(e.y),
     s = this._grid,

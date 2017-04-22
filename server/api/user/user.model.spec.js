@@ -1,6 +1,5 @@
 'use strict';
 
-import app from '../..';
 import {User} from '../../sqldb';
 var user;
 var genUser = function() {
@@ -14,7 +13,7 @@ var genUser = function() {
 };
 
 describe('User Model', function() {
-  before(function() {
+  beforeAll(function() {
     // Sync and clear users before testing
     return User.sync().then(function() {
       return User.destroy({ where: {} });

@@ -1,12 +1,13 @@
+/* eslint-disable camelcase */
 'use strict';
 
-require('leaflet');
+const L = require('leaflet');
 
 const proj4 = require('proj4');
 //Define France projection
 proj4.defs('EPSG:2154', '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
 
-export function MapInfoService($http, $q) {
+export function MapInfoService($http) {
   'ngInject';
 
   const geoServerBaseUrl = 'http://a.map.webarmature.fr/geoserver/wms/';
@@ -17,7 +18,7 @@ export function MapInfoService($http, $q) {
       map,
       layerName,
       event
-    }, callback) {
+    }) {
       let url = this.getFeatureInfoUrl(map, layerName, event.latlng);
       return $http.post('/api/mapInfo/pointInfo', {
         url
@@ -68,7 +69,7 @@ export function MapInfoService($http, $q) {
     getMapInfo({
       map,
       layerName
-    }, callback) {
+    }) {
       let url = this.getMapInfoUrl(map, layerName);
       return $http.post('/api/mapInfo', {
         url
