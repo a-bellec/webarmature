@@ -40,7 +40,8 @@ export default angular.module('webarmatureApp.sidebar', [])
           //Create the new layer
           let layerName = this.value;
           let attribution = this.alt;
-          let groupId = $(this).closest('div[id]').attr('id');
+          let groupId = $(this).closest('div[id]')
+            .attr('id');
           let itemName = this.name;
 
           scope.changeLayer(layerName, attribution, groupId, itemName);
@@ -52,9 +53,10 @@ export default angular.module('webarmatureApp.sidebar', [])
         if(!$(event.target).closest(`#${scope.sidebarId}`).length) {
           if(!$(`#${scope.sidebarId}`).hasClass('collapsed')) {
             $(`#${scope.sidebarId}`).addClass('collapsed');
-            $(`#${scope.sidebarId}`).find('li').each(function() {
-              $(this).removeClass('active');
-            });
+            $(`#${scope.sidebarId}`).find('li')
+              .each(function() {
+                $(this).removeClass('active');
+              });
             $().addClass('collapsed');
           }
         }
