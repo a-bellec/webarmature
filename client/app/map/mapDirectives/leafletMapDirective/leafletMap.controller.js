@@ -121,20 +121,9 @@ export default class leafletMapController {
         $scope.getFeatureInfo(event, layerName);
       });
 
-      //TODO send a pull request to leaflet.sync to make them change their moveend trigger to a move trigger
-      $scope.map.on('moveend syncmoveend', function () {
+      $scope.map.on('moveend', function () {
         $scope.getMapInfo(layerName);
       });
-
-      $scope.syncMoveEndTrigger = function () {
-        if (typeof $scope.map._syncMaps != "undefined") {
-          $scope.map._syncMaps.forEach(function (toSync) {
-            toSync.fire('syncmoveend');
-          });
-        }
-      };
-
-      $scope.map.on('moveend', $scope.syncMoveEndTrigger, this);
     };
 
     $scope.syncMaps = function(){
