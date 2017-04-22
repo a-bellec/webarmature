@@ -4,11 +4,6 @@ import routing from './main.routes';
 
 export class MainController {
 
-  /*@ngInject*/
-  constructor($http, $scope, socket) {
-
-  }
-
   $onInit() {
   }
 

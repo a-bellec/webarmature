@@ -3,7 +3,7 @@
 export default class AdminController {
 
   /*@ngInject*/
-  constructor($scope, $state, User, $q) {
+  constructor($scope, $state, User) {
     this.users = {};
     this.users.admins = User.getAllAdmins();
     this.users.users = User.getAllUsers();

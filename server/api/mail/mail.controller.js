@@ -5,8 +5,8 @@ var contactEmail = 'bellec.arnaud@webarmature.fr';
 var transporter = nodemailer.createTransport();
 
 export function contactMail(req, res) {
-  var text = `${'Nouveau message via le site: www.webarmature.fr. ' + '\n'
-    + 'Voici les détails: ' + '\n'
+  var text = `${'Nouveau message via le site: www.webarmature.fr.\n'
+    + 'Voici les détails:\n'
     + 'Nom: '}${req.body.name}\n`
     + `Email: ${req.body.email}\n`
     + `Message soumis: ${req.body.text}`;
@@ -28,8 +28,8 @@ export function contactMail(req, res) {
 }
 
 export function signUpNotifyMail(req, res) {
-  var text = `${'Nouvelle demande d\'accès via: www.webarmature.fr. ' + '\n'
-    + 'Voici les détails: ' + '\n'
+  var text = `${'Nouvelle demande d\'accès via: www.webarmature.fr.\n'
+    + 'Voici les détails:\n'
     + 'Nom: '}${req.body.name}\n`
     + `Occupation: ${req.body.occupation}\n`
     + `Lieu de l'occupation: ${req.body.occupationPlace}\n`

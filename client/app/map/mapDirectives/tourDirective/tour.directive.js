@@ -1,9 +1,11 @@
 'use strict';
 const angular = require('angular');
 
+require('bootstrap-tour');
+
 export default angular.module('webarmatureApp.tour', [])
   .directive('tour', function() {
-    function link(scope, element, attrs) {
+    function link(scope) {
       scope.tourTemplate
         = '<div class=\'popover tour\'>'
         + '<div class=\'arrow\'></div>'
@@ -17,6 +19,7 @@ export default angular.module('webarmatureApp.tour', [])
         + '</div>'
         + '</div>';
 
+      // eslint-disable-next-line no-undef
       scope.tour = new Tour({
         name: 'mapTour',
         template: scope.tourTemplate,
@@ -131,7 +134,7 @@ export default angular.module('webarmatureApp.tour', [])
       controller: 'tourController'
     };
   })
-  .controller('tourController', ['$scope', function($scope) {
+  .controller('tourController', ['$scope', function() {
 
   }])
   .name;

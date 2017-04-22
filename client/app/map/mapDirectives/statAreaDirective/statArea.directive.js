@@ -40,12 +40,12 @@ export default angular.module('webarmatureApp.statArea', [])
         })
         .sort(null);
 
-      var path = svg.selectAll('path')
+      svg.selectAll('path')
         .data(pie(dataset))
         .enter()
         .append('path')
         .attr('d', arc)
-        .attr('fill', function(d, i) {
+        .attr('fill', function(d) {
           return color(d.data.label);
         });
 
@@ -58,10 +58,10 @@ export default angular.module('webarmatureApp.statArea', [])
         .append('g')
         .attr('class', 'legend')
         .attr('transform', function(d, i) {
-          var height = legendRectSize + legendSpacing;
-          var offset = height * (color.domain().length + 1) / 2;
+          var rectHeight = legendRectSize + legendSpacing;
+          var offset = rectHeight * (color.domain().length + 1) / 2;
           var horz = $('stat-area').height() / 2 + 10;
-          var vert = i * height - offset;
+          var vert = i * rectHeight - offset;
           return `translate(${horz},${vert})`;
         });
 
@@ -85,17 +85,17 @@ export default angular.module('webarmatureApp.statArea', [])
         .data(dataset)
         .attr('x', legendRectSize + legendSpacing + 58)
         .attr('y', legendRectSize - legendSpacing)
-        .text(function(d, i) {
+        .text(function(d) {
           return `${d.count}%`;
         });
 
       let legendTotal = svg.append('g')
         .attr('class', 'legend')
-        .attr('transform', function(d, i) {
-          var height = legendRectSize + legendSpacing;
-          var offset = height * (color.domain().length + 1) / 2;
+        .attr('transform', function() {
+          var rectHeight = legendRectSize + legendSpacing;
+          var offset = rectHeight * (color.domain().length + 1) / 2;
           var horz = $('stat-area').height() / 2 + 10;
-          var vert = 5 * height - offset;
+          var vert = 5 * rectHeight - offset;
           return `translate(${horz},${vert})`;
         });
 
@@ -109,7 +109,7 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('y', legendRectSize - legendSpacing)
         .text(`${$scope.dataAverage}%`);
 
-      let title = svg.append('text')
+      svg.append('text')
         .attr('x', width / 2)
         .attr('y', 0 - height / 2 - 5)
         .attr('text-anchor', 'end')
@@ -121,7 +121,7 @@ export default angular.module('webarmatureApp.statArea', [])
     };
 
     $scope.$watch('dataset.impermeable', function() {
-      if(typeof $scope.dataset.impermeable != 'undefined') {
+      if(typeof $scope.dataset.impermeable !== 'undefined') {
         $scope.printChart($scope.dataset.impermeable);
       }
     });

@@ -10,16 +10,9 @@ import mapSimple from './mapSimple';
 import mapDouble from './mapDouble';
 import leafletMap from './mapDirectives/leafletMapDirective/leafletMap.directive';
 
-require('bootstrap-switch');
-require('leaflet');
-require('leaflet-sidebar-v2');
-require('leaflet.sync');
-require('d3');
-require('bootstrap-tour');
-
 export default angular.module('webarmatureApp.map', [uiRouter, mapMenu, mapSimple, mapDouble, leafletMap])
   .config(routing)
-  .run(function($rootScope) {
+  .run(function() {
     'ngInject';
   })
   .name;

@@ -1,5 +1,7 @@
 'use strict';
 const angular = require('angular');
+const L = require('leaflet');
+require('leaflet.sync');
 
 import statArea from '../statAreaDirective/statArea.directive';
 import sidebar from '../sidebarDirective/sidebar.directive';

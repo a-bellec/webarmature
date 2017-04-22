@@ -1,4 +1,7 @@
+/* eslint-disable camelcase */
 'use strict';
+
+const L = require('leaflet');
 
 export default class leafletMapController {
 
@@ -76,7 +79,7 @@ export default class leafletMapController {
     let showGetFeatureInfo = function(latlng, data) {
       let percent = getDataToAdd(data);
 
-      var popup = L.popup({maxWidth: 800})
+      L.popup({maxWidth: 800})
         .setLatLng(latlng)
         .openOn($scope.map)
         .setContent(`Imperméable: ${percent}`);

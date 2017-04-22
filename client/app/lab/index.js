@@ -13,7 +13,7 @@ import labWebmap from './labWebMap';
 
 export default angular.module('webarmatureApp.lab', [uiRouter, labClassification, labGeoportail, labMenu, labMosaicking, labWebmap])
   .config(routing)
-  .run(function($rootScope) {
+  .run(function() {
     'ngInject';
   })
   .name;

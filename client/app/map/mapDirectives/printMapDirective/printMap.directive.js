@@ -23,7 +23,7 @@ export default angular.module('webarmatureApp.printMap', [])
         }, 0);
       };
 
-      let print = $('#mapsArea').print({
+      $('#mapsArea').print({
         noPrintSelector: 'sidebar',
         deferred: $.Deferred().done(printShown),
         //After one minute it's going to print whatever it has been able to load. Otherwise load as soon as ready

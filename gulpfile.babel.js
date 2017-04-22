@@ -14,6 +14,7 @@ import lazypipe from 'lazypipe';
 import nodemon from 'nodemon';
 import {Server as KarmaServer} from 'karma';
 import runSequence from 'run-sequence';
+// eslint-disable-next-line camelcase
 import {protractor, webdriver_update} from 'gulp-protractor';
 import {Instrumenter} from 'isparta';
 import webpack from 'webpack-stream';
@@ -96,17 +97,6 @@ function whenServerReady(cb) {
 
 let lintClientScripts = lazypipe()
     .pipe(plugins.eslint, `${clientPath}/.eslintrc`)
-    .pipe(plugins.eslint.format);
-
-const lintClientTestScripts = lazypipe()
-    .pipe(plugins.eslint, {
-      configFile: `${clientPath}/.eslintrc`,
-      envs: [
-        'browser',
-        'es6',
-        'mocha'
-      ]
-    })
     .pipe(plugins.eslint.format);
 
 let lintServerScripts = lazypipe()

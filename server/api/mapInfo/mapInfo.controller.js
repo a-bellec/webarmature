@@ -5,7 +5,7 @@ var request = require('request');
 export function proxyPointInfo(req, res) {
   let url = req.body.url;
 
-  request(url, function(error, response, body) {
+  request(url, function(error, response) {
     res.send(response.body);
   });
 }
@@ -74,7 +74,7 @@ let getAveragePercent = function(data, shapeAreaTotal) {
 export function proxyMapInfo(req, res) {
   let url = req.body.url;
 
-  request(url, function(error, response, body) {
+  request(url, function(error, response) {
     let dataToAnalyse = response.body;
 
     try {
@@ -97,10 +97,10 @@ export function proxyMapInfo(req, res) {
   });
 }
 
-export function proxyTownInfo(req, res) {
+export function proxyTownInfo(req) {
   let url = req.body.url;
 
-  request(url, function(error, response, body) {
+  request(url, function(error, response) {
     console.log(response);
   });
 }

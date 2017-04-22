@@ -1,11 +1,13 @@
 'use strict';
 const angular = require('angular');
+const L = require('leaflet');
+require('leaflet-sidebar-v2');
 
 require('bootstrap-switch');
 
 export default angular.module('webarmatureApp.sidebar', [])
   .directive('sidebar', function() {
-    function link(scope, element, attrs) {
+    function link(scope, element) {
       //Wait for map to load properly before setting up sidebar
       setTimeout(function() {
         let sidebarId = element.attr('id');
@@ -33,7 +35,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         }
       };
 
-      $('input[type=radio]').on('switchChange.bootstrapSwitch', function(e, s) {
+      $('input[type=radio]').on('switchChange.bootstrapSwitch', function() {
         if(this.checked) {
           //Create the new layer
           let layerName = this.value;
