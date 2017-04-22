@@ -32,7 +32,7 @@ export default class SignupController {
         password: this.user.password
       })
         .then(() => {
-          this.formValidated=true;
+          this.formValidated = true;
         })
         .catch(err => {
           err = err.data;

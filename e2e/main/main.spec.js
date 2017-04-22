@@ -6,7 +6,7 @@ describe('Main View', function() {
   var page;
 
   beforeEach(function() {
-    browser.get(config.baseUrl + '/');
+    browser.get(`${config.baseUrl}/`);
     page = require('./main.po');
   });
 

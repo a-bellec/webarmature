@@ -1,13 +1,13 @@
 'use strict';
 
 var config = browser.params;
-var UserModel = require(config.serverConfig.root + '/server/sqldb').User;
+var UserModel = require(`${config.serverConfig.root}/server/sqldb`).User;
 
 describe('Login View', function() {
   var page;
 
   var loadPage = function() {
-    browser.get(config.baseUrl + '/login');
+    browser.get(`${config.baseUrl}/login`);
     page = require('./login.po');
   };
 
@@ -28,7 +28,6 @@ describe('Login View', function() {
         browser.wait(function() {
           //console.log('waiting for angular...');
           return browser.executeScript('return !!window.angular');
-
         }, 5000).then(done);
       });
   });
@@ -43,7 +42,6 @@ describe('Login View', function() {
   });
 
   describe('with local auth', function() {
-
     it('should login a user and redirecting to "/"', function() {
       return page.login(testUser).then(() => {
         var navbar = require('../../components/navbar/navbar.po');
@@ -51,10 +49,10 @@ describe('Login View', function() {
         return browser.wait(
           () => element(by.css('.hero-unit')),
           5000,
-          `Didn't find .hero-unit after 5s`
+          'Didn\'t find .hero-unit after 5s'
         ).then(() => {
-          expect(browser.getCurrentUrl()).toBe(config.baseUrl + '/');
-          expect(navbar.navbarAccountGreeting.getText()).toBe('Hello ' + testUser.name);
+          expect(browser.getCurrentUrl()).toBe(`${config.baseUrl}/`);
+          expect(navbar.navbarAccountGreeting.getText()).toBe(`Hello ${testUser.name}`);
         });
       });
     });
@@ -65,11 +63,10 @@ describe('Login View', function() {
         password: 'badPassword'
       });
 
-      expect(browser.getCurrentUrl()).toBe(config.baseUrl + '/login');
+      expect(browser.getCurrentUrl()).toBe(`${config.baseUrl}/login`);
 
       var helpBlock = page.form.element(by.css('.form-group.has-error .help-block.ng-binding'));
       expect(helpBlock.getText()).toBe('This password is not correct.');
     });
-
   });
 });

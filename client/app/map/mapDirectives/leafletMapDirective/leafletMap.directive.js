@@ -11,10 +11,8 @@ import _MapInfo from '../../../../components/mapInfo/mapInfo.module';
 import leafletMapController from './leafletMap.controller';
 
 export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, tour, printMap, _MapInfo])
-  .directive('leafletMap', function () {
-
-    function link(scope, element, attrs) {
-
+  .directive('leafletMap', function() {
+    function link(scope, element) {
       let defaultMapConfig = {
         center: [45.7604276, 4.8335709],
         zoom: 16,
@@ -22,7 +20,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         minZoom: 11
       };
 
-      let mapId = element.attr("id");
+      let mapId = element.attr('id');
 
       scope.map = L.map(mapId, defaultMapConfig);
       scope.maps.push(scope.map);
@@ -46,8 +44,8 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         groupName: '='
       },
       template: require('./leafletMap.html'),
-      link: link,
+      link,
       controller: leafletMapController
-    }
+    };
   })
   .name;

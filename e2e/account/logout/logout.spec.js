@@ -1,11 +1,11 @@
 'use strict';
 
 var config = browser.params;
-var UserModel = require(config.serverConfig.root + '/server/sqldb').User;
+var UserModel = require(`${config.serverConfig.root}/server/sqldb`).User;
 
 describe('Logout View', function() {
   var login = function(user) {
-    browser.get(config.baseUrl + '/login');
+    browser.get(`${config.baseUrl}/login`);
     require('../login/login.po').login(user);
   };
 
@@ -25,26 +25,24 @@ describe('Logout View', function() {
       })
       .finally(function() {
         browser.wait(function() {
-            return browser.executeScript('return !!window.angular');
+          return browser.executeScript('return !!window.angular');
         }, 5000).then(done);
       });
   });
 
   describe('with local auth', function() {
-
     it('should logout a user and redirecting to "/"', function() {
       var navbar = require('../../components/navbar/navbar.po');
 
-      expect(browser.getCurrentUrl()).toBe(config.baseUrl + '/');
-      expect(navbar.navbarAccountGreeting.getText()).toBe('Hello ' + testUser.name);
+      expect(browser.getCurrentUrl()).toBe(`${config.baseUrl}/`);
+      expect(navbar.navbarAccountGreeting.getText()).toBe(`Hello ${testUser.name}`);
 
-      browser.get(config.baseUrl + '/logout');
+      browser.get(`${config.baseUrl}/logout`);
 
       navbar = require('../../components/navbar/navbar.po');
 
-      expect(browser.getCurrentUrl()).toBe(config.baseUrl + '/');
+      expect(browser.getCurrentUrl()).toBe(`${config.baseUrl}/`);
       expect(navbar.navbarAccountGreeting.isDisplayed()).toBe(false);
     });
-
   });
 });

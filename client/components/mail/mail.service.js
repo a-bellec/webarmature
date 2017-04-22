@@ -17,19 +17,14 @@ export function MailService($http, $q) {
       name,
       email,
       text
-    }, callback)
-    {
+    }, callback) {
       return $http.post('/api/mails/contact', {
         name,
         email,
         text
       })
-        .then(res => {
-          return res;
-        })
-        .catch(err => {
-          return $q.reject(err.data);
-        });
+        .then(res => res)
+        .catch(err => $q.reject(err.data));
     },
 
 
@@ -47,20 +42,15 @@ export function MailService($http, $q) {
       occupation,
       occupationPlace,
       email
-    }, callback)
-    {
+    }, callback) {
       return $http.post('/api/mails/signUpNotify', {
         name,
         occupation,
         occupationPlace,
         email
       })
-        .then(res => {
-          return res;
-        })
-        .catch(err => {
-          return $q.reject(err.data);
-        });
+        .then(res => res)
+        .catch(err => $q.reject(err.data));
     }
 
   };

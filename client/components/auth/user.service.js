@@ -12,7 +12,7 @@ export function UserResource($resource) {
         controller: 'password'
       }
     },
-    changeRole:{
+    changeRole: {
       method: 'PUT',
       params: {
         controller: 'role',
@@ -49,7 +49,7 @@ export function UserResource($resource) {
         controller: 'pending'
       }
     },
-    delete:{
+    delete: {
       method: 'DELETE'
     }
   });

@@ -1,14 +1,14 @@
 'use strict';
 
 var config = browser.params;
-var UserModel = require(config.serverConfig.root + '/server/sqldb').User;
+var UserModel = require(`${config.serverConfig.root}/server/sqldb`).User;
 
 describe('Signup View', function() {
   var page;
 
   var loadPage = function() {
     browser.manage().deleteAllCookies();
-    browser.get(config.baseUrl + '/signup');
+    browser.get(`${config.baseUrl}/signup`);
     page = require('./signup.po');
   };
 
@@ -22,7 +22,7 @@ describe('Signup View', function() {
   beforeEach(function(done) {
     loadPage();
     browser.wait(function() {
-        return browser.executeScript('return !!window.angular');
+      return browser.executeScript('return !!window.angular');
     }, 5000).then(done);
   });
 
@@ -40,7 +40,6 @@ describe('Signup View', function() {
   });
 
   describe('with local auth', function() {
-
     beforeAll(function(done) {
       UserModel.destroy({ where: {} }).then(done);
     });
@@ -50,19 +49,18 @@ describe('Signup View', function() {
 
       var navbar = require('../../components/navbar/navbar.po');
 
-      expect(browser.getCurrentUrl()).toBe(config.baseUrl + '/');
-      expect(navbar.navbarAccountGreeting.getText()).toBe('Hello ' + testUser.name);
+      expect(browser.getCurrentUrl()).toBe(`${config.baseUrl}/`);
+      expect(navbar.navbarAccountGreeting.getText()).toBe(`Hello ${testUser.name}`);
     });
 
     it('should indicate signup failures', function() {
       page.signup(testUser);
 
-      expect(browser.getCurrentUrl()).toBe(config.baseUrl + '/signup');
+      expect(browser.getCurrentUrl()).toBe(`${config.baseUrl}/signup`);
       expect(page.form.email.getAttribute('class')).toContain('ng-invalid-mongoose');
 
       var helpBlock = page.form.element(by.css('.form-group.has-error .help-block.ng-binding'));
       expect(helpBlock.getText()).toBe('The specified email address is already in use.');
     });
-
   });
 });

@@ -5,9 +5,9 @@ import angular from 'angular';
 export class NavbarComponent {
 
   message = {
-    name: "",
-    email: "",
-    messsage: ""
+    name: '',
+    email: '',
+    messsage: ''
   };
   submitted = false;
   successful = false;
@@ -24,17 +24,17 @@ export class NavbarComponent {
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
 
-    $("#about-btn").click(function() {
-      $("#aboutModal").modal("show");
-      $(".navbar-collapse.in").collapse("hide");
+    $('#about-btn').click(function() {
+      $('#aboutModal').modal('show');
+      $('.navbar-collapse.in').collapse('hide');
     });
 
-    $scope.$on("$locationChangeStart", function(){
-      $(".navbar-collapse.in").collapse("hide");
+    $scope.$on('$locationChangeStart', function() {
+      $('.navbar-collapse.in').collapse('hide');
     });
   }
 
-  sendMail(form){
+  sendMail(form) {
     this.submitted = true;
 
     if(form.$valid) {
@@ -44,11 +44,10 @@ export class NavbarComponent {
         email: this.message.email,
         text: this.message.text
       })
-        .then((res) => {
-          if(res.data.yo == "error"){
-            this.errors.sendMail = "Failed to send your email. Please try again later.";
-          }
-          else{
+        .then(res => {
+          if(res.data.yo == 'error') {
+            this.errors.sendMail = 'Failed to send your email. Please try again later.';
+          } else {
             this.successful = true;
           }
         })

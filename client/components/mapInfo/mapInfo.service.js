@@ -2,9 +2,9 @@
 
 require('leaflet');
 
-const proj4 = require("proj4");
+const proj4 = require('proj4');
 //Define France projection
-proj4.defs('EPSG:2154', "+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ");
+proj4.defs('EPSG:2154', '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
 
 export function MapInfoService($http, $q) {
   'ngInject';
@@ -17,18 +17,15 @@ export function MapInfoService($http, $q) {
       map,
       layerName,
       event
-    }, callback)
-    {
+    }, callback) {
       let url = this.getFeatureInfoUrl(map, layerName, event.latlng);
       return $http.post('/api/mapInfo/pointInfo', {
         url
       })
-        .then(res => {
-          return res.data;
-        });
+        .then(res => res.data);
     },
 
-    getFeatureInfoUrl(map, layerName, latlng){
+    getFeatureInfoUrl(map, layerName, latlng) {
       let wmsParams = L.TileLayer.WMS.prototype.defaultWmsParams;
 
       // Construct a GetFeatureInfo request URL given a point
@@ -49,7 +46,7 @@ export function MapInfoService($http, $q) {
         layers: layerName,
         query_layers: layerName,
         info_format: 'application/json',
-        propertyName: "percent_aa"
+        propertyName: 'percent_aa'
       };
 
       params[params.version === '1.3.0' ? 'i' : 'x'] = point.x;
@@ -58,12 +55,12 @@ export function MapInfoService($http, $q) {
       return geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
     },
 
-    getCoordinateArrayString(mapBounds){
+    getCoordinateArrayString(mapBounds) {
       let southWest = proj4('EPSG:2154', [mapBounds._southWest.lng, mapBounds._southWest.lat]);
       let northEast = proj4('EPSG:2154', [mapBounds._northEast.lng, mapBounds._northEast.lat]);
 
       let coordinateArray = [southWest[0], southWest[1], northEast[0], northEast[1]];
-      let coordinateArrayString = "" + coordinateArray[0] + "," + coordinateArray[1] + "," + coordinateArray[2] + "," + coordinateArray[3];
+      let coordinateArrayString = `${coordinateArray[0]},${coordinateArray[1]},${coordinateArray[2]},${coordinateArray[3]}`;
 
       return coordinateArrayString;
     },
@@ -71,18 +68,15 @@ export function MapInfoService($http, $q) {
     getMapInfo({
       map,
       layerName
-    }, callback)
-    {
+    }, callback) {
       let url = this.getMapInfoUrl(map, layerName);
       return $http.post('/api/mapInfo', {
         url
       })
-        .then(res => {
-          return res.data;
-        });
+        .then(res => res.data);
     },
 
-    getMapInfoUrl(map, layerName){
+    getMapInfoUrl(map, layerName) {
       let mapBounds = map.getBounds();
 
       let coordinateArrayString = this.getCoordinateArrayString(mapBounds);
@@ -92,17 +86,17 @@ export function MapInfoService($http, $q) {
         request: 'GetFeature',
         service: 'WFS',
         srs: 'EPSG:2154',
-        version: "2.0.0",
+        version: '2.0.0',
         bbox: coordinateArrayString,
         typeNames: layerName,
         outputFormat: 'application/json',
-        propertyName: "percent_aa,Shape_Area"
+        propertyName: 'percent_aa,Shape_Area'
       };
 
       return geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
     },
 
-    getGeoserverBaseUrl(){
+    getGeoserverBaseUrl() {
       return geoServerBaseUrl;
     }
 

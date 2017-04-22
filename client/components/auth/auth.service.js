@@ -77,7 +77,6 @@ export function AuthService($location, $http, $cookies, $q, appConfig, Util, Use
      */
     createUser(user, callback) {
       return User.save(user, function(data) {
-
         Mail.signUpNotify({
           name: user.name,
           occupation: user.occupation,
