@@ -5,7 +5,9 @@
         "jasmine": true,
         "node": true
     },
-    "globals": {},
+    "globals": {
+      "$": false
+    },
     "plugins": [],
     "rules": {
         //Possible Errors
