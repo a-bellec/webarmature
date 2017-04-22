@@ -6,7 +6,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
-var fs = require('fs');
 var path = require('path');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
@@ -156,7 +155,7 @@ module.exports = function makeWebpackConfig(options) {
       // Rename the file using the asset hash
       // Pass along the updated reference to your code
       // You can add here any file extension you want to get copied to your output
-      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)([\?]?.*)$/,
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)([?]?.*)$/,
       loader: 'file'
     }, {
 
