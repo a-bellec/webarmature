@@ -12,43 +12,8 @@ export default angular.module('webarmatureApp.statArea', [])
     };
   })
   .controller('statAreaController', ['$scope', function($scope) {
-    $scope.printChart = function(dataset) {
-      //remove svg to draw new chart
-      d3.select(`#${$scope.chartId} g`).remove();
 
-      var height = $('stat-area').height() * 0.9;
-      var width = 350;
-      var radius = Math.min(width, height) / 2;
-      var margin = {top: 40, bottom: 45};
-
-      var color = d3.scaleOrdinal()
-        .range(['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005']);
-
-      var svg = d3.select(`#${$scope.chartId}`)
-        .attr('width', width)
-        .attr('height', height + margin.top + margin.bottom)
-        .append('g')
-        .attr('transform', `translate(${width / 2 - 75},${height / 2 + margin.top / 2})`);
-
-      var arc = d3.arc()
-        .innerRadius(0)
-        .outerRadius(radius);
-
-      var pie = d3.pie()
-        .value(function(d) {
-          return d.count;
-        })
-        .sort(null);
-
-      svg.selectAll('path')
-        .data(pie(dataset))
-        .enter()
-        .append('path')
-        .attr('d', arc)
-        .attr('fill', function(d) {
-          return color(d.data.label);
-        });
-
+    let addLegend = function(svg, color, dataset){
       var legendRectSize = 18;
       var legendSpacing = 4;
 
@@ -108,7 +73,9 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('x', legendRectSize + legendSpacing + 58)
         .attr('y', legendRectSize - legendSpacing)
         .text(`${$scope.dataAverage}%`);
+    };
 
+    let addTitle = function(svg, width, height){
       svg.append('text')
         .attr('x', width / 2)
         .attr('y', 0 - height / 2 - 5)
@@ -116,6 +83,48 @@ export default angular.module('webarmatureApp.statArea', [])
         .style('font-size', '14px')
         .style('font-weight', 'bold')
         .text('Pourcentage d\'imperméabilité');
+    };
+
+    $scope.printChart = function(dataset) {
+      //remove svg to draw new chart
+      d3.select(`#${$scope.chartId} g`).remove();
+
+      var height = $('stat-area').height() * 0.9;
+      var width = 350;
+      var radius = Math.min(width, height) / 2;
+      var margin = {top: 40, bottom: 45};
+
+      var color = d3.scaleOrdinal()
+        .range(['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005']);
+
+      var svg = d3.select(`#${$scope.chartId}`)
+        .attr('width', width)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${width / 2 - 75},${height / 2 + margin.top / 2})`);
+
+      var arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+
+      var pie = d3.pie()
+        .value(function(d) {
+          return d.count;
+        })
+        .sort(null);
+
+      svg.selectAll('path')
+        .data(pie(dataset))
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', function(d) {
+          return color(d.data.label);
+        });
+
+      addLegend(svg, color, dataset);
+
+      addTitle(svg, width, height);
 
       $scope.showStat = true;
     };
