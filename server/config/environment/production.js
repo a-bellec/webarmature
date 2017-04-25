@@ -12,7 +12,7 @@ module.exports = {
   // Server port
   port: process.env.OPENSHIFT_NODEJS_PORT
     || process.env.PORT
-    || 1720,
+    || 14720,
 
   sequelize: {
     uri: process.env.SEQUELIZE_URI
