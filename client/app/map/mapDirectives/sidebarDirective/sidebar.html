@@ -20,7 +20,7 @@
 
     <tour></tour>
 
-   
+
 	<hr>
     <h4>Choix des couches &agrave; afficher &nbsp;&nbsp;&nbsp;<i class="fa fa-map"></i></h4>
 
@@ -31,7 +31,7 @@
     <ul>
       <li>Images aériennes (différents types de données sont disponibles (orthophotographies aériennes, images provenant des satellites SPOT et LandSat)</li>
       <li>Scans topographiques (scan topographique au 25 000ème et 50 000ème</li>
-      <li>Occupation du sol (interprétation de l'occupation du sol à partir des images disponibles (plus d'informations 
+      <li>Occupation du sol (interprétation de l'occupation du sol à partir des images disponibles (plus d'informations
 	  <a ui-sref="labClassification">ici</a>).<br> Trois niveaux d'interprétation : la maille (carroyage de 200 mètres de côtés sur l'ensemble du territoire du grand Lyon), l'IRIS (Ilots Regroupés pour l'Information Statistique) et la commune.</li>
     </ul>
     Cliquez sur la section qui vous intéresse et déplacez le curseur pour le faire passer sur <i>on</i>&nbsp;
@@ -56,7 +56,7 @@
       </li>
 	 </ul>
 	</p>
-	
+
   </div>
   <div class="sidebar-pane" id="mapPane">
     <h1 class="sidebar-header">
@@ -166,7 +166,8 @@
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 1984" value="d1984_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 1992" value="d1992_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 2003" value="d2003_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 2013" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 2013" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <hr>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 1987" value="d1987_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 1993" value="d1993_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
@@ -182,7 +183,8 @@
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 1984" value="d1984_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 1992" value="d1992_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 2003" value="d2003_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 2013" value="d2013_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 2013" value="d2013_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <hr>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 1987" value="d1987_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 1993" value="d1993_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 2003" value="d2003_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
@@ -197,14 +199,15 @@
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 1984" value="d1984_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 1992" value="d1992_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 2003" value="d2003_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 2013" value="d2013_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 2013" value="d2013_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <hr>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 1987" value="d1987_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 1993" value="d1993_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 2003" value="d2003_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
                     <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 2013" value="d2013_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label> <br>
                   </div>
                 </div>
-				<br>
+				        <br>
                 <br>
                 <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}landcoverGroup"> Landcover &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
                 <div id="{{groupName}}landcoverGroup" class="panel-collapse collapse" role="tabpanel">
