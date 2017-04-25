@@ -13,6 +13,27 @@ export default angular.module('webarmatureApp.statArea', [])
   })
   .controller('statAreaController', ['$scope', function($scope) {
 
+    let createPieChart = function(svg, dataset, radius, color){
+      var arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+
+      var pie = d3.pie()
+        .value(function(d) {
+          return d.count;
+        })
+        .sort(null);
+
+      svg.selectAll('path')
+        .data(pie(dataset))
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', function(d) {
+          return color(d.data.label);
+        });
+    };
+
     let addLegend = function(svg, color, dataset){
       var legendRectSize = 18;
       var legendSpacing = 4;
@@ -101,26 +122,9 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('width', width)
         .attr('height', height + margin.top + margin.bottom)
         .append('g')
-        .attr('transform', `translate(${width / 2 - 75},${height / 2 + margin.top / 2})`);
+        .attr('transform', `translate(${width / 2 - 75},${(height+margin.top) / 2})`);
 
-      var arc = d3.arc()
-        .innerRadius(0)
-        .outerRadius(radius);
-
-      var pie = d3.pie()
-        .value(function(d) {
-          return d.count;
-        })
-        .sort(null);
-
-      svg.selectAll('path')
-        .data(pie(dataset))
-        .enter()
-        .append('path')
-        .attr('d', arc)
-        .attr('fill', function(d) {
-          return color(d.data.label);
-        });
+      createPieChart(svg, dataset, radius, color);
 
       addLegend(svg, color, dataset);
 
@@ -136,6 +140,7 @@ export default angular.module('webarmatureApp.statArea', [])
     });
 
     $scope.dataset = {};
+
   }])
   .name;
 
