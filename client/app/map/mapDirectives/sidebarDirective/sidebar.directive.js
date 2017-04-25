@@ -67,7 +67,7 @@ export default angular.module('webarmatureApp.sidebar', [])
         event.stopPropagation();
       });
 
-      scope.statTrigger = true;
+      scope.statTrigger = false;
     }
     return {
       restrict: 'E',
