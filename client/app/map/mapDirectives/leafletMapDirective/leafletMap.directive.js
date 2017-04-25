@@ -7,12 +7,13 @@ import statArea from '../statAreaDirective/statArea.directive';
 import sidebar from '../sidebarDirective/sidebar.directive';
 import tour from '../tourDirective/tour.directive';
 import printMap from '../printMapDirective/printMap.directive';
+import legend from '../legendDirective/legend.directive';
 
 import _MapInfo from '../../../../components/mapInfo/mapInfo.module';
 
 import leafletMapController from './leafletMap.controller';
 
-export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, tour, printMap, _MapInfo])
+export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, tour, printMap, legend, _MapInfo])
   .directive('leafletMap', function() {
     function link(scope, element) {
       let defaultMapConfig = {
@@ -36,6 +37,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       });
 
       scope.map.addLayer(scope.OSMLayer);
+
     }
     return {
       restrict: 'E',
