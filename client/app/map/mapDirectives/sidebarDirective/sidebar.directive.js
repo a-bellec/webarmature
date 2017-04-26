@@ -69,10 +69,7 @@ export default angular.module('webarmatureApp.sidebar', [])
       });
 
       scope.statTrigger = false;
-
-      scope.toggleLegend = function(){
-        $(`#${scope.chartId}legendContainer`).toggle();
-      };
+      scope.legendTrigger = true;
 
     }
     return {
