@@ -30,14 +30,21 @@ export default angular.module('webarmatureApp.statArea', [])
         return function(t) { return arc(i(t)); };
       }
 
+      var grads = svg.append("defs").selectAll("radialGradient").data(pie(dataset))
+        .enter().append("radialGradient")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", "80%")
+        .attr("id", function(d, i) { return "grad" + i; });
+      grads.append("stop").attr("offset", "0%").style("stop-color", function(d, i) { return color(i); });
+
       svg.selectAll('path')
         .data(pie(dataset))
         .enter()
         .append('path')
         .attr('d', arc)
-        .attr('fill', function(d) {
-          return color(d.data.label);
-        })
+        .attr("fill", function(d, i) { return "url(#grad" + i + ")"; })
         .transition()
         .duration(750)
         .attrTween("d", tweenPie);
