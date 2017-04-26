@@ -6,7 +6,7 @@ const L = require('leaflet');
 export default class leafletMapController {
 
   /*@ngInject*/
-  constructor($scope, $timeout, MapInfo, Auth) {
+  constructor($scope, $timeout, $q, MapInfo, Auth) {
     $scope.isLoggedIn = Auth.isLoggedInSync();
 
     $scope.geoServerBaseUrl = MapInfo.getGeoserverBaseUrl();
@@ -48,9 +48,17 @@ export default class leafletMapController {
     };
 
     $scope.getMapInfo = function(layerName) {
+
+      //If request has been made before resolve it to only answer latest request
+      if(typeof $scope.canceler !== 'undefined'){
+        $scope.canceler.resolve();
+      }
+
+      $scope.canceler = $q.defer();
       MapInfo.getMapInfo({
         map: $scope.map,
-        layerName
+        layerName,
+        timeout: $scope.canceler.promise
       })
         .then(res => {
           setChartData(res);
