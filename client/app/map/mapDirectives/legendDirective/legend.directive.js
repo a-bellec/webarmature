@@ -61,6 +61,15 @@ export default angular.module('webarmatureApp.legend', [])
           return d;
         });
 
+      svg.append('text')
+        .attr('x', (width / 2) - 10)
+        .attr('y', 0 - (height / 2) + 5)
+        .attr('text-anchor', 'middle')
+        .attr('alignment-baseline', 'hanging')
+        .style('font-size', '14px')
+        .style('font-weight', 'bold')
+        .text('Légende');
+
       $scope.showLegend = true;
       $scope.$apply();
 
