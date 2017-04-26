@@ -24,6 +24,12 @@ export default angular.module('webarmatureApp.statArea', [])
         })
         .sort(null);
 
+      function tweenPie(b) {
+        b.innerRadius = 0;
+        var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
+        return function(t) { return arc(i(t)); };
+      }
+
       svg.selectAll('path')
         .data(pie(dataset))
         .enter()
@@ -31,7 +37,11 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('d', arc)
         .attr('fill', function(d) {
           return color(d.data.label);
-        });
+        })
+        .transition()
+        .duration(750)
+        .attrTween("d", tweenPie);
+
     };
 
     let addLegend = function(svg, color, dataset){
