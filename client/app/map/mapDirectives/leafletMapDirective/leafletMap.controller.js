@@ -6,7 +6,9 @@ const L = require('leaflet');
 export default class leafletMapController {
 
   /*@ngInject*/
-  constructor($scope, $timeout, MapInfo) {
+  constructor($scope, $timeout, MapInfo, Auth) {
+    $scope.isLoggedIn = Auth.isLoggedInSync();
+
     $scope.geoServerBaseUrl = MapInfo.getGeoserverBaseUrl();
 
     $scope.getTownInfo = function(townName) {
@@ -134,6 +136,8 @@ export default class leafletMapController {
 
     $scope.changeLayer = function(layerName, attribution, groupId, itemName) {
 
+      $scope.layerName = layerName;
+
       let layer = L.tileLayer.wms($scope.geoServerBaseUrl, {
         layers: layerName,
         transparent: true,
@@ -209,6 +213,17 @@ export default class leafletMapController {
         }
       });
     };
+
+    /*$scope.downloadMap = function(){
+
+      MapInfo.downloadMapInfo({
+        map: $scope.map,
+        layerName: $scope.layerName
+      })
+        .then(res => {
+          console.log(res);
+        });
+    };*/
   }
 
   $onInit() {

@@ -99,7 +99,18 @@ export function MapInfoService($http) {
 
     getGeoserverBaseUrl() {
       return geoServerBaseUrl;
-    }
+    },
+
+    downloadMapInfo({
+      map,
+      layerName
+    }) {
+      let url = this.getMapInfoUrl(map, layerName);
+      return $http.post('/api/mapInfo/downloadInfo', {
+        url
+      })
+        .then(res => res.data);
+    },
 
 
   };
