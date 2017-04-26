@@ -19,8 +19,8 @@ export default angular.module('webarmatureApp.legend', [])
       //remove svg to draw new chart
       d3.select(`#${$scope.chartId}legend g`).remove();
 
-      let height = 200;
-      let width = 130;
+      let height = $('legend').height();
+      let width = $('legend').width();
 
       var color = d3.scaleOrdinal()
         .domain(legendContent.text)
