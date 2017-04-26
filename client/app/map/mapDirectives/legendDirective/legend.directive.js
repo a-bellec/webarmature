@@ -5,7 +5,6 @@ const d3 = require('d3');
 
 export default angular.module('webarmatureApp.legend', [])
   .directive('legend', function () {
-
     return {
       restrict: 'E',
       transclude: true,
@@ -14,8 +13,15 @@ export default angular.module('webarmatureApp.legend', [])
   })
   .controller('legendController', ['$scope', '$timeout', function($scope, $timeout) {
     L.Control.Legend = L.Control.extend({
+
+      initialize: function(options){
+        L.setOptions(this, options);
+      },
+
       onAdd: function (map) {
-        return L.DomUtil.create('div', `${$scope.chartId}legendContainer legendContainer`);
+        let legendContainer = L.DomUtil.create('div', `legendContainer`);
+        legendContainer.id = this.options.legendContainerId + "legendContainer";
+        return legendContainer;
       },
 
       onRemove: function (map) {
@@ -28,7 +34,7 @@ export default angular.module('webarmatureApp.legend', [])
     };
 
     setTimeout(function () {
-      L.control.legend({position: 'topright'}).addTo($scope.map);
+      L.control.legend({position: 'topright', legendContainerId: $scope.chartId}).addTo($scope.map);
 
       let height = 200;
       let width = 130;
@@ -36,7 +42,7 @@ export default angular.module('webarmatureApp.legend', [])
       var color = d3.scaleOrdinal()
         .range(['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2']);
 
-      var svg = d3.selectAll(`.${$scope.chartId}legendContainer`)
+      var svg = d3.select(`#${$scope.chartId}legendContainer`)
         .append('svg')
         .attr('width', width)
         .attr('height', height)
