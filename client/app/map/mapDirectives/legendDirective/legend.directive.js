@@ -8,42 +8,25 @@ export default angular.module('webarmatureApp.legend', [])
     return {
       restrict: 'E',
       transclude: true,
+      template: require('./legend.html'),
       controller: 'legendController'
     };
   })
   .controller('legendController', ['$scope', '$timeout', function($scope, $timeout) {
-    L.Control.Legend = L.Control.extend({
 
-      initialize: function(options){
-        L.setOptions(this, options);
-      },
+    $scope.addLegend = function(legendContent){
 
-      onAdd: function (map) {
-        let legendContainer = L.DomUtil.create('div', `legendContainer`);
-        legendContainer.id = this.options.legendContainerId + "legendContainer";
-        return legendContainer;
-      },
-
-      onRemove: function (map) {
-
-      }
-    });
-
-    L.control.legend = function (opts) {
-      return new L.Control.Legend(opts);
-    };
-
-    setTimeout(function () {
-      L.control.legend({position: 'topright', legendContainerId: $scope.chartId}).addTo($scope.map);
+      //remove svg to draw new chart
+      d3.select(`#${$scope.chartId}legend g`).remove();
 
       let height = 200;
       let width = 130;
 
       var color = d3.scaleOrdinal()
-        .range(['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2']);
+        .domain(legendContent.text)
+        .range(legendContent.color);
 
-      var svg = d3.select(`#${$scope.chartId}legendContainer`)
-        .append('svg')
+      var svg = d3.select(`#${$scope.chartId}legend`)
         .attr('width', width)
         .attr('height', height)
         .append('g')
@@ -53,10 +36,9 @@ export default angular.module('webarmatureApp.legend', [])
       var legendSpacing = 4;
 
       var legend = svg.selectAll('.legend')
-        .data(color.range())
+        .data(color.domain())
         .enter()
         .append('g')
-        .attr('class', 'legend')
         .attr('transform', function(d, i) {
           var rectHeight = legendRectSize + legendSpacing;
           var offset = rectHeight * (color.range().length) / 2;
@@ -75,15 +57,15 @@ export default angular.module('webarmatureApp.legend', [])
       legend.append('text')
         .attr('x', legendRectSize + legendSpacing)
         .attr('y', legendRectSize - legendSpacing)
-        .style('font-weight', 'bold')
-        .text(function(d, i) {
-          if(i == color.range().length -1){
-            return "Aucune donnée";
-          }
-          return `${i * 20}-${i * 20 + 20}%`;
+        .text(function(d) {
+          return d;
         });
 
-    }, 0);
+      $scope.showLegend = true;
+      $scope.$apply();
+
+    };
+
   }])
   .name;
 

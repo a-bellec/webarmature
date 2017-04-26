@@ -1,5 +1,23 @@
-.legendContainer{
+legend{
+  position: absolute;
+  /* One less than other leaflet elements*/
+  right: 10px;
+  top: 85px;
+  z-index: 799;
   width: 130px;
   height: 200px;
-  background-color: rgba(255, 255, 255, 0.6);
+  min-height: 150px;
+  border: 0;
 }
+
+@media (max-width: 768px){
+  legend{
+    top: 10px;
+  }
+}
+
+#legendBlock{
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+

@@ -107,6 +107,7 @@ export default class leafletMapController {
       });
 
       $scope.showStat = false;
+      $scope.showLegend = false;
       $scope.$apply();
     };
 
@@ -132,6 +133,7 @@ export default class leafletMapController {
     };
 
     $scope.changeLayer = function(layerName, attribution, groupId, itemName) {
+
       let layer = L.tileLayer.wms($scope.geoServerBaseUrl, {
         layers: layerName,
         transparent: true,
@@ -141,6 +143,7 @@ export default class leafletMapController {
 
       if(itemName == $scope.groupName) {
         removeAllMapLayers($scope.map);
+
         if(layerName == 'OSM') {
           $scope.map.addLayer($scope.OSMLayer);
           $scope.OSMLayer.bringToBack();
@@ -159,9 +162,25 @@ export default class leafletMapController {
           if(groupId == group) {
             addMapEvents(layerName);
 
+            let legendContent = {
+              text: ['0-20%', '20-40%', '40-60%', '60-80%', '80-100%', 'Aucune donnée'],
+              color: ['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2']
+            };
+
+            $scope.addLegend(legendContent);
+
             $scope.map.setZoom(13);
             break;
           }
+        }
+
+        if(groupId == "landcoverGroup"){
+          let legendContent = {
+            text: ['Bâtiments', 'Végé. herbacée', 'Végé. arborée', 'Culture', 'Sol nu', 'Eau'],
+            color: ['#964c4c', '#a3c05e', '#669168', '#be8a4e', '#ffffc3', '#5385bf']
+          };
+
+          $scope.addLegend(legendContent);
         }
       }
 

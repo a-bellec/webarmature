@@ -51,9 +51,10 @@ export default angular.module('webarmatureApp.sidebar', [])
       //Close sidebarDirective when clicking outside of it
       $('#mapsArea').click(function(event) {
         if(!$(event.target).closest(`#${scope.sidebarId}`).length) {
-          if(!$(`#${scope.sidebarId}`).hasClass('collapsed')) {
-            $(`#${scope.sidebarId}`).addClass('collapsed');
-            $(`#${scope.sidebarId}`).find('li')
+          let sidebar = $(`#${scope.sidebarId}`);
+          if(!sidebar.hasClass('collapsed')) {
+            sidebar.addClass('collapsed');
+            sidebar.find('li')
               .each(function() {
                 $(this).removeClass('active');
               });
@@ -68,6 +69,8 @@ export default angular.module('webarmatureApp.sidebar', [])
       });
 
       scope.statTrigger = false;
+      scope.legendTrigger = true;
+
     }
     return {
       restrict: 'E',
