@@ -108,7 +108,7 @@ export default angular.module('webarmatureApp.statArea', [])
 
     $scope.printChart = function(dataset) {
       //remove svg to draw new chart
-      d3.select(`#${$scope.chartId} g`).remove();
+      d3.select(`#${$scope.mapId}chart g`).remove();
 
       var height = $('stat-area').height() * 0.9;
       var width = 350;
@@ -118,7 +118,7 @@ export default angular.module('webarmatureApp.statArea', [])
       var color = d3.scaleOrdinal()
         .range(['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005']);
 
-      var svg = d3.select(`#${$scope.chartId}`)
+      var svg = d3.select(`#${$scope.mapId}chart`)
         .attr('width', width)
         .attr('height', height + margin.top + margin.bottom)
         .append('g')

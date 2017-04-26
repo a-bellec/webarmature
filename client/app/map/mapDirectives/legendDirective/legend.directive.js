@@ -17,7 +17,7 @@ export default angular.module('webarmatureApp.legend', [])
     $scope.addLegend = function(legendContent){
 
       //remove svg to draw new chart
-      d3.select(`#${$scope.chartId}legend g`).remove();
+      d3.select(`#${$scope.mapId}legend g`).remove();
 
       let height = $('legend').height();
       let width = $('legend').width();
@@ -26,7 +26,7 @@ export default angular.module('webarmatureApp.legend', [])
         .domain(legendContent.text)
         .range(legendContent.color);
 
-      var svg = d3.select(`#${$scope.chartId}legend`)
+      var svg = d3.select(`#${$scope.mapId}legend`)
         .attr('width', width)
         .attr('height', height)
         .append('g')

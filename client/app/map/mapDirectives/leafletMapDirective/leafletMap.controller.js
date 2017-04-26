@@ -141,7 +141,7 @@ export default class leafletMapController {
         format: 'image/png'
       });
 
-      if(itemName == $scope.groupName) {
+      if(itemName == ($scope.mapId + "group")) {
         removeAllMapLayers($scope.map);
 
         if(layerName == 'OSM') {

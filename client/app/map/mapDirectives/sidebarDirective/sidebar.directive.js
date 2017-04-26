@@ -50,8 +50,8 @@ export default angular.module('webarmatureApp.sidebar', [])
 
       //Close sidebarDirective when clicking outside of it
       $('#mapsArea').click(function(event) {
-        if(!$(event.target).closest(`#${scope.sidebarId}`).length) {
-          let sidebar = $(`#${scope.sidebarId}`);
+        if(!$(event.target).closest(`#${scope.mapId}sidebar`).length) {
+          let sidebar = $(`#${scope.mapId}sidebar`);
           if(!sidebar.hasClass('collapsed')) {
             sidebar.addClass('collapsed');
             sidebar.find('li')

@@ -23,9 +23,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
         minZoom: 11
       };
 
-      let mapId = element.attr('id');
-
-      scope.map = L.map(mapId, defaultMapConfig);
+      scope.map = L.map(scope.mapId, defaultMapConfig);
       scope.maps.push(scope.map);
 
       scope.syncMaps();
@@ -43,9 +41,7 @@ export default angular.module('webarmatureApp.leafletMap', [statArea, sidebar, t
       restrict: 'E',
       scope: {
         maps: '=',
-        sidebarId: '=',
-        chartId: '=',
-        groupName: '='
+        mapId: '='
       },
       template: require('./leafletMap.html'),
       link,

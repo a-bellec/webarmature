@@ -66,53 +66,53 @@
 
     <br>
 
-    <label> <input type="radio" name="{{groupName}}" alt="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors" value="OSM" data-size="mini" data-off-text="Off" data-on-text="On" checked class="bs" /> OpenStreetMap </label> <br>
+    <label> <input type="radio" name="{{mapId}}group" alt="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors" value="OSM" data-size="mini" data-off-text="Off" data-on-text="On" checked class="bs" /> OpenStreetMap </label> <br>
     <label> <input type="checkbox" ng-change="changeTownBorders()" ng-model="showTownBorders"> Limites administratives (2015) </label> <br>
     <label> <input type="checkbox" ng-model="statTrigger"> Graphiques et statistiques (Classification) </label> <br>
     <label> <input type="checkbox" ng-model="legendTrigger"> Légende </label>
 
-    <div class="panel-group" id="{{groupName}}Accordion" role="tablist">
+    <div class="panel-group" id="{{mapId}}groupAccordion" role="tablist">
 
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Aerial"> Images aériennes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-        <div id="{{groupName}}Aerial" class="panel-collapse collapse" role="tabpanel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordion" data-target="#{{mapId}}groupAerial"> Images aériennes &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{mapId}}groupAerial" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
-            <div class="panel-group" id="{{groupName}}AccordionAerial">
+            <div class="panel-group" id="{{mapId}}groupAccordionAerial">
               <div class="panel">
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionAerial" data-target="#{{groupName}}OrthoGroup"> Orthophotographies &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}OrthoGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionAerial" data-target="#{{mapId}}groupOrthoGroup"> Orthophotographies &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupOrthoGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="orthoGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1954 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1954</a>" value="data_all_1954" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1954 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1966 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1966</a>" value="data_all_1966" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1966 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1978 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1978</a>" value="data_all_1978" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1978 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1986 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1986</a>" value="data_all_1986" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1986 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1993 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 1993</a>" value="data_all_1993" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1993 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1997 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 1997</a>" value="data_all_1997" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1997 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2003 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 2003</a>" value="data_all_2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2007 &copy; <a href='http://www.geoportail.gouv.fr/'> Photos aériennes 2007</a>" value="data_all_2007" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 2007 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1954 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1954</a>" value="data_all_1954" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1954 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1966 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1966</a>" value="data_all_1966" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1966 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1978 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1978</a>" value="data_all_1978" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1978 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1986 &copy; <a href='http://www.geoportail.gouv.fr/'>IGN - Photos aériennes 1986</a>" value="data_all_1986" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1986 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1993 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 1993</a>" value="data_all_1993" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1993 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1997 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 1997</a>" value="data_all_1997" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 1997 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 2003 &copy; <a href='http://www.grandlyon.com/'> Grand Lyon orthophotographie 2003</a>" value="data_all_2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 2007 &copy; <a href='http://www.geoportail.gouv.fr/'> Photos aériennes 2007</a>" value="data_all_2007" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"/> Orthophotographie 2007 </label>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionAerial" data-target="#{{groupName}}LandsatGroup"> Landsat (Satellite) &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}LandsatGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionAerial" data-target="#{{mapId}}groupLandsatGroup"> Landsat (Satellite) &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupLandsatGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="landsatGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d1984_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1992 - NASA Landsat Program, 1992, Landsat ETM scene L41XXX1092201090100_HDF, L1G, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d1992_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d2003_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d2013_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 1984 - NASA Landsat Program, 1984, Landsat MMS scene LM51960281984212AAA03, L1G, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d1984_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 1992 - NASA Landsat Program, 1992, Landsat ETM scene L41XXX1092201090100_HDF, L1G, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d1992_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 2003 - NASA Landsat Program, 2003, Landsat ETM scene LT51970282003191MTI02, L1T, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d2003_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 2013 - NASA Landsat Program, 2013, Landsat OLI_TIRS scene LC81970282013202LGN00, L1T, <a href='https://www.usgs.gov/'> USGS</a>, Sioux Falls, 2017" value="landsat_d2013_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionAerial" data-target="#{{groupName}}SpotGroup"> Spot (Satellite) &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}SpotGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionAerial" data-target="#{{mapId}}groupSpotGroup"> Spot (Satellite) &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupSpotGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="spotGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d1987_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-2 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d1993_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d2003_16b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année : 2014 - CNES, 2014, SPOT HRV1 scene 20140715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d2014_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2014 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 1987 - CNES, 1987, SPOT1 HRV1 scene 19870813047_258, EQUIPEX GEOSUD-ANR-10-EQPX-20 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d1987_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 1993 - CNES, 1993, SPOT2 HRV1 scene 19930901047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-2 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d1993_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 2003 - CNES, 2003, SPOT HRV1 scene 20030715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d2003_16b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année : 2014 - CNES, 2014, SPOT HRV1 scene 20140715047_258,  EQUIPEX GEOSUD-ANR-10-EQPX-20 - <a href='https://www.theia-land.fr/'>Theia</a>, Montpellier, 2016" value="spot_d2014_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2014 </label>
                   </div>
                 </div>
               </div>
@@ -122,31 +122,31 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Scan"> Scans topographiques &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-        <div id="{{groupName}}Scan" class="panel-collapse collapse" role="tabpanel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordion" data-target="#{{mapId}}groupScan"> Scans topographiques &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{mapId}}groupScan" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
-            <div class="panel-group" id="{{groupName}}AccordionScan">
+            <div class="panel-group" id="{{mapId}}groupAccordionScan">
               <div class="panel">
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionScan" data-target="#{{groupName}}Scan25Group"> Scan 25 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}Scan25Group" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionScan" data-target="#{{mapId}}groupScan25Group"> Scan 25 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupScan25Group" class="panel-collapse collapse" role="tabpanel">
                   <div id="spot25Group" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 25 1950</a>" value="scan25_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1950 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 25 1960</a>" value="scan25_all_1960" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1960 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 25 1970</a>" value="scan25_all_1970" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1970 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1985 &copy; <a href='http://ign.fr/'> Scan 25 1985</a>" value="scan25_all_1985" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1985 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2003 &copy; <a href='http://ign.fr/'> Scan 25 2003</a>" value="scan25_all_2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 2015 &copy; <a href='http://ign.fr/'> Scan 25 2015</a>" value="scan25_all_2015" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 2015 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 25 1950</a>" value="scan25_all_1950" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1950 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 25 1960</a>" value="scan25_all_1960" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1960 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 25 1970</a>" value="scan25_all_1970" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1970 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1985 &copy; <a href='http://ign.fr/'> Scan 25 1985</a>" value="scan25_all_1985" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 1985 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 2003 &copy; <a href='http://ign.fr/'> Scan 25 2003</a>" value="scan25_all_2003" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 2015 &copy; <a href='http://ign.fr/'> Scan 25 2015</a>" value="scan25_all_2015" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan25 2015 </label>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionScan" data-target="#{{groupName}}Scan50Group"> Scan 50 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}Scan50Group" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionScan" data-target="#{{mapId}}groupScan50Group"> Scan 50 &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupScan50Group" class="panel-collapse collapse" role="tabpanel">
                   <div id="spot50Group" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 50 1950</a>" value="scan50_all_1950_clip_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1950 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 50 1960</a>" value="scan50_all_1960" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1960 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 50 1970</a>" value="scan50_all_1970_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1970 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Année: 1980 &copy; <a href='http://ign.fr/'> Scan 50 1980</a>" value="scan50_all_1980_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1980 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1950 &copy; <a href='http://ign.fr/'> Scan 50 1950</a>" value="scan50_all_1950_clip_8b" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1950 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1960 &copy; <a href='http://ign.fr/'> Scan 50 1960</a>" value="scan50_all_1960" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1960 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1970 &copy; <a href='http://ign.fr/'> Scan 50 1970</a>" value="scan50_all_1970_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1970 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Année: 1980 &copy; <a href='http://ign.fr/'> Scan 50 1980</a>" value="scan50_all_1980_clip" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Scan50 1980 </label>
                   </div>
                 </div>
               </div>
@@ -156,83 +156,83 @@
       </div>
       <br>
       <div class="panel">
-        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}Accordion" data-target="#{{groupName}}Classification"> Occupation du sol &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-        <div id="{{groupName}}Classification" class="panel-collapse collapse" role="tabpanel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordion" data-target="#{{mapId}}groupClassification"> Occupation du sol &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{mapId}}groupClassification" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
-            <div class="panel-group" id="{{groupName}}AccordionClassification">
+            <div class="panel-group" id="{{mapId}}groupAccordionClassification">
               <div class="panel">
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}LandsatMeshGroup"> Maille 200m. &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}LandsatMeshGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionClassification" data-target="#{{mapId}}groupLandsatMeshGroup"> Maille 200m. &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupLandsatMeshGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="meshGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 1984" value="d1984_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 1992" value="d1992_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 2003" value="d2003_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Landsat 2013" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Landsat 1984" value="d1984_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Landsat 1992" value="d1992_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Landsat 2003" value="d2003_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Landsat 2013" value="d2013_landsat_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
                     <hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 1987" value="d1987_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 1993" value="d1993_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Spot 2013" value="d2013_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Spot 1987" value="d1987_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Spot 1993" value="d1993_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Spot 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Spot 2013" value="d2013_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
 					<hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Ortho 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par maille - Ortho 2009" value="d2009_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2009 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Ortho 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Ortho 2009" value="d2009_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2009 </label> <br>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}irisGroup"> IRIS &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}irisGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionClassification" data-target="#{{mapId}}groupirisGroup"> IRIS &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}groupirisGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="irisGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 1984" value="d1984_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 1992" value="d1992_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 2003" value="d2003_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Landsat 2013" value="d2013_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Landsat 1984" value="d1984_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Landsat 1992" value="d1992_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Landsat 2003" value="d2003_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Landsat 2013" value="d2013_landsat_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
                     <hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 1987" value="d1987_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 1993" value="d1993_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 2003" value="d2003_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Spot 2013" value="d2013_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Spot 1987" value="d1987_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Spot 1993" value="d1993_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Spot 2003" value="d2003_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Spot 2013" value="d2013_spot_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
 					<hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Ortho 2003" value="d2003_ortho_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par IRIS - Ortho 2009" value="d2009_ortho_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Ortho 2003" value="d2003_ortho_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par IRIS - Ortho 2009" value="d2009_ortho_iris" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <br>
                   </div>
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}townGroup"> Commune &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}townGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionClassification" data-target="#{{mapId}}grouptownGroup"> Commune &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}grouptownGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="townGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 1984" value="d1984_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 1992" value="d1992_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 2003" value="d2003_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Landsat 2013" value="d2013_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Landsat 1984" value="d1984_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Landsat 1992" value="d1992_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Landsat 2003" value="d2003_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Landsat 2013" value="d2013_landsat_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label>
                     <hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 1987" value="d1987_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 1993" value="d1993_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 2003" value="d2003_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - Spot 2013" value="d2013_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Spot 1987" value="d1987_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Spot 1993" value="d1993_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Spot 2003" value="d2003_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - Spot 2013" value="d2013_spot_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
 					<hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - ortho 2003" value="d2003_ortho_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Proportion de perméabilité par Commune - ortho 2009" value="d2009_ortho_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <hr>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - ortho 2003" value="d2003_ortho_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par Commune - ortho 2009" value="d2009_ortho_geoflat" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <hr>
                   </div>
                 </div>
 				 <br>
                 <br>
-                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{groupName}}AccordionClassification" data-target="#{{groupName}}landcoverGroup"> Landcover &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
-                <div id="{{groupName}}landcoverGroup" class="panel-collapse collapse" role="tabpanel">
+                <button class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordionClassification" data-target="#{{mapId}}grouplandcoverGroup"> Landcover &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+                <div id="{{mapId}}grouplandcoverGroup" class="panel-collapse collapse" role="tabpanel">
                   <div id="landcoverGroup" class="panel-body">
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Landsat 1984" value="	d1984_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Landsat 1992" value="	d1992_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Landsat 2003" value="	d2003_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Landsat 2013" value="	d2013_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Landsat 1984" value="	d1984_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1984 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Landsat 1992" value="	d1992_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 1992 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Landsat 2003" value="	d2003_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Landsat 2013" value="	d2013_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
 					<hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Spot 1987 - k=0,87" value="	d1987_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Spot 1993 - k=0,92" value="d1993_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Spot 2003 - k=0,94" value="d2003_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Spot 2013 - k=0,90" value="d2013_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 1987 - k=0,87" value="	d1987_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 1993 - k=0,92" value="d1993_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 2003 - k=0,94" value="d2003_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 2013 - k=0,90" value="d2013_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
 					<hr>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Ortho 2003" value="d2003_ortho_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
-                    <label> <input type="radio" name="{{groupName}}" alt="Occupation du sol par classes - Ortho 2009" value="d2009_ortho_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Ortho 2003" value="d2003_ortho_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Ortho 2009" value="d2009_ortho_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <br>
                   </div>
                 </div>
               </div>
