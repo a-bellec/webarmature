@@ -35,6 +35,8 @@ export default angular.module('webarmatureApp.legend', [])
       var legendRectSize = 18;
       var legendSpacing = 4;
 
+      let titleWords = legendContent.title.split(' ');
+
       var legend = svg.selectAll('.legend')
         .data(color.domain())
         .enter()
@@ -42,8 +44,7 @@ export default angular.module('webarmatureApp.legend', [])
         .attr('transform', function(d, i) {
           var rectHeight = legendRectSize + legendSpacing;
           var offset = rectHeight * (color.range().length) / 2;
-          var horz = width / 2 + 10;
-          var vert = i * rectHeight - offset;
+          var vert = i * rectHeight - offset + (10*titleWords.length);
           return `translate(0,${vert})`;
         });
 
@@ -61,14 +62,19 @@ export default angular.module('webarmatureApp.legend', [])
           return d;
         });
 
-      svg.append('text')
-        .attr('x', (width / 2) - 10)
+      let title = svg.append('text')
         .attr('y', 0 - (height / 2) + 5)
         .attr('text-anchor', 'middle')
         .attr('alignment-baseline', 'hanging')
         .style('font-size', '14px')
-        .style('font-weight', 'bold')
-        .text('Légende');
+        .style('font-weight', 'bold');
+
+      for(let i = 0; i < titleWords.length; i++){
+        title.append('tspan')
+          .attr('x', (width / 2) - 10)
+          .attr('dy', '1.2em')
+          .text(titleWords[i]);
+      }
 
       $scope.showLegend = true;
       $scope.$apply();

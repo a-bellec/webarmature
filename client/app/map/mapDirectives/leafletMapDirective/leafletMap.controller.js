@@ -164,7 +164,8 @@ export default class leafletMapController {
 
             let legendContent = {
               text: ['0-20%', '20-40%', '40-60%', '60-80%', '80-100%', 'Non disponible'],
-              color: ['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2']
+              color: ['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2'],
+              title: 'Pourcentage imperméabilisation'
             };
 
             $scope.addLegend(legendContent);
@@ -177,7 +178,8 @@ export default class leafletMapController {
         if(groupId == "landcoverGroup"){
           let legendContent = {
             text: ['Bâti', 'Vég. herbacée', 'Vég. arborée', 'Culture', 'Sol nu', 'Eau'],
-            color: ['#964c4c', '#a3c05e', '#669168', '#be8a4e', '#ffffc3', '#5385bf']
+            color: ['#964c4c', '#a3c05e', '#669168', '#be8a4e', '#ffffc3', '#5385bf'],
+            title: 'Légende'
           };
 
           $scope.addLegend(legendContent);
