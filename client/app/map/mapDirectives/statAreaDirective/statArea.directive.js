@@ -103,7 +103,7 @@ export default angular.module('webarmatureApp.statArea', [])
         .attr('text-anchor', 'end')
         .style('font-size', '14px')
         .style('font-weight', 'bold')
-        .text('Pourcentage d\'imperméabilité');
+        .text('Pourcentage d\'imperméabilisation');
     };
 
     $scope.printChart = function(dataset) {
