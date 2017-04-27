@@ -14,13 +14,10 @@ export default angular.module('webarmatureApp.statArea', [])
   .controller('statAreaController', ['$scope', function($scope) {
 
     let createPieChart = function(svg, dataset, radius, color){
-      var arc = d3.arc()
-        .innerRadius(0)
-        .outerRadius(radius);
 
-      /*var arc = d3.arc()
+      var arc = d3.arc()
         .innerRadius(radius / 2)
-        .outerRadius(radius);*/
+        .outerRadius(radius);
 
       var pie = d3.pie()
         .value(function(d) {
@@ -37,21 +34,16 @@ export default angular.module('webarmatureApp.statArea', [])
       var grads = svg.append("defs").selectAll("radialGradient").data(pie(dataset))
         .enter().append("radialGradient")
         .attr("gradientUnits", "userSpaceOnUse")
-        .attr("cx", 0)
-        .attr("cy", 0)
-        //.attr("cx", "50%")
-        //.attr("cy", "50%")
-        .attr("r", "80%")
-        //.attr("r", "40%")
-        //.attr("fx", "50%")
-        //.attr("fy", "50%")
-        //.attr("gradientTransform", "translate(-"+175+",-"+125+")")
+        .attr("cx", "50%")
+        .attr("cy", "50%")
+        .attr("r", "40%")
+        .attr("fx", "50%")
+        .attr("fy", "50%")
+        .attr("gradientTransform", "translate(-"+175+",-"+125+")")
         .attr("id", function(d, i) { return "grad" + i; });
-      /*grads.append("stop").attr("offset", "0%").style("stop-color", "black");
-      grads.append("stop").attr("offset", "50%").style("stop-color", function(d, i) { return color(i); });
-      grads.append("stop").attr("offset", "100%").style("stop-color", "black");*/
-      grads.append("stop").attr("offset", "0%").style("stop-color", function(d, i) { return color(i); });
-      grads.append("stop").attr("offset", "100%").style("stop-color", "black");
+       grads.append("stop").attr("offset", "0%").style("stop-color", "black");
+       grads.append("stop").attr("offset", "50%").style("stop-color", function(d, i) { return color(i); });
+       grads.append("stop").attr("offset", "100%").style("stop-color", "black");
 
       svg.selectAll('path')
         .data(pie(dataset))
@@ -59,8 +51,10 @@ export default angular.module('webarmatureApp.statArea', [])
         .append('path')
         .attr('d', arc)
         .attr("fill", function(d, i) { return "url(#grad" + i + ")"; })
-        .transition()
-        .duration(750)
+        .style('stroke-width', '1px')
+        .style('stroke', '#FFFFFF')
+        .style('stroke-opacity', '0.5')
+        .transition().duration(1000)
         .attrTween("d", tweenPie);
 
     };
