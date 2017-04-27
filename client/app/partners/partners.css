@@ -1,0 +1,123 @@
+.partnerPage{
+  display: inline-block;
+  background: #ffffff;
+  margin-top: 50px;
+}
+
+.partnerHeaderSection{
+  background: #f7f7f7;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+.partnerHeaderSection h1{
+  color: #555;
+  font-weight: 200;
+  text-align: center;
+}
+
+.partnerSection{
+  background: #ffffff;
+  padding: 60px 15px;
+}
+
+.partnerSection h3{
+  font-size: 22px;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.partnerSection h3 a{
+  color: #333;
+}
+
+.partnerSection h3 a:hover{
+  color: #e74c3c;
+  text-decoration: underline;
+}
+
+.partnerSectionTitle{
+  padding-bottom: 30px;
+}
+
+.partnerSectionTitle h2{
+  display: inline-block;
+  border-bottom: 3px solid #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #e74c3c;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', sans-serif;
+}
+
+.partnerSubtitle{
+  color: #888;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.partnerText{
+  text-align: justify;
+}
+
+.partnerReadMore{
+  font-style: italic;
+  text-decoration: underline;
+  color: #e74c3c;
+}
+
+.partnerReadMore:hover{
+  font-style: italic;
+  text-decoration: underline;
+  color: #e74c3c;
+}
+
+.partnerSection hr{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.partnerImage{
+  display: flex;
+  justify-content: center;
+}
+
+#sidebarLinks{
+  position: fixed;
+  padding-top: 60px;
+  font-size: 18px;
+}
+
+#sidebarLinks a{
+  color: #2c3e50;
+}
+
+/* make sub radio buttons smaller*/
+#sidebarLinks li ul li {
+  font-size: 16px;
+}
+
+#sidebarLinks li.active a{
+  color: #E75539;
+}
+
+#sidebarLinks li ul li a {
+  color: #465354;
+}
+
+#sidebarLinks li.active ul li a{
+  color: #465354;
+}
+
+#sidebarLinks a:hover{
+  text-decoration: none;
+  border-bottom: 2px solid #FF8600;
+}
+
+
+
+
+
