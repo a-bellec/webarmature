@@ -44,6 +44,7 @@ export default class leafletMapController {
         newDataset.push({label: i, count: data.percentPerSection[i] });
       }
 
+      $scope.dataset.impermeableOld = $scope.dataset.impermeable;
       $scope.dataset.impermeable = newDataset;
     };
 
