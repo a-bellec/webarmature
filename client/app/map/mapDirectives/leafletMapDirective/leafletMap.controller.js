@@ -50,16 +50,9 @@ export default class leafletMapController {
 
     $scope.getMapInfo = function(layerName) {
 
-      //If request has been made before resolve it to only answer latest request
-      if(typeof $scope.canceler !== 'undefined'){
-        $scope.canceler.resolve();
-      }
-
-      $scope.canceler = $q.defer();
       MapInfo.getMapInfo({
         map: $scope.map,
-        layerName,
-        timeout: $scope.canceler.promise
+        layerName
       })
         .then(res => {
           setChartData(res);
