@@ -5,7 +5,7 @@ export default class PartnersController {
   constructor(){
     $('#sidebarLinks a').click(function(){
       $('html, body').animate({
-        scrollTop: $( $(this).attr('href') ).offset().top - 45
+        scrollTop: $( $(this).attr('href') ).offset().top - 50
       }, 500);
       return false;
     });
@@ -20,7 +20,8 @@ export default class PartnersController {
 
     $(window).scroll(function(){
       // Get container scroll position
-      var fromTop = $(this).scrollTop() +45;
+      var fromTop = $(this).scrollTop() + 51;
+
 
       // Get id of current scroll item
       var cur = scrollItems.map(function(){
@@ -39,5 +40,6 @@ export default class PartnersController {
           .end().filter("[href='#"+id+"']").parent().addClass("active");
       }
     });
+
   }
 }

@@ -1,7 +1,11 @@
-.partnerPage{
+#partnerPage{
   display: inline-block;
   background: #ffffff;
   margin-top: 50px;
+}
+
+#partnerPage .col-md-3, #partnerPage .col-md-9{
+  padding: 0;
 }
 
 .partnerHeaderSection{
@@ -63,18 +67,6 @@
   text-align: justify;
 }
 
-.partnerReadMore{
-  font-style: italic;
-  text-decoration: underline;
-  color: #e74c3c;
-}
-
-.partnerReadMore:hover{
-  font-style: italic;
-  text-decoration: underline;
-  color: #e74c3c;
-}
-
 .partnerSection hr{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -83,16 +75,24 @@
 .partnerImage{
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 #sidebarLinks{
+  background-color: #222;
+  min-height: 100%;
+  width: 100%;
   position: fixed;
   padding-top: 60px;
   font-size: 18px;
 }
 
 #sidebarLinks a{
-  color: #2c3e50;
+  color: #fff;
+}
+
+#sidebarLinks ul{
+  list-style-type: none;
 }
 
 /* make sub radio buttons smaller*/
@@ -105,16 +105,21 @@
 }
 
 #sidebarLinks li ul li a {
-  color: #465354;
+  color: #e6e6e6;
+}
+
+#sidebarLinks li ul {
+  padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 #sidebarLinks li.active ul li a{
-  color: #465354;
+  color: #e6e6e6;
 }
 
 #sidebarLinks a:hover{
   text-decoration: none;
-  border-bottom: 2px solid #FF8600;
+  border-bottom: 2px solid #E75539;
 }
 
 
