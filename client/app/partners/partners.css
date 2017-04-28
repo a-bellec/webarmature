@@ -42,7 +42,7 @@
 
 .partnerSectionTitle{
   padding-left: 5%;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .partnerSectionTitle h2{
@@ -53,6 +53,9 @@
   font-weight: bold;
   font-size: 22px;
   font-family: 'Roboto Slab', sans-serif;
+  padding-right: 75px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
   /*background-color: rgb(235, 235, 235);
   padding: 10px;
   padding-right: 30px;
