@@ -306,6 +306,7 @@ body{
 /* inject:css */
 @import 'about/about.css';
 @import 'admin/admin.css';
+@import 'lab/labGeoportail/labGeoportail.css';
 @import 'main/main.css';
 @import 'map/mapDirectives/leafletMapDirective/leafletMap.css';
 @import 'map/mapDirectives/legendDirective/legend.css';
