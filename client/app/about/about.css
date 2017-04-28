@@ -1,0 +1,11 @@
+.font-italic{
+  font-style: italic;
+}
+
+.dataTitle{
+  padding-bottom: 30px;
+}
+
+.dataSubtitle{
+  font-weight: bold;
+}
