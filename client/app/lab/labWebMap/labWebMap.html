@@ -862,58 +862,22 @@ onEachFeature: function(feature, layer){
           <h2>Intéraction (1)</h2>
         </div>
         <div class="container text-justify">
-
-        </div>
-      </div>
-      <hr>
-      <div class="partnerSection">
-        <div class="container dataTitle" id="interaction2">
-          <h2>Intéraction (2)</h2>
-        </div>
-        <div class="container text-justify">
-
-        </div>
-      </div>
-      <hr>
-      <div class="partnerSection">
-        <div class="container dataTitle" id="externalRessources">
-          <h2>Ressources externes</h2>
-        </div>
-        <div class="container text-justify">
           <p>
-            Quelques ressources externes
-          </p>
-          <p>
-            <a target="_blank" href="http://leafletjs.com/examples.html">Tutoriels Leaflet</a> -
-            <a target="_blank" href="http://getbootstrap.com">Bootstrap</a> -
-            <a target="_blank" href="https://leaflet-extras.github.io/leaflet-providers/preview">Fond de carte</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--
-    <div class="panel panel-default accordion1">
-      <div class="panel-heading accordion1">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"> Intéraction (1)... </a>
-        </h4>
-      </div>
-      <div id="collapse5" class="panel-collapse collapse">
-        <div class="panel-body">
-          <p>L'avantage majeur des cartes en ligne réside dans la possibilité d'interagir avec. Dans
+            L'avantage majeur des cartes en ligne réside dans la possibilité d'interagir avec elles. Dans
             l'exemple ci-dessus nous avons déj&agrave; intégré cette fonction, nous allons ici en
-            expliquer la procédure en affichant une <i>popup</i> portant le numéro de chaque site et ses
-            coordonn&eacutes.
-            <br> Le résultat doit s'approcher de cet exemple : <br></p>
+            expliquer la procédure en affichant une <i>popup</i> portant le numéro de chaque site et ses coordonnées.
+          </p>
+          <p>
+            Le résultat doit s'approcher de cet exemple :
+          </p>
           <iframe src="http://www.webarmature.fr/resources/lab03_code_interactionpoints.html" width="100%"
                   height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-          <br>
-          <p><B>Ajout de la popup sur le fichier de points</B></p>
-          <br>$<p>Nous avons utilisé cette fonction pour ajouter notre fichier de points sur la carte
-          :</p>
+          <p class="text-bold">
+            Ajout de la popup sur le fichier de points
+          </p>
+          <p>
+            Nous avons utilisé cette fonction pour ajouter notre fichier de points sur la carte:
+          </p>
           <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
       var styleIcon = L.icon({
       iconUrl: 'icon.png',
@@ -924,41 +888,46 @@ onEachFeature: function(feature, layer){
         return L.marker(latlng,{icon: styleIcon});
       }
     }).addTo(map);</code></pre>
-
-
-          <br>
-          <p>Nous allons ici, uniquement, modifier la partie contenue dans <br></p>
+          <p>
+            Nous allons ici, uniquement, modifier la partie contenue dans
+          </p>
           <pre><code class="language-javascript line-numbers">L.geoJson(data_point,{
       pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: styleIcon});
       }
     }).addTo(map);</code></pre>
-          <br>
-          <p>Pour définir l'affichage de la <i>popup</i>.
-            <br>
+          <p>
+            Pour définir l'affichage de la <i>popup</i>.
+          </p>
+          <p>
             L'ajout de cette fonction est relativement simple, il s'agira d'ajouter un argument
-            <i>bindPopup</i>
-            pour permettre l'intereaction avec les points. <br> A partir de la table attributaire de la
+            <i>bindPopup</i> pour permettre l'intereaction avec les points. <br> A partir de la table attributaire de la
             donnée nous souhaitons afficher le nom de site (SiteName) et ses coordonnées <i>x ; y</i>.
-            <br> Pour cela :</p>
+          </p>
+          <p>
+            Pour cela :
+          </p>
           <pre><code class="language-javascript line-numbers">marker.bindPopup(
     'Site name : ' + feature.properties.SiteName + '' +
     'Long. : ' + feature.properties.XCOORD + '' +
     'Lat. : ' + feature.properties.YCOORD
     );</code></pre>
-          <br>
-          <p>Les param&egrave;tres renseignés dans <i>marker.bindPopup</i> permettent d'afficher sur une 1&egrave;re
-            ligne le nom de site, sur une seconde la longitude et sur la derni&egrave; la latitude du
-            point.<br>
-            La premi&egrave;re partie dans les '' permet de définir ce qui va s'afficher dans la
-            <i>popup</i>
-            (ici ; SiteName). Le "+" indique qu'une information arrive &agrave; la suite. <i>feature.properties.SiteName</i>
-            quand &agrave; lui, retourne la valeur correspondante au point sélectionné. <br><br>
-            Ensuite il ne reste plus qu'&agrave; permettre l'affichage de la <i>popup</i> de cette mani&egrave;re
-            :</p>
+          <p>
+            Les param&egrave;tres renseignés dans <i>marker.bindPopup</i> permettent d'afficher sur une 1&egrave;re
+            ligne le nom de site, sur une seconde la longitude et sur la derni&egrave; la latitude du point.
+          </p>
+          <p>
+            La premi&egrave;re partie dans les '' permet de définir ce qui va s'afficher dans la <i>popup</i> (ici ; SiteName).
+            Le "+" indique qu'une information arrive &agrave; la suite. <i>feature.properties.SiteName</i>
+            quand &agrave; lui, retourne la valeur correspondante au point sélectionné.
+          </p>
+          <p>
+            Ensuite il ne reste plus qu'&agrave; permettre l'affichage de la <i>popup</i> de cette mani&egrave;re:
+          </p>
           <pre><code class="language-javascript line-numbers">return marker;</code></pre>
-          <br>
-          <p>La partie du code adaptée doit maintenant ressembler &agrave; ceci :</p>
+          <p>
+            La partie du code adaptée doit maintenant ressembler &agrave; ceci :
+          </p>
           <pre><code class="language-javascript line-numbers">pointToLayer: function(feature,latlng){
   var marker = L.marker(latlng,{icon: styleIcon});
   marker.bindPopup('Site name : ' + feature.properties.SiteName + '' +
@@ -966,9 +935,9 @@ onEachFeature: function(feature, layer){
       'Lat. : ' + feature.properties.YCOORD);
   return marker;
 } </code></pre>
-          <br>
-          <p>et de fait, l'ensemble du code : </p>
-          <br>
+          <p>
+            et de fait, l'ensemble du code :
+          </p>
           <pre><code class="language-markup line-numbers">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -1023,8 +992,8 @@ onEachFeature: function(feature, layer){
                    target="_blank" style="color: black" data-toggle="collapse"
                    data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
-                <b>Téléchargez le code</b>
+              <p class="text-center text-bold">
+                Téléchargez le code
               </p>
             </div>
             <div class="col-xs-6 col-lg-6">
@@ -1034,52 +1003,59 @@ onEachFeature: function(feature, layer){
                    data-toggle="collapse" data-target=".navbar-collapse.in"><i
                   class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
-                <b>Téléchargez la données (points)</b>
+              <p class="text-center text-bold">
+                Téléchargez la données (points)
               </p>
             </div>
           </div>
           <br>
-          <p><B>Pour résumer ...</B></p>
-          <p>Nous avons ajouté &agrave; notre carte du dynamisme par la présence de popup.
-            <br>
+          <p class="text-bold">Pour résumer ...</p>
+          <p>
+            Nous avons ajouté &agrave; notre carte du dynamisme par la présence de popup.
+          </p>
+          <p>
             Il est possible d'ajouter encore plus d'information mais aussi de styler la popup en
             ajoutant de la couleur, en affichant / masquant un type d'information particulier.Je vous
-            laisse consulter internet pour trouver des informations sur les autres méthodes.</p>
+            laisse consulter internet pour trouver des informations sur les autres méthodes.
+          </p>
         </div>
       </div>
-    </div>
-    <div class="panel panel-default accordion2">
-      <div class="panel-heading accordion2">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"> Intéraction (2)... </a>
-        </h4>
-      </div>
-      <div id="collapse6" class="panel-collapse collapse">
-        <div class="panel-body">
-          <p>Nous savons afficher une carte, et y insérer des données, pour autant le résultat semble un
+      <hr>
+      <div class="partnerSection">
+        <div class="container dataTitle" id="interaction2">
+          <h2>Intéraction (2)</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+            Nous savons afficher une carte, et y insérer des données, pour autant le résultat semble un
             petit peu brouillon, du fait du nombre de points &agrave; afficher. Afin de permettre une
             meilleure lecture nous allons voir comment grouper automatiquement nos points afni de
-            permettre un meilleur affichage des données. Ceci en consevant l'affichage des <i>popup</i>
-            bien sur.
-            <br> Le résultat doit s'approcher de cet exemple : <br></p>
+            permettre un meilleur affichage des données. Ceci en consevant l'affichage des <i>popup</i> bien sur.
+          </p>
+          <p>
+            Le résultat doit s'approcher de cet exemple :
+          </p>
           <iframe src="http://www.webarmature.fr/resources/lab03_code_clusterpoints.html" width="100%"
                   height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-          <p>Nous allons utiliser le pluggin <i>Leaflet.markercluster</i> de Leaflet disponible <a
-            target="_blank"
-            href="https://github.com/Leaflet/Leaflet.markercluster#all-options">ici</a>. Deux
-            fichiers sont &agrave; télécharger <B> MarkerCluster.css</B> et <B>MarkerCluster.js</B>
-            et &agrave; appeler dans le code. <br></p>
+          <p>
+            Nous allons utiliser le pluggin <i>Leaflet.markercluster</i> de Leaflet disponible
+            <a target="_blank" href="https://github.com/Leaflet/Leaflet.markercluster#all-options">ici</a>.
+            Deux fichiers sont &agrave; télécharger <B> MarkerCluster.css</B> et <B>MarkerCluster.js</B>
+            et &agrave; appeler dans le code.
+          </p>
           <pre><code class="language-markup line-numbers">&lt;link rel="stylesheet" href="MarkerCluster.css" /&gt;
 &lt;script src="MarkerCluster.js"&gt;&lt;/script&gt;</code></pre>
-          <br>
-          <p>L'utilisation de ce pluggin est <i>relativement simple</i> si l'on se base sur le dernier
-            exemple utilisé.<br>
+          <p>
+            L'utilisation de ce plugin est <i>relativement simple</i> si l'on se base sur le dernier
+            exemple utilisé.
+          </p>
+          <p>
             nous créons une nouvelle variable <i>cluster</i> dans laquelle nous allons appeler nos
-            données sous forme de variable.<br>
+            données sous forme de variable.
+          </p>
+          <p>
             Si l'on reprend la partie de code de l'exemple précédent, nous nous somme arr&ecirc;té ici :
           </p>
-          <br>
           <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
     var styleIcon = L.icon({
     iconUrl: 'icon.png',
@@ -1096,12 +1072,11 @@ onEachFeature: function(feature, layer){
    }
   }).addTo(map);
  });</code></pre>
-
-
-          <p>Une premi&egrave;re étape consiste &agrave; définir notre jeu de donn&eacutees en tant que
+          <p>
+            Une premi&egrave;re étape consiste &agrave; définir notre jeu de donn&eacutees en tant que
             variable. Pour cel&agrave, il suffit de placer <i>var data_point =</i> devant <i>L.geoJson(data_point,{</i>
-            et de supprimer l'argument <i>.addTo(map);</i>.</p>
-          <br>
+            et de supprimer l'argument <i>.addTo(map);</i>.
+          </p>
           <pre><code class="language-javascript line-numbers">$.getJSON("data.geojson",function(data){
   var styleIcon = L.icon({
     iconUrl: 'icon.png',
@@ -1117,19 +1092,22 @@ onEachFeature: function(feature, layer){
   return marker;
    }
   });</code></pre>
-          <br>
-          <p>Maintenant, nous créons une variable <i>cluters</i> :</p>
-          <br>
+          <p>
+            Maintenant, nous créons une variable <i>cluters</i> :
+          </p>
           <pre><code
             class="language-javascript line-numbers">var clusters = L.markerClusterGroup();</code></pre>
-          <br>
-          <p>Dans laquelle nous ajoutons nos donn&eacutees : </p>
+          <p>
+            Dans laquelle nous ajoutons nos données :
+          </p>
           <pre><code class="language-javascript line-numbers">clusters.addLayer(data_point);</code></pre>
-          <br>
-          <p>Que nous ajoutons &agrave; la carte :</p>
+          <p>
+            Que nous ajoutons &agrave; la carte :
+          </p>
           <pre><code class="language-javascript line-numbers">map.addLayer(clusters);</code></pre>
-          <br>
-          <p>La mise &agrave; du bloc de donn&eacutees doit ressembler &agrave; ceci : </p>
+          <p>
+            La mise &agrave; du bloc de donn&eacutees doit ressembler &agrave; ceci :
+          </p>
           <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data_point){
   var styleIcon = L.icon({
     iconUrl: 'icon.png',
@@ -1149,10 +1127,10 @@ onEachFeature: function(feature, layer){
   clusters.addLayer(data_point);
   map.addLayer(clusters);
  });</code></pre>
-          <br>
-          <p>Nous obtenons maintenant une carte avec l'ensemble de nos points proches groupés en fonction
-            du niveau de zoom de la carte : </p>
-          <br>
+          <p>
+            Nous obtenons maintenant une carte avec l'ensemble de nos points proches groupés en fonction
+            du niveau de zoom de la carte :
+          </p>
           <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
@@ -1208,8 +1186,8 @@ onEachFeature: function(feature, layer){
                    target="_blank" style="color: black" data-toggle="collapse"
                    data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
-                <b>Téléchargez le code</b>
+              <p class="text-center text-bold">
+                Téléchargez le code
               </p>
             </div>
             <div class="col-xs-6 col-lg-4">
@@ -1219,8 +1197,8 @@ onEachFeature: function(feature, layer){
                    data-toggle="collapse" data-target=".navbar-collapse.in"><i
                   class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
-                <b>Téléchargez la données (points)</b>
+              <p class="text-center text-bold">
+                Téléchargez la données (points)
               </p>
             </div>
             <div class="col-xs-6 col-lg-4">
@@ -1229,18 +1207,39 @@ onEachFeature: function(feature, layer){
                    style="color: black" data-toggle="collapse"
                    data-target=".navbar-collapse.in"><i class="fa fa-github fa-5x"></i></a>
               </p>
-              <p class="text-center">
-                <b>Dép&ocirc;t GitHub (Markercluster)</b>
+              <p class="text-center text-bold">
+                Dép&ocirc;t GitHub (Markercluster)
               </p>
             </div>
           </div>
           <br>
-          <p><B>Pour résumer ...</B>
-            <br>
+          <br>
+          <p class="text-bold">
+            Pour résumer ...
+          </p>
+          <p>
             La fonction <i>MarkerCluster</i> permet de regrouper un ensemble de points afin de permettre
             une meilleure visibilité lorsque nous avons de nombreux points &agrave; afficher sur la
-            carte, permettant d'ajouter du dynamisme &agrave; notre carte.</p>
+            carte, permettant d'ajouter du dynamisme &agrave; notre carte.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="partnerSection">
+        <div class="container dataTitle" id="externalRessources">
+          <h2>Ressources externes</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+            Quelques ressources externes
+          </p>
+          <p>
+            <a target="_blank" href="http://leafletjs.com/examples.html">Tutoriels Leaflet</a> -
+            <a target="_blank" href="http://getbootstrap.com">Bootstrap</a> -
+            <a target="_blank" href="https://leaflet-extras.github.io/leaflet-providers/preview">Fond de carte</a>
+          </p>
         </div>
       </div>
     </div>
-    -->
+  </div>
+</div>
