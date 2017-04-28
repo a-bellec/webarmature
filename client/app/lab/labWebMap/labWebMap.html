@@ -610,93 +610,62 @@ layers: [osmMap]
           <h2>Styliser mes données</h2>
         </div>
         <div class="container text-justify">
-
-        </div>
-      </div>
-      <hr>
-      <div class="partnerSection">
-        <div class="container dataTitle" id="interaction1">
-          <h2>Intéraction (1)</h2>
-        </div>
-        <div class="container text-justify">
-
-        </div>
-      </div>
-      <hr>
-      <div class="partnerSection">
-        <div class="container dataTitle" id="interaction2">
-          <h2>Intéraction (2)</h2>
-        </div>
-        <div class="container text-justify">
-
-        </div>
-      </div>
-      <hr>
-      <div class="partnerSection">
-        <div class="container dataTitle" id="externalRessources">
-          <h2>Ressources externes</h2>
-        </div>
-        <div class="container text-justify">
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--
-    <div class="panel panel-default accordion4">
-      <div class="panel-heading accordion4">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"> Styliser mes données ... </a>
-        </h4>
-      </div>
-      <div id="collapse4" class="panel-collapse collapse">
-        <div class="panel-body">
-          <p>Dans cette section nous allons voir, pas &agrave; pas, comment styliser nos données. Du style
+          <p>
+            Dans cette section nous allons voir, pas à pas, comment styliser nos données. Du style
             pour les points, mais aussi du style pour les polygones!
-            <br>
-            Le résultat doit s'approcher de ces deux exemples :<br></p>
+          </p>
+          <p>
+            Le résultat doit s'approcher de ces deux exemples :
+          </p>
           <iframe src="http://www.webarmature.fr/resources/lab03_code_stylepoints.html" width="100%"
                   height="310" frameborder="0" scrolling="no" align="middle"></iframe>
           <iframe src="http://www.webarmature.fr/resources/lab03_code_stylepolygones.html" width="100%"
                   height="310" frameborder="0" scrolling="no" align="middle"></iframe>
-          <br><br>
-          <p><b>Styliser les points</b></p>
-          <p>Par défault, vos points s'affiche avec un marqueur bleu. Si l'on souhaite personnaliser sa
+          <br>
+          <p class="text-bold">Styliser les points</p>
+          <p>
+            Par défault, vos points s'affiche avec un marqueur bleu. Si l'on souhaite personnaliser sa
             carte il est possible de remplacer ces marqueurs par une image de votre choix.
-            <br>
+          </p>
+          <p>
             La structure générale du code reste semblable, nous allons juste ajouter quelques éléments.
-            <br>
-            <br>
-            <B>Ajout de l'élément de personnalisation &agrave; partir de la commande d'import des
-              données :</B></p>
+          </p>
           <br>
-          <pre><code
-            class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data){;</code></pre>
-          <br>
-          <p>Nous allons ajouter les éléments de personnalisation (adresse de l'image et taille, en
-            pixels, de celle-ci) dans une variable appelée styleIcon :</p>
+          <p class="text-bold">
+            Ajout de l'élément de personnalisation &agrave; partir de la commande d'import des données :
+          </p>
+          <pre><code class="language-javascript line-numbers">$.getJSON("data_point.geojson",function(data){;</code></pre>
+          <p>
+            Nous allons ajouter les éléments de personnalisation (adresse de l'image et taille, en
+            pixels, de celle-ci) dans une variable appelée styleIcon :
+          </p>
           <pre><code class="language-javascript line-numbers">var styleIcon = L.icon({ iconUrl: 'mon_icon.png', iconSize: [15,20]</code></pre>
           <br>
-          <p><B>Appel des données</B>
+          <p class="text-bold">
+            Appel des données
+          </p>
+          <p>
             Précédemment nous avons utilisé la commande suivante pour afficher notre fichier de points :
           </p>
-          <pre><code
-            class="language-javascript line-numbers">L.geoJson(data_point).addTo(map);</code></pre>
+          <pre><code class="language-javascript line-numbers">L.geoJson(data_point).addTo(map);</code></pre>
           <br>
-          <p><B>Affichage des données</B><br>
+          <p class="text-bold">
+            Affichage des données
+          </p>
+          <p>
             L'élément de personnalisation va &ecirc;tre ajouté &agrave; l'appel des données sur la
             carte. Notre pr&eacutec&eacutedente commande va &ecirc;tre mise &agrave; jour pour
-            ressembler &agrave; ceci :</p>
+            ressembler &agrave; ceci :
+          </p>
           <pre><code class="language-javascript line-numbers">L.geoJson(data_point,{
   pointToLayer: function(feature,latlng){
     return L.marker(latlng,{icon: styleIcon});
   }
 }).addTo(map);</code></pre>
           <br>
-          <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-          <br>
+          <p class="text-bold">
+            Maintenant votre page HTML doit ressembler &agrave; ceci
+          </p>
           <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
@@ -737,15 +706,24 @@ layers: [osmMap]
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
           <br>
-          <p><b>Styliser les polygones</b></p>
-          <p>Nous allons afficher les polygones en fonction de la population et y incorporer une popup
-            indiquant le nombre d'habitant par commune.<br>
+          <p class="text-bold">
+            Styliser les polygones
+          </p>
+          <p>
+            Nous allons afficher les polygones en fonction de la population et y incorporer une popup
+            indiquant le nombre d'habitant par commune.
+          </p>
+          <p>
             La structure générale du code reste semblable, nous allons juste ajouter quelques
-            éléments.<br></p>
-          <p><br><B>Affichage des données</B><br></p>
-          <p>L'élément de personnalisation va &ecirc;tre ajouté &agrave; l'appel des données sur la carte.
-            Notre pr&eacutec&eacutedente commande va &ecirc;tre mise &agrave; jour pour
-            ressembler &agrave; ceci :</p>
+            éléments.
+          </p>
+          <br>
+          <p class="text-bold">Affichage des données</p>
+          <p>
+            L'élément de personnalisation va être ajouté à l'appel des données sur la carte.
+            Notre pr&eacutec&eacutedente commande va être mise à jour pour
+            ressembler à ceci :
+          </p>
           <pre><code class="language-javascript line-numbers">L.geoJson(poly_data,{
 style: function(feature){
  var fillColor,
@@ -762,14 +740,14 @@ onEachFeature: function(feature, layer){
  layer.bindPopup("<strong>" + feature.properties.NOM_COM + "</strong><br/>" + feature.properties.POPULATION + " habitants" +"<br>"+ feature.properties.DENSITE + " habitants/kmҢ)
  }
 }).addTo(map);</code></pre>
-          <br>
           <p>Nous avons défini différents seuils, sous forme conditionnelle, pour permettre un affichage
             dans un dégradé de couleurs. Puis avons défini l'affichage de la popup d'information
-            (explication dans la section du dessous : <i>Intéragir avec mes données 2...</i>)..</p>
+            (explication dans la section du dessous : <i>Intéragir avec mes données 2...</i>)..
+          </p>
           <br>
-          <br>
-          <p><B>Maintenant votre page HTML doit ressembler &agrave; ceci</B></p>
-          <br>
+          <p class="text-bold">
+            Maintenant votre page HTML doit ressembler &agrave; ceci
+          </p>
           <pre><code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
@@ -816,7 +794,6 @@ onEachFeature: function(feature, layer){
   &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <br>
           <div class="col-md-12 row">
             <div class="col-xs-6 col-lg-3">
               <p class="text-center">
@@ -824,7 +801,7 @@ onEachFeature: function(feature, layer){
                    target="_blank" style="color: black" data-toggle="collapse"
                    data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
+              <p class="text-center text-bold">
                 <b>Téléchargez le code (points)</b>
               </p>
             </div>
@@ -834,7 +811,7 @@ onEachFeature: function(feature, layer){
                    target="_blank" style="color: black" data-toggle="collapse"
                    data-target=".navbar-collapse.in"><i class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
+              <p class="text-center text-bold">
                 <b>Téléchargez le code (polyognes)</b>
               </p>
             </div>
@@ -845,7 +822,7 @@ onEachFeature: function(feature, layer){
                    data-toggle="collapse" data-target=".navbar-collapse.in"><i
                   class="fa fa-cloud-download fa-5x"></i></a>
               </p>
-              <p class="text-center">
+              <p class="text-center text-bold">
                 <b>Téléchargez la données (points)</b>
               </p>
             </div>
@@ -861,19 +838,63 @@ onEachFeature: function(feature, layer){
               </p>
             </div>
           </div>
-          <p><br><B>Pour résumer ...</B></p>
           <br>
-          <p>Par ces deux exemples, nous avons observé comment changer de marker pour personnaliser
+          <br>
+          <p class="text-bold">
+            Pour résumer ...
+          </p>
+          <p>
+            Par ces deux exemples, nous avons observé comment changer de marker pour personnaliser
             l'affichage d'un fichier de points et comment afficher un dégradé de couleur en fonction
-            d'une variable &agrave; partir de la table attributaire d'un fichier de
-            polygones..Maintenant notre fichier de polygone s'affiche en fonction des informations
+            d'une variable &agrave; partir de la table attributaire d'un fichier de polygones.
+            Maintenant notre fichier de polygone s'affiche en fonction des informations
             contenue dans la table attributaire du fichier d'origine.
-            <br>
+          </p>
+          <p>
             A partir de maintenant, vous pouvez laisser libre cours &agrave; votre imagination
-            pour &ecirc;tre créatif et insérer n'importe quelle image en fonction de votre projet.</p>
+            pour &ecirc;tre créatif et insérer n'importe quelle image en fonction de votre projet.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="partnerSection">
+        <div class="container dataTitle" id="interaction1">
+          <h2>Intéraction (1)</h2>
+        </div>
+        <div class="container text-justify">
+
+        </div>
+      </div>
+      <hr>
+      <div class="partnerSection">
+        <div class="container dataTitle" id="interaction2">
+          <h2>Intéraction (2)</h2>
+        </div>
+        <div class="container text-justify">
+
+        </div>
+      </div>
+      <hr>
+      <div class="partnerSection">
+        <div class="container dataTitle" id="externalRessources">
+          <h2>Ressources externes</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+            Quelques ressources externes
+          </p>
+          <p>
+            <a target="_blank" href="http://leafletjs.com/examples.html">Tutoriels Leaflet</a> -
+            <a target="_blank" href="http://getbootstrap.com">Bootstrap</a> -
+            <a target="_blank" href="https://leaflet-extras.github.io/leaflet-providers/preview">Fond de carte</a>
+          </p>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!--
     <div class="panel panel-default accordion1">
       <div class="panel-heading accordion1">
         <h4 class="panel-title">
@@ -1222,24 +1243,4 @@ onEachFeature: function(feature, layer){
         </div>
       </div>
     </div>
-    <div class="panel panel-default accordion3">
-      <div class="panel-heading accordion3">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse7"> Ressources externes </a>
-        </h4>
-      </div>
-      <div id="collapse7" class="panel-collapse collapse">
-        <div class="panel-body">
-          <p>Quelques ressources externes</p>
-          <br>
-          <p>
-            <a target="_blank" href="http://leafletjs.com/examples.html">Tutoriels Leaflet</a><br>
-            <a target="_blank" href="http://getbootstrap.com">Bootstrap</a><br>
-            <a target="_blank" href="https://leaflet-extras.github.io/leaflet-providers/preview">Fond de
-              carte</a><br>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+    -->
