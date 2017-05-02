@@ -25,11 +25,11 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.occupation.$valid && vm.submitted, 'has-error': form.occupation.$invalid && vm.submitted }">
-          <label>Emploi</label>
+          <label>Fonction</label>
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-suitcase fa" aria-hidden="true"></i></span>
-            <input type="text" placeholder="Entrez votre occupation" name="occupation" class="form-control" ng-model="vm.user.occupation" required/>
+            <input type="text" placeholder="Renseignez votre emploi" name="occupation" class="form-control" ng-model="vm.user.occupation" required/>
           </div>
           <p class="help-block" ng-show="form.occupation.$error.required && vm.submitted">
             Veuillez entrer votre emploi.
@@ -37,14 +37,14 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.occupation.$valid && vm.submitted, 'has-error': form.occupation.$invalid && vm.submitted }">
-          <label>Lieu d'activité</label>
+          <label>Entreprise</label>
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-globe fa" aria-hidden="true"></i></span>
-            <input type="text" placeholder="Entrez votre lieu d'occupation" name="occupationPlace" class="form-control" ng-model="vm.user.occupationPlace" required/>
+            <input type="text" placeholder="Entrez votre entreprise" name="occupationPlace" class="form-control" ng-model="vm.user.occupationPlace" required/>
           </div>
           <p class="help-block" ng-show="form.occupationPlace.$error.required && vm.submitted">
-            Veuillez entrer votre lieu d'activité.
+            Veuillez entrer votre entreprise.
           </p>
         </div>
 
