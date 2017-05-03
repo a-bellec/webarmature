@@ -64,7 +64,13 @@ export default angular.module('webarmatureApp.sidebar', [])
       });
 
       //Make it possible to scroll in the sidebar
-      $('sidebar').on('wheel', function(event) {
+      let sidebar = $('sidebar');
+      sidebar.on('wheel', function(event) {
+        event.stopPropagation();
+      });
+      
+      //Don't zoom on double click
+      sidebar.on('dblclick', function(event) {
         event.stopPropagation();
       });
 
