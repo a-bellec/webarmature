@@ -101,17 +101,56 @@ export function MapInfoService($http) {
       return geoServerBaseUrl;
     },
 
-    downloadMapInfo({
-      map,
-      layerName
+    getTownInfoUrl(townName){
+      var params = {
+        request: 'GetFeature',
+        service: 'WFS',
+        srs: 'EPSG:2154',
+        version: '2.0.0',
+        typeNames: 'towns_border-d2015',
+        CQL_Filter: `NOM_COM= '${townName}'`,
+        outputFormat: 'application/json'
+      };
+
+      return geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+    },
+
+    getFeaturesInBboxUrl(bbox, layerName){
+      var params = {
+        request: 'GetFeature',
+        service: 'WFS',
+        srs: 'EPSG:2154',
+        version: '2.0.0',
+        bbox: bbox,
+        typeNames: layerName,
+        outputFormat: 'application/json'
+      };
+
+      return geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+    },
+
+    getTownInfo({
+      townName
     }) {
-      let url = this.getMapInfoUrl(map, layerName);
-      return $http.post('/api/mapInfo/downloadInfo', {
+      let url = this.getTownInfoUrl(townName);
+      return $http.post('/api/mapInfo/town', {
         url
       })
         .then(res => res.data);
     },
 
+    downloadMapInfo({
+      townBbox,
+      townPolygon,
+      layerName
+    }){
+      let featuresUrl = this.getFeaturesInBboxUrl(townBbox, layerName);
+      return $http.post('api/mapInfo/downloadInfo', {
+        url: featuresUrl,
+        polygon: townPolygon
+      })
+        .then(res => res.data);
+    }
 
   };
 

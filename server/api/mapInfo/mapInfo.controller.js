@@ -1,6 +1,12 @@
 'use strict';
 
-var request = require('request');
+const request = require('request');
+const martinez = require('martinez-polygon-clipping');
+const geojsonArea = require('geojson-area');
+const proj4 = require('proj4');
+
+//Define France projection
+proj4.defs('EPSG:2154', '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
 
 export function proxyPointInfo(req, res) {
   let url = req.body.url;
@@ -97,18 +103,66 @@ export function proxyMapInfo(req, res) {
   });
 }
 
-export function proxyTownInfo(req) {
+export function proxyTownInfo(req, res){
   let url = req.body.url;
 
   request(url, function (error, response) {
-    console.log(response);
+    res.send(response.body);
   });
 }
 
 export function downloadMapInfo(req, res) {
   let url = req.body.url;
-
+  let polygonToClip = req.body.polygon;
   request(url, function (error, response) {
-    res.send(response.body);
+
+    let data = JSON.parse(response.body);
+    let mapFeatures = data.features;
+
+    let intersectionFeatures = [];
+    for(let i =0; i < mapFeatures.length; i++){
+      let featureCoordinates = mapFeatures[i].geometry.coordinates;
+      let featurePercentImperm = mapFeatures[i].properties.percent_aa;
+
+      let intersectionCoordinates = martinez.intersection(featureCoordinates, polygonToClip);
+
+      //Ignore if feature does not intersect
+      if(intersectionCoordinates.length == 0){
+        continue;
+      }
+
+      //Change projection
+      let newIntersectionCoordinates = [[]];
+      for(let j = 0; j < intersectionCoordinates[0].length; j++){
+        let invertedPoints = proj4('EPSG:2154', 'WGS84', intersectionCoordinates[0][j]);
+        newIntersectionCoordinates[0].push([invertedPoints[1], invertedPoints[0]]);
+      }
+
+      //console.log(newIntersectionCoordinates);
+
+      let intersectionFeature = {
+        "type": "Feature",
+        "properties": {
+          "percent_aa": featurePercentImperm
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": newIntersectionCoordinates
+        }
+      };
+
+      //TODO find a better way to convert shape_area using EPSG:2154
+      let intersectionShapeArea = geojsonArea.geometry(intersectionFeature.geometry/1.43);
+      intersectionFeature.properties.Shape_Area = intersectionShapeArea;
+
+      intersectionFeatures.push(intersectionFeature);
+    }
+
+    let intersectionFeaturesCollection = {
+      "type": "FeatureCollection",
+      "features": intersectionFeatures
+    };
+
+    res.send(intersectionFeaturesCollection);
   });
 }

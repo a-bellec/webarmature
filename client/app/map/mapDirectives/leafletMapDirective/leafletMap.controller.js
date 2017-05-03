@@ -2,6 +2,7 @@
 'use strict';
 
 const L = require('leaflet');
+const proj4 = require('proj4');
 
 export default class leafletMapController {
 
@@ -10,30 +11,6 @@ export default class leafletMapController {
     $scope.isLoggedIn = Auth.isLoggedInSync();
 
     $scope.geoServerBaseUrl = MapInfo.getGeoserverBaseUrl();
-
-    $scope.getTownInfo = function(townName) {
-      var params = {
-        request: 'GetFeature',
-        service: 'WFS',
-        srs: 'EPSG:2154',
-        version: '2.0.0',
-        typeNames: 'towns_border-d2015',
-        CQL_Filter: `NOM_COM= '${townName}'`,
-        outputFormat: 'application/json'
-      };
-
-      let url = $scope.geoServerBaseUrl + L.Util.getParamString(params, $scope.geoServerBaseUrl, true);
-
-      $.ajax({
-        url: '/api/mapInfo/town',
-        data: {
-          url
-        },
-        success(data) {
-          console.log(data);
-        }
-      });
-    };
 
     let setChartData = function(data) {
       let newDataset = [];
@@ -216,16 +193,33 @@ export default class leafletMapController {
       });
     };
 
-    /*$scope.downloadMap = function(){
+    $scope.downloadMap = function(){
 
-      MapInfo.downloadMapInfo({
-        map: $scope.map,
-        layerName: $scope.layerName
+      $scope.layerName = "d1984_landsat_mesh";
+
+      let downloadByTown = function(res){
+        let townBbox = res.bbox;
+        let townPolygon = res.features[0].geometry.coordinates[0];
+        MapInfo.downloadMapInfo({
+          townBbox,
+          townPolygon,
+          layerName: $scope.layerName
+        })
+          .then(res =>{
+            /*for(let i =0; i < res.features.length; i++){
+              let polygon = L.polygon(res.features[i].geometry.coordinates[0]).addTo($scope.map);
+            }*/
+          })
+      };
+
+      MapInfo.getTownInfo({
+        townName: "Bron"
       })
         .then(res => {
-          console.log(res);
+          downloadByTown(res);
         });
-    };*/
+
+    };
   }
 
   $onInit() {
