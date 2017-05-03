@@ -68,7 +68,7 @@ export default angular.module('webarmatureApp.sidebar', [])
       sidebar.on('wheel', function(event) {
         event.stopPropagation();
       });
-      
+
       //Don't zoom on double click
       sidebar.on('dblclick', function(event) {
         event.stopPropagation();
