@@ -115,45 +115,51 @@ export function writeFile(req, res) {
 
   request(url, function (error, response) {
 
-    let data = JSON.parse(response.body);
-    let mapFeatures = data.features;
+    try {
+      let data = JSON.parse(response.body);
+      let mapFeatures = data.features;
 
-    let intersectionFeatures = [];
-    for(let i =0; i < mapFeatures.length; i++){
-      let featureCoordinates = mapFeatures[i].geometry.coordinates;
-      let featurePercentImperm = mapFeatures[i].properties.percent_aa;
+      let intersectionFeatures = [];
+      for (let i = 0; i < mapFeatures.length; i++) {
+        let featureCoordinates = mapFeatures[i].geometry.coordinates;
+        let featurePercentImperm = mapFeatures[i].properties.percent_aa;
 
-      let intersectionCoordinates = martinez.intersection(featureCoordinates, polygonToClip);
+        let intersectionCoordinates = martinez.intersection(featureCoordinates, polygonToClip);
 
-      //Ignore if feature does not intersect
-      if(intersectionCoordinates.length == 0){
-        continue;
+        //Ignore if feature does not intersect
+        if (intersectionCoordinates.length == 0) {
+          continue;
+        }
+
+        let intersectionFeature = {
+          "type": "Feature",
+          "id": layerName + "." + townName + "." + intersectionFeatures.length,
+          "properties": {
+            "percent_aa": featurePercentImperm
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": intersectionCoordinates
+          }
+        };
+
+        intersectionFeatures.push(intersectionFeature);
       }
 
-      let intersectionFeature = {
-        "type": "Feature",
-        "id": layerName+"."+townName+"."+intersectionFeatures.length,
-        "properties": {
-          "percent_aa": featurePercentImperm
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": intersectionCoordinates
-        }
+      let intersectionFeaturesCollection = {
+        "type": "FeatureCollection",
+        "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2154"}},
+        "features": intersectionFeatures
       };
 
-      intersectionFeatures.push(intersectionFeature);
+      let file = './mapInfo/' + layerName + '.' + townName + '.json';
+      fs.writeFile(file, JSON.stringify(intersectionFeaturesCollection, null, 2));
+      res.end();
+    }
+    catch(err){
+      res.status(500).send(err);
     }
 
-    let intersectionFeaturesCollection = {
-      "type": "FeatureCollection",
-      "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2154" } },
-      "features": intersectionFeatures
-    };
-
-    let file = './mapInfo/'+layerName+'.'+townName+'.json';
-    fs.writeFile(file, JSON.stringify(intersectionFeaturesCollection, null, 2));
-    res.end();
   });
 }
 
