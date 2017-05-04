@@ -2,11 +2,7 @@
 
 const request = require('request');
 const martinez = require('martinez-polygon-clipping');
-const geojsonArea = require('geojson-area');
-const proj4 = require('proj4');
-
-//Define France projection
-proj4.defs('EPSG:2154', '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
+const fs = require('fs');
 
 export function proxyPointInfo(req, res) {
   let url = req.body.url;
@@ -106,14 +102,12 @@ export function proxyMapInfo(req, res) {
 export function proxyTownInfo(req, res){
   let url = req.body.url;
 
-  console.log(url);
-
   request(url, function (error, response) {
     res.send(response.body);
   });
 }
 
-export function downloadMapInfo(req, res) {
+export function writeFile(req, res) {
   let url = req.body.url;
   let polygonToClip = req.body.polygon;
 
@@ -154,6 +148,14 @@ export function downloadMapInfo(req, res) {
       "features": intersectionFeatures
     };
 
-    res.send(intersectionFeaturesCollection);
+    let file = './data.json';
+    fs.writeFile(file, JSON.stringify(intersectionFeaturesCollection, null, 2));
+    res.download(file);
+    res.end();
   });
+}
+
+export function downloadFile(req, res){
+  let file = './data.json';
+  res.download(file);
 }

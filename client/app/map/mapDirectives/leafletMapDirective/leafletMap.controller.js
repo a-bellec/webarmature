@@ -204,12 +204,7 @@ export default class leafletMapController {
           townBbox,
           townPolygon,
           layerName: $scope.layerName
-        })
-          .then(res =>{
-            /*for(let i =0; i < res.features.length; i++){
-              let polygon = L.polygon(res.features[i].geometry.coordinates[0]).addTo($scope.map);
-            }*/
-          })
+        });
       };
 
       MapInfo.getTownInfo({

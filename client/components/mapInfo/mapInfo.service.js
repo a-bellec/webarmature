@@ -7,7 +7,7 @@ const proj4 = require('proj4');
 //Define France projection
 proj4.defs('EPSG:2154', '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
 
-export function MapInfoService($http) {
+export function MapInfoService($http, $window) {
   'ngInject';
 
   const geoServerBaseUrl = 'http://a.map.webarmature.fr/geoserver/wms/';
@@ -145,11 +145,13 @@ export function MapInfoService($http) {
       layerName
     }){
       let featuresUrl = this.getFeaturesInBboxUrl(townBbox, layerName);
-      return $http.post('api/mapInfo/downloadInfo', {
+      return $http.post('api/mapInfo/writeFile', {
         url: featuresUrl,
         polygon: townPolygon
       })
-        .then(res => res.data);
+        .then(res => {
+          $window.open('api/mapInfo/downloadFile');
+        });
     }
 
   };
