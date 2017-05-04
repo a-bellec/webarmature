@@ -14,3 +14,10 @@
   font-weight: bold;
 }
 
+#aboutBanner{
+  background:url(../../assets/images/about_banner.jpg) no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+

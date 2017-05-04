@@ -11,3 +11,12 @@ pre{
   width: 75%;
   height: 310px;
 }
+
+#webmapBanner{
+  background:url(../../../assets/images/webmap_banner.jpg) no-repeat;
+  background-size: cover;
+}
+
+#webmapBanner h1{
+  color: #222;
+}

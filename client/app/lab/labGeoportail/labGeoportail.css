@@ -11,3 +11,8 @@
 .tutoImages img{
   margin-bottom: 10px;
 }
+
+#geoportailBanner{
+  background:url(../../../assets/images/geoportail_banner.jpg) no-repeat;
+  background-size: cover;
+}
