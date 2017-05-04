@@ -175,8 +175,8 @@
                     <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Spot 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
                     <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Spot 2013" value="d2013_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
 					          <hr>
-                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Ortho 2003" value="d2003_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
-                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Ortho 2009" value="d2009_spot_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2009 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Ortho 2003" value="d2003_ortho_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2003 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Proportion de perméabilité par maille - Ortho 2009" value="d2009_ortho_mesh" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Ortho 2009 </label> <br>
                   </div>
                 </div>
                 <br>
@@ -262,6 +262,11 @@
     <br>
 
     <h4> Téléchargez les données de la carte <i class="fa fa-download"></i> </h4>
+    <label> Couche à télécharger:
+      <select ng-model="selectedLayer">
+        <option ng-repeat="layer in layerNames">{{layer}}</option>
+      </select>
+    </label>
     <label> Commune à télécharger:
       <select ng-model="selectedTown">
         <option ng-repeat="town in townNames | orderBy">{{town}}</option>

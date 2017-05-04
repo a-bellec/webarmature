@@ -115,8 +115,6 @@ export default class leafletMapController {
 
     $scope.changeLayer = function(layerName, attribution, groupId, itemName) {
 
-      $scope.layerName = layerName;
-
       let layer = L.tileLayer.wms($scope.geoServerBaseUrl, {
         layers: layerName,
         transparent: true,
@@ -195,7 +193,6 @@ export default class leafletMapController {
 
     $scope.downloadMap = function(){
 
-      $scope.layerName = "d1984_landsat_mesh";
       $scope.downloadStart = true;
 
       let downloadByTown = function(res){
@@ -204,7 +201,7 @@ export default class leafletMapController {
         MapInfo.downloadMapInfo({
           townBbox,
           townPolygon,
-          layerName: $scope.layerName,
+          layerName: $scope.selectedLayer,
           townName: $scope.selectedTown
         })
           .then(res => {

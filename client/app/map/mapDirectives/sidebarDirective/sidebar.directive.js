@@ -146,8 +146,31 @@ export default angular.module('webarmatureApp.sidebar', [])
         'Fleurieu sur Saone',
         'Craponne'
       ];
-
       scope.selectedTown = "Villeurbanne";
+
+      scope.layerNames = [
+        'd1984_landsat_mesh',
+        'd1992_landsat_mesh',
+        'd2003_landsat_mesh',
+        'd2013_landsat_mesh',
+        'd1987_spot_mesh',
+        'd1993_spot_mesh',
+        'd2003_spot_mesh',
+        'd2013_spot_mesh',
+        'd2003_ortho_mesh',
+        'd2009_ortho_mesh',
+        'd1984_landsat_iris',
+        'd1992_landsat_iris',
+        'd2003_landsat_iris',
+        'd2013_landsat_iris',
+        'd1987_spot_iris',
+        'd1993_spot_iris',
+        'd2003_spot_iris',
+        'd2013_spot_iris',
+        'd2003_ortho_iris',
+        'd2009_ortho_iris'
+      ];
+      scope.selectedLayer = scope.layerNames[0];
 
     }
     return {
