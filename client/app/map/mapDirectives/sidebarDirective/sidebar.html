@@ -267,6 +267,12 @@
         <option ng-repeat="town in townNames | orderBy">{{town}}</option>
       </select>
     </label>
-    <button ng-click="downloadMap()">Télécharger</button>
+    <button ng-click="downloadMap()" ng-hide="downloadStart">Télécharger</button>
+    <div ng-show="downloadStart">
+      <br>
+      <p> Génération des données en cours. </p>
+      <div class="loader"></div>
+    </div>
+    <div class="text-danger"> {{downloadErrorMessage}} </div>
   </div>
 </div>

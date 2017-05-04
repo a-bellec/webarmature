@@ -196,6 +196,7 @@ export default class leafletMapController {
     $scope.downloadMap = function(){
 
       $scope.layerName = "d1984_landsat_mesh";
+      $scope.downloadStart = true;
 
       let downloadByTown = function(res){
         let townBbox = res.bbox;
@@ -205,7 +206,14 @@ export default class leafletMapController {
           townPolygon,
           layerName: $scope.layerName,
           townName: $scope.selectedTown
-        });
+        })
+          .then(res => {
+            $scope.downloadStart = false;
+          })
+          .catch(err => {
+            $scope.downloadErrorMessage = "Une erreur est survenue.";
+            $scope.downloadStart = false;
+          });
       };
 
       MapInfo.getTownInfo({
@@ -213,6 +221,10 @@ export default class leafletMapController {
       })
         .then(res => {
           downloadByTown(res);
+        })
+        .catch(err => {
+          $scope.downloadErrorMessage = "Une erreur est survenue.";
+          $scope.downloadStart = false;
         });
 
     };
