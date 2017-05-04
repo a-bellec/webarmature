@@ -119,6 +119,8 @@ export function writeFile(req, res) {
       let data = JSON.parse(response.body);
       let mapFeatures = data.features;
 
+      console.log(data);
+
       let intersectionFeatures = [];
       for (let i = 0; i < mapFeatures.length; i++) {
         let featureCoordinates = mapFeatures[i].geometry.coordinates;
@@ -133,7 +135,7 @@ export function writeFile(req, res) {
 
         let intersectionFeature = {
           "type": "Feature",
-          "id": layerName + "." + townName + "." + intersectionFeatures.length,
+          "id": layerName + "." + townName + "." + intersectionFeatures.length + 1,
           "properties": {
             "percent_aa": featurePercentImperm
           },
@@ -149,6 +151,7 @@ export function writeFile(req, res) {
       let intersectionFeaturesCollection = {
         "type": "FeatureCollection",
         "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2154"}},
+        "totalFeatures": intersectionFeatures.length,
         "features": intersectionFeatures
       };
 
