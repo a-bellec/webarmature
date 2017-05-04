@@ -81,7 +81,8 @@ export default class leafletMapController {
     };
 
     let removeAllMapLayers = function(map) {
-      map.clearAllEventListeners();
+      map.removeEventListener("moveend");
+      map.removeEventListener("click");
 
       map.eachLayer(function(layer) {
         map.removeLayer(layer);
