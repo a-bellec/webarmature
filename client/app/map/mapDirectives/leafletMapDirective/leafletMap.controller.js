@@ -160,8 +160,8 @@ export default class leafletMapController {
 
         if(groupId == "landcoverGroup"){
           let legendContent = {
-            text: ['Bâti', 'Vég. herbacée', 'Vég. arborée', 'Culture', 'Sol nu', 'Eau'],
-            color: ['#964c4c', '#a3c05e', '#669168', '#be8a4e', '#ffffc3', '#5385bf'],
+            text: ['Bâti', 'Vég. herbacée', 'Vég. arborée', 'Culture', 'Sol nu', 'Eau', 'Non disponible'],
+            color: ['#964c4c', '#a3c05e', '#669168', '#be8a4e', '#ffffc3', '#5385bf', '#cccfd2'],
             title: 'Légende'
           };
 
