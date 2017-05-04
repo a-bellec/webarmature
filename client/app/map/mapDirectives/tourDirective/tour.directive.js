@@ -6,6 +6,7 @@ require('bootstrap-tour');
 export default angular.module('webarmatureApp.tour', [])
   .directive('tour', function() {
     function link(scope) {
+
       scope.tourTemplate
         = '<div class=\'popover tour\'>'
         + '<div class=\'arrow\'></div>'
@@ -77,7 +78,11 @@ export default angular.module('webarmatureApp.tour', [])
             element: '#printTab',
             title: 'Impression',
             content: 'Ceci est l\'onglet pour l\'impression. Pour imprimer les cartes affichés à l\'écran consultez cette page.',
-            onShow() {
+            onShow(tour) {
+              if(!scope.isLoggedIn){
+                let currentStep = tour.getCurrentStep();
+                tour.goTo(currentStep+2);
+              }
               if(!$('#printPane').hasClass('active') || $('#sidebarDirective').hasClass('collapsed')) {
                 $('#printTab')[0].click();
               }
