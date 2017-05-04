@@ -106,6 +106,8 @@ export function proxyMapInfo(req, res) {
 export function proxyTownInfo(req, res){
   let url = req.body.url;
 
+  console.log(url);
+
   request(url, function (error, response) {
     res.send(response.body);
   });
@@ -114,6 +116,7 @@ export function proxyTownInfo(req, res){
 export function downloadMapInfo(req, res) {
   let url = req.body.url;
   let polygonToClip = req.body.polygon;
+
   request(url, function (error, response) {
 
     let data = JSON.parse(response.body);
@@ -131,29 +134,17 @@ export function downloadMapInfo(req, res) {
         continue;
       }
 
-      //Change projection
-      let newIntersectionCoordinates = [[]];
-      for(let j = 0; j < intersectionCoordinates[0].length; j++){
-        let invertedPoints = proj4('EPSG:2154', 'WGS84', intersectionCoordinates[0][j]);
-        newIntersectionCoordinates[0].push([invertedPoints[1], invertedPoints[0]]);
-      }
-
-      //console.log(newIntersectionCoordinates);
-
       let intersectionFeature = {
         "type": "Feature",
+        "id": "intersection."+i,
         "properties": {
           "percent_aa": featurePercentImperm
         },
         "geometry": {
           "type": "Polygon",
-          "coordinates": newIntersectionCoordinates
+          "coordinates": intersectionCoordinates
         }
       };
-
-      //TODO find a better way to convert shape_area using EPSG:2154
-      let intersectionShapeArea = geojsonArea.geometry(intersectionFeature.geometry/1.43);
-      intersectionFeature.properties.Shape_Area = intersectionShapeArea;
 
       intersectionFeatures.push(intersectionFeature);
     }
