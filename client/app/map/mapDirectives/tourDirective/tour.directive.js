@@ -73,19 +73,22 @@ export default angular.module('webarmatureApp.tour', [])
               $('input[type=radio]:eq(0)').bootstrapSwitch('state', true);
             }
           },
-          /*{
+          {
             element: '#printTab',
             title: 'Impression',
             content: 'Ceci est l\'onglet pour l\'impression. Pour imprimer les cartes affichés à l\'écran consultez cette page.',
             onShow() {
-              if(!$('#printPane').hasClass('active') || $('#sidebarDirective').hasClass('collapsed')) {
-                $('#printTab')[0].click();
+              let printTab = $('#printTab');
+              if(printTab.length > 0){
+                if(!$('#printPane').hasClass('active') || $('#sidebarDirective').hasClass('collapsed')) {
+                  printTab[0].click();
+                }
               }
             },
             onNext() {
               $('#mapsArea').click();
             }
-          },*/
+          },
           {
             element: '.leaflet-control-zoom:first',
             title: 'Zoom',
