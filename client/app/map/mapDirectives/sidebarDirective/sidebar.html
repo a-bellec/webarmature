@@ -227,7 +227,7 @@
                     <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Landsat 2003" value="	d2003_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2003 </label> <br>
                     <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Landsat 2013" value="	d2013_landsat_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Landsat 2013 </label> <br>
 					          <hr>
-                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 1987 - k=0,87" value="	d1987_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
+                    <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 1987 - k=0,87" value="d1987_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1987 </label> <br>
                     <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 1993 - k=0,92" value="d1993_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 1993 </label> <br>
                     <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 2003 - k=0,94" value="d2003_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2003 </label> <br>
                     <label> <input type="radio" name="{{mapId}}group" alt="Occupation du sol par classes - Spot 2013 - k=0,90" value="d2013_spot_landcover_raster" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Spot 2013 </label>
@@ -262,6 +262,11 @@
     <br>
 
     <h4> Téléchargez les données de la carte <i class="fa fa-download"></i> </h4>
+    <label> Commune à télécharger:
+      <select ng-model="selectedTown">
+        <option ng-repeat="town in townNames | orderBy">{{town}}</option>
+      </select>
+    </label>
     <button ng-click="downloadMap()">Télécharger</button>
   </div>
 </div>

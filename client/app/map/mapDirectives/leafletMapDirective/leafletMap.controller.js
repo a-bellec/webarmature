@@ -208,7 +208,7 @@ export default class leafletMapController {
       };
 
       MapInfo.getTownInfo({
-        townName: "Bron"
+        townName: $scope.selectedTown
       })
         .then(res => {
           downloadByTown(res);
