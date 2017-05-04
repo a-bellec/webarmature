@@ -16,14 +16,26 @@
   border-radius: 2px;
   width: 40%;
   height: 15%;
+  line-height: 15%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   color: #000;
   z-index: 1;
   text-align:center;
-  line-height: 300%;
   left: 30%;
   top: 40%;
+}
+
+.popupText{
+  vertical-align: middle;
+  /* A quarter of .popup top*/
+  padding-top: 10%;
+}
+
+@media(max-width: 768px){
+  .popup {
+    display: block;
+  }
 }
 
 #mapSimpleLink:hover .popup{
