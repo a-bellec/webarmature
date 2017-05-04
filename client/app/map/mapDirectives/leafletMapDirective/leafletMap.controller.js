@@ -203,7 +203,8 @@ export default class leafletMapController {
         MapInfo.downloadMapInfo({
           townBbox,
           townPolygon,
-          layerName: $scope.layerName
+          layerName: $scope.layerName,
+          townName: $scope.selectedTown
         });
       };
 

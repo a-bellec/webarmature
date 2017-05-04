@@ -110,6 +110,8 @@ export function proxyTownInfo(req, res){
 export function writeFile(req, res) {
   let url = req.body.url;
   let polygonToClip = req.body.polygon;
+  let layerName = req.body.layerName;
+  let townName = req.body.townName;
 
   request(url, function (error, response) {
 
@@ -127,10 +129,10 @@ export function writeFile(req, res) {
       if(intersectionCoordinates.length == 0){
         continue;
       }
-
+      
       let intersectionFeature = {
         "type": "Feature",
-        "id": "intersection."+i,
+        "id": layerName+"."+townName+"."+intersectionFeatures.length,
         "properties": {
           "percent_aa": featurePercentImperm
         },

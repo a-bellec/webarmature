@@ -152,15 +152,19 @@ export function MapInfoService($http, $window) {
     downloadMapInfo({
       townBbox,
       townPolygon,
-      layerName
+      layerName,
+      townName
     }){
       let featuresUrl = this.getFeaturesInBboxUrl(townBbox, layerName);
       return $http.post('api/mapInfo/writeFile', {
         url: featuresUrl,
-        polygon: townPolygon
+        polygon: townPolygon,
+        layerName: layerName,
+        townName: townName
       })
         .then(res => {
-          $window.open('api/mapInfo/downloadFile');
+          console.log(res);
+          //$window.open('api/mapInfo/downloadFile');
         });
     }
 
