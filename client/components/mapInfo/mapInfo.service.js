@@ -163,8 +163,7 @@ export function MapInfoService($http, $window) {
         townName: townName
       })
         .then(res => {
-          console.log(res);
-          //$window.open('api/mapInfo/downloadFile');
+          $window.open('api/mapInfo/downloadFile?layerName='+layerName+'&townName='+townName);
         });
     }
 

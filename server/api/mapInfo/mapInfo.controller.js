@@ -129,7 +129,7 @@ export function writeFile(req, res) {
       if(intersectionCoordinates.length == 0){
         continue;
       }
-      
+
       let intersectionFeature = {
         "type": "Feature",
         "id": layerName+"."+townName+"."+intersectionFeatures.length,
@@ -151,13 +151,16 @@ export function writeFile(req, res) {
       "features": intersectionFeatures
     };
 
-    let file = './mapInfo/data.json';
+    let file = './mapInfo/'+layerName+'.'+townName+'.json';
     fs.writeFile(file, JSON.stringify(intersectionFeaturesCollection, null, 2));
     res.end();
   });
 }
 
 export function downloadFile(req, res){
-  let file = './mapInfo/data.json';
+  let layerName = req.query.layerName;
+  let townName = req.query.townName;
+
+  let file = './mapInfo/'+layerName+'.'+townName+'.json';
   res.download(file);
 }
