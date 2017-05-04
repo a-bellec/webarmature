@@ -2,8 +2,8 @@
 'use strict';
 
 const L = require('leaflet');
-
 const proj4 = require('proj4');
+
 //Define France projection
 proj4.defs('EPSG:2154', '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
 
@@ -102,17 +102,27 @@ export function MapInfoService($http, $window) {
     },
 
     getTownInfoUrl(townName){
+
+      //CQL filter use double singlequote to make a singlequote
+      townName = townName.replace("'", "''");
+      let cql_filter = `NOM_COM= '${townName}'`;
+
       var params = {
         request: 'GetFeature',
         service: 'WFS',
         srs: 'EPSG:2154',
         version: '2.0.0',
         typeNames: 'towns_border-d2015',
-        CQL_Filter: `NOM_COM= '${townName}'`,
+        CQL_Filter: cql_filter,
         outputFormat: 'application/json'
       };
 
-      return geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+      let utf8Url = geoServerBaseUrl + L.Util.getParamString(params, geoServerBaseUrl, true);
+      //TODO use actual encoding from utf to ascii
+      //geoserver take an ascii url not an utf8 url
+      let newUrl = utf8Url.replace('%C3%A9', '%E9');
+      newUrl = newUrl.replace('%C3%A8', '%E8');
+      return newUrl;
     },
 
     getFeaturesInBboxUrl(bbox, layerName){

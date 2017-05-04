@@ -145,17 +145,17 @@ export function writeFile(req, res) {
 
     let intersectionFeaturesCollection = {
       "type": "FeatureCollection",
+      "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2154" } },
       "features": intersectionFeatures
     };
 
-    let file = './data.json';
+    let file = './mapInfo/data.json';
     fs.writeFile(file, JSON.stringify(intersectionFeaturesCollection, null, 2));
-    res.download(file);
     res.end();
   });
 }
 
 export function downloadFile(req, res){
-  let file = './data.json';
+  let file = './mapInfo/data.json';
   res.download(file);
 }
