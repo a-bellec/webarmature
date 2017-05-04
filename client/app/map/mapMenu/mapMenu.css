@@ -38,12 +38,7 @@
   }
 }
 
-#mapSimpleLink:hover .popup{
-  z-index: 2;
-  display: block;
-}
-
-#mapDoubleLink:hover .popup{
+.mapImage:hover .popup{
   z-index: 2;
   display: block;
 }
