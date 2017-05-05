@@ -1,22 +1,24 @@
-/*
-This is a slightly disgusting hack.
-This is to make sure that when you have 2 maps they get on top of each other in print.
-jQuery.print() doesn't look at @media and apply anyway
-This makes sure that it doesn't affect anything else (because max-width 1 px)
-And that it still change the style for the print
- */
+@media print {
 
-@media(max-width: 1px){
-
-  .map {
-    height: calc(48% - 25px);
-    width: 100%;
-    bottom: 50%;
+  leaflet-map, #map, #map1, #map2, .map {
+    overflow: visible;
+    height: auto;
+    display: block;
+    position: relative;
   }
 
-  #map2 {
-    top: calc(48% + 30px);
-    left: 0;
+  #map1{
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+
+  legend{
+    right: 0;
+    left: 10px;
+  }
+
+  .leaflet-control-attribution{
+    position: absolute;
   }
 
 }

@@ -10,8 +10,8 @@ export default angular.module('webarmatureApp.printMap', [])
       controller: 'printMapController'
     };
   })
-  .controller('printMapController', ['$scope', '$timeout', function($scope, $timeout) {
-    $scope.loadingPrint = false;
+  .controller('printMapController', ['$scope', '$timeout', '$window', function($scope, $timeout, $window) {
+    //$scope.loadingPrint = false;
 
     $scope.printMap = function() {
       $scope.loadingPrint = true;
@@ -23,12 +23,36 @@ export default angular.module('webarmatureApp.printMap', [])
         }, 0);
       };
 
+      /*
+        The map view to print is ajusted by the ratio of the height/width of the map to prevent overflow.
+        Therefore we need to ajust the top property to be a percentage of that ratio.
+        This make the elements that are overlaid (stat, legend, attribution) under the map.
+       */
+      let map = $('leaflet-map');
+      let legend = $('legend');
+      let statArea = $('stat-area');
+      let leafletControl = $('.leaflet-control');
+
+      let legendTop = legend.css('top');
+      let statAreaTop = statArea.css('top');
+
+      let mapAreaSizeRatio = map.height() / map.width();
+
+      legend.css('top', (mapAreaSizeRatio*100)+'%');
+      statArea.css('top', (mapAreaSizeRatio*100)+'%');
+      leafletControl.addClass('no-print');
+
       $('#mapsArea').print({
-        noPrintSelector: 'sidebar',
         deferred: $.Deferred().done(printShown),
         //After one minute it's going to print whatever it has been able to load. Otherwise load as soon as ready
         timeout: 60000
       });
+
+      legend.css('top', legendTop);
+      statArea.css('top', statAreaTop);
+      leafletControl.removeClass('no-print');
+
     };
+
   }])
   .name;
