@@ -29,6 +29,7 @@ export default angular.module('webarmatureApp.printMap', [])
         This make the elements that are overlaid (stat, legend, attribution) under the map.
        */
       let map = $('leaflet-map');
+      let mapsArea = $('#mapsArea');
       let legend = $('legend');
       let statArea = $('stat-area');
       let leafletControl = $('.leaflet-control');
@@ -40,9 +41,11 @@ export default angular.module('webarmatureApp.printMap', [])
 
       legend.css('top', (mapAreaSizeRatio*100)+'%');
       statArea.css('top', (mapAreaSizeRatio*100)+'%');
+      //Container need to be high enough for mapDouble
+      mapsArea.height(map.height()*2);
       leafletControl.addClass('no-print');
 
-      $('#mapsArea').print({
+      mapsArea.print({
         deferred: $.Deferred().done(printShown),
         //After one minute it's going to print whatever it has been able to load. Otherwise load as soon as ready
         timeout: 60000
@@ -50,6 +53,7 @@ export default angular.module('webarmatureApp.printMap', [])
 
       legend.css('top', legendTop);
       statArea.css('top', statAreaTop);
+      mapsArea.height(0);
       leafletControl.removeClass('no-print');
 
     };

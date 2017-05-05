@@ -1,24 +1,15 @@
 @media print {
 
-  leaflet-map, #map, #map1, #map2, .map {
+  #map, #map1, #map2{
     overflow: visible;
     height: auto;
     display: block;
     position: relative;
   }
 
-  #map1{
-    page-break-after: always;
-    page-break-inside: avoid;
-  }
-
   legend{
     right: 0;
     left: 10px;
-  }
-
-  .leaflet-control-attribution{
-    position: absolute;
   }
 
 }
