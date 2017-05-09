@@ -145,6 +145,11 @@ export function writeFile(req, res) {
           }
         };
 
+        //Iris use their iris code for the id
+        if(typeof mapFeatures[i].properties.CODE_IRIS !== "undefined"){
+          intersectionFeature.id = layerName + "." + townName + "." + mapFeatures[i].properties.CODE_IRIS;
+        }
+
         intersectionFeatures.push(intersectionFeature);
       }
 
