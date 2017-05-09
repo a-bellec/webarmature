@@ -119,8 +119,6 @@ export function writeFile(req, res) {
       let data = JSON.parse(response.body);
       let mapFeatures = data.features;
 
-      console.log(data);
-
       let intersectionFeatures = [];
       for (let i = 0; i < mapFeatures.length; i++) {
         let featureCoordinates = mapFeatures[i].geometry.coordinates;
@@ -135,7 +133,7 @@ export function writeFile(req, res) {
 
         let intersectionFeature = {
           "type": "Feature",
-          "id": layerName + "." + townName + "." + intersectionFeatures.length + 1,
+          "id": layerName + "." + townName + "." + (intersectionFeatures.length + 1),
           "properties": {
             "percent_aa": featurePercentImperm
           },
@@ -145,9 +143,11 @@ export function writeFile(req, res) {
           }
         };
 
-        //Iris use their iris code for the id
-        if(typeof mapFeatures[i].properties.CODE_IRIS !== "undefined"){
+        //Use iris code for iris id
+        if(typeof mapFeatures[i].properties.CODE_IRIS !== "undefined" && mapFeatures[i].properties.NOM_IRIS !== "undefined"){
           intersectionFeature.id = layerName + "." + townName + "." + mapFeatures[i].properties.CODE_IRIS;
+          intersectionFeature.properties.CODE_IRIS = mapFeatures[i].properties.CODE_IRIS;
+          intersectionFeature.properties.NOM_IRIS = mapFeatures[i].properties.NOM_IRIS;
         }
 
         intersectionFeatures.push(intersectionFeature);
