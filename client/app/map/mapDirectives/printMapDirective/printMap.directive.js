@@ -31,18 +31,17 @@ export default angular.module('webarmatureApp.printMap', [])
       let map = $('leaflet-map');
       let mapsArea = $('#mapsArea');
       let legend = $('legend');
-      let statArea = $('stat-area');
+      let statArea = $('#chartBlock');
       let leafletControl = $('.leaflet-control');
 
       let legendTop = legend.css('top');
       let statAreaTop = statArea.css('top');
 
-      let mapAreaSizeRatio = map.height() / map.width();
+      legend.css('top', '125%');
+      statArea.css('top', '210%');
+      statArea.css('left', (legend.width()+10)+'px' );
 
-      legend.css('top', (mapAreaSizeRatio*100)+'%');
-      statArea.css('top', (mapAreaSizeRatio*100)+'%');
       //Container need to be high enough for mapDouble
-      mapsArea.height(map.height()*2);
       leafletControl.addClass('no-print');
 
       mapsArea.print({

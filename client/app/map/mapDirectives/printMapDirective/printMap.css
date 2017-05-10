@@ -12,4 +12,8 @@
     left: 10px;
   }
 
+  #chartBlock{
+    position: absolute;
+  }
+
 }
