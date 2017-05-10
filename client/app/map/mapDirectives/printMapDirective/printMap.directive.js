@@ -31,17 +31,23 @@ export default angular.module('webarmatureApp.printMap', [])
       let map = $('leaflet-map');
       let mapsArea = $('#mapsArea');
       let legend = $('legend');
-      let statArea = $('#chartBlock');
+      let statArea = $('stat-area');
+      let chartBlock = statArea.children();
       let leafletControl = $('.leaflet-control');
 
       let legendTop = legend.css('top');
-      let statAreaTop = statArea.css('top');
+      let chartBlockTop = chartBlock.css('top');
 
-      legend.css('top', '125%');
-      statArea.css('top', '210%');
-      statArea.css('left', (legend.width()+10)+'px' );
+      legend.css('top', map.height() + 25);
+      chartBlock.css('top', map.height() + 25 );
+      chartBlock.css('left', (legend.width()+10)+'px' );
 
-      //Container need to be high enough for mapDouble
+      if( $(window).width() < 768 ){
+        legend.css('top', map.height() + 25 + legend.height());
+        chartBlock.css('top', map.height() + 25 + chartBlock.height());
+      }
+
+
       leafletControl.addClass('no-print');
 
       mapsArea.print({
@@ -51,8 +57,7 @@ export default angular.module('webarmatureApp.printMap', [])
       });
 
       legend.css('top', legendTop);
-      statArea.css('top', statAreaTop);
-      mapsArea.height(0);
+      chartBlock.css('top', chartBlockTop);
       leafletControl.removeClass('no-print');
 
     };

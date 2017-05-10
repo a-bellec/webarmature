@@ -12,8 +12,21 @@
     left: 10px;
   }
 
+  #legendBlock{
+    background: none;
+    border: none;
+  }
+
+  stat-area{
+    top: 0;
+  }
+
   #chartBlock{
     position: absolute;
+  }
+
+  #mapsArea{
+    height: 3850px;
   }
 
 }
