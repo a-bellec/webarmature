@@ -103,6 +103,7 @@ export default class leafletMapController {
       $scope.map.on('moveend', function() {
         $scope.getMapInfo(layerName);
       });
+
     };
 
     $scope.syncMaps = function() {
@@ -111,6 +112,11 @@ export default class leafletMapController {
         let secondMap = $scope.maps[i + 1];
         firstMap.sync(secondMap, {syncCursor: true});
         secondMap.sync(firstMap, {syncCursor: true});
+
+        //Fix an issue with moveend being called multiple times on zoomend
+        //Can't be fixed directly in leaflet.sync because the plugin needs this event with more than 2 maps
+        firstMap.off('zoomend');
+        secondMap.off('zoomend');
       }
     };
 
