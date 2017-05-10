@@ -51,7 +51,7 @@ export default class leafletMapController {
           return 'Donnée non disponible';
         }
 
-        return percent.toString();
+        return (percent.toString()) + "%";
       } catch(err) {
         return 'Erreur';
       }
@@ -63,7 +63,7 @@ export default class leafletMapController {
       L.popup({maxWidth: 800})
         .setLatLng(latlng)
         .openOn($scope.map)
-        .setContent(`Imperméable : ${percent}%`);
+        .setContent(`Imperméable : ${percent}`);
     };
 
     $scope.getFeatureInfo = function(evt, layerName) {
