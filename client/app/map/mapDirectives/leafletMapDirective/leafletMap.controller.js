@@ -122,6 +122,8 @@ export default class leafletMapController {
 
     $scope.changeLayer = function(layerName, attribution, groupId, itemName) {
 
+      $scope.showStat = false;
+
       let layer = L.tileLayer.wms($scope.geoServerBaseUrl, {
         layers: layerName,
         transparent: true,
@@ -135,7 +137,8 @@ export default class leafletMapController {
         if(layerName == 'OSM') {
           $scope.map.addLayer($scope.OSMLayer);
           $scope.OSMLayer.bringToBack();
-        } else {
+        }
+        else {
           $scope.map.addLayer(layer);
           layer.bringToBack();
         }
@@ -155,8 +158,7 @@ export default class leafletMapController {
               color: ['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2'],
               title: 'Pourcentage d\'imperméabilisation'
             };
-
-
+            
             $scope.addLegend(legendContent);
 
             $scope.map.setZoom(13);
