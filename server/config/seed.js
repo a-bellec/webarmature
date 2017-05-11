@@ -12,8 +12,7 @@ export default function seedDatabaseIfNeeded() {
   if(config.seedDB) {
     let User = sqldb.User;
 
-    return User.destroy({ where: {} })
-      .then(() => User.bulkCreate([{
+    return User.bulkCreate([{
         provider: 'local',
         role: 'admin',
         name: 'Admin',
@@ -23,6 +22,6 @@ export default function seedDatabaseIfNeeded() {
         password: localenv.DB_ADMIN_PASSWORD
       }])
         .then(() => console.log('finished populating users'))
-        .catch(err => console.log('error populating users', err)));
+        .catch(err => console.log('error populating users', err));
   }
 }
