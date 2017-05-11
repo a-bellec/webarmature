@@ -6,6 +6,7 @@
 'use strict';
 import sqldb from '../sqldb';
 import config from './environment/';
+import localenv from './local.env.js';
 
 export default function seedDatabaseIfNeeded() {
   if(config.seedDB) {
@@ -18,8 +19,8 @@ export default function seedDatabaseIfNeeded() {
         name: 'Admin',
         occupation: 'Admin',
         occupationPlace: 'Admin',
-        email: process.env.DB_ADMIN_EMAIL,
-        password: process.env.DB_ADMIN_PASSWORD
+        email: localenv.DB_ADMIN_EMAIL,
+        password: localenv.DB_ADMIN_PASSWORD
       }])
         .then(() => console.log('finished populating users'))
         .catch(err => console.log('error populating users', err)));
