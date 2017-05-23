@@ -1,8 +1,16 @@
 'use strict';
 
+import localenv from '../../config/local.env.js';
+
 var nodemailer = require('nodemailer');
 var contactEmail = 'bellec.arnaud@webarmature.fr';
-var transporter = nodemailer.createTransport();
+var transporter = nodemailer.createTransport('SMTP', {
+  service: 'Gmail',
+  auth: {
+    user: localenv.EMAIL_ACCOUNT,
+    pass: localenv.EMAIL_PASSWORD
+  }
+});
 
 export function contactMail(req, res) {
   var text = `${'Nouveau message via le site: www.webarmature.fr.\n'

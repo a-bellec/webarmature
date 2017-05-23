@@ -10,6 +10,8 @@ module.exports = {
   SESSION_SECRET: 'webarmature-secret',
   DB_ADMIN_EMAIL: 'admin_email_here',
   DB_ADMIN_PASSWORD: 'admin_password_here',
+  EMAIL_ACCOUNT: 'gmail_email_here',
+  EMAIL_PASSWORD: 'gmail_password_here',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
