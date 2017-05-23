@@ -10,7 +10,7 @@ export default angular.module('webarmatureApp.printMap', [])
       controller: 'printMapController'
     };
   })
-  .controller('printMapController', ['$scope', '$timeout', '$window', function($scope, $timeout, $window) {
+  .controller('printMapController', ['$scope', '$timeout', '$window', function($scope, $timeout) {
     //$scope.loadingPrint = false;
 
     $scope.printMap = function() {
@@ -38,15 +38,9 @@ export default angular.module('webarmatureApp.printMap', [])
       let legendTop = legend.css('top');
       let chartBlockTop = chartBlock.css('top');
 
-      legend.css('top', map.height() + 25);
-      chartBlock.css('top', map.height() + 25 );
-      chartBlock.css('left', (legend.width()+10)+'px' );
-
-      if( $(window).width() < 768 ){
-        legend.css('top', map.height() + 25 + legend.height());
-        chartBlock.css('top', map.height() + 25 + chartBlock.height());
-      }
-
+      legend.css('top', map.height() + (legend.height() * 0.5) + 25);
+      chartBlock.css('top', map.height() + (chartBlock.height() * 0.5) + 25);
+      chartBlock.css('left', (legend.width() + 10) + 'px');
 
       leafletControl.addClass('no-print');
 
@@ -59,8 +53,6 @@ export default angular.module('webarmatureApp.printMap', [])
       legend.css('top', legendTop);
       chartBlock.css('top', chartBlockTop);
       leafletControl.removeClass('no-print');
-
     };
-
   }])
   .name;
