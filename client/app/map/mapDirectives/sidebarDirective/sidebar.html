@@ -55,6 +55,11 @@
       </li>
       <li><u>Occupation du sol :</u> <br>Analyse des images combinant plusieurs traitements dans le but de regrouper les pixels semblables afin de définir les principales catégories d’occupation du sol, en minimisant les confusions.</a>
       </li>
+      <li><u>Autres :</u> <br>Ensemble de données, portant sur le territoire lyonnais, provenant de différents fonds</a>
+      	 <ul>
+       <li><u>Carte topographique Russe (1985)</u> <br>Se procurer une topographie cartographique de classe mondiale a été pour la Russie une préoccupation constante tout au long de son histoire afin d'assurer, d'une part la protection de son territoire, et d'autre part l'expansion de son empire. Ainsi, en tant que super-puissance militaire, l'armée soviétique, à l'instar de l'armée américaine, s'est lancée dans un vaste programme de réalisation cartographique à l'échelle du globe. Produite à partir des années 70 jusqu'aux années 90, cette cartographie militaire couvre une série d'échelles aussi variées que précises. Allant du 1:1.000.000ème au 1:25.000ème c'est encore la meilleure couverture accessible pour de nombreux pays. Une des caractéristiques uniques de la cartographie militaire russe est son homogénéité en terme de système d'indexation, de paramètres géodésiques et de représentation graphique de la légende.
+       </li></ul>
+	  </li>	  
 	 </ul>
 	</p>
 
@@ -250,6 +255,49 @@
           </div>
         </div>
       </div>
+
+
+
+      <br>
+      <div class="panel">
+        <button ng-click="addSelected($event)" class="btn btn-default sidebarButton" data-toggle="collapse" data-parent="#{{mapId}}groupAccordion" data-target="#{{mapId}}groupOther"> Données autres &nbsp;<i class="fa fa-chevron-circle-down"></i></button>
+        <div id="{{mapId}}groupOther" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+            <div class="panel-group" id="{{mapId}}groupAccordionOther">
+              <div class="panel">
+				<label> <input type="radio" name="{{mapId}}group" alt="Carte topographique Russe (1/10 000e) - 1985 - Voenno-Topograficheskoe Upravlenie (VTU)" value="d1985_urss_clip_8bit" data-size="mini" data-off-text="Off" data-on-text="On" class="bs"> Carte topographique Russe (1985) </label> <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
       <br>
     </div>
   </div>
