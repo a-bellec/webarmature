@@ -11,3 +11,4 @@ dist
 npm-debug.log
 coverage
 /mapInfo
+client/assets/fonts/font-awesome/fontawesome-webfont.svg
