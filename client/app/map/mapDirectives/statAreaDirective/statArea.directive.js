@@ -166,9 +166,8 @@ export default angular.module('webarmatureApp.statArea', [])
       var radius = Math.min(width, height) / 2;
       var margin = {top: 40, bottom: 45};
 
-      //chart color	  
       var color = d3.scaleOrdinal()
-        .range(['#1a9641', '#a6d96a', '#ffffbf', '#fdae61', '#d7191c']);
+        .range(['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005']);
 
       $scope.svg = d3.select(`#${$scope.mapId}chart`)
         .attr('width', width)
