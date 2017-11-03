@@ -153,9 +153,10 @@ export default class leafletMapController {
           if(groupId == group) {
             addMapEvents(layerName);
 
+        //legend chart color
             let legendContent = {
               text: ['0-20%', '20-40%', '40-60%', '60-80%', '80-100%', 'Non disponible'],
-              color: ['#006a01', '#00b515', '#e2d920', '#f85402', '#a40005', '#cccfd2'],
+              color: ['#1a9641', '#a6d96a', '#ffffbf', '#fdae61', '#d7191c', '#cccfd2'],
               title: 'Pourcentage d\'imperméabilisation'
             };
             
