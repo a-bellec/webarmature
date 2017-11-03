@@ -1,17 +1,180 @@
-<div class="container">
-  <div class="row jumbotron" id="jumbo">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="text-center">
-        <h2>
-          <i class="fa fa-cogs fontawesome"></i> Work in progress <i class="fa fa-cogs fontawesome"></i>
-        </h2>
-        <br>
-        <h4>Rome ne s'est pas faite en un jour...</h4>
-        <h4>ARMATURE non plus ...</h4>
-        <br>
-        <br>
-        <p>Mise en ligne du contenu d&egrave;s que possible</p>
-      </div>
+<div id="partnerPage">
+  <div class="col-md-3 pull-right">
+    <div id="sidebarLinks">
+      <ul> 
+        <li>
+          <a href="#PhotoScan"> PhotoScan </a>    
+        </li>
+        <li>
+          <a href="#Objectif"> Objectif </a>    
+        </li>		
+        <li>
+          <a href="#dataPreparation"> Préparer la donnée </a>
+        </li>
+        <li>
+          <a href="#dataTreatment"> Traiter la donnée </a>
+        </li>
+        <li>
+          <a href="#dataGeoref"> Géoréférencement </a>
+        </li>
+        <li>
+          <a href="#dataRessources"> Ressources </a>
+        </li>
+      </ul>
     </div>
+  </div>
+  <div class="col-md-9">
+    <div class="partnerHeaderSection" id="mosaickingBanner">
+      <h1>Mosaique d'images anciennes</h1>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1">
+
+      <div class="partnerSection">
+        <div class="container dataTitle" id="PhotoScan">
+          <h2>PhotoScan</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+            Le logiciel <a href="http://www.agisoft.com/" target="_blank">PhotoScan</a> de recréer de grands espaces en 2 ou en 3 dimensions à partir de photographies. Cet usage est relativement pratique pour l’observation du territoire, le suivi de zones ou encore la photogrammétrie. Il est possible d’effectuer de la reconstruction 3D à partir de photos, de créer des nuages de points très précis, mais aussi de mesurer des aires, distances, volumes.<br>Le logiciel permet de traiter différents formats de fichiers dont le format TIFF mais s’avère relativement gourmand en ressources matérielles. Un minimum de 32 GB de mémoire RAM, associé à un processeur i7 à 4coeur et une bonne carte graphique est conseillé (<a href="http://www.agisoft.com/downloads/system-requirements/" target="_blank">spec. technique</a>). Il est possible d’utiliser Photoscan avec moins de mémoire RAM disponible, cependant les traitements n’en seront que plus longs. D’après ce que j’ai pu constater, le logiciel utilise l’ensemble de la mémoire RAM disponible sur le PC allant jusqu’à la saturer. Le côté processeur est relativement moins gourmand, cependant l’on reste quand même sur une occupation, au minima, de 50 à 60 % de celui-ci. Il est important de prendre en compte ces aspects matériels. D’une part pour ne pas avoir à faire tourner une machine pendant x heures, d’autre part pour pouvoir utiliser un tant soit peu votre machine pendant que les traitements tournent en fond.       <br><br>Le logiciel est payant, cependant une version d'essai de 30jours est disponible <a href="http://www.agisoft.com/downloads/installer/" target="_blank">ici</a>
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="partnerSection">
+        <div class="container dataTitle" id="Objectif">
+          <h2>Objectif</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+			L’objectif ici est la création d’une orthophotographie géoréférencée à partir des données issues de campagnes aériennes passées menées par l’IGN.<br>
+			Pourquoi utiliser un logiciel tel que Photoscan pour effectuer des manipulations réalisables dans un logiciel de SIG classique (ArcGIS, Qgis, …) ?<br>
+			Tout d’abord, les données téléchargées vis le site  <a href="https://remonterletemps.ign.fr/" target="_blank">Remonter le temps</a>de l'IGN sont dénuées de toutes informations liées au clichés, il n’y a pas de méta données ou quelque chose s’en approchant. Donc pas de géoréférencement … <br>Il est tout à fait possible d’effectuer cette manipulation via un SIG, mais cela implique de traiter une à une les photographies, ce qui s’avère relativement chronophage… Photoscan, quant à lui, permet de trouver des points de similitudes entre chaque image que l’on souhaite traiter et arrive à les organiser de manière logique, ne reste plus que l’étape du référencement, mais sur une seule « grande » dalle.
+        </div>
+      </div>
+
+      <div class="partnerSection">
+        <div class="container dataTitle" id="dataPreparation">
+          <h2>Préparer la donnée</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+			Enoncé précédemment, les images téléchargées ne contiennent pas d’informations associées, de plus l’image est « brute » c’est-à-dire qu’il y a présence, sur la bordure noire de l’image, les informations liées aux paramètres de prise de vue et les points fiduciaux.<br>
+			Il va donc falloir découper l’image (les images dans notre cas) et d’en changer le format (actuellement JPEG2000) afin que le logiciel PhotoScan puisse la lire (pour rappel nous allons utiliser le format TIFF pour travailler avec PhotoScan).<br>Les photographies de campagne aérienne se chevauchent à hauteur d’un tiers, il est donc important de ne pas trop découper les images afin de conserver un minimum de recouvrement entre les photos. <br><br>
+			Pour découper chaque image obtenue, nous allons utiliser le logiciel SIG ArcGIS. <br>Dans un premier temps nous créons un masque vectoriel que l’on place à l’endroit où l’on souhaite obtenir l’image finale puis nous utilisons la fonction de la ToolBox <i>Découper</i> en prenant soin d’enregistrer le fichier au format TIFF et en le renommant de manière suffisamment précise pour retrouver le lien avec le fichier d’origine (si vous avez de nombreux fichiers, pensez a utiliser le ModelBuider pour itérer les fichiers, récupérer une variable <I>nom</i> et découper l'ensemble d'un répertoire de travail).
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/clip_photo.jpg" alt="Accueil Geoportail" width=85%/>
+            <p>
+              Découper une photographie aérienne. A gauche la photo brute, au centre la supperposition d'un masque vectoriel, à gauche la photo découpée
+            </p>
+            </div>
+        </div>
+      </div>
+
+     <div class="partnerSection">
+        <div class="container dataTitle" id="dataTreatment">
+          <h2>Traiter la donnée</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+			Le logiciel Photoscan n’est pas très compliqué à aborder et se révèle relativement puissant. Attention cependant aux ressources matérielles utilisées ! Pour rappel, le logiciel est très gourmand en termes d’utilisation de la mémoire RAM.<br>L’interface du logiciel est relativement classique avec trois zones principales :<br>
+			- Espace de travail : permet de suivre et d’exécuter les étapes liées aux processus de traitement<br>
+			- Fenêtre de visualisation : permet, comme son nom l’indique, de visualiser les travaux<br>
+			- Zone photos / console : la première zone permet de voir les images que l’on va intégrer, la seconde zone permet de suivre l’avancée des traitements</p>
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_01.jpg" alt="PhotoScan interface utilisateur" width=85%/>
+            <p>
+              PhotoScan interface utilisateur
+            </p>
+			 </div>
+			La première étape consiste à insérer l’ensemble des photographies que l’on souhaite exploiter dans le logiciel. Pour cela, l’outil <i>Ajouter des photos…</i> dans le menu <i>Traitement</i> va être utilisé. De manière classique, il suffit de parcourir l’arborescence de son ordinateur afin de sélectionner l’ensemble des images qui nous intéressent.<br>Lors du 1er ajout de photos, un <i>Chunk</i> est automatiquement créé. Il s’agit d’un espace ou l’ensemble des traitements d’un projet va être effectué. Il est tout à fait possible de créer plusieurs de ces espaces, soit pour des projets différents, soit dans une optique de travail en plusieurs temps (dans le sens ou les chunk peuvent être combinés entre eux).
+			<br>
+			La première étape des traitements consiste à Aligner les photos. Une petite boite de dialogue nous propose de choisir le degré de précision, le niveau de présélection des paires et la limite du nombre de points à utiliser. <br><br>Avant de toucher à tous les boutons, comment ça marche ?<br> L’alignement des photos est le traitement de base du logiciel. Des points de comparaison sont créé sur chaque image et vont être analysés afin de trouver les concordances entre les images, de fait un grand nombre de points augmentera la précision du raccordement entre les photos. Les différentes options, notamment la précision vont influencer le temps de calcul. Il s’agira pour ’utilisateur de trouver le bon compromis entre rapidité d’exécution et précision d’exécution. Une fois le process terminé, le logiciel génère un nuage de points et représente (par des rectangles bleus) la position de chaque photo vis-à-vis leur voisinage.
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_02.jpg" alt="PhotoScan nuage de points" width=85%/>
+            <p>
+              PhotoScan nuage de points
+            </p>
+			 </div>
+			 <br>
+			 <div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_03.jpg" alt="PhotoScan Emplacement des photo sur la nuage de points" width=85%/>
+            <p>
+              PhotoScan Emplacement des photo sur le nuage de points
+            </p>
+			 </div>
+			 Il arrive que certaines photos soient mal alignées, ou même non alignées… Il est possible de demander au logiciel de retravailler sur ces images pour tenter de trouver un alignement. Pour cela, il suffit de sélectionner les photos qui divergent, de Réinitialiser l’alignement (clic droit) et d’Aligner les caméras sélectionnées. Si cela ne fonctionne pas, il va être difficile de faire quelque chose… 
+			<br>
+			La construction d’un nuage dense permet de créer un ensemble tramé de points 3D représentant la surface de l’objet relevé. De la même manière que précédemment, plusieurs options sont disponibles et influent la qualité du résultat obtenu.
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_04.jpg" alt="PhotoScan nuage dense" width=85%/>
+            <p>
+              PhotoScan nuage dense
+            </p>
+			 </div>
+			 Une fois notre nuage de points obtenu, nous allons maintenant le mailler. La construction du mesh peut s’effectuer à partir du nuage de points issu de l’alignement des photos ou du nuage de points dense que l’on vient juste de créer. Deux options s’offrent à nous quant au choix de type de surface (Champ de hauteur / arbitraire). La première option permet de créer un maillage en 3D à partir des images.
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_05.jpg" alt="PhotoScan mesh" width=85%/>
+            <p>
+              PhotoScan mesh
+            </p>
+			 </div>
+			 <div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_06.jpg" alt="PhotoScan mesh (vue oblique)" width=85%/>
+            <p>
+              PhotoScan mesh (vue oblique)
+            </p>
+			 </div>
+			 La dernière étape du travail consiste à créer la texture à partir de nos photographies. Pour cela il suffit de sélectionner orthophoto dans le menu Mode de mappage et de définir le nombre de textures souhaitées (ici nous allons en utiliser 40 000, ce qui permettra d’obtenir un résultat relativement convainquant, mais aussi relativement long à être généré …). <br><br>Et voilà, nous obtenons une belle orthophoto à partir des photographies récupérées via le Géoportail ! Ne reste plus qu’à l’exporter pour pouvoir continuer le travail.<br><br><br>
+			 L’export de l’orthophotographie créée n’est pas la tâche la plus compliquée à effectuer, il suffit de sélectionner la fonction Exporter un JPEG/TIFF/PNG…. La boite de dialogue permet de renseigner le type de projection (planaire si aucune informations géographique, géographique sinon), la méthode de fusion des images, la taille des pixels (en mètres) ou leur dimension maximum (en pixel). En fonction de la résolution de sortie, le temps d’export être plus ou moins long.
+			 </p>
+        </div>
+      </div>
+	  
+      <div class="partnerSection">
+        <div class="container dataTitle" id="dataGeoref">
+          <h2>Géoréférencement</h2>
+        </div>
+        <div class="container text-justify">
+          <p>
+			Une fois l’orthophotographie obtenue avec le logiciel Photoscan, il s’agit de la géoréférencer. Pour cela nous allons utiliser le logiciel ArcGIS. <br>Géoréférencer une image consiste à spécifier des points de contrôles entre une image géoréférencée (ici, une orthophotographie de 2009. Précision, 0,2 mètres) et notre image en coordonnées pixels. Le logiciel permet d’afficher sur une fenêtre distincte, les deux données, ce qui facilite le repérage des points de contrôles. Lorsque l’on travaille comme ici avec des données anciennes, il peut s’avérer que certains éléments actuels ne soient pas présents sur l’image ancienne.
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_07a.jpg" alt="ArcGIS : Point de contrôle A sur image ancienne" width=85%/>
+            <p>
+              ArcGIS : Point de contrôle A sur image ancienne
+            </p>
+			 </div>
+			 <div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_07b.jpg" alt="ArcGIS : Point de contrôle A' sur image ancienne" width=85%/>
+            <p>
+              ArcGIS : Correspondance sur image récente
+            </p>
+			</div>
+			Les points de contrôles doivent  être placés sur des éléments fixes du territoire entre les deux dates. Par exemple, les limites de parcelles agricoles, intersection de routes, ponts ou autres éléments remarquables…<br>Dans le but d’obtenir le meilleur résultat possible, la répartition des points de contrôles sur la totalité du jeu de données raster est nécessaire.
+			<div class="tutoImages">
+            <img src="/assets/images/lab03/PhotoScan_08.jpg" alt="Changement du paysage, zone urbaine : 1965 → 2009" width=85%/>
+            <p>
+              Changement du paysage, zone urbaine : 1965 → 2009
+            </p>
+			</div>
+			Après avoir créé suffisamment de points, le jeu de donnée va être projeté. Plusieurs types de transformations liées à la localisation et au nombre de points sont disponibles (<a href="http://resources.arcgis.com/fr/help/main/10.1/index.html#//009t000000mn000000" target="_blank">lien</a>. Dans notre exemple, nous avons utilisé la fonction Spine.<br><br> Dernière étape du géoréférencement, il s’agit d’exporter l’image, en lui définissant la taille des pixels que l’on souhaite, la valeur des données NoData, la qualité de compression et le nom de sortie.
+        </div>
+      </div>	  
+	  
+	  
+	  <div class="partnerSection">
+        <div class="container dataTitle" id="dataRessources">
+          <h2>Ressources</h2>
+        </div>
+        <div class="container text-justify">
+          <p class="text-center">
+             <a href="/assets/resources/empty.pdf" download="webarmature_mosaicking.pdf"
+               target="_blank" style="color: black"><i class="fa fa-cloud-download fa-5x"></i></a>
+          </p>
+          <p class="text-center">
+            <b>Téléchargez le document au format PDF (actuellement non disponible)</b>
+          </p>
+        </div>
+      </div>
+	 </div>
   </div>
 </div>

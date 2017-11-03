@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">WEBarmature</a>
+      <a href="/" class="navbar-brand">Armature</a>
     </div>
     <div class="navbar-collapse collapse" id="navbarCollapse">
       <ul class="nav navbar-nav">
@@ -20,11 +20,11 @@
           <a role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flask"> </i> Lab <b
             class="caret"></b> </a>
           <ul class="dropdown-menu">
-            <li ui-sref-active="active"><a ui-sref="labMenu" data-toggle="collapse" data-target=".navbar-collapse.in"> Menu des labs</a></li>
+            <li ui-sref-active="active"><a ui-sref="labMenu" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Menu des labs</a></li>
+            <li ui-sref-active="active"><a ui-sref="labGeoportail" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Géoportail</a></li>
+            <!-- <li ui-sref-active="active"><a ui-sref="labMosaicking" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Assemblage pseudo-ortho</a></li>
+            <li ui-sref-active="active"><a ui-sref="labClassification" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Classification</a></li> -->
             <li class="divider hidden-xs"></li>
-            <li ui-sref-active="active"><a ui-sref="labGeoportail" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Remonter le temps</a></li>
-            <li ui-sref-active="active"><a ui-sref="labMosaicking" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Assemblage pseudo-ortho</a></li>
-            <!-- <li ui-sref-active="active"><a ui-sref="labClassification" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> Classification</a></li> -->
             <li ui-sref-active="active"><a ui-sref="labWebMap" data-toggle="collapse" data-target=".navbar-collapse.in"> <i class="fa fa-wrench"> </i> WebMap</a></li>
           </ul>
         </li>
@@ -47,8 +47,10 @@
         <div class="col-lg-12">
           <div class="well well-sm">
             <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>Envoyez nous un message &nbsp;&nbsp;&nbsp;<i class="fa fa-paper-plane-o"></i></h3>
-            <form class="form" name="form" ng-submit="$ctrl.sendMail(form)" novalidate ng-hide="$ctrl.successful">
+         <!-- uncomment to change -->
+            <!--<h3>Envoyez nous un message &nbsp;&nbsp;&nbsp;<i class="fa fa-paper-plane-o"></i></h3>-->
+			<h3>Petit problème &nbsp;&nbsp;&nbsp;<i class="fa fa-meh-o"></i><br><br> Envoyez un mail à : ar<!-- @. -->n<!-- @. -->au<!-- @. -->d<!-- @. -->.<!-- @. -->b<!-- @. -->el<!-- @. -->le<!-- @. -->c<!-- @. -->@<!-- @. -->u<!-- @. -->n<!-- @. -->iv<!-- @. -->ers<!-- @. -->i<!-- @. -->te-l<!-- @. -->yon<!-- @. -->.fr</h3>
+        <!--    <form class="form" name="form" ng-submit="$ctrl.sendMail(form)" novalidate ng-hide="$ctrl.successful">
 
               <div class="row">
                 <div class="form-group col-sm-6">
@@ -84,18 +86,20 @@
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg pull-right" ng-hide="$ctrl.valid">Envoyer</button>
+                <!-- Remove "disabled" To make the button valid -->
+         <!--       <button type="submit" disabled class="btn btn-success btn-lg pull-right" ng-hide="$ctrl.valid">Envoyer</button>
                 <div class="loader pull-right" ng-show="$ctrl.valid"></div>
                 <!-- Dirty hack to make button position appear correctly -->
-                <p style="text-indent: -9999px; ">Test</p>
+         <!--       <p style="text-indent: -9999px; ">Test</p>
               </div>
             </form>
+			
 
             <div ng-show="$ctrl.successful">
               <div class="alert alert-success">
                 <p><strong>Succès!</strong> Votre message a bien été envoyé.</p>
               </div>
-            </div>
+            </div> -->
 
           </div>
       </div>
